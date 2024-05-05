@@ -2,7 +2,6 @@
 require_once("Conexao.php");
 require_once("Cliente.php");
 
-
 class ClienteDAO{
 
     public function create(Cliente $cliente){
