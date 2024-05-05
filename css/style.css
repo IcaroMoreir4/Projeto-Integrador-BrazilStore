@@ -1,0 +1,11 @@
+/* Global */
+@import "./global/cores.css";
+@import "./global/fontes.css";
+@import "./global/restart.css";
+@import"./global/modelo.css";
+@import"./global/login.css";
+@import"./global/cadastro.css";
+
+
+/* Modelo */
+@import "./caminho/nome.css";
