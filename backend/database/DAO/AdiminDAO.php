@@ -8,7 +8,7 @@ class AdiminDAO{
         $sql = 'INSERT INTO usuario.adm ($email,$senha) values (?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $adimin->getEmail());
-        $stmt->bindValue(3, $adimin->getSenha());
+        $stmt->bindValue(2, $adimin->getSenha());
         $stmt->execute();
     }
 
