@@ -6,9 +6,11 @@ class Conexao {
     public static function getConn(){
 
         if (!isset(self::$instance)){
-            self::$instance = new \PDO('mysql:host=localhost;dbname = ', 'root', '');
+            // Substitua 'dbname' pelo nome do seu banco de dados PostgreSQL
+            self::$instance = new \PDO('pgsql:host=localhost;dbname=e_comerce', 'root', '');
         }
         return self::$instance;
     }
 
 }
+?>

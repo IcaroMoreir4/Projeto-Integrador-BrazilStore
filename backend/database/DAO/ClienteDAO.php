@@ -1,11 +1,11 @@
 <?php 
 require_once("Conexao.php");
-require_once("Cliente.php");
+require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Pessoa/Cliente.php");
 
 class ClienteDAO{
 
     public function create(Cliente $cliente){
-        $sql = 'INSERT INTO cliente ($id,$nome,$email,$senha,$telefone,$cpf,$endereco) values (?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO  usuario.cliente ($id,$nome,$email,$senha,$telefone,$cpf,$endereco) values (?,?,?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getNome());
         $stmt->bindValue(2, $cliente->getEmail());
@@ -17,7 +17,7 @@ class ClienteDAO{
     }
 
     public function read(Cliente $cliente){
-        $sql = 'SELECT * FROM cliente';
+        $sql = 'SELECT * FROM  usuario.cliente';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
@@ -25,7 +25,7 @@ class ClienteDAO{
     }
 
     public function uptade(Cliente $cliente){
-        $sql = 'UPTADE cliente SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ?, endereco = ?
+        $sql = 'UPTADE  usuario.cliente SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ?, endereco = ?
         where id = ? ';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getNome());
@@ -40,11 +40,12 @@ class ClienteDAO{
     }
 
     public function delete(Cliente $cliente){
-        $sql = "DELETE FROM cliente WHERE id = ?";
+        $sql = "DELETE FROM  usuario.cliente WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getId());
         $stmt->execute();
     }
+    
 
 
 }

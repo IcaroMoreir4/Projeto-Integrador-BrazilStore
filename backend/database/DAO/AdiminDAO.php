@@ -1,11 +1,11 @@
 <?php 
 require_once("Conexao.php");
-require_once("Adimin.php");
+require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Pessoa/Adimin.php");
 
 
 class AdiminDAO{
     public function create(Adimin $adimin){
-        $sql = 'INSERT INTO cliente ($email,$senha) values (?,?)';
+        $sql = 'INSERT INTO usuario.adm ($email,$senha) values (?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $adimin->getEmail());
         $stmt->bindValue(3, $adimin->getSenha());
@@ -13,7 +13,7 @@ class AdiminDAO{
     }
 
     public function read (Adimin $adimin){
-        $sql = "SELECT * FROM adimin";
+        $sql = "SELECT * FROM usuario.adm";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
@@ -21,7 +21,7 @@ class AdiminDAO{
     }
 
     public function uptade(Adimin $adimin){
-        $sql = "UPTADE adimin SET email = ?, senha = ? WHERE id =?";
+        $sql = "UPTADE usuario.adm SET email = ?, senha = ? WHERE id =?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $adimin->getEmail());
         $stmt->bindValue(3, $adimin->getSenha());
@@ -30,7 +30,7 @@ class AdiminDAO{
     }
 
     public function delete(Adimin $adimin){
-        $sql = "DELETE FROM adimin WHERE id = ?";
+        $sql = "DELETE FROM usuario.adm WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $adimin->getId());
         $stmt->execute();

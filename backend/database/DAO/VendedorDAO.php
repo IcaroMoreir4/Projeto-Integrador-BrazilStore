@@ -1,12 +1,12 @@
 <?php 
 
 require_once("Conexao.php");
-require_once("Vendedor.php");
+require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Pessoa/Vendedor.php");
 
 
 class VendedorDAO{
     public function create(Vendedor $vendedor){
-        $sql = 'INSERT INTO vendedor($id,$nome,$email,$senha,$telefone,$cnpj,$endereco) values (?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO comercio.vendedor($id,$nome,$email,$senha,$telefone,$cnpj,$endereco) values (?,?,?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $vendedor->getNome());
         $stmt->bindValue(2, $vendedor->getEmail());
@@ -18,7 +18,7 @@ class VendedorDAO{
     }
 
     public function read(Vendedor $vendedor){
-        $sql = 'SELECT * FROM vendedor';
+        $sql = 'SELECT * FROM comercio.vendedor';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
@@ -26,7 +26,7 @@ class VendedorDAO{
     }
 
     public function uptade(Vendedor $vendedor){
-        $sql = 'UPTADE vendedor SET nome = ?, email = ?, senha = ?, telefone = ?, cnpj = ?, 
+        $sql = 'UPTADE comercio.vendedor SET nome = ?, email = ?, senha = ?, telefone = ?, cnpj = ?, 
         endereco = ?
         where id = ? ';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -42,7 +42,7 @@ class VendedorDAO{
     }
 
     public function delete(Vendedor $vendedor){
-        $sql = "DELETE FROM vendedor WHERE id = ?";
+        $sql = "DELETE FROM comercio.vendedor WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $vendedor->getId());
         $stmt->execute();
