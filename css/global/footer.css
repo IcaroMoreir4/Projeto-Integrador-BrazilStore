@@ -1,0 +1,56 @@
+footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 60px;
+    padding-bottom: 32px;
+}
+
+footer .contato h2,
+.informacoes h2{
+    margin-bottom: 32px;
+}
+
+footer .contato .linha{
+    width: 300px;
+    height: 2px;
+    background-color: var(--cor-7);
+}
+
+.contato ul li,
+ul .linha{
+    margin-bottom: 12px;
+}
+
+footer .redes-sociais{
+    display: flex;
+    gap: 32px;
+}
+
+footer .redes-sociais a img{
+    transition: transform 0.2s ease, sacale 0.2s ease;
+}
+
+footer .redes-sociais a img:hover{
+    transform: scale(1.1);
+}
+
+footer .informacoes ul li{
+    margin-bottom: 12px;
+}
+
+footer .informacoes ul li a,
+.contato ul li a{
+    text-decoration: none;
+    color: var(--cor-12);
+    transition: transform 0.2s ease, sacale 0.2s ease;
+    display: inline-block;
+}
+
+footer .informacoes ul li a:hover,
+.contato ul li a:hover{
+    transform: scale(1.1);
+}
+
+footer .cop{
+    grid-column: 1 / -1;
+}

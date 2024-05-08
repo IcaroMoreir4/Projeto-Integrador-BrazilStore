@@ -14,3 +14,9 @@
 
 /* Modelo */
 @import "./caminho/nome.css";
+
+
+.teste{
+    height: 500px;
+    background-color: var(--cor-3);
+}
