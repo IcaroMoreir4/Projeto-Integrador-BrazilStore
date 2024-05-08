@@ -11,14 +11,22 @@
     <link rel="preload" href="./css/style.css" as="style">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
+    <script src="./javascript/script.js"></script>
 
 </head>
 <body class="grid">
     <header>
         <img class="logo-header" src="./imagem/logo.svg" alt="">
-        <div class="categoria_btn">
-            <a class="cor-12 font-2-l" href="./">Categorias</a>
-            <img src="./imagem/arrow.svg" alt="">
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l" href="#">Categorias</a>
+            <img src="./imagem/arrow.svg" id="arrowIcon" alt="">
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./">Eletrônicos</a>
+                <a href="./">Vestuário</a>
+                <a href="./">Livros</a>
+                <a href="./">Jogos</a>
+                <a href="./">Acessórios</a>
+            </div>
         </div>
         <form action="" method="">
             <div class="search-container">
@@ -76,8 +84,6 @@
             <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
         </div>
     </footer>
-
-  
 
 </body>
 </html>
