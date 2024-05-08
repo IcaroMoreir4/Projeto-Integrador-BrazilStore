@@ -1,0 +1,65 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+header .categoria_btn{
+    display: flex;
+    align-items: center;
+}
+
+header .categoria_btn a{
+    text-decoration: none;
+    margin-right: 4px;
+}git
+
+.logo-header{
+    width: 80px;
+    height: 80px;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 666px;
+    height: 40px;   
+}
+
+.search-container input{
+    padding-left: 12px;
+    padding-right: 12px;
+    width: 666px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--cor-3);
+}
+
+.search-container input:focus{
+    border: solid var(--cor-7) 1px;
+}
+
+.search-input {
+    border: none;
+    background: transparent;
+    outline: none;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px;
+}
+
+.search-icon {
+    position: absolute;
+    right: 12px;
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+}
+
+header .icon{
+    width: 50px;
+    height: 50px;
+}
