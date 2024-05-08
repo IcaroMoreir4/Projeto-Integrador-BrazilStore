@@ -6,7 +6,7 @@
 @import"./global/login.css";
 @import"./global/cadastro.css";
 @import"./global/grid.css";
-
+@import "./global/termos.css";
 
 /* Reutilizaveis */
 @import"./global/header.css";
@@ -14,9 +14,3 @@
 
 /* Modelo */
 @import "./caminho/nome.css";
-
-
-.teste{
-    height: 500px;
-    background-color: var(--cor-3);
-}
