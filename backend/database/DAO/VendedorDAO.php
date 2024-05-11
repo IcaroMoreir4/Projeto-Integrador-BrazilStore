@@ -1,19 +1,19 @@
 <?php 
 
-require_once("Conexao.php");
-require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Pessoa/Vendedor.php");
+require_once(__DIR__ . '/../conexao.php');
+require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
 
 
 class VendedorDAO{
     public function create(Vendedor $vendedor){
-        $sql = 'INSERT INTO comercio.vendedor($id,$nome,$email,$senha,$telefone,$cnpj,$endereco) values (?,?,?,?,?,?,?)';
+        $sql = 'INSERT INTO comercio.vendedor($id,$nome,$email,$senha,$telefone,$cpf,$endereco) values (?,?,?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $vendedor->getNome());
         $stmt->bindValue(2, $vendedor->getEmail());
         $stmt->bindValue(3, $vendedor->getSenha());
         $stmt->bindValue(4, $vendedor->getTelefone());
-        $stmt->bindValue(5, $vendedor->getCnpj());
-        $stmt->bindValue(6, $vendedor->getEndereco());
+        $stmt->bindValue(5, $vendedor->getCpf());
+        $stmt->bindValue(6, $vendedor->getId_endereco());
         $stmt->execute();
     }
 
@@ -26,7 +26,7 @@ class VendedorDAO{
     }
 
     public function uptade(Vendedor $vendedor){
-        $sql = 'UPTADE comercio.vendedor SET nome = ?, email = ?, senha = ?, telefone = ?, cnpj = ?, 
+        $sql = 'UPTADE comercio.vendedor SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ?, 
         endereco = ?
         where id = ? ';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -34,8 +34,8 @@ class VendedorDAO{
         $stmt->bindValue(2, $vendedor->getEmail());
         $stmt->bindValue(3, $vendedor->getSenha());
         $stmt->bindValue(4, $vendedor->getTelefone());
-        $stmt->bindValue(5, $vendedor->getCnpj());
-        $stmt->bindValue(6, $vendedor->getEndereco());
+        $stmt->bindValue(5, $vendedor->getCpf());
+        $stmt->bindValue(6, $vendedor->getId_endereco());
         $stmt->bindValue(7, $vendedor->getId());
 
         $stmt->execute();

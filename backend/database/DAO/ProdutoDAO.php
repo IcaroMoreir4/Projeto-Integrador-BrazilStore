@@ -1,5 +1,5 @@
 <?php 
-require_once("Conexao.php");
+require_once(__DIR__ . '/../conexao.php');
 require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php");
 
 

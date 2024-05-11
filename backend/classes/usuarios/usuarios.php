@@ -12,7 +12,7 @@ abstract class usuario{
     public function __construct($id, $nome, $email, $cpf, $senha, $telefone, $id_endereco){
         $this-> id = $id;
         $this-> nome = $nome;
-        $this-> emial = $email;
+        $this-> email = $email;
         $this-> cpf = $cpf;
         $this-> senha = $senha;
         $this-> telefone = $telefone;

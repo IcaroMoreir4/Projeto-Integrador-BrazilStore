@@ -54,7 +54,7 @@ class avaliacao_loja{
     }
     
     public function setData($date){
-        $this-> data = $data;
+        $this-> data = $date;
     }
 
     public function setComentario($comentario){
