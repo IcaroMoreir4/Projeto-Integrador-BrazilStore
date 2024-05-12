@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="BrazilStore. Os melhores que está tendo!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazilStore Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="./css/style.css" as="style">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
+</head>
+
+<body>
+    <div class="box">
+        <div class="box-login">
+        <h2 class="font-1-l">Entrar</h2>
+        <form action="login_vendedor.php" method="post">
+        <p class="font-1-m">Email</p>
+        <div class="email-l">
+            <input class="campo" type="email" name="email" id="login-email" placeholder="Email">
+        </div>
+        <p class="font-1-m">Senha</p>
+        <div class="senha-l">
+            <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha">
+        </div>
+        <div class="esqsenha">
+            <a class="font-1-s" href="">Esqueceu a senha?</a>
+        </div>
+        <div class="but-entrar">
+            <button type="submit" name="submit">ENTRAR</button>
+        </div>
+        </form>
+        </div>
+        <div class="cadas-conta">
+            <p class="font-1-s">ainda não tem conta? <a class="font-1-s" href="/Projeto-Integrador-BrazilStore/cadastro.html">Cadastre-se</a></p>
+        </div>
+    </div>
+</body>

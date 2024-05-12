@@ -68,3 +68,14 @@ create table comercio.loja(
 	foreign key(id_vendedor) references comercio.vendedor(id)
 ); -- O restante das chaves estrangeiras estão no final
 
+
+-- tive que fazer essas alterações para cadastrar a loja.
+ALTER TABLE comercio.vendedor
+ALTER COLUMN cnpj DROP NOT NULL;
+
+select * from comercio.loja;
+select * from comercio.vendedor;
+
+ALTER TABLE comercio.loja
+ADD COLUMN email VARCHAR(30) NOT NULL,
+ADD COLUMN senha VARCHAR(30) NOT NULL;

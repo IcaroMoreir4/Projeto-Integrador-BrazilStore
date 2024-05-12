@@ -12,11 +12,9 @@ class Conexao {
             }
             return self::$instance;
         } catch (\PDOException $e) {
-            // Tratar o erro de conexão de acordo com suas necessidades
             echo "Erro de conexão: " . $e->getMessage();
-            // Ou lançar a exceção novamente para que seja tratada em outro lugar
-            // throw $e;
-            return null; // Ou retornar null ou false, indicando falha na conexão
+
+            return null; 
         }
     }
 }
