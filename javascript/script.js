@@ -37,3 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
         arrowIcon.classList.toggle('rotacionado');
     });
 });
+
+// Função para abrir o pop-up de login
+function openPopup() {
+    document.getElementById('popupLogin').style.display = 'block';
+    document.getElementById('popupBg').style.display = 'block';    
+}
+
+// Função para fechar o pop-up de login
+function closePopup() {
+    document.getElementById('popupLogin').style.display = 'none';
+    document.getElementById('popupBg').style.display = 'none'; 
+
+}
+
+
+
+

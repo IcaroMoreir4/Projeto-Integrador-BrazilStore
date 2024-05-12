@@ -30,7 +30,7 @@ create table endereco.cidade(
 create table endereco.endereco (
 	id integer not null primary key,
 	logradouro varchar(40) not null,
-	numero integer not null,
+	numero integer,
 	bairro varchar(20) not null,
 	cep char(8),
 	id_cidade integer,
