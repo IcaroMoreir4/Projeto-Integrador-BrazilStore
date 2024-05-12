@@ -1,14 +1,12 @@
 <?php
 require_once('usuarios.php');
 class vendedor extends usuario{
-    public function __construct($id, $nome, $email, $cpf, $senha, $telefone, $id_endereco){
-        $this-> id = $id;
+    public function __construct($nome, $email, $cpf, $senha, $telefone){
         $this-> nome = $nome;
         $this-> email = $email;
         $this-> cpf = $cpf;
         $this-> senha = $senha;
         $this-> telefone = $telefone;
-        $this-> id_endereco = $id_endereco;
     }
 
 
