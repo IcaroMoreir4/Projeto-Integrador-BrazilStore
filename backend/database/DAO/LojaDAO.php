@@ -1,4 +1,5 @@
 <?php 
+
 require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/comercio/loja.php');
 
@@ -41,7 +42,6 @@ class LojaDao{
         $stmt->execute();
     }
 
-
     public function autenticar($email, $senha) {
         $sql = 'SELECT * FROM comercio.loja WHERE email = ? AND senha = ?';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -50,5 +50,7 @@ class LojaDao{
         $stmt->execute();
         return $stmt->rowCount() > 0;
     }
+
 }
+
 ?>

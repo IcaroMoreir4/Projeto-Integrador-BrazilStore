@@ -1,4 +1,5 @@
 <?php 
+
 require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/usuarios/cliente.php');
 
@@ -16,7 +17,6 @@ class ClienteDAO{
         $stmt->execute();
     }
     
-
     public function read(Cliente $cliente){
         $sql = 'SELECT * FROM  usuario.cliente';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -57,12 +57,7 @@ class ClienteDAO{
         $stmt->execute();
         return $stmt->rowCount() > 0;
     }
-    
-
 
 }
-
-
-
 
 ?>
