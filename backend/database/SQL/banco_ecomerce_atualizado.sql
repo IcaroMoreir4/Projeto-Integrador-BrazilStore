@@ -76,6 +76,6 @@ ALTER COLUMN cnpj DROP NOT NULL;
 select * from comercio.loja;
 select * from comercio.vendedor;
 
-ALTER TABLE comercio.loja
+ALTER TABLE comercio.loja -- Aqui voce esta criando como se a loja fosse um usuario, mais e pra ter uma função(ou rotina) que verificaçe se o id do vendedor ou usuario esta vinculado a loja.
 ADD COLUMN email VARCHAR(30) NOT NULL,
 ADD COLUMN senha VARCHAR(30) NOT NULL;

@@ -39,17 +39,33 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Função para abrir o pop-up de login
-function openPopup() {
+function openLogin() {
     document.getElementById('popupLogin').style.display = 'block';
-    document.getElementById('popupBg').style.display = 'block';    
+    document.getElementById('popupBg').style.display = 'block'; 
+    document.getElementById('popupCadastro').style.display = 'none';
+    document.getElementById('popupBgCadastro').style.display = 'none';   
 }
 
 // Função para fechar o pop-up de login
-function closePopup() {
+function closeLogin() {
     document.getElementById('popupLogin').style.display = 'none';
     document.getElementById('popupBg').style.display = 'none'; 
-
 }
+
+// Função para abrir o pop-up de cadastro
+function openCadastro() {
+    document.getElementById('popupCadastro').style.display = 'block';
+    document.getElementById('popupBgCadastro').style.display = 'block'; 
+    document.getElementById('popupLogin').style.display = 'none';
+    document.getElementById('popupBg').style.display = 'none';   
+}
+
+// Função para fechar o pop-up de cadastro
+function closeCadastro() {
+    document.getElementById('popupCadastro').style.display = 'none';
+    document.getElementById('popupBgCadastro').style.display = 'none'; 
+}
+
 
 
 

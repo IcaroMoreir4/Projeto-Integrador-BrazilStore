@@ -7,6 +7,8 @@
 @import"./global/cadastro.css";
 @import"./global/grid.css";
 @import "./global/termos.css";
+@import "./global/home.css";
+
 
 /* Reutilizaveis */
 @import"./global/header.css";
