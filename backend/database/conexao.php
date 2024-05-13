@@ -18,6 +18,11 @@ class Conexao {
         }
     }
 }
+// Quando for fazer a conexão no postgress, para evitar problemas, você o nome padrão do banco é postgres
+// e a senha root é minha. 
 
+//Lembrem de adicionar a configuração do php.ini no apache, pôs o postgress necessista que vc habilite o pdo com postgres.
+
+// ;extension=pdo_pgsql vai estar assim no php.ini, coloque assim |extension=pdo_pgsql|
 
 ?>

@@ -3,21 +3,17 @@
 class produto{
     protected $id;
     protected $nome;
-    protected $id_categoria;
+    protected $categoria;
     protected $valor;
     protected $descricao;
-    protected $id_loja;
-    protected $id_avaliacao;
 
-    public function __construct($id,$nome,$id_categoria,$valor,$descricao,$id_loja,$id_avaliacao)
+
+    public function __construct($nome,$valor,$descricao, $categoria)
     {
-        $this->id = $id;
         $this->nome = $nome;
-        $this->id_categoria = $id_categoria;
         $this->valor = $valor;
         $this->descricao = $descricao;
-        $this->id_loja = $id_loja;
-        $this->id_avaliacao = $id_avaliacao;
+        $this->categoria = $categoria;
     }
 
     
@@ -30,8 +26,8 @@ class produto{
         return $this->nome;
     }
 
-    public function getIdcategoria(){
-        return $this->id_categoria;
+    public function getCategoria(){
+        return $this->categoria;
     }
 
     public function getValor(){
@@ -42,13 +38,6 @@ class produto{
         return $this->descricao;
     }
 
-    public function getIdloja(){
-        return $this->id_loja;
-    }
-    
-    public function getIdavaliacao(){
-        return $this->id_avaliacao;
-    }
 
 
     //Setters
@@ -60,8 +49,8 @@ class produto{
         $this->nome = $nome;
     }
 
-    public function setIdcategoria($id_categoria){
-        $this->id_categoria = $id_categoria;
+    public function setCategoria($categoria){
+        $this->categoria = $categoria;
     }
 
     public function setValor($valor){
@@ -72,12 +61,5 @@ class produto{
         $this->descricao = $descricao;
     }
 
-    public function setIdloja($id_loja){
-        $this->id_loja = $id_loja;
-    }
-    
-    public function setIdavaliacao($id_avaliacao){
-        $this->id_avaliacao = $id_avaliacao;
-    }
 }
 ?>
