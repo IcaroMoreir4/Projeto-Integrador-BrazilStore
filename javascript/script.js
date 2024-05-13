@@ -1,7 +1,7 @@
 // Criação da função para abrir o menu
 
 document.addEventListener('DOMContentLoaded', function() {
-    const categoriaLink = document.querySelector('.categoria_btn a.cor-12');
+    const categoriaLink = document.getElementById('categoriaBtn');
     const categoriaMenu = document.getElementById('categoriaMenu');
 
     categoriaLink.addEventListener('click', function(event) {

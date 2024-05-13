@@ -13,6 +13,8 @@ header .categoria_btn{
 
 header .categoria_menu {
     display: none;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 110%;
     left: 0;
@@ -48,6 +50,12 @@ header .categoria_menu a:hover {
 header .categoria_btn a{
     text-decoration: none;
     margin-right: 4px;
+}
+.categoria_content{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 8px;
 }
 
 header .categoria_btn.open #arrowIcon {
