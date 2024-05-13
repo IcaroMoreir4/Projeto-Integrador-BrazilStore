@@ -1,60 +1,77 @@
-.box_c{
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    background-color:  #FFFFFF;
-    height: 470px;
-    width: 450px;
-    border-radius: 5px  5px  0 0 ;
-}
-
-.box-cadas{
-    margin: 4px;
-    display: flex;
-    flex-direction: column;
+#popupBgCadastro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; 
+    display: none;
+}
+
+#popupCadastro {
+    position: relative;
+    top: 60px;
+    left: 560px;
+    z-index: 1000;
+    background-image: linear-gradient(to bottom, var(--cor-0) 85%, var(--cor-3) 85%);
     width: 400px;
-    padding: 15px 10px 15px 15px; 
+    padding: 20px;
+    border-radius: 5px;
 }
 
-.campo{
-    margin: 8px;
-    padding: 12px;
-    width: 95%;
-    border-style: none;
-    background-color: #D9D9D9;
-    font: 400 0.875rem/1.43 "Roboto", sans-serif;
-    color: #595959;
+#popupCadastro .popup-content h2 {
+    margin-bottom: 12px;
 }
 
-.but-cadas{
-    padding-top: 10px;
-    padding-left: 8px;
+#popupCadastro .popup-content input {
+    margin-bottom: 12px;
 }
 
-.but-cadas button{
-    width: 404px;
+#popupCadastro .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    width: 15px;
+    text-align: center;
+    background-color: var(--cor-5);
+    border-radius: 15px;
+    transition: color .3s, background-color .3s;
+}
+
+#popupCadastro .close:hover {
+    color: red;
+    background-color: var(--cor-6);
+}
+
+#popupCadastro .but-cadas button {
+    margin-top: 20px;
+    margin-bottom: 30px;
+    width: 100%;
     height: 50px;
     border-radius: 4px;
-    border-style: none;
+    border: none;
     background: linear-gradient(180deg, #FFBF00 0%, #F2A50C 100%);
     font: 400 1rem/1.5 "Poppins", sans-serif;
     color: #332200;
 }
 
-.entar-conta{
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    height: 50px;
-    background-color: #D9D9D9;
-    border-radius: 0 0 5px  5px;
+#popupCadastro .but-cadas button:hover {
+    background: linear-gradient(180deg, #F2A50C 0%, #FFBF00 100%);
+    color: #332200;
 }
-.entar-conta p{
-    align-self: center;
-    padding-right: 10px;
+
+#popupCadastro .esqsenha,
+#popupCadastro .esqsenha a {
+    color: var(--cor-p1);
+    transition: color .3s;
 }
-.entar-conta a{
-    color: #FFBB00;
-    text-decoration-line: underline;
+
+#popupCadastro .esqsenha:hover,
+#popupCadastro .esqsenha a:hover {
+    color: var(--cor-p4);
 }

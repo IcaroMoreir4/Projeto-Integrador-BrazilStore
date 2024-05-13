@@ -37,34 +37,70 @@
             </form>
                 <!-- <a href="./"><img src="./imagem/sino.svg" alt=""></a> -->
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openPopup()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>
-
+        
         <div id="popupBg" class="popup-bg">
-            <div id="popupLogin" class="popup">
-                <div class="popup-content">
-                    <span class="close" onclick="closePopup()">&times;</span>
-                    <h2 class="font-1-l">Entrar</h2>
-                    <form action="" method="get">
-                        <label for="login-email" class="font-1-m">Email</label>
-                        <div class="email-l">
-                            <input class="campo" type="email" name="login" id="login-email" placeholder="Email">
-                        </div>
-                        <label for="login-password" class="font-1-m">Senha</label>
-                        <div class="senha-l">
-                            <input class="campo" type="password" name="login-senha" id="login-password" placeholder="Senha">
-                        </div>
-                        <div class="esqsenha">
-                            <a class="font-1-s" href="">Esqueceu a senha?</a>
-                        </div>
-                        <div class="but-entrar">
-                            <button type="submit" onclick="">ENTRAR</button>
-                        </div>
-                    </form>
-                    <p class="font-1-s">ainda não tem conta? <a class="font-1-s esqsenha" href="/Projeto-Integrador-BrazilStore/cadastro.html">Cadastre-se</a></p>
+    <div id="popupLogin" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeLogin()">&times;</span>
+            <h2 class="font-1-l">Entrar</h2>
+            <form action="login_usuario.php" method="get">
+                <label for="login-email" class="font-1-m">Email</label>
+                <div class="email-l">
+                    <input class="campo" type="email" name="login" id="login-email" placeholder="Email">
                 </div>
-            </div>
+                <label for="login-password" class="font-1-m">Senha</label>
+                <div class="senha-l">
+                    <input class="campo" type="password" name="login-senha" id="login-password" placeholder="Senha">
+                </div>
+                <div class="esqsenha">
+                    <a class="font-1-s" href="">Esqueceu a senha?</a>
+                </div>
+                <div class="but-entrar">
+                    <button type="submit">ENTRAR</button>
+                </div>
+            </form>
+            <p class="font-1-s">Ainda não tem conta? <a class="font-1-s esqsenha" href="#" onclick="openCadastro()">Cadastre-se</a></p>
         </div>
+    </div>
+</div>
+
+<div id="popupBgCadastro" class="popup-bg">
+    <div id="popupCadastro" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeCadastro()">&times;</span>
+            <h2 class="font-1-l">Cadastre-se</h2>
+            <form action="cadastrar_usuario.php" method="post">
+                <label for="cadas-nome" class="font-1-m">Nome</label>
+                <div class="nome">
+                    <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
+                </div>
+                <label for="cadas-cpf" class="font-1-m">CPF</label>
+                <div class="cpf">
+                    <input class="campo" type="text" name="cpf" id="cadas-cpf" placeholder="CPF">
+                </div>
+                <label for="cadas-telefone" class="font-1-m">Telefone</label>
+                <div class="telefone">
+                    <input class="campo" type="tel" name="telefone" id="cadas-telefone" maxlength="12" placeholder="Telefone">
+                </div>
+                <label for="cadas-email" class="font-1-m">Email</label>
+                <div class="email-c">
+                    <input class="campo" type="email" name="email" id="cadas-email" placeholder="Email">
+                </div>
+                <label for="cadas-senha" class="font-1-m">Senha</label>
+                <div class="senha-c">
+                    <input class="campo" type="password" name="senha" id="cadas-senha" placeholder="Senha">
+                </div>
+                <div class="but-cadas">
+                    <button type="submit">Cadastre-se</button>
+                </div>
+            </form>
+            <p class="font-1-s">Já possui conta? <a class="esqsenha" href="#" onclick="openLogin()">Entrar</a></p>
+        </div>
+    </div>
+</div>
+
         
         <footer class="grid">
             <div class="logo">
