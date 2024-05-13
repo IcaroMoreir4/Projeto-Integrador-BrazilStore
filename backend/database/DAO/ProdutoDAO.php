@@ -1,11 +1,10 @@
-<?php 
+
 
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
-require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php"); //Esse diretorio ta correto?
-
+require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php"); 
 
 class ProdutoDAO {
     public function create(Produto $produto) {
