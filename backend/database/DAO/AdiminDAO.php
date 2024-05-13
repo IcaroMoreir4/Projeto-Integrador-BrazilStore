@@ -1,9 +1,7 @@
 <?php 
+
 require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/usuarios/admin.php');
-
-
-
 
 class AdiminDAO{
     public function create(Admin $adimin){
@@ -39,9 +37,5 @@ class AdiminDAO{
     }
 
 }
-
-
-
-
 
 ?>

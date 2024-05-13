@@ -1,6 +1,7 @@
 <?php 
+
 require_once(__DIR__ . '/../conexao.php');
-require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php");
+require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php"); //Esse diretorio ta correto?
 
 
 class ProdutoDAO{
@@ -50,12 +51,6 @@ class ProdutoDAO{
         $stmt->execute();
     }
 
-
 }
-
-
-
-
-
 
 ?>
