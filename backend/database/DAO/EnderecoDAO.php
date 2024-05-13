@@ -6,7 +6,7 @@ require_once(__DIR__ . '/../../classes/usuarios/endereco.php');
 
 class EnderecoDAO{
     
-    public function create(Endereco $Endereco){
+    public function create(Endereco $endereco){
         $sql = 'INSERT INTO endereco.endereco (logradouro, numero, bairro,	cep, id_cidade) values (?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $endereco->getLogradouro());
@@ -26,7 +26,7 @@ class EnderecoDAO{
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    public function update(Endereco $Endereco){
+    public function update(Endereco $endereco){
         $sql = "UPDATE endereco.endereco SET logradouro = ?, numero = ?, bairro = ?, cep = ?, id_cidadE = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $endereco->getLogradouro());
@@ -38,7 +38,7 @@ class EnderecoDAO{
         $stmt->execute();
     }
 
-    public function delete(Endereco $Endereco){
+    public function delete(Endereco $endereco){
         $sql = "DELETE FROM  endereco.endereco WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $endereco->getId());

@@ -1,5 +1,4 @@
 <?php 
-
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/vendedor.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 

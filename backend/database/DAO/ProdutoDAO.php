@@ -1,10 +1,9 @@
 
-
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
-require_once("../projeto-pi/Projeto-Integrador-BrazilStore/backend/Classes/Loja/Produto.php"); 
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 class ProdutoDAO {
     public function create(Produto $produto) {
