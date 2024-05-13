@@ -112,6 +112,11 @@ header .icon{
     height: 40px;
 }
 
+header .icon_sino{
+    width: 35px;
+    height: 35px;
+}
+
 #arrowIcon {
     transition: transform 0.3s ease;
 }
