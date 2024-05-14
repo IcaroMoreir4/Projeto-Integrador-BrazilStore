@@ -34,7 +34,7 @@
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <!-- <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a> -->
+                <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a>
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>
@@ -46,8 +46,13 @@
 
         <div class="adicionar-options">
             <div class="adicionar-options_img">
-                <label for="imagem">Imagem:</label>
-                <input type="file" id="imagem" name="imagem[]" multiple required><br><br>
+                <input type="file" id="file-input" name="imagem[]" multiple required>
+                <label for="file-input">
+                    <div class="icon-container">
+                        <img src="./imagem/camera.svg" alt="Ícone de Câmera" class="camera-icon">
+                        <p>Adicionar item</p>
+                    </div>
+                </label>
             </div>
             
             <div class="adicionar-options_geral">
