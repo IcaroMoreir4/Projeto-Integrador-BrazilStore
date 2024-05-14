@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoriaMenu = document.getElementById('categoriaMenu');
 
     categoriaLink.addEventListener('click', function(event) {
-        event.preventDefault(); // Impede o comportamento padrão do link (navegar para outra página)
+        event.preventDefault(); 
         
-        // Verifica o estado atual do menu e alterna entre block e none
+       
         if (categoriaMenu.style.display === 'none' || categoriaMenu.style.display === '') {
             categoriaMenu.style.display = 'block';
         } else {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Animação para abrir o menu
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const categoriaBtn = document.querySelector('.categoria_btn');
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Hover da seta na categoriaBtn
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const categoriaBtn = document.getElementById('categoriaBtn');
