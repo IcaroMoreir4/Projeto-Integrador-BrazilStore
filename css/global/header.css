@@ -64,8 +64,8 @@ header .categoria_btn.open #arrowIcon {
 }
 
 .logo-header{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .search-container {
@@ -80,7 +80,7 @@ header .categoria_btn.open #arrowIcon {
 .search-container input{
     padding-left: 12px;
     padding-right: 12px;
-    width: 666px;
+    width: 700px;
     height: 40px;
     border-radius: 5px;
     background-color: var(--cor-3);
@@ -108,13 +108,13 @@ header .categoria_btn.open #arrowIcon {
 }
 
 header .icon{
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 header .icon_sino{
-    width: 35px;
-    height: 35px;
+    width: 42px;
+    height: 42px;
 }
 
 #arrowIcon {
