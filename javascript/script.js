@@ -66,6 +66,24 @@ function closeCadastro() {
     document.getElementById('popupBgCadastro').style.display = 'none'; 
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const listItems = document.querySelectorAll('.abrir-termos');
+    
+    listItems.forEach(function (item) {
+        const arrowTermos = item.querySelector('.arrowTermos'); // Selecionar o ícone de seta dentro de cada item
+
+        item.addEventListener('click', function () {
+            const content = this.nextElementSibling;
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+
+            arrowTermos.classList.toggle('rotacionado');
+        });
+    });
+});
+
+
+
+
 
 
 

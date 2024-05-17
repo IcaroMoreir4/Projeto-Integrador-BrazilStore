@@ -10,3 +10,18 @@
 .termos-conteudo li{
     margin-bottom: 24px;
 }
+
+.abrir-termos{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.arrowTermos {
+    transition: transform 0.3s ease;
+}
+
+.rotacionado {
+    transform: rotate(180deg);
+}
+
