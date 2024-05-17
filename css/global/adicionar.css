@@ -1,20 +1,22 @@
-.adicionar-head{
-    margin-bottom: 20px;
+.adicionar-head {
+    margin-bottom: 40px;
+    text-align: center;
 }
 
 .adicionar-options {
-    display: flex;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
 }
 
 .adicionar-options_img {
     position: relative;
-    width: 300px;
-    height: 300px;
+    max-width: 100%;
+    height: 20rem;
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
+    margin-right: 40px;
 }
 
 .adicionar-options_img input[type="file"] {
@@ -25,7 +27,7 @@
     height: 100%;
     opacity: 0;
     cursor: pointer;
-    z-index: 1; /* Certifique-se de que o input esteja acima da label, mas abaixo de outros elementos se necessário */
+    z-index: 1;
 }
 
 .adicionar-options_img label {
@@ -35,7 +37,7 @@
     align-items: center;
     height: 100%;
     pointer-events: none;
-    z-index: 0; /* Certifique-se de que a label esteja abaixo do input */
+    z-index: 0;
 }
 
 .icon-container {
@@ -52,24 +54,53 @@
 }
 
 .adicionar-options_img p {
-    font-size: 16px;
-    color: #666;
+    color: var(--cor-7);
 }
 
-.adicionar-options_geral input {
+.adicionar-options_geral {
+    width: 100%;
+}
+
+.adicionar-options_geral input, .adicionar-options_geral textarea {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    margin-bottom: 10px; /* Adicione margem inferior para separar os inputs */
-    width: 100%; /* Ajuste a largura para se adequar ao layout */
+    margin-bottom: 10px; 
+    width: 100%;
 }
 
 .adicionar-options_geral textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px; /* Adicione margem inferior para separar os inputs */
-    width: 100%; /* Ajuste a largura para se adequar ao layout */
-    resize: none; /* Desabilita o redimensionamento pelo usuário */
+    resize: none;
 }
 
+.adicionar-options_imgs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    cursor: auto;
+}
+
+.adicionar-options_imgs .options-imagem {
+    border: 1px solid #000;
+    margin-top: 20px;
+    border-radius: 5px;
+    height: 9rem;
+    cursor: auto;
+}
+
+.btn_adc{
+    width: 200px;
+}
+
+.adicionar-options_geral p{
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.adicionar-options_geral p a:hover{
+    color: var(--cor-p4);
+}
+
+strong{
+    font-weight: bold;
+}

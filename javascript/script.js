@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Função para abrir o pop-up de login
 function openLogin() {
     document.getElementById('popupLogin').style.display = 'block';
-    document.getElementById('popupBg').style.display = 'block'; 
+    document.getElementById('popupBg').style.display = 'flex'; 
     document.getElementById('popupCadastro').style.display = 'none';
     document.getElementById('popupBgCadastro').style.display = 'none';   
 }
@@ -55,7 +55,7 @@ function closeLogin() {
 // Função para abrir o pop-up de cadastro
 function openCadastro() {
     document.getElementById('popupCadastro').style.display = 'block';
-    document.getElementById('popupBgCadastro').style.display = 'block'; 
+    document.getElementById('popupBgCadastro').style.display = 'flex'; 
     document.getElementById('popupLogin').style.display = 'none';
     document.getElementById('popupBg').style.display = 'none';   
 }

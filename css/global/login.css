@@ -1,4 +1,4 @@
-.popup-bg {
+ .popup-bg {
     position: fixed;
     top: 0;
     left: 0;
@@ -14,14 +14,12 @@
 
 .popup {
     position: relative;
-    top: 100px;
-    left: 560px;
     z-index: 1000;
     background-image: linear-gradient(to bottom, var(--cor-0) 85%, var(--cor-3) 85%);
     width: 400px;
     padding: 20px;
     border-radius: 5px;
-}
+} 
 
 .popup-content h2{
     margin-bottom: 12px;

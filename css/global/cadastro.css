@@ -14,8 +14,6 @@
 
 #popupCadastro {
     position: relative;
-    top: 60px;
-    left: 560px;
     z-index: 1000;
     background-image: linear-gradient(to bottom, var(--cor-0) 85%, var(--cor-3) 85%);
     width: 400px;
