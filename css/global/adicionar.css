@@ -1,4 +1,8 @@
-.adicionar-options{
+.adicionar-head{
+    margin-bottom: 20px;
+}
+
+.adicionar-options {
     display: flex;
     gap: 40px;
 }
@@ -15,10 +19,13 @@
 
 .adicionar-options_img input[type="file"] {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     opacity: 0;
     cursor: pointer;
+    z-index: 1; /* Certifique-se de que o input esteja acima da label, mas abaixo de outros elementos se necessário */
 }
 
 .adicionar-options_img label {
@@ -28,6 +35,7 @@
     align-items: center;
     height: 100%;
     pointer-events: none;
+    z-index: 0; /* Certifique-se de que a label esteja abaixo do input */
 }
 
 .icon-container {
@@ -48,8 +56,20 @@
     color: #666;
 }
 
-.adicionar-options_geral input{
-    /* padding: 10px 300px; */
+.adicionar-options_geral input {
+    padding: 10px;
     border-radius: 5px;
-    border: none;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; /* Adicione margem inferior para separar os inputs */
+    width: 100%; /* Ajuste a largura para se adequar ao layout */
 }
+
+.adicionar-options_geral textarea {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; /* Adicione margem inferior para separar os inputs */
+    width: 100%; /* Ajuste a largura para se adequar ao layout */
+    resize: none; /* Desabilita o redimensionamento pelo usuário */
+}
+
