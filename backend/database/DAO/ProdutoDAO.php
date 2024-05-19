@@ -49,6 +49,7 @@ class ProdutoDAO {
         $stmt->execute();
     }
 
+    // Apresentação do produto individual
     public function presentation($produto){
         $sql = "SELECT produto.produto.*, avaliacao.avaliacao_produto.*
         FROM produto.produto 
@@ -58,7 +59,7 @@ class ProdutoDAO {
         $stmt->execute(['presentation' => '%' . $produto . '%']);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } // Apresentação do produto individual
+    }
 
     /* Não sei como vou juntar os dados que o front precisa para apresentar a home
     public function home($produto){
