@@ -6,14 +6,18 @@ class produto{
     protected $id_categoria;
     protected $valor;
     protected $descricao;
+    protected $peso;
+    protected $tipo_entrega;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria)
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega)
     {
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
         $this->id_categoria = $id_categoria;
+        $this->peso = $peso;
+        $this->tipo_entrega = $tipo_entrega;
     }
 
     
@@ -38,6 +42,13 @@ class produto{
         return $this->descricao;
     }
 
+    public function getPeso(){
+        return $this->peso;
+    }
+
+    public function getTipoEentrega(){
+        return $this->tipo_entrega;
+    }
 
 
     //Setters
@@ -61,5 +72,12 @@ class produto{
         $this->descricao = $descricao;
     }
 
+    public function setPeso($peso){
+        $this->peso = $peso;
+    }
+
+    public function setTipoEntrega($tipo_entrega){
+        $this->tipo_entrega = $tipo_entrega;
+    }
 }
 ?>

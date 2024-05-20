@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/vendedor.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
@@ -10,7 +11,8 @@ if (isset($_POST['submit'])) {
     $vendedorDAO = new VendedorDAO();
 
     if ($vendedorDAO->autenticar($email, $senha)){
-
+        
+        $_SESSION['autenticado'] = true;
         echo "Login feito com sucessos!";
         exit(); 
     } else {
