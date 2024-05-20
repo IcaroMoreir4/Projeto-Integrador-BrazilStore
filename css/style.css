@@ -11,7 +11,8 @@
 @import "./global/adicionar.css";
 @import "./global/vestuario-masculino.css";
 @import "./global/finalizar-compra.css";
-
+@import "./global/perfil.css";
+@import "./global/endereço.css";
 
 /* Reutilizaveis */
 @import"./global/header.css";
