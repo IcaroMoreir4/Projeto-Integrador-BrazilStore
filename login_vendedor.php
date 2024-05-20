@@ -7,19 +7,18 @@ if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
-
     $vendedorDAO = new VendedorDAO();
+    $vendedor = $vendedorDAO->autenticar($email, $senha);
 
-    if ($vendedorDAO->autenticar($email, $senha)){
-        
-        $_SESSION['autenticado'] = true;
-        echo "Login feito com sucessos!";
+    if ($vendedor){
+        $_SESSION['vendedor_id'] = $vendedor->id;
+        header('location: ver_perfil.html');
         exit(); 
     } else {
-        header('location: login.php');
-        
+        header('location: login_vendedor.php');
     }
 }
+
 
 
 
