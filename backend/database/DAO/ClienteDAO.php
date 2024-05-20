@@ -46,7 +46,6 @@ class ClienteDAO{
         $stmt->execute();
     }
 
-
     //Metodo autenticar
     public function autenticar($email, $senha) {
         $sql = 'SELECT * FROM usuario.cliente WHERE email = ? AND senha = ?';

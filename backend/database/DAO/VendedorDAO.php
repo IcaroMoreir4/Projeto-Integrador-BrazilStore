@@ -53,8 +53,13 @@ class VendedorDAO{
         $stmt->bindValue(1, $email);
         $stmt->bindValue(2, $senha);
         $stmt->execute();
-        return $stmt->rowCount() > 0;
+        if ($stmt->rowCount() > 0) {
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } else {
+            return false;
+        }
     }
+    
 
     public function exists($id) {
         $sql = 'SELECT COUNT(*) AS count FROM comercio.vendedor WHERE id = ?';
@@ -63,6 +68,15 @@ class VendedorDAO{
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'] > 0;
+    }
+
+    public function getVendedorById($id) {
+        $sql = 'SELECT * FROM comercio.vendedor WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
 }

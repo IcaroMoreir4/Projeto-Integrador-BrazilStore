@@ -1,0 +1,387 @@
+
+.titulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo-subtitulo {
+    color: #717171;
+}
+
+.conteudo-principal {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.lojaprodutos-listaprodutos {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin-top: 112px;
+}
+
+
+/* lojas */
+
+
+.lojas {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.loja-1 {
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    width: 660px;
+}
+
+.loja-2 {
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    width: 660px;
+}
+
+.produtos {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 20px;
+}
+
+.fotoloja-nomeloja {
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.foto-loja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #D9D9D9;
+}
+
+.rev-produto-loja {
+    display: flex;
+    gap: 67px;
+    padding-bottom: 46px;
+    padding-top: 20px;
+}
+
+.rev-produto-loja-2 {
+    display: flex;
+    gap: 67px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.checbox-produto {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.checbox-produto-img {
+    background-color: #D9D9D9;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearence: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #B2B2B2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* input[type="checkbox"]:after {} */
+
+label {
+    color: #B2B2B2;
+}
+
+.alteracao-desc-nome-loja {
+    color: #595959;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.alteracao-valor {
+    color: #50B462;
+    font-weight: bold;
+}
+
+.rev-produto-loja-botoes {
+    display: flex;
+    gap: 20px;
+    align-items: end;
+}
+
+.butt-quantidade {
+    display: flex;
+    align-items: center;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    width: 100px;
+    justify-content: space-between;
+}
+
+.rev-butt-menos {
+    border: none;
+    background-color: white;
+    height: 56px;
+    width: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rev-butt-menos:hover {
+    background-color: #CCCCCC;
+}
+
+.rev-butt-mais {
+    color: #FFBB00;
+    border: none;
+    background-color: white;
+    height: 56px;
+    width: 40px;
+    cursor: pointer;
+}
+
+.rev-butt-mais:hover {
+    background-color: #CCCCCC;
+}
+
+.apagar-item {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: white;
+    width: 56px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.apagar-item:hover {
+    background-color: #CCCCCC;
+}
+
+/* Lista de itens */
+
+.listas-de-produtos {
+    display: block;
+    width: 460px;
+    height: 652px;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    justify-content: center;
+    padding: 18px;
+}
+
+.item-1-lista {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.item-2-lista {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.item-3-lista {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 35px;
+}
+
+.itens-lista-preco {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.itens-lista-desconto {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+}
+
+.itens-lista-frete {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 35px;
+}
+
+.codigo-desconto {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #CCCCCC;
+    border-radius: 5px;
+    padding: 18px;
+    margin-bottom: 32px;
+}
+
+.preco-total {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.preco-total-titulo {
+    font-weight: bolder;
+}
+
+.preco-total-total {
+    font-weight: bolder;
+}
+
+.codigo-desconto {
+    cursor: pointer;
+}
+
+.codigo-promocional-and-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.codigo-desconto:hover {
+    background-color: #CCCCCC;
+}
+
+.botao-comprar-agora-lista {
+    border: none;
+    background: linear-gradient(#FFBF00, #F2A50C);
+    color: #332200;
+    border-radius: 5px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-right: 32px;
+    padding-left: 32px;
+    font-weight: bolder;
+    width: 460px;
+    height: 56px;
+    cursor: pointer;
+}
+
+/* Produtos semelhantes */
+
+.produtos-semelhantes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    margin-bottom: 120px;
+}
+
+.produtos-buttvejamais {
+    display: flex;
+    gap: 732px;
+}
+
+.titulo-produtossemelhantes {
+    font-weight: bold;
+}
+
+.butt-vejamais {
+    border: 2px solid #E4A30B;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #E4A30B;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.butt-vejamais-p {
+    padding-left: 14px;
+    padding-right: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: large;
+}
+
+.butt-vejamais:hover {
+    background-color: #E4A30B;
+    color: white;
+}
+
+.produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.line-produtos-semelhantes {
+    display: flex;
+    gap: 50px;
+}
+
+.produto {
+    width: 260px;
+    height: auto;
+    border: 2px solid #B2B2B2;
+    border-radius: 5px;
+    position: relative;
+}
+
+.merch-camisa {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.add-favoritos {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.produto-descricao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.produto-nome-valor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.produto-nome {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.produto-valor {
+    color: #50B462;
+    font-weight: bold;
+}
+
+.produto-avaliacao-vendas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
