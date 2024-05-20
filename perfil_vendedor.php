@@ -28,5 +28,7 @@ if (!$vendedor) {
     <p><strong>Email:</strong> <?= htmlspecialchars($vendedor->email) ?></p>
     <p><strong>Telefone:</strong> <?= htmlspecialchars($vendedor->telefone) ?></p>
     <p><strong>CPF:</strong> <?= htmlspecialchars($vendedor->cpf) ?></p>
+
+    <a href="logout.php"> sair</a>
 </body>
 </html>
