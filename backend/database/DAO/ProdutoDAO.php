@@ -25,13 +25,14 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    //Barra de pesquisa
     public function query($produto){
         $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute(['pesquisa' => '%' . $produto . '%']);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } //Pesquisa da barra de pesquisa (pelo nome).
+    }
 
     public function update(Produto $produto) {
         $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ? WHERE id = ?';
@@ -73,13 +74,14 @@ class ProdutoDAO {
     }
     */
 
-    public function category($produto){
+    //Fazer uma consulta das categorias cadastradas
+    public function category($produto){ 
         $sql = "SELECT nome FROM produto.categoria";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute(['category' => '%' . $produto . '%']);
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } //Para apresentar as categorias que estão ma home
+    }
 }
 
 ?>

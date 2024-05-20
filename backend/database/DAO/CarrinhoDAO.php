@@ -38,6 +38,7 @@ class CarrinhoDAO{
         $stmt->execute();
     }
 
+    //Adicionar um produto ao carrinho com qauntidade
     public function create_itemc(item_carrinho $item_carrinho){
         $sql = 'INSERT INTO pedido.item_carrinho (id_produto, quantidade) values (?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
