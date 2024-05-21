@@ -1,6 +1,3 @@
--- Não altere nada, pois tudo foi pensado nas regras de execução do pdAdmin 4.
--- Ass.: Caio Tomaz
-
 --create database e_commercer
 
 drop schema public;
@@ -12,15 +9,15 @@ create schema pedido;
 create schema avaliacao;
 
 
--- Esquema endereço
+-- Esquema endereço (Endereço, Cidade e Estado)
 create table endereco.estado(  
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar(20) not null,
 	sigla char(2) not null
 );
 
 create table endereco.cidade(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (20) not null,
 	cep char(8),
 	id_uf integer,
@@ -28,7 +25,7 @@ create table endereco.cidade(
 );
 
 create table endereco.endereco (
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	logradouro varchar(40) not null,
 	numero integer,
 	bairro varchar(20) not null,
@@ -38,9 +35,9 @@ create table endereco.endereco (
 );
 
 
--- Esquema usuário
+-- Esquema de usuários (Adm e Cliente)
 create table usuario.cliente(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	email varchar (40) not null,
 	senha varchar (40) not null,
@@ -52,7 +49,7 @@ create table usuario.cliente(
 );
 
 create table usuario.adm(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	email varchar (40) not null,
 	senha varchar (40) not null,
@@ -62,9 +59,9 @@ create table usuario.adm(
 );
 
 
--- Esquema comércio (loja e o vendedor)
+-- Esquema de comércio (Loja e o Vendedor)
 create table comercio.vendedor(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	email varchar (40) not null,
 	senha varchar (40) not null,
@@ -76,7 +73,7 @@ create table comercio.vendedor(
 );
 
 create table comercio.loja(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	descricao varchar (300) not null,
 	id_vendedor integer,
@@ -85,16 +82,16 @@ create table comercio.loja(
 ); -- O restante das chaves estrangeiras estão no final
 
 
--- Esquema do produto
+-- Esquema do produto (Categoria e Produto)
 create table produto.categoria(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	descricao varchar (300) not null,
 	sub_categ varchar (40) not null
 );
 
 create table produto.produto(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	nome varchar (40) not null,
 	id_categoria integer,
 	valor numeric (5,2) not null,
@@ -106,15 +103,15 @@ create table produto.produto(
 );-- O restante das chaves estrangeiras estão no final
 
 
---Esquema de pedido
+--Esquema de pedido (Carrinho, Pedido e Item do Carrinho)
 create table pedido.item_carrinho(
-	id SERIAL integer primary key not null,
+	id serial primary key not null,
 	id_produto integer,
 	quantidade integer not null
 ); -- As chaves estrangeiras estão no final
 
 create table pedido.carrinho(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	id_cliente integer,
 	id_item integer,
 	foreign key(id_item) references pedido.item_carrinho(id),
@@ -122,7 +119,7 @@ create table pedido.carrinho(
 );
 
 create table pedido.pedido(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	id_carrinho integer,
 	data date,
 	status varchar (25),
@@ -130,7 +127,7 @@ create table pedido.pedido(
 );
 
 create table pedido.pagamento(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	tipo varchar (25),
 	status varchar (25),
 	id_pedido integer,
@@ -138,9 +135,9 @@ create table pedido.pagamento(
 );
 
 
--- Esquema avaliacão
+-- Esquema avaliacão (Loja e Produto)
 create table avaliacao.avaliacao_loja(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	data date,
 	quant_estrela integer,
 	comentario varchar (300),
@@ -151,7 +148,7 @@ create table avaliacao.avaliacao_loja(
 );
 
 create table avaliacao.avaliacao_produto(
-	id SERIAL integer not null primary key,
+	id serial not null primary key,
 	data date,
 	quant_estrela integer,
 	comentario varchar (300),
@@ -162,7 +159,7 @@ create table avaliacao.avaliacao_produto(
 );
 
 
--- Cahves estrangeiras que so podem ser adicionasa depois
+-- Cahves estrangeiras que so podem ser adicionasa depois (Regras do pgamin 4)
 alter table comercio.loja
 add foreign key(id_avaliacao) references avaliacao.avaliacao_loja(id);
 

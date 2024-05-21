@@ -1,0 +1,166 @@
+/* Titulo */
+
+.nome-telas {
+    display: flex;
+    gap: 5px;
+}
+
+.nome-telas-home {
+    color: #FFBB00;
+}
+
+.nome-telas-vestuario {
+    color: #FFBB00;
+}
+
+/* principal */
+
+.filtros-produtos {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+/* Filtros */
+
+.filtros {
+    border: 2px solid #DEDEDE;
+    border-radius: 5px;
+    width: 260px;
+    height: 730px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.filtros-populares-arrow {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearence: none;
+    height: 20px;
+    width: 20px;
+    border: 1px solid #B2B2B2;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* input[type="checkbox"]:after {} */
+
+label {
+    color: #B2B2B2;
+}
+
+.filtro-4-estrelas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-promocao {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.filtro-frete-gratis {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Produtos */
+
+.produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.fileira {
+    display: flex;
+    gap: 40px;
+}
+
+.produto {
+    width: 250px;
+    height: auto;
+    border: 2px solid #B2B2B2;
+    border-radius: 5px;
+    position: relative;
+}
+
+.merch-camisa {
+    background-color: #D9D9D9;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.add-favoritos {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.produto-descricao {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-left: 18px;
+    padding-right: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.produto-nome-valor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.produto-nome {
+    font-weight: bold;
+}
+
+.produto-valor {
+    color: #50B462;
+    font-weight: bold;
+}
+
+.produto-avaliacao-vendas {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Botões */
+
+.botoes-paginas {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+}
+
+.main-pag {
+    color: #FFBB00;
+    border: 2px solid #B2B2B2;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+}
+
+.sec-pag {
+    color: #B2B2B2;
+    border: 2px solid #B2B2B2;
+    border-radius: 5px;
+    width: 60px;
+    height: 60px;
+}

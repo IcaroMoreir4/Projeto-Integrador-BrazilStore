@@ -79,3 +79,11 @@ select * from comercio.vendedor;
 ALTER TABLE comercio.loja -- Aqui voce esta criando como se a loja fosse um usuario, mais e pra ter uma função(ou rotina) que verificaçe se o id do vendedor ou usuario esta vinculado a loja.
 ADD COLUMN email VARCHAR(30) NOT NULL,
 ADD COLUMN senha VARCHAR(30) NOT NULL;
+
+
+ALTER TABLE produto.produto
+ADD COLUMN peso DECIMAL(10, 2), 
+ADD COLUMN tipo_entrega VARCHAR(50);  
+
+
+select * from  produto.produto;

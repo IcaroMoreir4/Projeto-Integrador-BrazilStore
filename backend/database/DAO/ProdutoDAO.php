@@ -7,12 +7,14 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 
 class ProdutoDAO {
     public function create(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao) VALUES (?, ?, ?, ?)';
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
-        $stmt->bindValue(2, $produto->getCategoria());
+        $stmt->bindValue(2, $produto->getIdcategoria());
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
+        $stmt->bindValue(5, $produto->getPeso());
+        $stmt->bindValue(6, $produto->getTipoEentrega());
         $stmt->execute();
     }
     
@@ -24,10 +26,10 @@ class ProdutoDAO {
     }
 
     public function update(Produto $produto) {
-        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ? WHERE id = ?';
+        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
-        $stmt->bindValue(2, $produto->getCategoria());
+        $stmt->bindValue(2, $produto->getIdcategoria());
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getId());
@@ -41,7 +43,46 @@ class ProdutoDAO {
         $stmt->execute();
     }
 
+    //Barra de pesquisa
+    public function query($produto){
+        $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Apresentação do produto individual.
+    public function presentation($produto){
+        $sql = "SELECT produto.produto.*, avaliacao.avaliacao_produto.*
+        FROM produto.produto 
+        INNER JOIN avaliacao.avaliacao_produto ON produto.produto.id = avaliacao.avaliacao_produto.id_produto;
+        ";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['presentation' => '%' . $produto . '%']);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /* Estou com problema par realizar a consulta, pois são trez tabelas diferentes.
+    // Produtos apresentados na tela inicial do site.
+    public function home($produto){
+        $sql = "SELECT nome.produto.produto, valor.produto.produto, COUNT (id_avaliacao)  FROM produto.produto";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    */
+
+    //Fazer uma consulta das categorias cadastradas para apresentar na home.
+    public function category($produto){ 
+        $sql = "SELECT nome FROM produto.categoria";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['category' => '%' . $produto . '%']);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

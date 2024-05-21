@@ -10,13 +10,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $categoria = $_POST['categoria'];
     $valor = $_POST['valor'];
     $descricao = $_POST['descricao'];
+    $peso = $_POST['peso'];
+    $tipo_entrega = $_POST['tipo_entrega'];
 
-    if (!empty($nome) && !empty($categoria) && !empty($valor) && !empty($descricao)) {
-       $produto = new produto($nome, $valor, $descricao, $categoria);
+    if (!empty($nome) && !empty($categoria) && !empty($valor) && !empty($descricao) && !empty($peso) && !empty($tipo_entrega)) {
+       $produto = new produto($nome, $valor, $descricao, $categoria, $peso, $tipo_entrega);
        $produtoDAO = new ProdutoDAO();
        $produtoDAO -> create($produto);
 
-       echo 'Produto cadastrado!';
+       header('location: listar_produtos.php');
     }else{
         echo "Por favor, preencha todos os campos do formulário.";
     }

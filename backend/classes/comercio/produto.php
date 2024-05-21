@@ -3,17 +3,21 @@
 class produto{
     protected $id;
     protected $nome;
-    protected $categoria;
+    protected $id_categoria;
     protected $valor;
     protected $descricao;
+    protected $peso;
+    protected $tipo_entrega;
 
 
-    public function __construct($nome,$valor,$descricao, $categoria)
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega)
     {
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
-        $this->categoria = $categoria;
+        $this->id_categoria = $id_categoria;
+        $this->peso = $peso;
+        $this->tipo_entrega = $tipo_entrega;
     }
 
     
@@ -26,8 +30,8 @@ class produto{
         return $this->nome;
     }
 
-    public function getCategoria(){
-        return $this->categoria;
+    public function getIdcategoria(){
+        return $this->id_categoria;
     }
 
     public function getValor(){
@@ -38,6 +42,13 @@ class produto{
         return $this->descricao;
     }
 
+    public function getPeso(){
+        return $this->peso;
+    }
+
+    public function getTipoEentrega(){
+        return $this->tipo_entrega;
+    }
 
 
     //Setters
@@ -49,8 +60,8 @@ class produto{
         $this->nome = $nome;
     }
 
-    public function setCategoria($categoria){
-        $this->categoria = $categoria;
+    public function setIdcategoria($id_categoria){
+        $this->id_categoria = $id_categoria;
     }
 
     public function setValor($valor){
@@ -61,5 +72,12 @@ class produto{
         $this->descricao = $descricao;
     }
 
+    public function setPeso($peso){
+        $this->peso = $peso;
+    }
+
+    public function setTipoEntrega($tipo_entrega){
+        $this->tipo_entrega = $tipo_entrega;
+    }
 }
 ?>

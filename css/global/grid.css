@@ -2,3 +2,10 @@
     padding-left: 220px;
     padding-right: 220px;
 }
+
+
+.gridusuario{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}

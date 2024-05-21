@@ -46,7 +46,6 @@ class ClienteDAO{
         $stmt->execute();
     }
 
-
     //Metodo autenticar
     public function autenticar($email, $senha) {
         $sql = 'SELECT * FROM usuario.cliente WHERE email = ? AND senha = ?';
@@ -55,6 +54,16 @@ class ClienteDAO{
         $stmt->bindValue(2, $senha);
         $stmt->execute();
         return $stmt->rowCount() > 0;
+    }
+
+    //Consulta de pedidos
+    public function queryrequests($cliente){
+        $sql = 'SELECT pedido.pedido.*, pedido.carrinho.id, pedido.carrinho.id_cliente FROM pedido.pedido INNER JOIN pedido.carrinho ON pedido.pedido.id_carrinho = pedido.carrinho.id;
+        WHERE id_cliente = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
 }

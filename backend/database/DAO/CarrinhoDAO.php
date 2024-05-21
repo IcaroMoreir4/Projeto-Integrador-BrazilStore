@@ -8,13 +8,14 @@ class CarrinhoDAO{
     public function create(Carrinho $carrinho){
         $sql = 'INSERT INTO pedido.carrinho (id, id_item, id_cliente) values (?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(2, $carrinho->getId_item());
-        $stmt->bindValue(3, $carrinho->getId_cliente());
+        $stmt->bindValue(1, $carrinho->getId_item());
+        $stmt->bindValue(2, $carrinho->getId_cliente());
         $stmt->execute();
     }
 
-    public function read(Carrinho $carrinho){ //Tem que criar uma função que consulte sozinho quando entra na tela carriho.
-        $sql = 'SELECT * FROM  pedido.carrinho WHERE id = ?';
+    //Carrinho geral (da tabela pedido.carrinho)
+    public function read(Carrinho $carrinho){
+        $sql = 'SELECT * FROM  pedido.carrinho WHERE id_cliente = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
@@ -38,14 +39,14 @@ class CarrinhoDAO{
         $stmt->execute();
     }
 
+    //Adicionar um produto ao carrinho com qauntidade (da tabela pedido.item_carrinho)
     public function create_itemc(item_carrinho $item_carrinho){
         $sql = 'INSERT INTO pedido.item_carrinho (id_produto, quantidade) values (?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(2, $item_carrinho->getId_produto());
-        $stmt->bindValue(3, $item_carrinho->getQuantidade());
+        $stmt->bindValue(1, $item_carrinho->getId_produto());
+        $stmt->bindValue(2, $item_carrinho->getQuantidade());
         $stmt->execute();
     }
-    
 }
 
 ?>
