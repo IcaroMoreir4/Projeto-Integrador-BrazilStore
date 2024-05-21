@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $clienteDAO = new ClienteDAO();
 
     if ($clienteDAO->autenticar($email, $senha)){
-        echo "Login feito com sucesso!";
+        header('location: molde-com-conta.html');
         exit(); 
     } else {
         header('Location: login.php');
