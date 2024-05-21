@@ -45,9 +45,9 @@ class ProdutoDAO {
 
     //Barra de pesquisa
     public function query($produto){
-        $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
+        $sql = "SELECT ? FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -56,10 +56,10 @@ class ProdutoDAO {
     public function presentation($produto){
         $sql = "SELECT produto.produto.*, avaliacao.avaliacao_produto.*
         FROM produto.produto 
-        INNER JOIN avaliacao.avaliacao_produto ON produto.produto.id = avaliacao.avaliacao_produto.id_produto;
-        ";
+        INNER JOIN avaliacao.avaliacao_produto ON produto.produto.id = avaliacao.avaliacao_produto.id_produto
+        WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['presentation' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -69,7 +69,7 @@ class ProdutoDAO {
     public function home($produto){
         $sql = "SELECT nome.produto.produto, valor.produto.produto, COUNT (id_avaliacao)  FROM produto.produto";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -79,7 +79,7 @@ class ProdutoDAO {
     public function category($produto){ 
         $sql = "SELECT nome FROM produto.categoria";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['category' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
