@@ -1,6 +1,3 @@
--- Não altere nada, pois tudo foi pensado nas regras de execução do pdAdmin 4.
--- Ass.: Caio Tomaz
-
 --create database e_commercer
 
 drop schema public;
@@ -12,7 +9,7 @@ create schema pedido;
 create schema avaliacao;
 
 
--- Esquema endereço
+-- Esquema endereço (Endereço, Cidade e Estado)
 create table endereco.estado(  
 	id serial not null primary key,
 	nome varchar(20) not null,
@@ -38,7 +35,7 @@ create table endereco.endereco (
 );
 
 
--- Esquema usuário
+-- Esquema de usuários (Adm e Cliente)
 create table usuario.cliente(
 	id serial not null primary key,
 	nome varchar (40) not null,
@@ -62,7 +59,7 @@ create table usuario.adm(
 );
 
 
--- Esquema comércio (loja e o vendedor)
+-- Esquema de comércio (Loja e o Vendedor)
 create table comercio.vendedor(
 	id serial not null primary key,
 	nome varchar (40) not null,
@@ -85,7 +82,7 @@ create table comercio.loja(
 ); -- O restante das chaves estrangeiras estão no final
 
 
--- Esquema do produto
+-- Esquema do produto (Categoria e Produto)
 create table produto.categoria(
 	id serial not null primary key,
 	nome varchar (40) not null,
@@ -106,7 +103,7 @@ create table produto.produto(
 );-- O restante das chaves estrangeiras estão no final
 
 
---Esquema de pedido
+--Esquema de pedido (Carrinho, Pedido e Item do Carrinho)
 create table pedido.item_carrinho(
 	id serial primary key not null,
 	id_produto integer,
@@ -138,7 +135,7 @@ create table pedido.pagamento(
 );
 
 
--- Esquema avaliacão
+-- Esquema avaliacão (Loja e Produto)
 create table avaliacao.avaliacao_loja(
 	id serial not null primary key,
 	data date,
@@ -162,7 +159,7 @@ create table avaliacao.avaliacao_produto(
 );
 
 
--- Cahves estrangeiras que so podem ser adicionasa depois
+-- Cahves estrangeiras que so podem ser adicionasa depois (Regras do pgamin 4)
 alter table comercio.loja
 add foreign key(id_avaliacao) references avaliacao.avaliacao_loja(id);
 

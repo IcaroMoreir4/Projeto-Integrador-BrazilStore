@@ -25,15 +25,6 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    //Barra de pesquisa
-    public function query($produto){
-        $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function update(Produto $produto) {
         $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -52,7 +43,16 @@ class ProdutoDAO {
         $stmt->execute();
     }
 
-    // Apresentação do produto individual
+    //Barra de pesquisa
+    public function query($produto){
+        $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Apresentação do produto individual.
     public function presentation($produto){
         $sql = "SELECT produto.produto.*, avaliacao.avaliacao_produto.*
         FROM produto.produto 
@@ -64,7 +64,8 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /* Não sei como vou juntar os dados que o front precisa para apresentar a home
+    /* Estou com problema par realizar a consulta, pois são trez tabelas diferentes.
+    // Produtos apresentados na tela inicial do site.
     public function home($produto){
         $sql = "SELECT nome.produto.produto, valor.produto.produto, COUNT (id_avaliacao)  FROM produto.produto";
         $stmt = Conexao::getConn()->prepare($sql);
@@ -74,7 +75,7 @@ class ProdutoDAO {
     }
     */
 
-    //Fazer uma consulta das categorias cadastradas
+    //Fazer uma consulta das categorias cadastradas para apresentar na home.
     public function category($produto){ 
         $sql = "SELECT nome FROM produto.categoria";
         $stmt = Conexao::getConn()->prepare($sql);

@@ -6,6 +6,7 @@ require_once(__DIR__ . '/../../classes/usuarios/endereco.php');
 
 class EnderecoDAO{
     
+    //Cadastra o Endereço (PK).
     public function create(Endereco $endereco){
         $sql = 'INSERT INTO endereco.endereco (logradouro, numero, bairro,	cep) values (?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -17,13 +18,23 @@ class EnderecoDAO{
         $stmt->execute();
     }
 
+    //Cadastra o Municipio do Endereço (FK).
     public function create_mun(Endereco $endereco){
-        $sql = 'INSERT INTO endereco.cidade (nome) values (?,?,?,?)';
+        $sql = 'INSERT INTO endereco.cidade (nome) values (?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getLogradouro());
+        $stmt->bindValue(1, $endereco->getNome_cidade());
         $stmt->execute();
     }
 
+    //Cadastra o Estado do Municipio (FK).
+    public function create_uf(Endereco $endereco){
+        $sql = 'INSERT INTO endereco.estado (nome) values (?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $endereco->getNome_estado());
+        $stmt->execute();
+    }
+
+    //Apresentação na aba de "Meus Endereços".
     public function read($Endereco){
         $sql = "SELECT endereco.endereco.*, usuario.cliente.id_endereco
         FROM endereco.endereco 

@@ -13,7 +13,8 @@ class CarrinhoDAO{
         $stmt->execute();
     }
 
-    public function read(Carrinho $carrinho){ //Tem que criar uma função que consulte sozinho quando entra na tela carrinho.
+    //Carrinho geral (da tabela pedido.carrinho)
+    public function read(Carrinho $carrinho){
         $sql = 'SELECT * FROM  pedido.carrinho WHERE id_cliente = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
@@ -38,7 +39,7 @@ class CarrinhoDAO{
         $stmt->execute();
     }
 
-    //Adicionar um produto ao carrinho com qauntidade
+    //Adicionar um produto ao carrinho com qauntidade (da tabela pedido.item_carrinho)
     public function create_itemc(item_carrinho $item_carrinho){
         $sql = 'INSERT INTO pedido.item_carrinho (id_produto, quantidade) values (?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
