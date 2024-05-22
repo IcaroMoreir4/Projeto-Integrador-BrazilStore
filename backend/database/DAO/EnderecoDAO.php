@@ -36,12 +36,12 @@ class EnderecoDAO{
 
     //Apresentação na aba de "Meus Endereços".
     public function read($Endereco){
-        $sql = "SELECT endereco.endereco.*, usuario.cliente.id_endereco
+        $sql = "SELECT endereco.endereco.?, usuario.cliente.id_endereco
         FROM endereco.endereco 
-        INNER JOIN usuario.cliente ON endereco.endereco.id = usuario.cliente.id_endereco;
+        INNER JOIN usuario.cliente ON endereco.endereco.id = usuario.cliente.id_endereco
         WHERE usuario.cliente.id_endereco = ?";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['id_endereco' => '%' . $Endereco . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -64,7 +64,6 @@ class EnderecoDAO{
         $stmt->bindValue(1, $endereco->getId());
         $stmt->execute();
     }
-
 }
 
 ?>
