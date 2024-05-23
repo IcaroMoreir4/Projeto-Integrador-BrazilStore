@@ -1,4 +1,5 @@
 <?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/conexao.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 $produtoDAO = new ProdutoDAO();
@@ -6,27 +7,43 @@ $produtos = $produtoDAO->read();
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>Lista de Produtos</title>
+    <!-- Seu cabeçalho -->
 </head>
 <body>
-    <h1>Lista de Produtos</h1>
-    <ul>
+    <header>
+        <h1>Lista de Produtos</h1>
+    </header>
+    <main>
         <?php if (!empty($produtos)): ?>
-            <?php foreach ($produtos as $produto): ?>
-                <li>
-                    <strong>Nome:</strong> <?= htmlspecialchars($produto->nome) ?><br>
-                    <strong>Categoria:</strong> <?= htmlspecialchars($produto->categoria) ?><br>
-                    <strong>Valor:</strong> <?= htmlspecialchars($produto->valor) ?><br>
-                    <strong>Descrição:</strong> <?= htmlspecialchars($produto->descricao) ?><br>
-                    <strong>Peso:</strong> <?= htmlspecialchars($produto->peso) ?><br>
-                    <strong>Tipo de Entrega:</strong> <?= htmlspecialchars($produto->tipo_entrega) ?>
-                </li>
-            <?php endforeach; ?>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Categoria</th>
+                        <th>Valor</th>
+                        <th>Descrição</th>
+                        <th>Peso</th>
+                        <th>Tipo de Entrega</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($produtos as $produto): ?>
+                        <tr>
+                            <td><?= htmlspecialchars($produto->nome) ?></td>
+                            <td><?= htmlspecialchars($produto->categoria) ?></td>
+                            <td><?= htmlspecialchars($produto->valor) ?></td>
+                            <td><?= htmlspecialchars($produto->descricao) ?></td>
+                            <td><?= htmlspecialchars($produto->peso) ?></td>
+                            <td><?= htmlspecialchars($produto->tipo_entrega) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         <?php else: ?>
             <p>Nenhum produto encontrado.</p>
         <?php endif; ?>
-    </ul>
+    </main>
 </body>
 </html>

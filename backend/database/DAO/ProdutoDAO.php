@@ -1,24 +1,38 @@
 
 <?php
-
 require_once(__DIR__ . '/../conexao.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 class ProdutoDAO {
     public function create(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, imagem) VALUES (?, ?, ?, ?, ?, ?,?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $produto->getNome());
-        $stmt->bindValue(2, $produto->getIdcategoria());
-        $stmt->bindValue(3, $produto->getValor());
-        $stmt->bindValue(4, $produto->getDescricao());
-        $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
-        $stmt->bindValue(7, $produto->getImagem());
-        $stmt->execute();
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $fileTmpPath = $_FILES['imagem']['tmp_name'];
+            $fileName = $_FILES['imagem']['name'];
+            $fileNameCmps = explode(".", $fileName);
+            $fileExtension = strtolower(end($fileNameCmps));
+            $newFileName = md5(time() . $fileName) . '.' . $fileExtension;
+            $uploadFileDir = __DIR__ . '/uploads/';
+            $dest_path = $uploadFileDir . $newFileName;
+
+            if(move_uploaded_file($fileTmpPath, $dest_path)) {
+                $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, imagem) VALUES (?, ?, ?, ?, ?, ?, ?)';
+                $stmt = Conexao::getConn()->prepare($sql);
+                $stmt->bindValue(1, $produto->getNome());
+                $stmt->bindValue(2, $produto->getIdcategoria());
+                $stmt->bindValue(3, $produto->getValor());
+                $stmt->bindValue(4, $produto->getDescricao());
+                $stmt->bindValue(5, $produto->getPeso());
+                $stmt->bindValue(6, $produto->getTipoEentrega());
+                $stmt->bindValue(7, '/uploads/' . $newFileName);
+                $stmt->execute();
+            } else {
+                error_log('Falha ao mover o arquivo enviado.');
+                throw new Exception('Erro ao enviar o arquivo.');
+            }
+        }
     }
-    
+
     public function read() {
         $sql = 'SELECT * FROM produto.produto';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -36,7 +50,7 @@ class ProdutoDAO {
     }
 
     public function update(Produto $produto) {
-        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ?, imagem = ? WHERE id = ?';
+        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ?, imagem = ?WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());

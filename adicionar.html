@@ -48,7 +48,7 @@
 
         <div class="adicionar-options">
             <div class="adicionar-options_img">
-                <input type="file" id="file-input" name="imagem[]" multiple required>
+                <input type="file" id="file-input" name="imagem"  required>
                 <label for="file-input">
                     <div class="icon-container">
                         <img src="./imagem/camera.svg" alt="Ícone de Câmera" class="camera-icon">
@@ -67,28 +67,29 @@
             
             <div class="adicionar-options_geral">
                 <form action="cadastrar_produto.php" method="post" enctype="multipart/form-data">
-                    <label for="titulo" class="col-span-2 font-1-m cor-12">Título</label>
-                    <input maxlength="50" type="text" id="titulo" name="nome" class="col-span-2" required><br><br>
+                    <label for="name" class="col-span-2 font-1-m cor-12">Nome</label>
+                    <input maxlength="50" type="text" id="name" name="nome" class="col-span-2" required><br><br>
             
-                    <label for="descricao" class="col-span-2 font-1-m cor-12">Descrição</label>
-                    <textarea maxlength="300" id="descricao" name="descricao" class="col-span-2 font-1-m cor-12" required></textarea><br><br>
+                    <label for="description" class="col-span-2 font-1-m cor-12">Descrição</label>
+                    <textarea maxlength="300" id="description" name="descricao" class="col-span-2 font-1-m cor-12" required></textarea><br><br>
             
-                    <label class="font-1-m cor-12" for="preco">Preço</label>
-                    <input type="text" id="preco" name="valor" required><br><br>
+                    <label class="font-1-m cor-12" for="value">Valor</label>
+                    <input type="text" id="value" name="valor" required><br><br>
             
-                    <label class="font-1-m cor-12" for="categoria">Categoria</label>
-                    <input type="text" id="categoria" name="categoria" required><br><br>
+                    <label class="font-1-m cor-12" for="category">Categoria</label>
+                    <input type="text" id="category" name="categoria" required><br><br>
 
                     <p class="font-1-m"><strong>Importante:</strong> para selecione a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceita pela entregadora. veja os <a class="cor-p1" href="./termos.html" target="_blank">termos aqui</a>.</p>
             
-                    <label class="font-1-m cor-12" for="peso">Peso</label>
-                    <input type="text" id="peso" name="peso" required><br><br>
+                    <label class="font-1-m cor-12" for="weight">Peso</label>
+                    <input type="text" id="weight" name="peso" required><br><br>
             
-                    <label class="font-1-m cor-12" for="tipo_entrega">Tipo de Entrega</label>
+                    <llabel class="font-1-m cor-12" for="tipo_entrega">Tipo de Entrega</label>
                     <input type="text" id="tipo_entrega" name="tipo_entrega" required><br><br>
             
                     <button type="submit" class="btn_cheio btn_adc">Adicionar Item</button>
                 </form>
+
             </div>      
 
     </article>
