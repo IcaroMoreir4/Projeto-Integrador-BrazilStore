@@ -7,7 +7,7 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 
 class ProdutoDAO {
     public function create(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, imagem) VALUES (?, ?, ?, ?, ?, ?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());
@@ -15,6 +15,7 @@ class ProdutoDAO {
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
         $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(7, $produto->getImagem());
         $stmt->execute();
     }
     
@@ -35,7 +36,7 @@ class ProdutoDAO {
     }
 
     public function update(Produto $produto) {
-        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ? WHERE id = ?';
+        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ?, imagem = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());

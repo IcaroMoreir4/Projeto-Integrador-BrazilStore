@@ -8,9 +8,10 @@ class produto{
     protected $descricao;
     protected $peso;
     protected $tipo_entrega;
+    protected $imagem;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega)
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $imagem)
     {
         $this->nome = $nome;
         $this->valor = $valor;
@@ -18,6 +19,7 @@ class produto{
         $this->id_categoria = $id_categoria;
         $this->peso = $peso;
         $this->tipo_entrega = $tipo_entrega;
+        $this->imagem= $imagem;
     }
 
     
@@ -50,6 +52,10 @@ class produto{
         return $this->tipo_entrega;
     }
 
+    public function getImagem(){
+        return $this->imagem;
+    }
+
 
     //Setters
     public function setId($id){
@@ -79,5 +85,9 @@ class produto{
     public function setTipoEntrega($tipo_entrega){
         $this->tipo_entrega = $tipo_entrega;
     }
+    public function setImagem($imagem){
+       $this->imagem = $imagem;
+    }
+
 }
 ?>
