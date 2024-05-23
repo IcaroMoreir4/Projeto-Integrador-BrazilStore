@@ -1,0 +1,91 @@
+.item-section{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    margin-top: 60px;
+}
+
+.item-opcao_maior{
+    background-color: var(--cor-3);
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.item-opcao_maior img{
+    width: 400px;
+}
+
+.item-opcao_menor{
+    display: flex;
+}
+
+.item-opcao_menor div:not(:last-child){
+    margin-right: 8px;
+}
+
+.item-opcao_menor div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.item-opcao_menor img{
+    width: 100%;
+}
+
+.opcao-menor_bg{
+    background-color: var(--cor-3);
+}
+
+.info-content{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.p-after::after{
+    background-color: var(--cor-3);
+    width: 100%;
+    height: 2px;
+    display: block;
+    content: " ";
+    margin-top: 20px;
+    margin-bottom: 16px;
+}
+
+.opcoes-tamanho select{
+    background-color: var(--cor-0);
+    border: solid 1px var(--cor-8);
+    padding: 16px 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.opcoes-tamanho select:focus{
+    border: solid 1px var(--cor-10);
+}
+
+.opcoes-tamanho select option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.op-tamanhos::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Ajuste conforme necessário */
+    transform: translateY(-50%);
+    font-size: 16px; /* Ajuste o tamanho conforme necessário */
+    pointer-events: none; /* Permite clicar no select sem interferência da seta */
+}

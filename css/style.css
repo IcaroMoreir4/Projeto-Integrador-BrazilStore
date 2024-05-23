@@ -5,10 +5,10 @@
 @import"./global/modelo.css";
 @import"./global/login.css";
 @import"./global/cadastro.css";
-@import"./global/grid.css";
 @import "./global/termos.css";
 @import "./global/home.css";
 @import "./global/adicionar.css";
+@import "./global/item.css";
 @import "./global/vestuario-masculino.css";
 @import "./global/finalizar-compra.css";
 @import "./global/perfil.css";
@@ -17,6 +17,7 @@
 /* Reutilizaveis */
 @import"./global/header.css";
 @import"./global/footer.css";
+@import"./global/grid.css";
 
 /* Modelo */
 @import "./caminho/nome.css";
