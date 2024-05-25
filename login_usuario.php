@@ -2,9 +2,9 @@
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/cliente.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['submit'])) {
+    $email = $_GET['email'];
+    $senha = $_GET['senha'];
 
     $clienteDAO = new ClienteDAO();
 
