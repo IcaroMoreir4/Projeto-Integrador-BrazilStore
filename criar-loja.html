@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="BrazilStore. Os melhores que está tendo!">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrazilStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="./css/style.css" as="style">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
+    <script src="./javascript/script.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="all">
+
+        <form action="cadastrar_loja.php" method="post">
+            <div class="dados">
+                <h2 class="font-1-l">Criar Loja</h2>
+                <label for="nome_loja">Nome da loja</label>
+                <input class="font-1-xs" type="text" name="nome_loja" id="nome_loja" placeholder="Insira o nome da loja"><br><br>
+
+                <label for="descricao">Fale sobre sua loja</label>
+                <textarea class="font-1-xs texto-descri" name="descricao" id="descricao" placeholder="Descrição da Loja"></textarea><br><br>
+
+                <label for="email">Email da Loja</label>
+                <input class="font-1-xs" type="email" name="email" id="email" placeholder="Email da Loja"><br><br>
+
+                <label for="senha">Senha da Loja</label>
+                <input class="font-1-xs" type="password" name="senha" id="senha" placeholder="Senha da Loja"><br><br>
+            </div>
+            <div class="botoes">
+                <button type="button" onclick="cancelar()">Cancelar</button>
+                <button type="submit" value="Criar Loja">Criar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+</html>
+ 

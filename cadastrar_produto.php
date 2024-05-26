@@ -1,5 +1,4 @@
 <?php 
-
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
@@ -18,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
        $produtoDAO = new ProdutoDAO();
        $produtoDAO -> create($produto);
 
-       header('location: listar_produtos.php');
+       header('location: item.php');
     }else{
         echo "Por favor, preencha todos os campos do formulário.";
     }
