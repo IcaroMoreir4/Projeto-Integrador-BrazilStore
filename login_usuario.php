@@ -1,26 +1,21 @@
 <?php 
-
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/cliente.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
-if (isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['submit'])) {
+    $email = $_GET['email'];
+    $senha = $_GET['senha'];
 
     $clienteDAO = new ClienteDAO();
 
     if ($clienteDAO->autenticar($email, $senha)){
-
-        echo "Login feito com sucessos!";
+        header('location: molde-com-conta.html');
         exit(); 
     } else {
-        header('location: login.php');
-        
+        header('Location: login.php');
+        exit(); 
     }
+} else {
+    echo "Requisição inválida.";
 }
-
-
-
-
-
 ?>

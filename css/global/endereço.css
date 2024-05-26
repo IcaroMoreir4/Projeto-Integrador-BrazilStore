@@ -14,8 +14,11 @@
 .adicionarendereco{
     color: #E4A30B;
     border: 1px solid #E4A30B;
-    border-radius: 2px;
-    padding-top: 4px;
+    border-radius: 4px;
+    padding:8px 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .adicionarendereco img{

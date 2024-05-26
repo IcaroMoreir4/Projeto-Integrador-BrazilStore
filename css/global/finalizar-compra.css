@@ -1,24 +1,39 @@
 
-.titulo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
 .titulo-subtitulo {
     color: #717171;
 }
 
 .conteudo-principal {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+}
+
+.titulo {
+    /* display:flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    justify-items: center;
+}
+
+.titulo-conteudo {
     display: flex;
+    justify-content: start;
+    align-items: center;
     flex-direction: column;
-    justify-content: center;
+
 }
 
 .lojaprodutos-listaprodutos {
     display: flex;
     gap: 40px;
-    justify-content: center;
+
     margin-top: 112px;
 }
 
@@ -169,7 +184,16 @@ label {
     cursor: pointer;
 }
 
-.apagar-item:hover {
+#apagar-item-lixeira {
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    background-color: white;
+    width: 56px;
+    height: 56px;
+    cursor: pointer;
+}
+
+#apagar-item-lixeira:hover {
     background-color: #CCCCCC;
 }
 
@@ -249,12 +273,12 @@ label {
 
 .codigo-desconto {
     cursor: pointer;
+    width: 460px;
 }
 
 .codigo-promocional-and-icon {
     display: flex;
     align-items: center;
-    gap: 10px;
     font-weight: bold;
     cursor: pointer;
 }

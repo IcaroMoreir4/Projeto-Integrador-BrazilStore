@@ -28,7 +28,7 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
@@ -44,22 +44,27 @@
         <div class="popup-content">
             <span class="close" onclick="closeLogin()">&times;</span>
             <h2 class="font-1-l">Entrar</h2>
-            <form action="login_usuario.php" method="get">
-                <label for="login-email" class="font-1-m">Email</label>
-                <div class="email-l">
-                    <input class="campo" type="email" name="login" id="login-email" placeholder="Email">
-                </div>
-                <label for="login-password" class="font-1-m">Senha</label>
-                <div class="senha-l">
-                    <input class="campo" type="password" name="login-senha" id="login-password" placeholder="Senha">
-                </div>
-                <div class="esqsenha">
-                    <a class="font-1-s" href="">Esqueceu a senha?</a>
-                </div>
-                <div class="but-entrar">
-                    <button type="submit">ENTRAR</button>
-                </div>
-            </form>
+
+            <div class="popup-content">
+                <span class="close" onclick="closeLogin()">&times;</span>
+                <h2 class="font-1-l">Entrar</h2>
+                <form action="login_usuario.php" method="get">
+                    <label for="login-email" class="font-1-m">Email</label>
+                    <div class="email-l">
+                        <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <label for="login-password" class="font-1-m">Senha</label>
+                    <div class="senha-l">
+                        <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
+                    </div>
+                    <div class="esqsenha">
+                        <a class="font-1-s" href="">Esqueceu a senha?</a>
+                    </div>
+                    <div class="but-entrar">
+                        <button type="submit" name="submit" class="submit-button">ENTRAR</button>
+                    </div>
+                </form>
+            </div>
             <p class="font-1-s">Ainda não tem conta? <a class="font-1-s esqsenha" href="#" onclick="openCadastro()">Cadastre-se</a></p>
         </div>
     </div>

@@ -25,15 +25,6 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
-    //Barra de pesquisa
-    public function query($produto){
-        $sql = "SELECT * FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
     public function update(Produto $produto) {
         $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso =?, tipo_entrega = ? WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -52,33 +43,59 @@ class ProdutoDAO {
         $stmt->execute();
     }
 
-    // Apresentação do produto individual
+    //Barra de pesquisa
+    public function query($termo) {
+        $query = "SELECT * FROM produto.produto WHERE nome LIKE :nome";
+        $stmt = Conexao::getConn()->prepare($query);
+        $stmt->bindValue(':nome', '%' . $termo . '%');
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // Apresentação do produto individual.
     public function presentation($produto){
         $sql = "SELECT produto.produto.*, avaliacao.avaliacao_produto.*
         FROM produto.produto 
-        INNER JOIN avaliacao.avaliacao_produto ON produto.produto.id = avaliacao.avaliacao_produto.id_produto;
-        ";
+        INNER JOIN avaliacao.avaliacao_produto ON produto.produto.id = avaliacao.avaliacao_produto.id_produto
+        WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['presentation' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /* Não sei como vou juntar os dados que o front precisa para apresentar a home
-    public function home($produto){
-        $sql = "SELECT nome.produto.produto, valor.produto.produto, COUNT (id_avaliacao)  FROM produto.produto";
+
+    // Produtos apresentados na tela inicial do site.
+    public function home_produto($produto){
+        $sql = "SELECT nome.produto.produto, valor.produto.produto FROM produto.produto";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['pesquisa' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    */
 
-    //Fazer uma consulta das categorias cadastradas
+    public function home_avaliacao($produto){
+        $sql = "SELECT AVG avaliacao.avaliacao_produto.quant_estrela FROM avaliacao.avaliacao_produto INNER JOIN produto.produto ON avaliacao.avaliacao_produto.id_produto = produto.produto.id WHERE id_produto = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function home_pedidos($produto){
+        $sql = "SELECT SUM pedido.item_carrinho.quantidade FROM pedido.item_carrinho INNER JOIN produto.produto ON pedido.item_carrinho.quantidade.id_produto = produto.produto.id WHERE id_produto = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
+    //Fazer uma consulta das categorias cadastradas para apresentar na home.
     public function category($produto){ 
         $sql = "SELECT nome FROM produto.categoria";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute(['category' => '%' . $produto . '%']);
+        $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

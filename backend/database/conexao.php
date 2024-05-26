@@ -18,11 +18,13 @@ class Conexao {
         }
     }
 }
-// Quando for fazer a conexão no postgress, para evitar problemas, você o nome padrão do banco é postgres
-// e a senha root é minha. 
 
-//Lembrem de adicionar a configuração do php.ini no apache, pôs o postgress necessista que vc habilite o pdo com postgres.
+/*
 
-// ;extension=pdo_pgsql vai estar assim no php.ini, coloque assim |extension=pdo_pgsql|
+Quando for configurar no Xampp (em modo administrador) o banco use apenas o Apache e altera uma configuração dele, no PHP(php.ini), remova o ";" de extension=pdo_pgsql e salve depois reinicio tudo.
+
+Observação lembre de manter o usuario "postgres" e senha "root"!!!
+
+*/
 
 ?>
