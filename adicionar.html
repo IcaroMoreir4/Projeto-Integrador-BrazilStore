@@ -71,7 +71,9 @@
             
                     <label for="descricao" class="col-span-2 font-1-m cor-12">Descrição</label>
                     <textarea maxlength="300" id="descricao" name="descricao" class="col-span-2 font-1-m cor-12" required></textarea><br><br>
-            
+                    
+                    <input type="hidden" name="id_vendedor" value="<?php echo $_SESSION['id_vendedor']; ?>">
+
                     <label class="font-1-m cor-12" for="preco">Preço</label>
                     <input type="text" id="preco" name="valor" required><br><br>
             

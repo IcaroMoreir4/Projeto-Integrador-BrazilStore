@@ -99,6 +99,28 @@ class ProdutoDAO {
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function AdicionarProduto(Produto $produto) {
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, id_vendedor) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $produto->getNome());
+        $stmt->bindValue(2, $produto->getIdcategoria());
+        $stmt->bindValue(3, $produto->getValor());
+        $stmt->bindValue(4, $produto->getDescricao());
+        $stmt->bindValue(5, $produto->getPeso());
+        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(7, $produto->getIdvendedor());
+        $stmt->execute();
+    }
+
+    
+    public function listarProdutosPorVendedor($id_vendedor) {
+    
+        $sql = "SELECT * FROM produto.produto WHERE id_vendedor = :id_vendedor";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['id_vendedor' => $id_vendedor]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 
 ?>

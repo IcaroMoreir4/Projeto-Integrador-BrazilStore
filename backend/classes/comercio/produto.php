@@ -1,5 +1,4 @@
 <?php 
-
 class produto{
     protected $id;
     protected $nome;
@@ -8,9 +7,10 @@ class produto{
     protected $descricao;
     protected $peso;
     protected $tipo_entrega;
+    protected $id_vendedor;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega)
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $id_vendedor)
     {
         $this->nome = $nome;
         $this->valor = $valor;
@@ -18,6 +18,7 @@ class produto{
         $this->id_categoria = $id_categoria;
         $this->peso = $peso;
         $this->tipo_entrega = $tipo_entrega;
+        $this->id_vendedor = $id_vendedor;
     }
 
     
@@ -50,6 +51,10 @@ class produto{
         return $this->tipo_entrega;
     }
 
+    public function getIdvendedor(){
+        return $this->id_vendedor;
+    }
+
 
     //Setters
     public function setId($id){
@@ -78,6 +83,10 @@ class produto{
 
     public function setTipoEntrega($tipo_entrega){
         $this->tipo_entrega = $tipo_entrega;
+    }
+
+    public function setIdvendedor($id_vendedor){
+        $this->id_vendedor = $id_vendedor;
     }
 }
 ?>
