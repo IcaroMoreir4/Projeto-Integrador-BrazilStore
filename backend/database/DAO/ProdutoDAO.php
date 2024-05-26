@@ -44,11 +44,11 @@ class ProdutoDAO {
     }
 
     //Barra de pesquisa
-    public function query($produto){
-        $sql = "SELECT ? FROM produto.produto WHERE LOWER(pesquisa) LIKE LOWER(:pesquisa)";
-        $stmt = Conexao::getConn()->prepare($sql);
+    public function query($termo) {
+        $query = "SELECT * FROM produto.produto WHERE nome LIKE :nome";
+        $stmt = Conexao::getConn()->prepare($query);
+        $stmt->bindValue(':nome', '%' . $termo . '%');
         $stmt->execute();
-
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -64,16 +64,32 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    /* Estou com problema par realizar a consulta, pois são trez tabelas diferentes.
+
     // Produtos apresentados na tela inicial do site.
-    public function home($produto){
-        $sql = "SELECT nome.produto.produto, valor.produto.produto, COUNT (id_avaliacao)  FROM produto.produto";
+    public function home_produto($produto){
+        $sql = "SELECT nome.produto.produto, valor.produto.produto FROM produto.produto";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    */
+
+    public function home_avaliacao($produto){
+        $sql = "SELECT AVG avaliacao.avaliacao_produto.quant_estrela FROM avaliacao.avaliacao_produto INNER JOIN produto.produto ON avaliacao.avaliacao_produto.id_produto = produto.produto.id WHERE id_produto = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function home_pedidos($produto){
+        $sql = "SELECT SUM pedido.item_carrinho.quantidade FROM pedido.item_carrinho INNER JOIN produto.produto ON pedido.item_carrinho.quantidade.id_produto = produto.produto.id WHERE id_produto = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 
     //Fazer uma consulta das categorias cadastradas para apresentar na home.
     public function category($produto){ 
@@ -81,6 +97,28 @@ class ProdutoDAO {
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function AdicionarProduto(Produto $produto) {
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, id_vendedor) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $produto->getNome());
+        $stmt->bindValue(2, $produto->getIdcategoria());
+        $stmt->bindValue(3, $produto->getValor());
+        $stmt->bindValue(4, $produto->getDescricao());
+        $stmt->bindValue(5, $produto->getPeso());
+        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(7, $produto->getIdvendedor());
+        $stmt->execute();
+    }
+
+    
+    public function listarProdutosPorVendedor($id_vendedor) {
+    
+        $sql = "SELECT * FROM produto.produto WHERE id_vendedor = :id_vendedor";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['id_vendedor' => $id_vendedor]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

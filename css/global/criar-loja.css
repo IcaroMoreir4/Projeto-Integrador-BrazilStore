@@ -1,0 +1,79 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  
+}
+
+.all {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.dados h2 {
+  text-align: start;
+  margin-bottom: 20px;
+  font-size: 25px;
+  
+}
+
+.dados input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--cor-7);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: var(--cor-6);
+}
+
+.texto-descri{
+  align-content: flex-start;
+  display: flex;
+  height: 70px;
+}
+
+.texto-descri ::placeholder{
+  display: flex;
+  align-content: flex-start;
+}
+
+.botoes {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+  gap: 5px;
+}
+
+.botoes button {
+  width: 100px;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  
+}
+
+.botoes button[type="button"] {
+ 
+  color: #252525;
+  border: 1px solid #2E2E2E;
+}
+
+.botoes button[type="button"]:hover {
+  background-color: #fff;
+}
+
+.botoes button[type="submit"] {
+  background: linear-gradient(0deg, #F2A50C 0%, #FFBF00 100%);
+  color: #332200;
+  
+}
+
+.botoes button[type="submit"]:hover {
+  background:#e8a405;}

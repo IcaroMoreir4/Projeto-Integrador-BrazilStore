@@ -13,6 +13,10 @@
 @import "./global/finalizar-compra.css";
 @import "./global/perfil.css";
 @import "./global/endereço.css";
+@import "./global/criar-loja.css";
+@import "./global/cadastro_endereco.css";
+
+
 
 /* Reutilizaveis */
 @import"./global/header.css";

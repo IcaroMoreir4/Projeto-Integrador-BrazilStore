@@ -28,7 +28,7 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
@@ -48,7 +48,7 @@
             <div class="popup-content">
                 <span class="close" onclick="closeLogin()">&times;</span>
                 <h2 class="font-1-l">Entrar</h2>
-                <form action="login_usuario.php" method="post">
+                <form action="login_usuario.php" method="get">
                     <label for="login-email" class="font-1-m">Email</label>
                     <div class="email-l">
                         <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
