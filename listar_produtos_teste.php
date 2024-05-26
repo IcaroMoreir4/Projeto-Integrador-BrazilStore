@@ -17,11 +17,8 @@
 <body>
 
     <header class="grid">
-        <!-- Cabeçalho -->
+        
     </header>
-            
-    <!-- Popups -->
-    <!-- Conteúdo dos produtos -->
     <article class="grid">
         <?php
         require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
@@ -64,7 +61,7 @@
         }
         ?>
     </article>
-
+    <a href="logout.php">Sair</a>
     <footer class="grid">
 
      </footer>
