@@ -87,3 +87,10 @@ ADD COLUMN tipo_entrega VARCHAR(50);
 
 
 select * from  produto.produto;
+
+
+ALTER TABLE produto.produto
+ADD COLUMN id_vendedor INTEGER;
+
+alter table produto.produto
+add foreign key(id_vendedor) references comercio.vendedor(id);
