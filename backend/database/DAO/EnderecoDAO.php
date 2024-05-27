@@ -35,11 +35,11 @@ class EnderecoDAO{
     }
 
     //Apresentação na aba de "Meus Endereços".
-    public function read($Endereco){
-        $sql = "SELECT endereco.endereco.?, usuario.cliente.id_endereco
+    public function read($id){
+        $sql = "SELECT endereco.endereco.*
         FROM endereco.endereco 
-        INNER JOIN usuario.cliente ON endereco.endereco.id = usuario.cliente.id_endereco
-        WHERE usuario.cliente.id_endereco = ?";
+        INNER JOIN usuario.cliente ON endereco.endereco.id_cliente = usuario.cliente.id
+        WHERE usuario.cliente.id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 

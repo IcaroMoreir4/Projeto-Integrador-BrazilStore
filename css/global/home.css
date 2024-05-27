@@ -55,3 +55,36 @@
     border: 1px solid var(--cor-p3);
 }
 
+.categorias{
+    margin-top: 60px;
+}
+
+.mgb-40{
+    margin-bottom: 40px;
+}
+
+.categorias-item{
+    border: 2px solid var(--cor-5);
+    border-radius: 5px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.categorias-item a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-decoration: none;
+    max-width: 100%;
+    gap: 12px;
+}
+
+.categoria-nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
