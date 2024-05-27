@@ -38,11 +38,6 @@
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>
 
-
-
-
-
-
     <div class="linhau"></div>
     <div class="gridusuario">
         <div class="meuperfil">
@@ -70,7 +65,7 @@
                 <img src="/imagem/compras.svg" alt="">
                 <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
 
-            <button class="venda-agora font-1-m">Venda agora</button>
+                <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
             </div>
         </div>
 
@@ -121,6 +116,71 @@
 
         </div>
     </div>
+
+<div id="popupBgLoja" class="popup-bg">
+        <div id="popupLoginLoja" class="popup">
+        <div class="popup-content">
+        <span class="close" onclick="closeLoginLoja()">&times;</span>
+        <div class="popup-content">
+            <span class="close" onclick="closeLoginLoja()">&times;</span>
+            <h2 class="font-1-l">Entrar</h2>
+            <form action="login_vendedor.php" method="post">
+                <label for="login-email" class="font-1-m">Email</label>
+                <div class="email-l">
+                    <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
+                </div>
+                <label for="login-password" class="font-1-m">Senha</label>
+                <div class="senha-l">
+                    <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
+                </div>
+                <div class="esqsenha">
+                    <a class="font-1-s" href="">Esqueceu a senha?</a>
+                </div>
+                <div class="but-entrar">
+                    <button type="submit" name="submit" class="submit-button">ENTRAR</button>
+                </div>
+            </form>
+        </div>
+        <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
+    </div>
+</div>
+</div>
+
+<div id="popupBgCadastroLoja" class="popup-bg">
+    <div id="popupCadastroLoja" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closeCadastroLoja()">&times;</span>
+            <h2 class="font-1-l">Seja Vendedor</h2>
+            <form action="cadastrar_vendedor.php" method="post">
+                <label for="cadas-nome" class="font-1-m">Nome</label>
+                <div class="nome">
+                    <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
+                </div>
+                <label for="cadas-cpf" class="font-1-m">CPF</label>
+                <div class="cpf">
+                    <input class="campo" type="text" name="cpf" id="cadas-cpf" placeholder="CPF">
+                </div>
+                <label for="cadas-telefone" class="font-1-m">Telefone</label>
+                <div class="telefone">
+                    <input class="campo" type="tel" name="telefone" id="cadas-telefone" maxlength="12" placeholder="Telefone">
+                </div>
+                <label for="cadas-email" class="font-1-m">Email</label>
+                <div class="email-c">
+                    <input class="campo" type="email" name="email" id="cadas-email" placeholder="Email">
+                </div>
+                <label for="cadas-senha" class="font-1-m">Senha</label>
+                <div class="senha-c">
+                    <input class="campo" type="password" name="senha" id="cadas-senha" placeholder="Senha">
+                </div>
+                <div class="but-cadas">
+                    <button type="submit">Cadastre-se</button>
+                </div>
+            </form>
+            <p class="font-1-s">Já é vendedor? <a class="esqsenha" href="#" onclick="openLoginLoja()">Entrar</a></p>
+        </div>
+    </div>
+</div>
+    
         <footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
