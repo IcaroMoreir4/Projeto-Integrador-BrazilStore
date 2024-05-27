@@ -16,7 +16,7 @@
 </head>
 <body>
 
-    <header class="grid">
+        <header class="grid">
             <img class="logo-header" src="./imagem/logo.svg" alt="">
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
@@ -28,123 +28,73 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a>
+                <!-- <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a> -->
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-    </header>
-    <div class="linhau"></div>
-        <div class="gridusuario">
-                <div class="meuperfil">
-                    <div class="menu-user">
-                    <div class="menu-nome">
-                        <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
-                            <div class="nomeusuario">
-                            <label class="font-1-m">Nome do usuario</label>
-                            <a href="#" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
-                        </div>
-                    </div>
-                    <div class="minha-conta">
-                        <div class="minhacontabtn">
-                            <img src="imagem/perfilMinhaConta.svg" alt="">
-                            <a class="font-1-m">Minha Conta</a>
-                        </div>
-                            <div class="perfil-end">
-                            <ul>
-                                <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
-                                <li class="font-1-s"><a href="endereço.html">Endereço</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="minhas-compras">
-                        <img src="/imagem/compras.svg" alt="">
-                        <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
-                    </div>
-                    <div class="minha-loja">
-                        <img src="/imagem/Minha-loja.svg" alt="">
-                        <a class="font-1-m" href="minha_loja.html">Minha loja</a>
-                    </div>
-                    <div class="loja-venda">
-                        <ul>
-                            <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
-                            <li class="font-1-s"><a href="minhas_vendas.html">Minhas vendas</a></li>
-                        </ul>
-                    </div>          
-                    </div>
-                </div>
-            
+                <a href="#" onclick="openPerfil()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        </header>
+        
 
-            <div class="minhas-vendas">
-                <div class="vendas-titulo">
-                        <div class="vendastexto">
-                            <h1 class="font-1-l">Minhas Vendas</h1>
-                            <a href="adicionar.html"><button class="adicionaritem font-1-m-b">ADICIONAR ITEM<img src="imagem/+.svg" alt=""></button></a>
-                        <div class="linhau"></div>
-                    </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <article class="conteudo-home grid">
+        <div class="conteudo-home_direita">
+            <h1 class="font-1-xxl">Conheça <br> nossa loja</h1>
+            <p class="font-2-l cor-9">Agora que você está aqui, dê o próximo passo em direção às novidades e tendências exclusivas que selecionamos especialmente para você. Navegue, explore e descubra as maravilhas que nossa loja tem a oferecer. Felicidades e boas compras!</p>
         </div>
+        <div class="conteudo-home_esquerda">
+            <img src="./imagem/imagem-home.png" alt="">
+        </div>
+    </article>
 
+    <article class="categorias-home grid">
+        
+    </article>
 
+    <article class="categorias grid">
+        <h2 class="font-1-xl mgb-40">Categorias</h2>
+        <nav class="categoria-nav">
+            <div class="categorias-item">
+                <a href="./">
+                    <img src="./imagem/eletronicos.svg" alt="">
+                    <p class="font-1-l cor-12">Eletrônicos</p>
+                </a>
+            </div>
+            <div class="categorias-item">
+                <a href="./">
+                    <img src="./imagem/vesturario.svg" alt="">
+                    <p class="font-1-l cor-12">Vestuário</p>
+                </a>
+            </div>
+            <div class="categorias-item">
+                <a href="./">
+                    <img src="./imagem/livros.svg" alt="">
+                    <p class="font-1-l cor-12">Livros</p>
+                </a>
+            </div>
+            <div class="categorias-item">
+                <a href="./">
+                    <img src="./imagem/jogos.svg" alt="">
+                    <p class="font-1-l cor-12">Jogos</p>
+                </a>
+            </div>
+            <div class="categorias-item">
+                <a href="./">
+                    <img src="./imagem/acessorios.svg" alt="">
+                    <p class="font-1-l cor-12">Acessórios</p>
+                </a>
+            </div>
+        </nav>
+    </article>
 
+    <article class="populares-home">
 
+    </article>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        
         <footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">

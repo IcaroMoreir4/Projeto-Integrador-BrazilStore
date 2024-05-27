@@ -1,0 +1,27 @@
+
+.minhas-vendas{
+    width: 850px;
+}
+
+.vendas-titulo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 850px;
+
+}
+
+.vendastexto a{
+    text-decoration: none;
+}
+
+.adicionaritem{
+    color: #E4A30B;
+    border: 1px solid #E4A30B;
+    border-radius: 4px;
+    padding:8px 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
