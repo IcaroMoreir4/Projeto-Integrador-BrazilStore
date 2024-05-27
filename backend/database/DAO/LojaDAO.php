@@ -48,8 +48,26 @@ class LojaDao{
         $stmt->bindValue(1, $email);
         $stmt->bindValue(2, $senha);
         $stmt->execute();
-        return $stmt->rowCount() > 0;
+
+        // Verifica se a autenticação foi bem-sucedida
+        if ($stmt->rowCount() > 0) {
+            // Retorna o objeto Loja
+            return $stmt->fetch(PDO::FETCH_OBJ);
+        } else {
+            // Retorna false se a autenticação falhar
+            return false;
+        }
     }
+
+    public function getLojaById($id) {
+        $sql = 'SELECT * FROM comercio.loja WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+
 
 }
 

@@ -46,7 +46,7 @@
                     <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
                         <div class="nomeusuario">
                         <label class="font-1-m">Nome do usuario</label>
-                        <a href="#" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
+                        <a href="perfil.html" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
                     </div>
                 </div>
                 <div class="minha-conta">
@@ -121,7 +121,7 @@
             <div class="popup-content">
                 <span class="close" onclick="closeLoginLoja()">&times;</span>
                 <h2 class="font-1-l">Entrar</h2>
-                <form action="login_usuario.php" method="get">
+                <form action="login_vendedor.php" method="post">
                     <label for="login-email" class="font-1-m">Email</label>
                     <div class="email-l">
                         <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
@@ -138,7 +138,7 @@
                     </div>
                 </form>
             </div>
-            <p class="font-1-s">Ainda não tem conta? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
+            <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
         </div>
     </div>
     </div>
@@ -147,8 +147,8 @@
         <div id="popupCadastroLoja" class="popup">
             <div class="popup-content">
                 <span class="close" onclick="closeCadastroLoja()">&times;</span>
-                <h2 class="font-1-l">Cadastre-se</h2>
-                <form action="cadastrar_usuario.php" method="post">
+                <h2 class="font-1-l">Seja Vendedor</h2>
+                <form action="cadastrar_vendedor.php" method="post">
                     <label for="cadas-nome" class="font-1-m">Nome</label>
                     <div class="nome">
                         <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
@@ -173,7 +173,7 @@
                         <button type="submit">Cadastre-se</button>
                     </div>
                 </form>
-                <p class="font-1-s">Já possui conta? <a class="esqsenha" href="#" onclick="openLoginLoja()">Entrar</a></p>
+                <p class="font-1-s">Já é vendedor? <a class="esqsenha" href="#" onclick="openLoginLoja()">Entrar</a></p>
             </div>
         </div>
     </div>

@@ -1,3 +1,23 @@
+<?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+session_start();
+
+if (!isset($_SESSION['vendedor_id'])) {
+    echo "Você precisa estar logado para ver esta página.";
+    exit;
+}
+
+$vendedor = $_SESSION['vendedor_id'];
+$vendedorDAO = new VendedorDAO();
+$vendedor = $vendedorDAO->getVendedorById($vendedor);
+
+
+if (!$vendedor) {
+    echo "Vendedor não encontrado.";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -28,54 +48,126 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="pesquisar.php" method="get">
+            <form action="" method="">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <!-- <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a> -->
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>
-        
-        <div id="popupBg" class="popup-bg">
-            <div id="popupLogin" class="popup">
-            <div class="popup-content">
-            <span class="close" onclick="closeLogin()">&times;</span>
-            <h2 class="font-1-l">Entrar</h2>
 
-            <div class="popup-content">
-                <span class="close" onclick="closeLogin()">&times;</span>
-                <h2 class="font-1-l">Entrar</h2>
-                <form action="login_usuario.php" method="get">
-                    <label for="login-email" class="font-1-m">Email</label>
-                    <div class="email-l">
-                        <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
-                    </div>
-                    <label for="login-password" class="font-1-m">Senha</label>
-                    <div class="senha-l">
-                        <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
-                    </div>
-                    <div class="esqsenha">
-                        <a class="font-1-s" href="">Esqueceu a senha?</a>
-                    </div>
-                    <div class="but-entrar">
-                        <button type="submit" name="submit" class="submit-button">ENTRAR</button>
-                    </div>
-                </form>
+    <div class="linhau"></div>
+    <div class="gridusuario">
+        <div class="meuperfil">
+            <div class="menu-user">
+            <div class="menu-nome">
+                <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
+                    <div class="nomeusuario">
+                    <label class="font-1-m">Nome do usuario</label>
+                    <a href="#" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
+                </div>
             </div>
-            <p class="font-1-s">Ainda não tem conta? <a class="font-1-s esqsenha" href="#" onclick="openCadastro()">Cadastre-se</a></p>
+            <div class="minha-conta">
+                <div class="minhacontabtn">
+                    <img src="imagem/perfilMinhaConta.svg" alt="">
+                    <a class="font-1-m">Minha Conta</a>
+                </div>
+                    <div class="perfil-end">
+                    <ul>
+                        <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
+                        <li class="font-1-s"><a href="endereço.html">Endereço</a></li>
+                    </ul>
+                </div>
+                    </div>
+            <div class="minhas-compras">
+                <img src="/imagem/compras.svg" alt="">
+                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
+
+                <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
+            </div>
+        </div>
+
+        <div class="perfil">
+            <div class="perfil-texto">
+                <h1 class="font-2-l">Meu Perfil</h1>
+                <p class="font-1-s">Gerenciar e proteger sua conta</p>
+                <div class="linhau"></div>
+            </div>
+
+            <div class="painelperfil">
+            <div class="meu-perfil">
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Nome de Usuário: </label>
+                        <span><?= htmlspecialchars($vendedor->nome) ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Email: </label>
+                        <span><?= htmlspecialchars($vendedor->email) ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Telefone: </label>
+                        <span><?= htmlspecialchars($vendedor->telefone) ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Sexo</label>
+                        <input type="radio" name="genero" value="masculino"> Masculino
+                        <input type="radio" name="genero" value="feminino" > Feminino
+                        <input type="radio" name="genero" value="Outros" > Outros
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">CPF: </label>
+                        <span><?= htmlspecialchars($vendedor->cpf) ?></span>
+                    </div>
+            </div>
+            <div class="adicionar-perfil">
+                <img src="imagem/user.svg" alt="">
+                <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
+            </div>
+            </div>
+
+        </div>
+
+
         </div>
     </div>
+
+<div id="popupBgLoja" class="popup-bg">
+        <div id="popupLoginLoja" class="popup">
+        <div class="popup-content">
+        <span class="close" onclick="closeLoginLoja()">&times;</span>
+        <div class="popup-content">
+            <span class="close" onclick="closeLoginLoja()">&times;</span>
+            <h2 class="font-1-l">Entrar</h2>
+            <form action="login_vendedor.php" method="post">
+                <label for="login-email" class="font-1-m">Email</label>
+                <div class="email-l">
+                    <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
+                </div>
+                <label for="login-password" class="font-1-m">Senha</label>
+                <div class="senha-l">
+                    <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
+                </div>
+                <div class="esqsenha">
+                    <a class="font-1-s" href="">Esqueceu a senha?</a>
+                </div>
+                <div class="but-entrar">
+                    <button type="submit" name="submit" class="submit-button">ENTRAR</button>
+                </div>
+            </form>
+        </div>
+        <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
+    </div>
+</div>
 </div>
 
-<div id="popupBgCadastro" class="popup-bg">
-    <div id="popupCadastro" class="popup">
+<div id="popupBgCadastroLoja" class="popup-bg">
+    <div id="popupCadastroLoja" class="popup">
         <div class="popup-content">
-            <span class="close" onclick="closeCadastro()">&times;</span>
-            <h2 class="font-1-l">Cadastre-se</h2>
-            <form action="cadastrar_usuario.php" method="post">
+            <span class="close" onclick="closeCadastroLoja()">&times;</span>
+            <h2 class="font-1-l">Seja Vendedor</h2>
+            <form action="cadastrar_vendedor.php" method="post">
                 <label for="cadas-nome" class="font-1-m">Nome</label>
                 <div class="nome">
                     <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
@@ -100,66 +192,11 @@
                     <button type="submit">Cadastre-se</button>
                 </div>
             </form>
-            <p class="font-1-s">Já possui conta? <a class="esqsenha" href="#" onclick="openLogin()">Entrar</a></p>
+            <p class="font-1-s">Já é vendedor? <a class="esqsenha" href="#" onclick="openLoginLoja()">Entrar</a></p>
         </div>
     </div>
 </div>
-
-    <article class="conteudo-home grid">
-        <div class="conteudo-home_direita">
-            <h1 class="font-1-xxl">Conheça <br> nossa loja</h1>
-            <p class="font-2-l cor-9">Agora que você está aqui, dê o próximo passo em direção às novidades e tendências exclusivas que selecionamos especialmente para você. Navegue, explore e descubra as maravilhas que nossa loja tem a oferecer. Felicidades e boas compras!</p>
-        </div>
-        <div class="conteudo-home_esquerda">
-            <img src="./imagem/imagem-home.png" alt="">
-        </div>
-    </article>
-
-    <article class="categorias-home grid">
-        
-    </article>
-
-    <article class="categorias grid">
-        <h2 class="font-1-xl mgb-40">Categorias</h2>
-        <nav class="categoria-nav">
-            <div class="categorias-item">
-                <a href="./">
-                    <img src="./imagem/eletronicos.svg" alt="">
-                    <p class="font-1-l cor-12">Eletrônicos</p>
-                </a>
-            </div>
-            <div class="categorias-item">
-                <a href="./">
-                    <img src="./imagem/vesturario.svg" alt="">
-                    <p class="font-1-l cor-12">Vestuário</p>
-                </a>
-            </div>
-            <div class="categorias-item">
-                <a href="./">
-                    <img src="./imagem/livros.svg" alt="">
-                    <p class="font-1-l cor-12">Livros</p>
-                </a>
-            </div>
-            <div class="categorias-item">
-                <a href="./">
-                    <img src="./imagem/jogos.svg" alt="">
-                    <p class="font-1-l cor-12">Jogos</p>
-                </a>
-            </div>
-            <div class="categorias-item">
-                <a href="./">
-                    <img src="./imagem/acessorios.svg" alt="">
-                    <p class="font-1-l cor-12">Acessórios</p>
-                </a>
-            </div>
-        </nav>
-    </article>
-
-    <article class="populares-home">
-
-    </article>
-
-        
+    
         <footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
