@@ -59,7 +59,7 @@ class EnderecoDAO{
     }
 
     public function delete(Endereco $endereco){
-        $sql = "DELETE FROM  endereco.endereco WHERE id = ?";
+        $sql = "DELETE FROM  endereco.endereco WHERE id_cliente = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $endereco->getId());
         $stmt->execute();
