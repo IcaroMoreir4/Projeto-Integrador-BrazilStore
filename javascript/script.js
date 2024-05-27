@@ -109,10 +109,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
-
+function openPerfil() {
+    var perfilMenu = document.getElementById('perfilMenu');
+    perfilMenu.classList.toggle('aberto');
+}
 
 
 

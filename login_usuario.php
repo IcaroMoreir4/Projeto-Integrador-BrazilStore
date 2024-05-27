@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['submit'])) {
     $clienteDAO = new ClienteDAO();
 
     if ($clienteDAO->autenticar($email, $senha)){
-        header('location: molde-com-conta.html');
+        header('location: home.html');
         exit(); 
     } else {
         header('Location: login.php');

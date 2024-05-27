@@ -124,3 +124,46 @@ header .icon_sino{
 .rotacionado {
     transform: rotate(180deg);
 }
+
+header .perfil_btn {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+header .perfil_menu {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    background-color: var(--cor-0);
+    width: 100px; /* Ajuste conforme necessário */
+    border-top: none;
+    border-right: 1px solid var(--cor-12);
+    border-bottom: 1px solid var(--cor-12); 
+    border-left: 1px solid var(--cor-12);
+    border-radius: 5px;
+    padding: 10px;
+    transition: opacity 0.3s ease; 
+    opacity: 0;
+}
+
+header .perfil_menu.aberto {
+    opacity: 1;
+    display: block;
+}
+
+header .perfil_menu a {
+    display: block;
+    color: var(--cor-12);
+    padding: 5px 0;
+    text-align: center;
+    transition: color .3s ease, text-decoration .3s ease;
+}
+
+header .perfil_menu a:hover {
+    color: var(--cor-p1);
+    text-decoration: underline;
+}
