@@ -1,6 +1,6 @@
 --create database e_commercer
 
-drop schema public;
+-- drop schema public;
 create schema endereco;
 create schema usuario;
 create schema comercio;
