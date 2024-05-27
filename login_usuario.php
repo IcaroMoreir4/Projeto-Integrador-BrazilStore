@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET' && isset($_GET['submit'])) {
         header('location: molde-com-conta.php');
         exit(); 
     } else {
-        header('Location: login.php');
+        header('Location: index.html');
         exit(); 
     }
 } else {
