@@ -1,3 +1,22 @@
+<?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/LojaDAO.php');
+session_start();
+
+if (!isset($_SESSION['loja_id'])) {
+    echo "Você precisa estar logado para ver esta página.";
+    exit;
+}
+
+$loja = $_SESSION['loja_id'];
+$lojaDAO = new LojaDao();
+$loja = $lojaDAO->getLojaById($loja);
+
+if (!$loja) {
+    echo "Loja não encontrado.";
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -34,7 +53,6 @@
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a>
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
     </header>
@@ -67,58 +85,42 @@
                     </div>
                     <div class="minha-loja">
                         <img src="/imagem/Minha-loja.svg" alt="">
-                        <a class="font-1-m" href="listar_produtos_teste.php">Minha loja</a>
+                        <a class="font-1-m" href="minha_loja.html">Minha loja</a>
                     </div>
                     <div class="loja-venda">
                         <ul>
                             <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
-                            <li class="font-1-s"><a href="">Minhas vendas</a></li>
+                            <li class="font-1-s"><a href="minhas_vendas.html">Minhas vendas</a></li>
                         </ul>
                     </div>          
                     </div>
                 </div>
-            
-
-            <div class="minhas-vendas">
-                <div class="vendas-titulo">
-                        <div class="vendastexto">
-                            <h1 class="font-1-l">Minhas Vendas</h1>
-                            <a href="adicionar.html"><button class="adicionaritem font-1-m-b">ADICIONAR ITEM<img src="imagem/+.svg" alt=""></button></a>
-                        <div class="linhau"></div>
-                    </div>
+        
+        <div class="perfil-loja">
+            <div class="loja-texto">
+                <h1 class="font-2-l">Minha loja</h1>
+                <p class="font-1-s">Gerenciar e proteger sua conta</p>
+                <div class="linhau"></div>
             </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="painelloja">
+            <div class="loja-perfil">
+            <p class="font-1-s">Nome: <?= htmlspecialchars($loja->nome) ?></p>
+            <p class="font-1-s">Email:<?= htmlspecialchars($loja->email) ?></p>
+            </div>
+                <div class="adicionar-perfil">
+                    <img src="imagem/user.svg" alt="">
+                    <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
+                </div>
+            </div>
+        </div>
 
 
 
 
 
         </div>
+
 
 
 
