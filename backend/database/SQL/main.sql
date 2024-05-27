@@ -26,6 +26,7 @@ create table endereco.cidade(
 
 create table endereco.endereco (
 	id serial not null primary key,
+	id_cliente integer,
 	logradouro varchar(40) not null,
 	numero integer,
 	bairro varchar(20) not null,
@@ -44,8 +45,7 @@ create table usuario.cliente(
 	cpf char (11) not null,
 	cnpj char (14),
 	telefone char (11),
-	id_endereco integer,
-	foreign key(id_endereco) references endereco.endereco(id)
+	
 );
 
 create table usuario.adm(
@@ -169,3 +169,6 @@ add foreign key(id_avaliacao) references avaliacao.avaliacao_produto(id);
 
 alter table pedido.item_carrinho
 add foreign key(id_produto) references produto.produto(id);
+
+alter table endereco.endereco
+add foreign key(id_cliente) references usuario.cliente(id);
