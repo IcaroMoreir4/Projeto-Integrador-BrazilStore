@@ -1,5 +1,7 @@
 <?php
+
 require_once('../backend/database/DAO/ProdutoDAO.php');
+//require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php'); //Quando for colocar na pasta raiz.
 
 $dao = new ProdutoDAO(); 
 

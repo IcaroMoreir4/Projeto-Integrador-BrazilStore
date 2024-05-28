@@ -2,7 +2,7 @@
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
-//require_once('../backend/classes/comercio/produto.php'); // Este require é importante para linkar a barra de pesquisa!
+//require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); // Este require é importante para linkar a barra de pesquisa!
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
 

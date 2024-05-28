@@ -21,10 +21,7 @@ class EnderecoDAO{
 
     //Apresentação na aba de "Meus Endereços".
     public function read($id){
-        $sql = "SELECT usuario.endereco.*
-        FROM usuario.endereco 
-        INNER JOIN usuario.cliente ON usuario.endereco.id_cliente = usuario.cliente.id
-        WHERE usuario.cliente.id = ?";
+        $sql = "SELECT usuario.endereco.* FROM usuario.endereco INNER JOIN usuario.cliente ON usuario.endereco.id_cliente = usuario.cliente.id WHERE usuario.cliente.id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->execute();
 

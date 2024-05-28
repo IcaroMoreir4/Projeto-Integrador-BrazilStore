@@ -1,4 +1,5 @@
 <?php
+/*
 require_once 'Conexao.php';
 
 $conn = Conexao::getConn();
@@ -8,4 +9,5 @@ if ($conn) {
 } else {
     echo "Falha na conexão.";
 }
+*/
 ?>
