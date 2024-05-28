@@ -4,6 +4,8 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 
 $dao = new ProdutoDAO(); 
 
+//Falta configurar o botão de submit
+
 if(isset($_GET['termo'])) {
     $termo = $_GET['termo'];
     $produtos = $dao->query($termo);

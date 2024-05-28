@@ -94,8 +94,11 @@ create table produto.produto(
 	id serial not null primary key,
 	nome varchar (40) not null,
 	id_categoria integer,
-	valor numeric (5,2) not null,
+	valor numeric (7,2) not null,
 	descricao varchar (300),
+	peso numeric (5,2),
+	tamanho varchar(4),
+	cor varchar (30),
 	id_loja integer,
 	id_catg integer,
 	id_avaliacao integer,
@@ -107,6 +110,8 @@ create table produto.produto(
 create table pedido.item_carrinho(
 	id serial primary key not null,
 	id_produto integer,
+	tamanho varchar(4),
+	cor varchar (30),
 	quantidade integer not null
 ); -- As chaves estrangeiras estão no final
 
