@@ -15,7 +15,7 @@ create table usuario.cliente(
 	senha varchar (40) not null,
 	cpf char (11) not null,
 	cnpj char (14),
-	telefone char (11),
+	telefone char (11)
 );
 
 create table usuario.adm(
