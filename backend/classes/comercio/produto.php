@@ -10,6 +10,7 @@ class produto{
     protected $cor;
     protected $tipo_entrega;
     protected $id_vendedor;
+    protected $path_image;
 
 
     // public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
@@ -79,6 +80,9 @@ class produto{
         return $this->id_vendedor;
     }
 
+    public function getPath_image(){
+        return $this->path_image;
+    }
 
     //Setters
     public function setId($id){
@@ -119,6 +123,9 @@ class produto{
 
     public function setIdvendedor($id_vendedor){
         $this->id_vendedor = $id_vendedor;
+    }
+    public function setPath_image($path_image){
+        $this->path_image= $path_image;
     }
 }
 ?>
