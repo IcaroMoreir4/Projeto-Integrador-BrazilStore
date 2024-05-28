@@ -6,17 +6,21 @@ class produto{
     protected $valor;
     protected $descricao;
     protected $peso;
+    protected $tamanho;
+    protected $cor;
     protected $tipo_entrega;
     protected $id_vendedor;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $id_vendedor)
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
     {
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
         $this->id_categoria = $id_categoria;
         $this->peso = $peso;
+        $this->tamanho = $tamanho;
+        $this->cor = $cor;
         $this->tipo_entrega = $tipo_entrega;
         $this->id_vendedor = $id_vendedor;
     }
@@ -45,6 +49,14 @@ class produto{
 
     public function getPeso(){
         return $this->peso;
+    }
+
+    public function getTamanho(){
+        return $this->tamanho;
+    }
+
+    public function getCor(){
+        return $this->cor;
     }
 
     public function getTipoEentrega(){
@@ -79,6 +91,14 @@ class produto{
 
     public function setPeso($peso){
         $this->peso = $peso;
+    }
+
+    public function setTamanho($tamanho){
+        $this->tamanho = $tamanho;
+    }
+
+    public function setCor($cor){
+        $this->cor = $cor;
     }
 
     public function setTipoEntrega($tipo_entrega){

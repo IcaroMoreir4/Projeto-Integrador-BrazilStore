@@ -7,14 +7,16 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 
 class ProdutoDAO {
     public function create(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tamanho, cor, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(6, $produto->getTamanho());
+        $stmt->bindValue(7, $produto->getCor());
+        $stmt->bindValue(8, $produto->getTipoEentrega());
         $stmt->execute();
     }
     
