@@ -2,21 +2,25 @@
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+//require_once('../backend/classes/comercio/produto.php'); // Este require é importante para linkar a barra de pesquisa!
+require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+
 
 class ProdutoDAO {
-    public function create(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $produto->getNome());
-        $stmt->bindValue(2, $produto->getIdcategoria());
-        $stmt->bindValue(3, $produto->getValor());
-        $stmt->bindValue(4, $produto->getDescricao());
-        $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
-        $stmt->execute();
-    }
+    // public function create(Produto $produto) {
+    //     $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tamanho, cor, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
+    //     $stmt = Conexao::getConn()->prepare($sql);
+    //     $stmt->bindValue(1, $produto->getNome());
+    //     $stmt->bindValue(2, $produto->getIdcategoria());
+    //     $stmt->bindValue(3, $produto->getValor());
+    //     $stmt->bindValue(4, $produto->getDescricao());
+    //     $stmt->bindValue(5, $produto->getPeso());
+    //     $stmt->bindValue(6, $produto->getTamanho());
+    //     $stmt->bindValue(7, $produto->getCor());
+    //     $stmt->bindValue(8, $produto->getTipoEentrega());
+    //     $stmt->execute();
+    // }
     
     public function read() {
         $sql = 'SELECT * FROM produto.produto';
@@ -44,12 +48,12 @@ class ProdutoDAO {
     }
 
     //Barra de pesquisa
-    public function query($termo) {
-        $query = "SELECT * FROM produto.produto WHERE nome LIKE :nome";
-        $stmt = Conexao::getConn()->prepare($query);
-        $stmt->bindValue(':nome', '%' . $termo . '%');
+    public function query($consulta) {
+        $consulta = '%' . $consulta . '%'; // Adiciona % para busca parcial
+        $stmt = Conexao::getConn()->prepare('SELECT nome, valor FROM produto.produto WHERE nome LIKE :consulta');
+        $stmt->bindParam(':consulta', $consulta);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Apresentação do produto individual.
@@ -121,6 +125,21 @@ class ProdutoDAO {
         $stmt->execute(['id_vendedor' => $id_vendedor]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+
+    public function create(Produto $produto, $image) {
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, image_path) VALUES (?, ?, ?, ?, ?, ?, ?,)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $produto->getNome());
+        $stmt->bindValue(2, $produto->getIdcategoria());
+        $stmt->bindValue(3, $produto->getValor());
+        $stmt->bindValue(4, $produto->getDescricao());
+        $stmt->bindValue(5, $produto->getPeso());
+        $stmt->bindValue(7, $produto->getTipoEentrega());
+        $stmt->bindValue(8, $image);
+        $stmt->execute();
+    }
+    
 }
 
 ?>

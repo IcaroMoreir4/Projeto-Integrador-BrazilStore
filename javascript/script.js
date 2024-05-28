@@ -94,6 +94,20 @@ function closeLoginLoja() {
     document.getElementById('popupBgLoja').style.display = 'none'; 
 }
 
+// Função para abrir o pop-up de cadastro Endereço
+function openCadastroEndereço() {
+    document.getElementById('popupCadastroEndereço').style.display = 'block';
+    document.getElementById('popupBgCadastroEndereço').style.display = 'flex'; 
+    document.getElementById('popupLoginEndereço').style.display = 'none';
+    document.getElementById('popupBgEndereço').style.display = 'none';   
+}
+
+// Função para fechar o pop-up de cadastro Endereço
+function closeCadastroEndereço() {
+    document.getElementById('popupCadastroEndereço').style.display = 'none';
+    document.getElementById('popupBgCadastroEndereço').style.display = 'none'; 
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const listItems = document.querySelectorAll('.abrir-termos');
     

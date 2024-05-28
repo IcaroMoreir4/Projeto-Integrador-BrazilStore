@@ -1,3 +1,7 @@
+.popupCadastroEndereco{
+ 
+}
+
 .box_cadasendereço{
     display: flex;
     flex-direction: column;
@@ -60,4 +64,8 @@
     border-style: none;
     background: linear-gradient(180deg, #FFBF00 0%, #F2A50C 100%);
     
+}
+
+.but_enviar :hover{
+    cursor: pointer;
 }
