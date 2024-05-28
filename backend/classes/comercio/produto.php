@@ -12,15 +12,27 @@ class produto{
     protected $id_vendedor;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
+    // public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
+    // {
+    //     $this->nome = $nome;
+    //     $this->valor = $valor;
+    //     $this->descricao = $descricao;
+    //     $this->id_categoria = $id_categoria;
+    //     $this->peso = $peso;
+    //     $this->tamanho = $tamanho;
+    //     $this->cor = $cor;
+    //     $this->tipo_entrega = $tipo_entrega;
+    //     $this->id_vendedor = $id_vendedor;
+    // }
+
+
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $id_vendedor)
     {
         $this->nome = $nome;
         $this->valor = $valor;
         $this->descricao = $descricao;
         $this->id_categoria = $id_categoria;
         $this->peso = $peso;
-        $this->tamanho = $tamanho;
-        $this->cor = $cor;
         $this->tipo_entrega = $tipo_entrega;
         $this->id_vendedor = $id_vendedor;
     }
