@@ -6,14 +6,13 @@ require_once(__DIR__ . '/../../classes/usuarios/cliente.php');
 class ClienteDAO{
 
     public function create(Cliente $cliente){
-        $sql = 'INSERT INTO usuario.cliente (nome,email,senha,telefone,cpf,id_endereco) values (?,?,?,?,?,?)';
+        $sql = 'INSERT INTO usuario.cliente (nome,email,senha,telefone,cpf) values (?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $cliente->getNome());
         $stmt->bindValue(2, $cliente->getEmail());
         $stmt->bindValue(3, $cliente->getSenha());
         $stmt->bindValue(4, $cliente->getTelefone());
         $stmt->bindValue(5, $cliente->getCpf());
-        $stmt->bindValue(6, $cliente->getId_endereco());
         $stmt->execute();
     }
     

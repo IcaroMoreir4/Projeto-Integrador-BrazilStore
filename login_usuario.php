@@ -9,10 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $clienteDAO = new ClienteDAO();
 
     if ($clienteDAO->autenticar($email, $senha)){
-        header('location: home.html');
+        header('location: home.php');
         exit(); 
     } else {
-        header('Location: index.html');
+        header('Location: index.php');
         exit(); 
     }
 } else {
