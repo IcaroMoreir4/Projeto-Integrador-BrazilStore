@@ -2,11 +2,14 @@
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
-require_once('../backend/classes/comercio/produto.php');
+//require_once('../backend/classes/comercio/produto.php'); // Este require é importante para linkar a barra de pesquisa!
+require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+
 
 class ProdutoDAO {
     // public function create(Produto $produto) {
-    //     $sql = ' ';
+    //     $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tamanho, cor, tipo_entrega) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
     //     $stmt = Conexao::getConn()->prepare($sql);
     //     $stmt->bindValue(1, $produto->getNome());
     //     $stmt->bindValue(2, $produto->getIdcategoria());
