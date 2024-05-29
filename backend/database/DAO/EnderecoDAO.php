@@ -17,11 +17,17 @@ class EnderecoDAO{
         $stmt->execute();
     }
 
-    public function read($id){
-        $sql = "SELECT usuario.endereco.* FROM usuario.endereco INNER JOIN usuario.cliente ON usuario.endereco.id_cliente = usuario.cliente.id WHERE usuario.cliente.id = ?";
+    public function read($user_id){
+        $sql = "SELECT usuario.endereco.* FROM usuario.endereco INNER JOIN usuario.cliente ON usuario.endereco.id_cliente = usuario.cliente.id WHERE usuario.cliente.id = :user_id";
         $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':user_id', $user_id);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($row) {
+            return $row['id'];
+        }
+        return null;
     }
 
     public function update(Endereco $endereco){

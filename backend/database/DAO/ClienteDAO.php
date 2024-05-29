@@ -53,6 +53,8 @@ class ClienteDAO{
         return $stmt->rowCount() > 0;
     }
 */
+
+    //Teste de função para colocar o id no session_start.
     public function autenticar($email, $senha) {
         $sql = 'SELECT * FROM usuario.cliente WHERE email = :email AND senha = :senha';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -60,9 +62,9 @@ class ClienteDAO{
         $stmt->bindParam(':senha', $senha); // Assumindo que a senha está armazenada em plain text (não recomendado, use hashing)
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        
         if ($row) {
-            return new cliente($row['id'], $row['nome'], $row['email'],  $row['cpf'],  $row['senha'],  $row['telefone']);
+            return $id_user = $row['id'];
         }
         return null;
     }

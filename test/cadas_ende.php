@@ -6,6 +6,7 @@
 
     $dao = new EnderecoDAO();
 
+    //Logica para implementar com a DAO para cadastra um endereço.
     if (isset($_POST['cadastra_endereco'])) {
         $cadastra_enderecos = $dao->create($endereco);
     }
@@ -39,7 +40,7 @@
     <title>Cadastra endereços</title>
 </head>
 <body>
-    <form action="cadas_ende.php" method="post">
+<form action="endereco.php" method="post">
                     <label for="" class="">Nome</label>
                     <div class="nome">
                         <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
