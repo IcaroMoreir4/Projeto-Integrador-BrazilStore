@@ -1,4 +1,6 @@
 <?php
+
+require_once ('usuarios.php');
 class cliente extends usuario{
     
     public function __construct($id, $nome, $email, $cpf, $senha, $telefone){
