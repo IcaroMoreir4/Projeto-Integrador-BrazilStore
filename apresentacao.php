@@ -5,10 +5,10 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 if(isset($_SESSION['produto_id']))
     $id_produto = $_SESSION['produto_id'];
     $produtoDAO = new ProdutoDAO();
-    $produto = $produtoDAO->presentation($produto);
+    $produto1 = $produtoDAO->presentation($produto);
 
-    if ($produto){
-        foreach ($produtos as $produto);
+    if ($produto1){
+        foreach ($produto as $produto1);
     }
 
 ?>
