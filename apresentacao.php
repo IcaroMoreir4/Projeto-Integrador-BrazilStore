@@ -2,8 +2,14 @@
 
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-$produtoDAO = new ProdutoDAO();
-$produto = $produtoDAO->presentation($produto);
+if(isset($_SESSION['produto_id']))
+    $id_produto = $_SESSION['produto_id'];
+    $produtoDAO = new ProdutoDAO();
+    $produto = $produtoDAO->presentation($produto);
+
+    if ($produto){
+        foreach ($produtos as $produto);
+    }
 
 ?>
 
