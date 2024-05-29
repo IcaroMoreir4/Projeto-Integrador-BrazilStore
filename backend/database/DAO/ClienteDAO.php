@@ -33,8 +33,6 @@ class ClienteDAO{
         $stmt->bindValue(3, $cliente->getSenha());
         $stmt->bindValue(4, $cliente->getTelefone());
         $stmt->bindValue(5, $cliente->getCpf());
-        $stmt->bindValue(6, $cliente->getId_endereco());
-
         $stmt->execute();
     }
 
@@ -44,7 +42,7 @@ class ClienteDAO{
         $stmt->bindValue(1, $cliente->getId());
         $stmt->execute();
     }
-
+/*
     //Metodo autenticar
     public function autenticar($email, $senha) {
         $sql = 'SELECT * FROM usuario.cliente WHERE email = ? AND senha = ?';
@@ -53,6 +51,33 @@ class ClienteDAO{
         $stmt->bindValue(2, $senha);
         $stmt->execute();
         return $stmt->rowCount() > 0;
+    }
+*/
+    public function autenticar($email, $senha) {
+        $sql = 'SELECT * FROM usuario.cliente WHERE email = :email AND senha = :senha';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':senha', $senha); // Assumindo que a senha está armazenada em plain text (não recomendado, use hashing)
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return new cliente($row['id'], $row['nome'], $row['email'],  $row['cpf'],  $row['senha'],  $row['telefone']);
+        }
+        return null;
+    }
+
+    public function session_id($id) {
+        $sql = 'SELECT * FROM usuario.cliente WHERE id = :id';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return new cliente($row['id'], $row['nome'], $row['email'],  $row['cpf'], $row[null], $row['telefone']);
+        }
+        return null;
     }
 
     //Consulta de pedidos

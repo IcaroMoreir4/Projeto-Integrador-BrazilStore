@@ -2,14 +2,16 @@
 
 class endereco{
     protected $id;
+    protected $nome_comp;
+    protected $telefone_end;
     protected $logradouro;
     protected $numero;
     protected $bairro;
     protected $cep;
     protected $nome_cidade;
     protected $nome_estado;
-
-    public function __construct($id, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
+    
+    public function __construct($id, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
         $this-> id = $id;
         $this-> logradouro = $logradouro;
         $this-> numero = $numero;
@@ -17,6 +19,8 @@ class endereco{
         $this-> cep = $cep;
         $this-> nome_cidade = $nome_cidade;
         $this-> nome_estado = $nome_estado;
+        $this-> nome_comp = $nome_comp;
+        $this-> telefone_end = $telefone_end;
     }
 
 
@@ -49,6 +53,13 @@ class endereco{
         return $this->nome_estado;
     }
 
+    public function getNome_comp(){
+        return $this->nome_comp;
+    }
+
+    public function getTelefone_end(){
+        return $this->telefone_end;
+    }
 
     //Setters
     public function setId($id){
@@ -78,5 +89,13 @@ class endereco{
 
     public function setNome_estado($nome_estado){
         $this-> nome_estado = $nome_estado;
+    }
+
+    public function setNome_comp($nome_comp){
+        $this-> nome_comp = $nome_comp;
+    }
+
+    public function setTelefone_end($telefone_end){
+        $this-> telefone_end = $telefone_end;
     }
 }

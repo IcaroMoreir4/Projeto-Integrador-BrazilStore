@@ -1,8 +1,8 @@
 <?php
-require_once('usuarios.php');
 class cliente extends usuario{
     
-    public function __construct($nome, $email, $cpf, $senha, $telefone){
+    public function __construct($id, $nome, $email, $cpf, $senha, $telefone){
+        $this-> id = $id;
         $this-> nome = $nome;
         $this-> email = $email;
         $this-> cpf = $cpf;
@@ -36,10 +36,6 @@ class cliente extends usuario{
         return $this-> telefone;
     }
 
-    public function getId_endereco(){
-        return $this-> id_endereco;
-    }
-
 
     //Setters
     public function setId($id){
@@ -64,10 +60,6 @@ class cliente extends usuario{
 
     public function setTelefone($telefone){
         $this-> telefone = $telefone;
-    }
-
-    public function setId_endereco($id_endereco){
-        $this-> id_endereco = $id_endereco;
     }
 }
 ?>

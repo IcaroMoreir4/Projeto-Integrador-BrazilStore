@@ -1,23 +1,11 @@
 <?php
-    session_start();
-
-    // Verificar se o usuário está logado
-    if (!isset($_SESSION['user_id'])) {
-        echo 'Vocé não esta logado para acessar esta pagina.';
-        //header('Location: index.php');
-        //exit();
-    }
-
+    require_once('../backend/classes/usuarios/endereco.php');
     require_once('../backend/database/DAO/EnderecoDAO.php');
+
+    session_start();
 
     $dao = new EnderecoDAO();
 
-    //Função para consultar os endereços cadastrados.
-    if (isset($_POST['exibirEnderecos'])) {
-        $enderecos = $dao->read($_SESSION['user_id']);
-    }
-    
-    //Logica para implementar com a DAO para cadastra um endereço.
     if (isset($_POST['cadastra_endereco'])) {
         $cadastra_enderecos = $dao->create($endereco);
     }
@@ -41,17 +29,6 @@
             echo "Por favor, preencha todos os campos do formulário.";
         }
     }
-/*
-    //Função para excluir os endereços.
-    if (isset($_POST['excluir_endereco'])) {
-        $cadastra_enderecos = $dao->delete($endereco);
-        $id = 
-        $del_end = new Endereco();
-    }
-
-    if ($_SERVER)
- */
-    //Função para editar os endereços.
 ?>
 
 <!DOCTYPE html>
@@ -59,32 +36,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Endereço</title>
-</head> 
+    <title>Cadastra endereços</title>
+</head>
 <body>
-    <h1>Endereço</h1>
-    <!--Html para ter o botão de consulta.-->
-    <form method="post">
-        <button type="submit" name="exibirEnderecos">Consultar endereços</button>
-    </form>
-    
-    <br>
-    
-    <?php if (isset($enderecos)): ?>
-        <ul>
-            <?php foreach ($enderecos as $endereco): ?>
-                <li>
-                    <?php echo $endereco->logradouro . ', ' . $endereco->numero; $endereco->bairro . ', ' . $endereco->cep ?> - 
-                    <?php echo $endereco->nome_cidade . '/' . $endereco->nome_estado; ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
-
-    <br>
-
-    <!--Html para cadastra o endereço.-->
-    <form action="endereco.php" method="post">
+    <form action="cadas_ende.php" method="post">
                     <label for="" class="">Nome</label>
                     <div class="nome">
                         <input class="campo" type="text" name="nome" id="cadas-nome" placeholder="Nome">
@@ -129,12 +84,5 @@
                         <button type="submit">Cadastrar</button>
                     </div>
     </form>
-
-    <br>
-
-    <form>
-
-    </form>
-
 </body>
 </html>
