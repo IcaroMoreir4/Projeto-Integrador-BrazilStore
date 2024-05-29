@@ -47,11 +47,6 @@ if(isset($_SESSION['produto_id']))
     <title>Document</title>
 </head>
 <body>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Produtos</title>
-</head>
-<body>
     <h1>Lista de Produtos</h1>
     <form action="detalhes_produto.php" method="get">
         <input type="hidden" name="id_produto" value="1">
