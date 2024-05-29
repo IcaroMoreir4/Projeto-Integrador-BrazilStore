@@ -2,6 +2,8 @@
 
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
+session_start();
+
 if(isset($_SESSION['produto_id']))
     $id_produto = $_SESSION['produto_id'];
     $produtoDAO = new ProdutoDAO();
