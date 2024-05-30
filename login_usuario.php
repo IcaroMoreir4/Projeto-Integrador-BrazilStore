@@ -1,6 +1,6 @@
 <?php 
-require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/cliente.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
+require_once('../../classes/usuarios/cliente.php');
+require_once('../../database/DAO/ClienteDAO.php');
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $email = $_POST['email'];
@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     if ($user){
         $_SESSION['user_id'] = $user;
-        header('location: home.php');
+        header('Location: home.php');
         exit(); 
     } else {
         header('Location: index.php'); 
