@@ -32,6 +32,7 @@
 
             if ($produtos) {
                 foreach ($produtos as $produto) {
+            
         ?>
         <div class="item-section">
             <div class="item-opcoes">
@@ -48,6 +49,7 @@
                 <div class="btn-item">
                     <button class="btn_cheio btn_adc" type="button">Comprar Agora</button>
                     <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
+                    <a href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">Editar</a>
                 </div>
             </div>
         </div>
