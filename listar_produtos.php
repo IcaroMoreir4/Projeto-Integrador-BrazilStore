@@ -1,32 +1,43 @@
 <?php
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+session_start();
 
-$produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->read();
+if (!isset($_SESSION['vendedor_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$id_vendedor = $_SESSION['vendedor_id'];
+$produtoDao = new ProdutoDAO();
+$produtos = $produtoDao->listarProdutosPorVendedor($id_vendedor);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lista de Produtos</title>
+    <title>Listagem de Produtos</title>
 </head>
 <body>
-    <h1>Lista de Produtos</h1>
-    <ul>
-        <?php if (!empty($produtos)): ?>
-            <?php foreach ($produtos as $produto): ?>
-                <li>
-                    <strong>Nome:</strong> <?= htmlspecialchars($produto->nome) ?><br>
-                    <strong>Categoria:</strong> <?= htmlspecialchars($produto->categoria) ?><br>
-                    <strong>Valor:</strong> <?= htmlspecialchars($produto->valor) ?><br>
-                    <strong>Descrição:</strong> <?= htmlspecialchars($produto->descricao) ?><br>
-                    <strong>Peso:</strong> <?= htmlspecialchars($produto->peso) ?><br>
-                    <strong>Tipo de Entrega:</strong> <?= htmlspecialchars($produto->tipo_entrega) ?>
-                </li>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>Nenhum produto encontrado.</p>
-        <?php endif; ?>
-    </ul>
+    <h1>Seus Produtos</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Categoria</th>
+            <th>Ações</th>
+        </tr>
+        <?php foreach ($produtos as $produto): ?>
+            <tr>
+                <td><?php echo $produto['id']; ?></td>
+                <td><?php echo $produto['nome']; ?></td>
+                <td><?php echo $produto['valor']; ?></td>
+                <td><?php echo $produto['categoria']; ?></td>
+                <td>
+                <a href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">Editar</a>
+                </td>
+            </tr>
+        <?php endforeach; ?>
+    </table>
 </body>
 </html>

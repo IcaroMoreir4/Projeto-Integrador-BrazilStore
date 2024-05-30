@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
 
     if ($user){
         $_SESSION['user_id'] = $user;
-        header('location: home.php');
+        header('Location: home.php');
         exit(); 
     } else {
         header('Location: index.php'); 
