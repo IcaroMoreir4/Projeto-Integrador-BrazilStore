@@ -141,6 +141,32 @@ class ProdutoDAO {
         $stmt->execute();
     }
     
+
+    public function AtualizarProdutos(Produto $produto) {
+        $sql = 'UPDATE produto.produto SET nome = ?, categoria = ?, valor = ?, descricao = ?, peso = ?, tipo_entrega = ?, image_path = ? WHERE id = ?';
+
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $produto->getNome());
+        $stmt->bindValue(2, $produto->getIdcategoria());
+        $stmt->bindValue(3, $produto->getValor());
+        $stmt->bindValue(4, $produto->getDescricao());
+        $stmt->bindValue(5, $produto->getPeso());
+        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(7, $produto->getImagePath());
+        $stmt->bindValue(8, $produto->getId());
+        $stmt->execute();
+    }
+
+    public function buscarProdutoPorId($id) {
+        $sql = 'SELECT * FROM produto.produto WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+    
+    
+    
 }
 
 ?>

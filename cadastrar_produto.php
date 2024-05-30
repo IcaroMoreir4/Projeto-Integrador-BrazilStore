@@ -25,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
     if(isset($_SESSION['vendedor_id'])) {
         $id_vendedor = $_SESSION['vendedor_id'];
+        
 
         if (!empty($nome) &&  !empty($valor) && !empty($descricao) && !empty($categoria)&& !empty($peso) && !empty($tipo_entrega)   && !empty($id_vendedor)) {
             $vendedorDAO = new VendedorDAO();
@@ -47,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
                         // echo "<pre>";
                         // die(var_dump($produto, $_FILES['imagem']['name'])); //Encerra todo o script php, tudo o que vem dps.
                         $produtoDao->AdicionarProduto($produto);
+                        $id_produto = $_SESSION['id_produto'];
 
                         header('location: item.php');
                     } else {
