@@ -46,20 +46,22 @@
 
     <table>
         <tbody>
-            <?php if (isset($consl_ende)): ?>
+            <?php if (!empty($consl_ende)): ?>
+                <?php foreach ($consl_ende as $consl_endes): ?>
+                    <li>
+                        <p>nome_comp</p><?php echo htmlspecialchars($consl_ende['nome_comp']); ?>
+                        <p>telefone_end</p><?php echo htmlspecialchars($consl_ende['telefone_end']); ?>
+                        <td><p>logradouro</p><?php echo htmlspecialchars($consl_ende['logradouro']); ?>
+                        <p>numero</p><?php echo htmlspecialchars($consl_ende['numero']); ?>
+                        <p>bairro</p><?php echo htmlspecialchars($consl_ende['bairro']); ?>
+                        <p>cep</p><?php echo htmlspecialchars($consl_ende['cep']); ?>
+                        <p>nome_cidade</p><?php echo htmlspecialchars($consl_ende['nome_cidade']); ?>
+                        <p>nome_estado</p><?php echo htmlspecialchars($consl_ende['nome_estado']); ?>
+                    </li>
+                <?php endforeach; ?>
+            <?php else: ?>
                     <tr>
-                        <td><p>nome_comp</p><?php echo htmlspecialchars($consl_ende['nome_comp']); ?></td>
-                        <td><p>telefone_end</p><?php echo htmlspecialchars($consl_ende['telefone_end']); ?></td>
-                        <td><p>logradouro</p><?php echo htmlspecialchars($consl_ende['logradouro']); ?></td>
-                        <td><p>numero</p><?php echo htmlspecialchars($consl_ende['numero']); ?></td>
-                        <td><p>bairro</p><?php echo htmlspecialchars($consl_ende['bairro']); ?></td>
-                        <td><p>cep</p><?php echo htmlspecialchars($consl_ende['cep']); ?></td>
-                        <td><p>nome_cidade</p><?php echo htmlspecialchars($consl_ende['nome_cidade']); ?></td>
-                        <td><p>nome_estado</p><?php echo htmlspecialchars($consl_ende['nome_estado']); ?></td>
-                    </tr>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="8">Nenhum endereço encontrado.</td>
+                        <p>Nenhum endereço encontrado.</p>
                     </tr>
             <?php endif; ?> 
         </tbody>
