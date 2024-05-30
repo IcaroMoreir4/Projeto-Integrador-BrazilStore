@@ -24,26 +24,33 @@ class EnderecoDAO{
         $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($row) {
+            return $id_end = $row['id'];
+        }
+        return null;
     }
 
     public function update(Endereco $endereco){
-        $sql = "UPDATE usuario.endereco SET nome_comp = ?, telefone_end = ?, logradouro = ?, numero = ?, bairro = ?, cep = ?, nome_cidade = ?, nome_estado = ? WHERE id_cliente = ?";
+        $sql = "UPDATE usuario.endereco SET nome_comp = :nome_comp, telefone_end = :telefone_end, logradouro = :logradouro, numero = :numero, bairro = :bairro, cep = :cep, nome_cidade = :nome_cidade, nome_estado = :nome_estado WHERE id = ?";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getNome_comp());
-        $stmt->bindValue(2, $endereco->getTelefone_end());
-        $stmt->bindValue(3, $endereco->getLogradouro());
-        $stmt->bindValue(4, $endereco->getNumero());
-        $stmt->bindValue(5, $endereco->getBairro());
-        $stmt->bindValue(6, $endereco->getCep());
-        $stmt->bindValue(7, $endereco->getNome_cidade());
-        $stmt->bindValue(8, $endereco->getNome_estado());
+        $stmt->bindValue(':nome_comp', $endereco->getNome_comp());
+        $stmt->bindValue(':telefone_end', $endereco->getTelefone_end());
+        $stmt->bindValue(':logradouro', $endereco->getLogradouro());
+        $stmt->bindValue(':numero', $endereco->getNumero());
+        $stmt->bindValue(':bairro', $endereco->getBairro());
+        $stmt->bindValue(':cep', $endereco->getCep());
+        $stmt->bindValue(':nome_cidade', $endereco->getNome_cidade());
+        $stmt->bindValue(':nome_estado', $endereco->getNome_estado());
+        $stmt->bindValue(':id', $endereco->getId());
         $stmt->execute();
     }
 
-    public function delete(Endereco $endereco){
-        $sql = "DELETE FROM  usuario.endereco WHERE id_cliente = ?";
+    public function delete($id){
+        $sql = "DELETE FROM  usuario.endereco WHERE id = :id";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getId());
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 }

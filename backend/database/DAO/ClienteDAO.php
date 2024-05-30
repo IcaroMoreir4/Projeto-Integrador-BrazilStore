@@ -59,7 +59,7 @@ class ClienteDAO{
         $sql = 'SELECT * FROM usuario.cliente WHERE email = :email AND senha = :senha';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha); // Assumindo que a senha está armazenada em plain text (não recomendado, use hashing)
+        $stmt->bindParam(':senha', $senha);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
         

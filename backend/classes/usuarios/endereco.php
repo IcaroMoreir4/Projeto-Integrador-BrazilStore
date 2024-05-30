@@ -12,7 +12,7 @@ class endereco{
     protected $nome_cidade;
     protected $nome_estado;
     
-    public function __construct($id, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
+    public function __construct($id, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep,$nome_cidade, $nome_estado){
         $this-> id = $id;
         $this-> id_cliente = $id_cliente;
         $this-> nome_comp = $nome_comp;

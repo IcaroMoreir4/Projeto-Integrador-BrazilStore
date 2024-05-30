@@ -3,11 +3,11 @@
     require_once('../backend/database/DAO/EnderecoDAO.php');
 
     session_start();
-    $_SESSION['user_id'] = 1;
+    $_SESSION['user_id'] = 1; // Testes
 
     //Proteção
     if (!isset($_SESSION['user_id'])) {
-        echo 'Insira um id de usuario!';
+        echo 'Insira um id de usuario!'; // Testes
         //header('Location: index.php');
         exit();
     }
@@ -43,7 +43,7 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,7 +73,7 @@
 
                     <label for="" class="">Bairro</label>
                     <div class="bairro">
-                        <input class="campo" type="text" name="barr" id="cadas-telefone" maxlength="bairro" placeholder="Bairro">
+                        <input class="campo" type="text" name="barr" id="cadas-telefone" maxlength="20" placeholder="Bairro">
                     </div>
 
                     <label for="" class="">CEP</label>
