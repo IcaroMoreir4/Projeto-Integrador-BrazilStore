@@ -1,12 +1,19 @@
 <?php
-    require_once('../backend/database/DAO/EnderecoDAO.php');
-
     session_start();
+    $_SESSION['user_id'] = 1;
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: pesquisar.php');
+        exit();
+    }
+
+    require_once('../backend/database/DAO/EnderecoDAO.php');
 
     $dao = new EnderecoDAO();
 
+    //Função para consultar os endereços cadastrados.
     if (isset($_POST['exibirEnderecos'])) {
-        $enderecos = $dao->read($id);
+        $consut_enderecos = $dao->read($_SESSION['user_id']);
     }
 ?>
 
@@ -15,21 +22,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus endereços</title>
+    <title>Endereço</title>
 </head> 
 <body>
-    <h1>Meus endereços</h1>
-
+    <h1>Endereço</h1>
+    <!--Html para ter o botão de consulta.-->
     <form method="post">
-        <button type="submit" name="exibirEnderecos">Meus endereços</button>
+        <button type="submit" name="exibirEnderecos">Consultar endereços</button>
     </form>
-
-    <?php if (isset($enderecos)): ?>
+    
+    <br>
+    
+    <?php if (isset($consut_enderecos)): ?>
         <ul>
-            <?php foreach ($enderecos as $endereco): ?>
+            <?php foreach ($consut_enderecos as $consut_enderecoss):?>
                 <li>
-                    <?php echo $endereco->logradouro . ', ' . $endereco->numero; $endereco->bairro . ', ' . $endereco->cep ?> - 
-                    <?php echo $endereco->nome_cidade . '/' . $endereco->nome_estado; ?>
+                    <?php echo $consut_enderecos->logradouro . ', ' . $consut_enderecos->numero; $consut_enderecos->bairro . ', ' . $consut_enderecos->cep ?> - 
+                    <?php echo $consut_enderecos->nome_cidade . '/' . $consut_enderecos->nome_estado; ?>
                 </li>
             <?php endforeach; ?>
         </ul>
