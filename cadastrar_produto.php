@@ -3,12 +3,11 @@ require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
-// Função para obter o caminho completo do arquivo
+
 function getUploadPath($fileName) {
-    // Diretório onde os uploads são armazenados
+
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
 
-    // Concatena o nome do arquivo com o diretório de uploads
     $uploadPath = $uploadDir . $fileName;
 
     return $uploadPath;
@@ -31,26 +30,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             $vendedorDAO = new VendedorDAO();
         
             if ($vendedorDAO->exists($id_vendedor)) {
-                // Verifique se o arquivo foi carregado
                 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-                    // Defina o diretório onde você deseja salvar as imagens
                     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
     
-                    // Use a função move_uploaded_file() para mover o arquivo para o diretório desejado
                     $uploadFile = $uploadDir . basename($_FILES['imagem']['name']);
                     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadFile)) {
-                        // Obter o caminho completo do arquivo
                         $uploadPath = getUploadPath($_FILES['imagem']['name']);
                         
-                        // Se o arquivo foi movido com sucesso, armazene o caminho do arquivo no banco de dados
                         // $produto = new produto($nome, $valor,$descricao, $categoria,$peso, $tipo_entrega, $id_vendedor, $uploadPath);
                         // $produtoDao = new ProdutoDAO();
                         // $produtoDao -> AdicionarProduto($produto);
                         
                         $produto = new produto($nome, $valor,$descricao, $categoria,$peso, $tipo_entrega, $id_vendedor);
-                        $produto->setPath_image($uploadPath);
+                        $produto->setImagePath($_FILES['imagem']['name']);
                         $produtoDao = new ProdutoDAO();
-                        $produtoDao -> AdicionarProduto($produto);
+                        // echo "<pre>";
+                        // die(var_dump($produto, $_FILES['imagem']['name'])); //Encerra todo o script php, tudo o que vem dps.
+                        $produtoDao->AdicionarProduto($produto);
 
                         header('location: item.php');
                     } else {
