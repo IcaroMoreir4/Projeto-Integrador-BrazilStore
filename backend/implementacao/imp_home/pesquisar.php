@@ -5,29 +5,16 @@ require_once('../backend/database/DAO/ProdutoDAO.php');
 
 $dao = new ProdutoDAO(); 
 
-$consulta = $_GET['consulta'];
-$produtos = $dao->query($consulta);
-
-/*
-if(isset($_GET['consulta'])) {
-    $consulta = $_GET['consulta'];
-    $produtos = $dao->query($consulta);
-
-    if (!empty($produtos)) {
-        echo "<h2>Resultados da pesquisa:</h2>";
-        echo "<ul>";
-        foreach ($produtos as $produto) {
-            echo "<li>";
-            echo $produto->nome;
-            echo number_format($produto->valor, 2, ',', '.');
-            echo "</li>";
-        }
-        echo "</ul>";
-    } else {
-        echo "<p>Nenhum produto encontrado.<p>";
-    }
+if (isset($_POST['submit_pesq'])) {
+    $pesq_produto = $dao->query($consulta);
 }
-*/
+
+if ($_SERVER["REQUEST_METHOD"] == "get"){
+    $consulta = $_POST['consulta'];
+}
+
+$totalProdutos = count($produtos);
+$midPoint = ceil($totalProdutos / 2);
 ?>
 
 <!DOCTYPE html>
@@ -39,20 +26,70 @@ if(isset($_GET['consulta'])) {
 </head>
 <body>
     <h1>Barra de pesquisa</h1>
-    <form method="get">
+    <form action="pesquisar.php" method="get">
         <input type="text" name="consulta" placeholder="O que você procura hoje?">
         <button type="submit">Pesquisar</button>
     </form>
-    <?php if (isset($produtos)): ?>
-        <h2>Resultados da pesquisa:</h2>
-        <ul>
-            <?php foreach ($produtos as $produto): ?>
-                <li>
-                    <?php echo $produto->nome; ?> - 
-                    R$ <?php echo number_format($produto->valor, 2, ",", "."); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    <?php endif; ?>
+
+
+    <article class="">
+        <h2 class="">Resultados</h2>
+        <div class="">
+            <div class="">
+                <?php if (!empty($produtos)): ?>
+                    <?php for ($i = 0; $i < $midPoint; $i++): ?>
+                        <div class="">
+                            <div class="">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                            </div>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                </div>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p>
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p>
+                                </div>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
+            </div>
+            <div class="itens-l2">
+                <?php if (!empty($produtos)): ?>
+                    <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
+                        <div class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                            </div>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                </div>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p> 
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p> 
+                                </div>
+                            </div>
+                        </div>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
+            </div>
+        </div>
+    </article>
 </body>
 </html>
