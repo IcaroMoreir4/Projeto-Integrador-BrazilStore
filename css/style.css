@@ -1,6 +1,4 @@
 /* Global */
-@import "./global/cores.css";
-@import "./global/fontes.css";
 @import "./global/restart.css";
 @import"./global/modelo.css";
 @import"./global/login.css";
@@ -21,12 +19,12 @@
 @import "./global/minhas_vendas.css";
 
 
-
-
 /* Reutilizaveis */
 @import"./global/header.css";
 @import"./global/footer.css";
 @import"./global/grid.css";
+@import "./global/cores.css";
+@import "./global/fontes.css";
 
 /* Modelo */
 @import "./caminho/nome.css";
