@@ -1,6 +1,6 @@
 <?php 
-require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/vendedor.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+require_once('../projeto-pi/Projeto-Integrador-BrazilStore/backend/classes/usuarios/vendedor.php');
+require_once('../projeto-pi/Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
