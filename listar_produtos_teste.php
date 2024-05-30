@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -36,7 +36,7 @@
         <div class="item-section">
             <div class="item-opcoes">
                 <div class="item-opcao_maior">
-                    <img src="./imagem/camisa.png" alt="Imagem do Produto">
+                    <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
                 </div>
             </div>
             <div class="item-content">

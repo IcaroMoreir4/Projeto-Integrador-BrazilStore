@@ -8,7 +8,7 @@ $midPoint = ceil($totalProdutos / 2);
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -57,7 +57,7 @@ $midPoint = ceil($totalProdutos / 2);
             <div class="popup-content">
                 <span class="close" onclick="closeLogin()">&times;</span>
                 <h2 class="font-1-l">Entrar</h2>
-                <form action="login_usuario.php" method="post">
+                <form action="../Projeto-Integrador-BrazilStore/backend/implementacao/imp_usuario/login_usuario.php" method="post">
                     <label for="login-email" class="font-1-m">Email</label>
                     <div class="email-l">
                         <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
