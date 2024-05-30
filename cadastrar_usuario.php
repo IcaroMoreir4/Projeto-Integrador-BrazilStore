@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $cliente = new Cliente($nome, $email, $cpf, $senha, $telefone, null);
         $clienteDAO = new ClienteDAO();
         $clienteDAO->create($cliente);
-        header('location: molde-com-conta.php');
+        header('location: index.php');
     } else {
         echo "Por favor, preencha todos os campos do formulário.";
     }

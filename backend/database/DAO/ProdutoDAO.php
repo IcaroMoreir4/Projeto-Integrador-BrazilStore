@@ -2,8 +2,10 @@
 <?php
 
 require_once(__DIR__ . '/../conexao.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+//require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); // Este require é importante para linkar a barra de pesquisa!
+require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php'); //tem que desativar essas require para a barra de pesquisa funcionar.
+
 
 class ProdutoDAO {
     // public function create(Produto $produto) {
@@ -46,12 +48,12 @@ class ProdutoDAO {
     }
 
     //Barra de pesquisa
-    public function query($termo) {
-        $query = "SELECT * FROM produto.produto WHERE nome LIKE :nome";
-        $stmt = Conexao::getConn()->prepare($query);
-        $stmt->bindValue(':nome', '%' . $termo . '%');
+    public function query($consulta) {
+        $consulta = '%' . $consulta . '%'; // Adiciona % para busca parcial
+        $stmt = Conexao::getConn()->prepare('SELECT nome, valor FROM produto.produto WHERE nome LIKE :consulta');
+        $stmt->bindParam(':consulta', $consulta);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Apresentação do produto individual.

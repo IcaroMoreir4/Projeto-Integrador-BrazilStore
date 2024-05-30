@@ -7,15 +7,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $senha = $_POST['senha'];
 
     $clienteDAO = new ClienteDAO();
+    $user = $clienteDAO->autenticar($email, $senha);
 
-    if ($clienteDAO->autenticar($email, $senha)){
-        header('location: home.html');
+    if ($user){
+        $_SESSION['user_id'] = $user;
+        header('location: home.php');
         exit(); 
     } else {
-        header('Location: index.html');
+        header('Location: index.php'); 
         exit(); 
-    }
-} else {
-    echo "Requisição inválida.";
-}
+    } 
+} 
 ?>

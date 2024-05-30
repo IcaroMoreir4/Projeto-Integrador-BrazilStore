@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -62,18 +62,17 @@
                     </div>
                         </div>
                 <div class="minhas-compras">
-                    <img src="/imagem/compras.svg" alt="">
+                    <img src="imagem/compras.svg" alt="">
                     <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
     
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
                 </div>
             </div>
-
         <div class="endereçostitulo">
             <div class="endereçosbox">
                 <div class="endereçotexto">
                     <h1 class="font-1-l">Meus Endereços</h1>
-                    <button class="adicionarendereco font-1-m-b">Adicionar Endereço <img src="imagem/+.svg" alt=""></button>
+                    <button class="adicionarendereco font-1-m-b" onclick="openCadastroEndereço()">Adicionar Endereço<img src="imagem/+.svg" alt=""></button>
                 </div>
                 <div class="linhau"></div>
             </div>
@@ -137,9 +136,38 @@
                         <button type="submit" name="submit" class="submit-button">ENTRAR</button>
                     </div>
                 </form>
-            </div>
+            </div>          
             <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
         </div>
+    </div>
+    </div>
+    
+<div class="popupCadastroEndereco" id="popupCadastroEndereco">
+    <div class="box_cadasendereço" id="popupBgCadastroEndereço">
+        <h2 class="font-1-l">Novo Endereço</h2>
+        <form action="submit_form.php" method="post">
+            <div class="mome-tele">
+                <input class="font-1-xs " type="text" name="nome" id="" maxlength="40" placeholder="Nome" required >
+    
+                <input class="font-1-xs " type="tel" name="tele" id="" maxlength="11" placeholder="Telefone" required>
+            </div>
+                <input class="font-1-xs" type="text" name="cep" id="cadas-telefone" maxlength="8" placeholder="CEP" required>
+    
+                <input class="font-1-xs" type="text" name="uf" id="cadas-telefone" maxlength="16" placeholder="Estado" required>
+            
+                <input class="font-1-xs" type="text" name="munp" id="cadas-telefone" maxlength="32" placeholder="Cidade" required>
+            
+                <input class="font-1-xs" type="text" name="barr" id="cadas-telefone" maxlength="20" placeholder="Bairro" required>
+    
+            <div class="rua-numero">
+                <input class="font-1-xs" type="text" name="logr" id="" maxlength="40" placeholder="Logradouro" required>
+                <input class="font-1-xs" type="number" name="num" id="cadas-telefone" placeholder="Numero"required>
+            </div>
+            <div class="but-endereço">
+            <button type="submit" class="but_cancelar font-1-m" >CANCELAR</button>
+            <button type="submit" class="but_enviar font-1-m"  >ENVIAR</button>
+            </div>
+        </form>
     </div>
     </div>
 
