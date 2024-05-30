@@ -105,7 +105,7 @@ class ProdutoDAO {
     }
 
     public function AdicionarProduto(Produto $produto) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, id_vendedor) VALUES (?, ?, ?, ?, ?, ?, ?)';
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, id_vendedor, image_path) VALUES (?, ?, ?, ?, ?, ?, ?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());
@@ -114,6 +114,7 @@ class ProdutoDAO {
         $stmt->bindValue(5, $produto->getPeso());
         $stmt->bindValue(6, $produto->getTipoEentrega());
         $stmt->bindValue(7, $produto->getIdvendedor());
+        $stmt->bindValue(8, $produto->getImagePath());
         $stmt->execute();
     }
 
@@ -127,16 +128,16 @@ class ProdutoDAO {
     }
 
 
-    public function create(Produto $produto, $image) {
-        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, image_path) VALUES (?, ?, ?, ?, ?, ?, ?,)';
+    public function create(Produto $produto) {
+        $sql = 'INSERT INTO produto.produto (nome, categoria, valor, descricao, peso, tipo_entrega, path_image) VALUES (?, ?, ?, ?, ?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $produto->getNome());
         $stmt->bindValue(2, $produto->getIdcategoria());
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(7, $produto->getTipoEentrega());
-        $stmt->bindValue(8, $image);
+        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(7, $produto->getImagePath());
         $stmt->execute();
     }
     
