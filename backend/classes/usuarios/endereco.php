@@ -2,6 +2,7 @@
 
 class endereco{
     protected $id;
+    protected $id_cliente;
     protected $nome_comp;
     protected $telefone_end;
     protected $logradouro;
@@ -11,22 +12,35 @@ class endereco{
     protected $nome_cidade;
     protected $nome_estado;
     
-    public function __construct($id, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
+    public function __construct($id, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
         $this-> id = $id;
+        $this-> id_cliente = $id_cliente;
+        $this-> nome_comp = $nome_comp;
+        $this-> telefone_end = $telefone_end;
         $this-> logradouro = $logradouro;
         $this-> numero = $numero;
         $this-> bairro = $bairro;
         $this-> cep = $cep;
         $this-> nome_cidade = $nome_cidade;
         $this-> nome_estado = $nome_estado;
-        $this-> nome_comp = $nome_comp;
-        $this-> telefone_end = $telefone_end;
     }
 
 
     //Getters
     public function getId(){
         return $this->id;
+    }
+
+    public function getId_cliente(){
+        return $this->id_cliente;
+    }
+
+    public function getNome_comp(){
+        return $this->nome_comp;
+    }
+
+    public function getTelefone_end(){
+        return $this->telefone_end;
     }
 
     public function getLogradouro(){
@@ -53,17 +67,22 @@ class endereco{
         return $this->nome_estado;
     }
 
-    public function getNome_comp(){
-        return $this->nome_comp;
-    }
-
-    public function getTelefone_end(){
-        return $this->telefone_end;
-    }
 
     //Setters
     public function setId($id){
         $this-> id = $id;
+    }
+
+    public function setId_cliente($id_cliente){
+        $this-> id_cliente = $id_cliente;
+    }
+
+    public function setNome_comp($nome_comp){
+        $this-> nome_comp = $nome_comp;
+    }
+
+    public function setTelefone_end($telefone_end){
+        $this-> telefone_end = $telefone_end;
     }
 
     public function setLogradouro($logradouro){
@@ -86,16 +105,7 @@ class endereco{
         $this-> nome_cidade = $nome_cidade;
     }
 
-
     public function setNome_estado($nome_estado){
         $this-> nome_estado = $nome_estado;
-    }
-
-    public function setNome_comp($nome_comp){
-        $this-> nome_comp = $nome_comp;
-    }
-
-    public function setTelefone_end($telefone_end){
-        $this-> telefone_end = $telefone_end;
     }
 }
