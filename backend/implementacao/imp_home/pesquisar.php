@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "get"){
     $consulta = $_POST['consulta'];
 }
 
-$totalProdutos = count($produtos);
+$totalProdutos = count($pesq_produto);
 $midPoint = ceil($totalProdutos / 2);
 ?>
 
@@ -36,7 +36,7 @@ $midPoint = ceil($totalProdutos / 2);
         <h2 class="">Resultados</h2>
         <div class="">
             <div class="">
-                <?php if (!empty($produtos)): ?>
+                <?php if (!empty($pesq_produto)): ?>
                     <?php for ($i = 0; $i < $midPoint; $i++): ?>
                         <div class="">
                             <div class="">
