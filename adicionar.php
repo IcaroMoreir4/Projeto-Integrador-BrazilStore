@@ -116,4 +116,5 @@
                 <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
             </div>
         </ul>
+    </div>
 </footer>
