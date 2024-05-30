@@ -17,7 +17,7 @@
 <body>
 
 <header class="grid">
-    <img class="logo-header" src="./imagem/logo.svg" alt="">
+    <a href="index.php"><a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a></a>
     <div class="categoria_btn" id="categoriaBtn">
         <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
         <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -95,25 +95,39 @@
 </article>
 
 <footer class="grid">
-    <div class="logo">
-        <img src="./imagem/BrazilStore.svg" alt="">
-    </div>
-    <div class="contato">
-        <h2 class="font-2-l">CONTATO</h2>
-        <ul class="font-2-m">
-            <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
-            <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
-            <div class="linha"></div>
-            <li>Rua Ali Perto, 69 - Pirajá</li>
-            <li>Juazeiro do Norte - CE</li>
-            <div class="linha"></div>
-            <div class="redes-sociais">
-                <!-- instagram -->
-                <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
-                <!-- facebook -->
-                <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
-                <!-- youtube -->
-                <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
+            <div class="logo">
+                <img src="./imagem/BrazilStore.svg" alt="">
             </div>
-        </ul>
-   
+            <div class="contato">
+                <h2 class="font-2-l">CONTATO</h2>
+                <ul class="font-2-m">
+                    <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
+                    <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
+                    <div class="linha"></div>
+                    <li>Rua Ali Perto, 69 - Pirajá</li>
+                    <li>Juazeiro do Norte - CE</li>
+                    <div class="linha"></div>
+                    <div class="redes-sociais">
+                        <!-- instagram -->
+                        <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
+                        <!-- facebook -->
+                        <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
+                        <!-- youtube -->
+                        <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
+                    </div>
+                </ul>
+            </div>
+            <div class="informacoes">
+                <h2 class="font-2-l">INFORMAÇÕES</h2>
+                <ul class="font-2-m">
+                    <li><a href="./">Eletrônicos</a></li>
+                    <li><a href="./">Vestuário</a></li>
+                    <li><a href="./">Livros</a></li>
+                    <li><a href="./">Jogos</a></li>
+                    <li><a href="./termos.html">Termos e Condições</a></li>
+                </ul>
+            </div>
+            <div class="cop">
+                <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
+            </div>
+</footer>
