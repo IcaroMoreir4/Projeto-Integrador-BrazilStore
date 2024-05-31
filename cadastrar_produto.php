@@ -6,7 +6,8 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO
 
 function getUploadPath($fileName) {
 
-    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . 'Projeto-Integrador-BrazilStore/uploads/';
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '../Projeto-Integrador-BrazilStore/uploads/';
+    // $uploadDir = $_SERVER['DOCUMENT_ROOT'] . 'Projeto-Integrador-BrazilStore/uploads/';
 
     $uploadPath = $uploadDir . $fileName;
 
