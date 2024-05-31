@@ -49,7 +49,7 @@ class ProdutoDAO {
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindParam(':Consulta', $consulta, PDO::PARAM_INT);
         $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
     // Apresentação do produto individual.

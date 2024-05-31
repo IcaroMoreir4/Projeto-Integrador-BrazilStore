@@ -28,10 +28,10 @@ $midPoint = ceil($totalProdutos / 2);
 
     <ul>
         <?php if (!empty($resultado)): ?>
-            <?php for ($i = 0; $i < $midPoint; $i++): ?>
+            <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
                 <li>
-                    <p class=""><?= htmlspecialchars($resultado[$i]['nome']) ?></p>
-                    <p class="">R$ <?= number_format($resultado[$i]['valor'], 2, ',', '.') ?></p>
+                    <p class=""><?= htmlspecialchars($resultado[$i]->nome); ?></p>
+                    <p class="">R$ <?= number_format($resultado[$i]->valor, 2, ',', '.'); ?></p>
                 </li>
             <?php endfor; ?>
         <?php else: ?>
