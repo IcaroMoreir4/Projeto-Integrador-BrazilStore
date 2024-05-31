@@ -167,6 +167,15 @@ strong{
     width: 100%;
 }
 
+.adicionar-info select,
+.adicionar-info option{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; 
+    width: 100%;
+}
+
 .adicionar-info textarea {
     resize: none;
 }
@@ -175,3 +184,10 @@ strong{
     font-weight: bold;
 }
 
+.link-termos{
+    transition: color .3s;
+}
+
+.link-termos:hover{
+    color: var(--cor-p6);
+}

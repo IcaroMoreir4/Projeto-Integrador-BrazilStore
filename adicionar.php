@@ -72,24 +72,24 @@
                     <input class="" type="text" id="preco" name="valor" required>
                 </div>
 
-                <div class="col-2">
-                    <label class="font-1-m cor-12 " for="categoria">Categoria</label>
-                    <input class="" type="text" id="categoria" name="categoria" required>
-                </div>
+                    <div class="col-2">
+                        <label class="font-1-m cor-12 " for="categoria">Categoria</label>
+                        <input class="" type="text" id="categoria" name="categoria" required>
+                    </div>
 
-                <div class="col-span-2">
-                    <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1" href="termos.html" target="_blank">termos aqui</a>.</p>
-                </div>
-                
-                <div class="col-1">
-                    <label class="font-1-m cor-12 " for="peso">Peso</label>
-                    <input class="" type="text" id="peso" name="peso" required>
-                </div>
+                    <div class="col-span-2">
+                        <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1" href="termos.html" target="_blank">termos aqui</a>.</p>
+                    </div>
+            
+                    <div class="col-1">
+                        <label class="font-1-m cor-12 " for="peso">Peso</label>
+                        <input class="" type="text" id="peso" name="peso" required>
+                    </div>
 
-                <div class="col-2">
-                    <label class="font-1-m cor-12 " for="tipo_entrega">Tipo de Entrega</label>
-                    <input class="" type="text" id="tipo_entrega" name="tipo_entrega" required>
-                </div>
+                    <div class="col-2">
+                        <label class="font-1-m cor-12 " for="tipo_entrega">Tipo de Entrega</label>
+                        <input class="" type="text" id="tipo_entrega" name="tipo_entrega" required>
+                    </div>
 
                 <button type="submit" class="btn_cheio btn_adc">Adicionar Item</button>
             </div>
