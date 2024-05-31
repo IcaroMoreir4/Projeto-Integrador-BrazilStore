@@ -36,7 +36,7 @@
         <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="imagem/user.svg" alt=""></a>
         <div class="perfil_btn" id="perfilBtn">
             <div class="perfil_menu font-1-m" id="perfilMenu">
-                <a href="perfil.html">Meu perfil</a>
+                <a href="perfil.php">Meu perfil</a>
                 <a href="logout.php">Sair da conta</a>
             </div>
         </div>
@@ -75,11 +75,11 @@
                     <div class="col-2">
                         <label class="font-1-m cor-12 " for="categoria">Categoria</label>
                         <select class="font-1-m" name="categoria" id="categoria" required>
-                            <option value="eletronicos">Eletrônicos</option>
-                            <option value="vestuario">Vestuário</option>
-                            <option value="livros">Livros</option>
-                            <option value="jogos">Jogos</option>
-                            <option value="acessorios">Acessórios</option>
+                            <option value="eletronicos name="categoria" ">Eletrônicos</option>
+                            <option value="vestuario" name="categoria">Vestuário</option>
+                            <option value="livros" name="categoria" >Livros</option>
+                            <option value="jogos" name="categoria" >Jogos</option>
+                            <option value="acessorios" name="categoria" >Acessórios</option>
                         </select>
                     </div>
 
@@ -90,20 +90,20 @@
                     <div class="col-1">
                         <label class="font-1-m cor-12 " for="peso">Peso</label>
                         <select class="font-1-m" name="peso" id="peso" required>
-                            <option value="1.00">1g</option>
-                            <option value="2.00">2g</option>
-                            <option value="3.00">3g</option>
-                            <option value="4.00">4g</option>
-                            <option value="5.00">5g</option>
-                            <option value="6.00">6g</option>
-                            <option value="7.00">7g</option>
+                            <option value="1.00"   name="peso">1g</option>
+                            <option value="2.00"  name="peso">2g</option>
+                            <option value="3.00"  name="peso">3g</option>
+                            <option value="4.00"  name="peso">4g</option>
+                            <option value="5.00"  name="peso">5g</option>
+                            <option value="6.00"  name="peso">6g</option>
+                            <option value="7.00"  name="peso">7g</option>
                         </select>
                     </div>
 
                     <div class="col-2">
                         <label class="font-1-m cor-12 " for="tipo_entrega">Tipo de Entrega</label>
                         <select class="font-1-m" name="tipo_entrega" id="tipo_entrega" required>
-                            <option value="correios">Correios</option>
+                            <option value="correios" name="tipo_entrega">Correios</option>
                         </select>
                         
                     </div>
