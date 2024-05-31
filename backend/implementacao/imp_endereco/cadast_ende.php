@@ -1,6 +1,6 @@
 <?php
-    require_once('../backend/classes/usuarios/endereco.php');
-    require_once('../backend/database/DAO/EnderecoDAO.php');
+    require_once(__DIR__ . '/../../classes/usuarios/endereco.php');
+    require_once(__DIR__ . '/../../database/DAO/EnderecoDAO.php');
 
     session_start();
     //$_SESSION['user_id'] = 1; // Teste
