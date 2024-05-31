@@ -40,11 +40,20 @@ class PedidoDAO{
         $stmt->execute();
     }
 
+
+    public function listarPedidosPorCliente($id_cliente) {
+    
+        $sql = "SELECT * FROM pedido.pedido WHERE id_pedido = :id_cliente";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute(['id_cliente' => $id_cliente]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+    }
+
+
 }
     
-
-
-
 
 
 

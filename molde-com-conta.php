@@ -33,7 +33,7 @@
             </div>
         </form>
         <a href="./carrinho.html"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-        <a href="./perfil.html" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <a href="./perfil.php" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
     </header>
 
     <article class="grid">
