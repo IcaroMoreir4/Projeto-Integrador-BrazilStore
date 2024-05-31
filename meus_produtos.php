@@ -1,3 +1,10 @@
+<?php
+    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+        session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -79,11 +86,11 @@
                 </div>
             
 
-            <div class="minhas-vendas">
-                <div class="vendas-titulo">
-                        <div class="vendastexto">
+            <div class="meus-produtos">
+                <div class="produtos-titulo">
+                        <div class="produtostexto">
                             <h1 class="font-1-l">Minhas Vendas</h1>
-                            <a href="adicionar.html"><button class="adicionaritem font-1-m-b">ADICIONAR ITEM<img src="imagem/+.svg" alt=""></button></a>
+                            <a href="adicionar.php"><button class="adicionaritem font-1-m-b">ADICIONAR ITEM<img src="imagem/+.svg" alt=""></button></a>
                         <div class="linhau"></div>
                     </div>
             </div>
