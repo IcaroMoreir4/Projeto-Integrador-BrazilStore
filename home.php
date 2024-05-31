@@ -38,7 +38,7 @@
                 <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
                 <div class="perfil_btn" id="perfilBtn">
                     <div class="perfil_menu font-1-m" id="perfilMenu">
-                        <a href="./perfil.html">Meu perfil</a>
+                        <a href="./perfil.php">Meu perfil</a>
                         <a href="./logout.php">Sair da conta</a>
                     </div>
                 </div>
