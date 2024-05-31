@@ -45,7 +45,7 @@
 
         <div class="grid form-adicionar_bg">
 
-            <form class="form-adicionar" action="cadastrar_produto.php">
+            <form class="form-adicionar" action="cadastrar_produto.php>"
 
                 <div class="adicionar-img">
                     <input type="file" id="file-input" name="imagem" required>
