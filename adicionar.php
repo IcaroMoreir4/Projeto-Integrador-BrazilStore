@@ -12,10 +12,8 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="imagem/logo.png" type="image/x-icon">
     <script src="javascript/script.js"></script>
-
 </head>
 <body>
-
         <header class="grid">
             <img class="logo-header" src="imagem/logo.svg" alt="">
             <div class="categoria_btn" id="categoriaBtn">
