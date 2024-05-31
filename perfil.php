@@ -1,3 +1,17 @@
+<?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
+session_start();
+
+
+$cliente = $_SESSION['cliente_id'];
+$clienteDAO = new ClienteDAO();
+
+//$cliente = $clienteDAO->getClienteById($cliente_id);
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -79,10 +93,6 @@
             <div class="painelperfil">
             <div class="meu-perfil">
                     <div class="campo-usuario">
-                    <label class="font-1-s">Nome de Usuário</label>
-                        <span><?php echo htmlspecialchars($user['username']); ?></span>
-                    </div>
-                    <div class="campo-usuario">
                         <label class="font-1-s">Nome Completo</label>
                         <span><?php echo htmlspecialchars($user['full_name']); ?></span>
                     </div>
@@ -93,12 +103,6 @@
                     <div class="campo-usuario">
                         <label class="font-1-s">Telefone</label>
                         <span><?php echo htmlspecialchars($user['phone']); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Sexo</label>
-                        <input type="radio" name="genero" value="masculino"> Masculino
-                        <input type="radio" name="genero" value="feminino" > Feminino
-                        <input type="radio" name="genero" value="Outros" > Outros
                     </div>
                     <div class="campo-usuario">
                         <label class="font-1-s">CPF</label>
