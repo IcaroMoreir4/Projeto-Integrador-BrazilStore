@@ -74,7 +74,7 @@ if (!$loja) {
                         </div>
                             <div class="perfil-end">
                             <ul>
-                                <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
+                                <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
                                 <li class="font-1-s"><a href="endereço.html">Endereço</a></li>
                             </ul>
                         </div>
