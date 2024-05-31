@@ -104,3 +104,6 @@ INSERT INTO usuario.adm (nome, email, senha, cpf, cnpj, telefone, admin)
 VALUES ('Admin', 'admin@example.com', 'admin123', '00000000000', NULL, NULL, TRUE);
 
 select * from usuario.adm;
+
+ALTER TABLE produto.produto
+ADD COLUMN categoria VARCHAR(50);
