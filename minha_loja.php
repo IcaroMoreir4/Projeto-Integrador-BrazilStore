@@ -90,7 +90,7 @@ if (!$loja) {
                     <div class="loja-venda">
                         <ul>
                             <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
-                            <li class="font-1-s"><a href="minhas_vendas.html">Minhas vendas</a></li>
+                            <li class="font-1-s"><a href="minhas_vendas.html">Meus Produtos</a></li>
                         </ul>
                     </div>          
                     </div>

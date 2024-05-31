@@ -1,16 +1,22 @@
 
 .meus-produtos{
+    display: flex;
     width: 850px;
 }
 
 .produtos-titulo{
     display: flex;
-    align-items: center;
     justify-content: space-between;
     width: 850px;
 
 }
+.produtostexto{
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
 
+
+}
 .produtostexto a{
     text-decoration: none;
 }
