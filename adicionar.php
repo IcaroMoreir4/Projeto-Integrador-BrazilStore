@@ -75,11 +75,11 @@
                     <div class="col-2">
                         <label class="font-1-m cor-12 " for="categoria">Categoria</label>
                         <select class="font-1-m" name="categoria" id="categoria" required>
-                            <option value="eletronicos">Eletrônicos</option>
-                            <option value="vestuario">Vestuário</option>
-                            <option value="livros">Livros</option>
-                            <option value="jogos">Jogos</option>
-                            <option value="acessorios">Acessórios</option>
+                            <option value="eletronicos name="categoria" ">Eletrônicos</option>
+                            <option value="vestuario" name="categoria">Vestuário</option>
+                            <option value="livros" name="categoria" >Livros</option>
+                            <option value="jogos" name="categoria" >Jogos</option>
+                            <option value="acessorios" name="categoria" >Acessórios</option>
                         </select>
                     </div>
 
@@ -90,7 +90,7 @@
                     <div class="col-1">
                         <label class="font-1-m cor-12 " for="peso">Peso</label>
                         <select class="font-1-m" name="peso" id="peso" required>
-                            <option value="1.00">1g</option>
+                            <option value="1.00" >1g</option>
                             <option value="2.00">2g</option>
                             <option value="3.00">3g</option>
                             <option value="4.00">4g</option>
