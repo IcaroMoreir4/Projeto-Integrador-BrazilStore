@@ -90,13 +90,13 @@
                     <div class="col-1">
                         <label class="font-1-m cor-12 " for="peso">Peso</label>
                         <select class="font-1-m" name="peso" id="peso" required>
-                            <option value="1.00"   name="peso">1g</option>
-                            <option value="2.00"  name="peso">2g</option>
-                            <option value="3.00"  name="peso">3g</option>
-                            <option value="4.00"  name="peso">4g</option>
-                            <option value="5.00"  name="peso">5g</option>
-                            <option value="6.00"  name="peso">6g</option>
-                            <option value="7.00"  name="peso">7g</option>
+                            <option value="1.00" name="peso">1g</option>
+                            <option value="2.00" name="peso">2g</option>
+                            <option value="3.00" name="peso">3g</option>
+                            <option value="4.00" name="peso">4g</option>
+                            <option value="5.00" name="peso">5g</option>
+                            <option value="6.00" name="peso">6g</option>
+                            <option value="7.00" name="peso">7g</option>
                         </select>
                     </div>
 

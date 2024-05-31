@@ -29,4 +29,27 @@
     width: 100%;
 }
 
+.button_sair{
+    padding: 5px 10px;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button_sair:hover{
+    background-color: var(--cor-5);
+    color: red;
+}
+
+.btn_edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    text-decoration: none;
+    font: 400 1.125rem/1.35 "Poppins", sans-serif;
+    color: var(--cor-p3);
+    background-color: var(--cor-2);
+    border-radius: 5px;
+}
 

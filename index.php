@@ -7,6 +7,8 @@ $totalProdutos = count($produtos);
 $midPoint = ceil($totalProdutos / 2);
 ?>
 
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
