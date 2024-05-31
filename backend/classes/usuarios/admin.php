@@ -4,11 +4,7 @@ class Admin extends usuario{
     public function __construct($id, $nome, $email, $cpf, $senha, $telefone, $id_endereco){
         $this-> id = $id;
         $this-> nome = $nome;
-        $this-> email = $email;
-        $this-> cpf = $cpf;
-        $this-> senha = $senha;
-        $this-> telefone = $telefone;
-        $this-> id_endereco = $id_endereco;
+        $this-> email = $email;      $this-> senha = $senha;
     }
 
 
@@ -37,9 +33,6 @@ class Admin extends usuario{
         return $this-> telefone;
     }
 
-    public function getId_endereco(){
-        return $this-> id_endereco;
-    }
 
 
     //Setters
@@ -67,8 +60,5 @@ class Admin extends usuario{
         $this-> telefone = $telefone;
     }
 
-    public function setId_endereco($id_endereco){
-        $this-> id_endereco = $id_endereco;
-    }
 }
 ?>

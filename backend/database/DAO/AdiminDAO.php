@@ -36,6 +36,43 @@ class AdiminDAO{
         $stmt->execute();
     }
 
+    public function autenticar($email, $senha) {
+        $sql = 'SELECT * FROM usuario.adm  WHERE email = :email AND senha = :senha';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':senha', $senha);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        
+        if ($row) {
+            return $id_user = $row['id'];
+        }
+        return null;
+    }
+
+    public function VerTodosUsuario(){
+        $sql = "SELECT * FROM usuario.cliente";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function VerTodosVendedores(){
+        $sql = 'SELECT * FROM comercio.vendedor';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    public function VerTodasLojas(){
+        $sql = 'SELECT * FROM comercio.loja';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
 }
 
 ?>

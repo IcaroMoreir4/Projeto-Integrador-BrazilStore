@@ -94,3 +94,13 @@ ADD COLUMN id_vendedor INTEGER;
 
 alter table produto.produto
 add foreign key(id_vendedor) references comercio.vendedor(id);
+
+
+ALTER TABLE usuario.adm
+ADD COLUMN admin BOOLEAN NOT NULL DEFAULT FALSE;
+
+
+INSERT INTO usuario.adm (nome, email, senha, cpf, cnpj, telefone, admin)
+VALUES ('Admin', 'admin@example.com', 'admin123', '00000000000', NULL, NULL, TRUE);
+
+select * from usuario.adm;
