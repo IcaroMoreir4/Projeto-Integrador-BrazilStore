@@ -6,7 +6,8 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO
 
 function getUploadPath($fileName) {
 
-    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
+    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '../Projeto-Integrador-BrazilStore/uploads/';
+    // $uploadDir = $_SERVER['DOCUMENT_ROOT'] . 'Projeto-Integrador-BrazilStore/uploads/';
 
     $uploadPath = $uploadDir . $fileName;
 
@@ -32,7 +33,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         
             if ($vendedorDAO->exists($id_vendedor)) {
                 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
-                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
+                    $uploadDir = $_SERVER['DOCUMENT_ROOT'] . 'Projeto-Integrador-BrazilStore/uploads/';
+                    // $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
+
     
                     $uploadFile = $uploadDir . basename($_FILES['imagem']['name']);
                     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadFile)) {

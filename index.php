@@ -58,8 +58,6 @@ $midPoint = ceil($totalProdutos / 2);
                 <span class="close" onclick="closeLogin()">&times;</span>
 
                 <form action="login_usuario.php" method="post">
-
-                <form action="login_usuario.php" method="post">
                     <label for="login-email" class="font-1-m">Email</label>
                     <div class="email-l">
                         <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>

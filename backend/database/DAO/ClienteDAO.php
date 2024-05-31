@@ -4,7 +4,6 @@ require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/usuarios/cliente.php');
 
 class ClienteDAO{
-
     public function create(Cliente $cliente){
         $sql = 'INSERT INTO usuario.cliente (nome,email,senha,telefone,cpf) values (?,?,?,?,?)';
         $stmt = Conexao::getConn()->prepare($sql);
@@ -16,23 +15,22 @@ class ClienteDAO{
         $stmt->execute();
     }
     
-    public function read(Cliente $cliente){
-        $sql = 'SELECT * FROM  usuario.cliente';
+    public function read($id_cliente){
+        $sql = 'SELECT * FROM usuario.cliente WHERE id = :id_user';
         $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindParam(':id_user', $id_cliente, PDO::PARAM_INT);
         $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function uptade(Cliente $cliente){
-        $sql = 'UPTADE  usuario.cliente SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ?, id_endereco = ?
-        where id = ? ';
+    public function uptade($id, $nome, $email, $senha, $telefone){
+        $sql = "UPDATE usuario.cliente SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $cliente->getNome());
-        $stmt->bindValue(2, $cliente->getEmail());
-        $stmt->bindValue(3, $cliente->getSenha());
-        $stmt->bindValue(4, $cliente->getTelefone());
-        $stmt->bindValue(5, $cliente->getCpf());
+        $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
+        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
+        $stmt->bindValue(':senha', $senha, PDO::PARAM_STR);
+        $stmt->bindValue(':telefone', $telefone, PDO::PARAM_INT);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 

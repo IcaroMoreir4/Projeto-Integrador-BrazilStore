@@ -1,9 +1,9 @@
 
-.minhas-vendas{
+.meus-produtos{
     width: 850px;
 }
 
-.vendas-titulo{
+.produtos-titulo{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -11,7 +11,7 @@
 
 }
 
-.vendastexto a{
+.produtostexto a{
     text-decoration: none;
 }
 

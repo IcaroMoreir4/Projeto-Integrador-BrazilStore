@@ -32,7 +32,7 @@ create table usuario.endereco (
 	id serial not null primary key,
 	id_cliente integer,
 	nome_comp varchar (40),
-	telefone_end char (11),
+	telefone_end char(11),
 	logradouro varchar(40) not null,
 	numero integer,
 	bairro varchar(20) not null,
@@ -102,9 +102,10 @@ create table pedido.item_carrinho(
 create table pedido.carrinho(
 	id serial not null primary key,
 	id_cliente integer,
-	id_item integer,
-	foreign key(id_item) references pedido.item_carrinho(id),
-	foreign key(id_cliente) references usuario.cliente(id)
+	id_produto integer,
+	quantidade integer,
+	foreign key(id_cliente) references usuario.cliente(id),
+	foreign key(id_produto) references produto.produto(id)
 );
 
 create table pedido.pedido(
