@@ -6,22 +6,20 @@
 
 .produtos-titulo{
     display: flex;
-    justify-content: space-between;
-    width: 850px;
+    flex-direction: column;
+    gap: 20px;
 
 }
 .produtostexto{
     width: 850px;
     display: flex;
     justify-content: space-between;
-
-
 }
 .produtostexto a{
     text-decoration: none;
 }
 
-.adicionaritem{
+.produtostexto button{
     color: #E4A30B;
     border: 1px solid #E4A30B;
     border-radius: 4px;
@@ -29,5 +27,9 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    height: 45px;
 }
 
+.adicionaritem :hover{
+    cursor: pointer;
+}
