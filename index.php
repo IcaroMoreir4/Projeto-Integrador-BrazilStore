@@ -43,7 +43,7 @@ $midPoint = ceil($totalProdutos / 2);
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <!-- <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a> -->
+                
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>

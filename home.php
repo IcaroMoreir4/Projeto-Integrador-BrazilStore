@@ -99,211 +99,61 @@
         <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
         <div class="populares-home_itens">
             <div class="itens-l1 mgb-40">
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
+                <?php if (!empty($produtos)): ?>
+                    <?php for ($i = 0; $i < $midPoint; $i++): ?>
+                        <div class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                </div>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p>
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p>
+                                </div>
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
             </div>
             <div class="itens-l2">
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
+                <?php if (!empty($produtos)): ?>
+                    <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
+                        <div class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                </div>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p> 
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p> 
+                                </div>
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b">Nome do Produto</h2>
-                            <p class="font-1-m cor-p6">R$ 25</p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="">
-                                <p class="font-1-m">4.8</p>
-                            </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </div>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
             </div>
         </div>
     </article>
-
         
         <footer class="grid">
             <div class="logo">
