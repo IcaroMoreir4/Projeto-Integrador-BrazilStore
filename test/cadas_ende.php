@@ -15,7 +15,7 @@
     $dao = new EnderecoDAO();
 
     //Logica para implementar com a DAO para cadastra um endereço.
-    if (isset($_POST['cadastra_endereco'])) {
+    if (isset($_POST['cadast_ende'])) {
         $cadastra_enderecos = $dao->create($endereco);
     }
 

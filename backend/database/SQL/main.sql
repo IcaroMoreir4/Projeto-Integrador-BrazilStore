@@ -32,7 +32,7 @@ create table usuario.endereco (
 	id serial not null primary key,
 	id_cliente integer,
 	nome_comp varchar (40),
-	telefone_end char (11),
+	telefone_end char(11),
 	logradouro varchar(40) not null,
 	numero integer,
 	bairro varchar(20) not null,
