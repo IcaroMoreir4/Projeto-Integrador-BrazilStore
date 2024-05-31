@@ -56,12 +56,10 @@ $midPoint = ceil($totalProdutos / 2);
 
             <div class="popup-content">
                 <span class="close" onclick="closeLogin()">&times;</span>
-<<<<<<< HEAD
+
                 <form action="../Projeto-Integrador-BrazilStore/backend/implementacao/imp_usuario/login_usuario.php" method="post">
-=======
-                <h2 class="font-1-l">Entrar</h2>
+
                 <form action="login_usuario.php" method="post">
->>>>>>> 34a407df229363c4cdf099b91e11b3c3dba22d89
                     <label for="login-email" class="font-1-m">Email</label>
                     <div class="email-l">
                         <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
