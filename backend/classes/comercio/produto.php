@@ -72,7 +72,7 @@ class produto{
         return $this->cor;
     }
 
-    public function getTipoEentrega(){
+    public function getTipoEntrega(){
         return $this->tipo_entrega;
     }
 
