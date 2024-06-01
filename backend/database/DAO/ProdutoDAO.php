@@ -45,9 +45,9 @@ class ProdutoDAO {
 
     //Barra de pesquisa
     public function query($consulta) {
-        $sql = "SELECT nome, valor FROM produto.produto WHERE nome LIKE :Consulta"; //Fazer uma consulta mais exata.
+        $sql = 'SELECT nome, valor FROM produto.produto WHERE nome LIKE :Consulta';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindParam(':Consulta', $consulta, PDO::PARAM_INT);
+        $stmt->bindParam(':Consulta', $consulta, PDO::PARAM_STR);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
