@@ -1,9 +1,11 @@
-section {
+.sessao {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    height: 500px;
+    
+    
 }
 
 .imagem {
@@ -35,25 +37,24 @@ section {
     
 }
 
-form {
+.box-1 form {
     display: inline-block;
     margin: 10px;
     
 }
 
-button {
+.box-1 button {
     
     font-weight: 600;
     padding: 10px 70px;
-    border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
 }
 
 .continuar-comprando {
     background: linear-gradient(0deg, #F2A50C 0%, #FFBF00 100%);
   color: #332200;
+  border: none;
 }
 
 .detalhe-da-compra {
