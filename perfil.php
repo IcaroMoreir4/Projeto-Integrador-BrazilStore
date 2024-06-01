@@ -1,14 +1,29 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
-session_start();
+    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit();
+    }
 
-$cliente = $_SESSION['cliente_id'];
-$clienteDAO = new ClienteDAO();
+    $dao = new ClienteDAO;
 
-// $cliente = $clienteDAO->getClienteById($cliente_id);
+    //Função para consultar os endereços cadastrados.
+    if (isset($_SESSION['user_id'])) {
+        $id_cliente = $_SESSION['user_id'];
+        $exibir_perfil = $dao->read($id_cliente);
+    }
 
-
+    //Editar perfil
+    if(isset($_POST['editar_perfil'])){
+        $id = $_SESSION['user_id'];
+        $nome = $_POST['nome'];
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
+        $telefone = $_POST['telefone'];
+        $editar_perfil = $dao->uptade($id, $nome, $email, $senha, $telefone);
+    }
 ?>
 
 
@@ -84,41 +99,57 @@ $clienteDAO = new ClienteDAO();
         </div>
 
         <div class="perfil">
-            <div class="perfil-texto">
-                <h1 class="font-2-l">Meu Perfil</h1>
-                <p class="font-1-s">Gerenciar e proteger sua conta</p>
-                <div class="linhau"></div>
-            </div>
+            <!--Botão para exibir perfil-->
+                <?php if (!empty($exibir_perfil)): ?>
+                    <td>
+                        <tr>Nome:  </tr><?php echo htmlspecialchars($exibir_perfil["nome"]); ?><br>
+                        <tr>E-mail:  </tr><?php echo htmlspecialchars($exibir_perfil["email"]); ?><br>
+                        <tr>CPF:  </tr><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?><br>
+                        <tr>Telefone:  </tr><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?>
+                    </td>
+                <?php endif; ?> 
+                <!--Inputs para editar perfil-->
+                <br>
+                <button name="" onclick="toggleInputs()">Editar perfil</button>
+                
+                <div id="inputs" class="hidden">
+                    <form action="teste_perfil.php" method="POST">
+                        <label for="" class="">Nome: </label>
+                        <div class="nome">
+                            <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Insira o seu nome">
+                        </div>
 
-            <div class="painelperfil">
-            <div class="meu-perfil">
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Nome Completo</label>
-                        <span><?php echo htmlspecialchars($user['full_name']); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Email</label>
-                        <span><?php echo htmlspecialchars($user['email']); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Telefone</label>
-                        <span><?php echo htmlspecialchars($user['phone']); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">CPF</label>
-                        <span><?php echo htmlspecialchars($user['cpf']); ?></span>
-                    </div>
-            </div>
-            <div class="adicionar-perfil">
-                <img src="imagem/user.svg" alt="">
-                <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
-            </div>
-            </div>
+                        <label for="" class="">E-mail: </label>
+                        <div class="email">
+                            <input class="campo" type="email" name="email" id="" maxlength="40" placeholder="Insira o seu email">
+                        </div>
 
-        </div>
+                        <label for="" class="">Telefone: </label>
+                        <div class="Telefone">
+                            <input class="campo" type="tel" name="telefone" id="" maxlength="11" placeholder="Insira o seu telefone">
+                        </div>
 
+                        <label for="" class="">Senha: </label>
+                        <div class="Senha">
+                            <input class="campo" type="password" name="senha" id="cadas-telefone" maxlength="40" placeholder="Insira o seu senha">
+                        </div>
 
-        </div>
+                        <div class="">
+                            <button name = "editar_perfil" type="submit">Alterar</button>
+                        </div>
+                    </form>
+    </div>
+
+    <script>
+        function toggleInputs() {
+            var inputsDiv = document.getElementById('inputs');
+            if (inputsDiv.classList.contains('hidden')) {
+                inputsDiv.classList.remove('hidden');
+            } else {
+                inputsDiv.classList.add('hidden');
+            }
+        }
+    </script>
     </div>
 
 <div id="popupBgLoja" class="popup-bg">

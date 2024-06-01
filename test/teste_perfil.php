@@ -10,10 +10,16 @@
         exit();
     }
 
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit();
+    }
+
     $dao = new ClienteDAO;
 
     //Função para consultar os endereços cadastrados.
-    if (isset($_GET['exibir_perfil'])) {
+    if (isset($_SESSION['user_id'])) {
         $id_cliente = $_SESSION['user_id'];
         $exibir_perfil = $dao->read($id_cliente);
     }
