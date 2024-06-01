@@ -8,14 +8,13 @@
 <body>
 
 
-
 <?php
 require_once('../backend/database/DAO/PedidoDAO.php');
 
 session_start();
 
-if (isset($_SESSION['pedido_id'])) {
-    $id_pedido = $_SESSION['pedido_id'];
+if (isset($_SESSION['cliente_id'])) { // Corrigido para 'cliente_id'
+    $id_cliente = $_SESSION['cliente_id']; // Corrigido para 'cliente_id'
     $pedidoDAO = new PedidoDAO();
     $pedidos = $pedidoDAO->listarPedidosPorCliente($id_cliente);
 
@@ -39,12 +38,4 @@ if (isset($_SESSION['pedido_id'])) {
 } else {
     echo "Por favor, faça login como cliente antes de visualizar os pedidos.";
 }
-
-
-
-
-
-
-
-
 ?>

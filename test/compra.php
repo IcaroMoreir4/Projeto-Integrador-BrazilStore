@@ -15,10 +15,8 @@ if (isset($_SESSION['pedido_id'])) {
         $pedidoDAO = new PedidoDAO();
         $pedidoDAO->atualizarFormaPagamento($forma_pagamento);
 
-        // Finalizar a compra
         echo "<p>Compra realizada com sucesso! Forma de pagamento: $forma_pagamento</p>";
 
-        
         header("Location: confirmacao.php");
         exit();
     } else {
