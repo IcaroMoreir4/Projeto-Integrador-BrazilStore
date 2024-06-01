@@ -1,21 +1,36 @@
 <?php
-require_once(__DIR__ . '/../../database/DAO/CarrinhoDAO.php');
+    require_once(__DIR__ . '/../../database/DAO/CarrinhoDAO.php');
+    require_once(__DIR__ . '/../../classes/comercio/carrinho_item.php');
 
-session_start();
+    session_start();
 
-$_SESSION['user_id'] = 1;//teste
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit();
+    }
+    
+    $dao = new CarrinhoDAO();
 
-//Proteção
-if (!isset($_SESSION['user_id'])) {
-    echo 'Insira um id de usuario!'; // Teste
-    //header('Location: index.php');
-    exit();
-}
+    if(isset($_POST['add_carrinho'])){
+        $add_carrinho = $dao->create($carrinho);
+    }
 
-$dao = new CarrinhoDAO();
+    if ($_SERVER["REQUEST_METHOD"] == "POST"){
+        $id_cliente = $_SESSION['user_id'];
+        $id_produto = $_SESSION['produ_id'];
+        $quantidade = $_POST['quant'];
+        $tamanho = $_POST['tamanh'];
+        $cor = $_POST['cor'];
 
-if(isset($_POST['add_carrinho'])){
-    $_SESSION['user_id'] = $id_clinte;
-    //$add_car = $dao->create_item();
-}
+        if (!empty($id_cliente) && !empty($id_produto) && !empty($quantidade) && !empty($tamanho) && !empty($cor)) {
+            $carrinho = new carrinho(null, $id_cliente, $id_produto, $quantidade, $tamanho, $cor);
+            $dao->create($carrinho);
+            header('location: apresentacao.php');
+        } else {
+            +$quantidade;
+            $id = $_SESSION['produ_id'];
+            $dao->update_item($quantidade, $id);
+        }
+    }
 ?>
