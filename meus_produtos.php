@@ -1,7 +1,12 @@
 <?php
-    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
-        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
-        session_start();
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+session_start();
+
+if (isset($_SESSION['vendedor_id']))
+    $id_vendedor = $_SESSION['vendedor_id'];
+    $produtoDAO = new ProdutoDAO();
+    $produtos = $produtoDAO->listarProdutosPorVendedor($id_vendedor);
 
 ?>
 
@@ -22,6 +27,7 @@
 
 </head>
 <body>
+
 
     <header class="grid">
             <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
@@ -46,96 +52,81 @@
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
     </header>
     <div class="linhau"></div>
-        <div class="gridusuario">
-                <div class="meuperfil">
-                    <div class="menu-user">
-                    <div class="menu-nome">
-                        <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
-                            <div class="nomeusuario">
-                            <label class="font-1-m">Nome do usuario</label>
-                            <a href="#" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
-                        </div>
-                    </div>
-                    <div class="minha-conta">
-                        <div class="minhacontabtn">
-                            <img src="imagem/perfilMinhaConta.svg" alt="">
-                            <a class="font-1-m">Minha Conta</a>
-                        </div>
-                            <div class="perfil-end">
-                            <ul>
-                                <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                                <li class="font-1-s"><a href="endereço.php">Endereço</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="minhas-compras">
-                        <img src="imagem/compras.svg" alt="">
-                        <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
-                    </div>
-                    <div class="minha-loja">
-                        <img src="imagem/Minha-loja.svg" alt="">
-                        <a class="font-1-m" href="listar_produtos_teste.php">Minha loja</a>
-                    </div>
-                    <div class="loja-venda">
-                        <ul>
-                            <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
-                            <li class="font-1-s"><a href="">Meus Produtos</a></li>
-                        </ul>
-                    </div>          
+    <div class="gridusuario">
+    <div class="meuperfil">
+        <div class="menu-user">
+            <div class="menu-nome">
+                <div class="imgperfil">
+                    <img src="imagem/perfiluser.svg" alt="User Profile Image">
                 </div>
+                <div class="nomeusuario">
+                    <label class="font-1-m">Nome do usuário</label>
+                    <a href="#" class="font-1-s">
+                        <img src="imagem/lapis.svg" alt="Edit Icon">Editar Perfil
+                    </a>
                 </div>
-                    
-        <div class="meus-produtos">
-                <div class="produtos-titulo">
-                        <div class="produtostexto">
-                            <h1 class="font-1-l">Meus Produtos</h1>
-                            <button class="adicionaritem font-1-m-b" onclick="">ADICIONAR ITEM<img src="imagem/+.svg" alt=""></button>
-                        </div>
-                        <div class="linhau"></div>
+            </div>
+            <div class="minha-conta">
+                <div class="minhacontabtn">
+                    <img src="imagem/perfilMinhaConta.svg" alt="Account Icon">
+                    <a class="font-1-m">Minha Conta</a>
                 </div>
-        <div class="lista-produtos">
-
+                <div class="perfil-end">
+                    <ul>
+                        <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
+                        <li class="font-1-s"><a href="endereco.php">Endereço</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="minhas-compras">
+                <img src="imagem/compras.svg" alt="Purchases Icon">
+                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+            </div>
+            <div class="minha-loja">
+                <img src="imagem/Minha-loja.svg" alt="Store Icon">
+                <a class="font-1-m" href="listar_produtos_teste.php">Minha Loja</a>
+            </div>
+            <div class="loja-venda">
+                <ul>
+                    <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
+                    <li class="font-1-s"><a href="#">Meus Produtos</a></li>
+                </ul>
+            </div>
         </div>
-
-        
-        </div>
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
     </div>
 
+    <div class="meus-produtos">
+        <div class="produtos-titulo">
+            <div class="produtostexto">
+                <h1 class="font-1-l">Meus Produtos</h1>
+                <button class="adicionaritem font-1-m-b" onclick="">
+                    ADICIONAR ITEM
+                    <img src="imagem/+.svg" alt="Add Icon">
+                </button>
+            </div>
+            <div class="linhau"></div>
+        </div>
+        <div class="lista-produtos">
+        <?php
+            if ($produtos) {
+                foreach ($produtos as $produto) {
+            ?>
+            <div class="item-box">
+                <div class="img-item">
+                    <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
+                </div>
+                <div class="item-info">
+                    <p class="item-nome font-1-l cor-c12"><?= htmlspecialchars($produto['nome']) ?></p>
+                    <p class="item-valor font-1-m cor-c9">R$<?= htmlspecialchars($produto['valor']) ?></p>
+                </div>
+            </div>
+            <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
 
 
 
@@ -161,7 +152,43 @@
 
 
 
-        <footer class="grid">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
             </div>
@@ -175,11 +202,8 @@
                     <li>Juazeiro do Norte - CE</li>
                     <div class="linha"></div>
                     <div class="redes-sociais">
-                        <!-- instagram -->
                         <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
-                        <!-- facebook -->
                         <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
-                        <!-- youtube -->
                         <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
                     </div>
                 </ul>
@@ -197,7 +221,7 @@
             <div class="cop">
                 <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
             </div>
-        </footer>
+</footer>
 
 </body>
 </html>
