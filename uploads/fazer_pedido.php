@@ -1,3 +1,27 @@
+<?php
+session_start();
+?>
+
+<?php
+
+require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/carrinho_item.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/CarrinhoDAO.php');
+
+$conexao_path = __DIR__ . '/../conexao.php';
+$carrinho_item_path = __DIR__ . '/../../classes/comercio/carrinho_item.php';
+
+if (file_exists($conexao_path)) {
+    require_once($conexao_path);
+} else {
+    die("O arquivo de conexão não foi encontrado em $conexao_path");
+}
+
+if (file_exists($carrinho_item_path)) {
+    require_once($carrinho_item_path);
+} else {
+    die("O arquivo do carrinho de itens não foi encontrado em $carrinho_item_path");
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -11,8 +35,6 @@
         <?php
         require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/carrinho_item.php');
         require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/CarrinhoDAO.php');
-        
-        session_start();
 
         // Inicializar a variável $total
         $total = 0;
