@@ -1,3 +1,18 @@
+.checkbox-container {
+    display: none; /* Inicialmente escondido */
+    transition: max-height 0.5s ease-out; /* Transição suave para altura */
+    overflow: hidden; /* Para ocultar o conteúdo enquanto está contraído */
+    max-height: 0; /* Altura máxima inicial de 0 para efeito de transição */
+}
+
+.checkbox-container.open {
+    display: block;
+    max-height: 500px; /* Defina um valor suficiente para acomodar o conteúdo */
+}
+
+.rotate-180 {
+    transform: rotate(180deg);
+}
 
 .conteudo {
     display: grid;
@@ -40,7 +55,8 @@
     border: 2px solid #DEDEDE;
     border-radius: 5px;
     width: 260px;
-    height: 730px;
+    min-height: 100px;
+    max-height: 720px;
     padding-top: 15px;
     padding-bottom: 15px;
     padding-left: 10px;
