@@ -14,6 +14,12 @@
   width: 400px;
 }
 
+.dados textarea{
+width: 380px;
+height: 100px;
+
+}
+
 .dados h2 {
   text-align: start;
   margin-bottom: 20px;
@@ -32,15 +38,12 @@
 }
 
 .texto-descri{
-  align-content: flex-start;
+  
   display: flex;
   height: 70px;
+  padding: 8px;
 }
 
-.texto-descri ::placeholder{
-  display: flex;
-  align-content: flex-start;
-}
 
 .botoes {
   display: flex;
