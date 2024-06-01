@@ -108,7 +108,7 @@
                         
                     </div>
 
-                <button type="submit" class="btn_cheio btn_adc">Adicionar Item</button>
+                    <button type="submit" class="btn_cheio btn_adc" id="adicionarItemBtn">Adicionar Item</button>
             </div>
         </form>
     </div>

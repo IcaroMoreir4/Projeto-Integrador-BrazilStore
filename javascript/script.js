@@ -128,5 +128,30 @@ function openPerfil() {
     perfilMenu.classList.toggle('aberto');
 }
 
+//adicionar item vendedor
+function redirectToAdicionar() {
+    window.location.href = 'adicionar.php';
+}
 
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form'); // Assumindo que o botão está dentro de um formulário
+    const button = document.getElementById('adicionarItemBtn');
 
+    form.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o comportamento padrão do formulário
+
+        // Aqui você pode adicionar a lógica de submissão do formulário, como uma chamada AJAX, por exemplo.
+        // Se a submissão for bem-sucedida, execute a função de redirecionamento
+        
+        // Simulação de uma submissão bem-sucedida
+        const submissionSuccessful = true; // Altere isso de acordo com a lógica de submissão
+
+        if (submissionSuccessful) {
+            redirectToProdutos();
+        }
+    });
+});
+
+function redirectToProdutos() {
+    window.location.href = 'meus_produtos.php'; // Altere a URL conforme necessário
+}

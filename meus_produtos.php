@@ -99,9 +99,8 @@ if (isset($_SESSION['vendedor_id']))
         <div class="produtos-titulo">
             <div class="produtostexto">
                 <h1 class="font-1-l">Meus Produtos</h1>
-                <button class="adicionaritem font-1-m-b" onclick="">
-                    ADICIONAR ITEM
-                    <img src="imagem/+.svg" alt="Add Icon">
+                <button class="adicionaritem font-1-m-b" onclick="redirectToAdicionar()">ADICIONAR ITEM
+                <img src="imagem/+.svg" alt="Add Icon">
                 </button>
             </div>
             <div class="linhau"></div>
@@ -111,6 +110,7 @@ if (isset($_SESSION['vendedor_id']))
             if ($produtos) {
                 foreach ($produtos as $produto) {
             ?>
+            <a class="btn_vazado btn_edit" href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">
             <div class="item-box">
                 <div class="img-item">
                     <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
@@ -120,6 +120,7 @@ if (isset($_SESSION['vendedor_id']))
                     <p class="item-valor font-1-m cor-c9">R$<?= htmlspecialchars($produto['valor']) ?></p>
                 </div>
             </div>
+            </a>
             <?php
                 }
             }
