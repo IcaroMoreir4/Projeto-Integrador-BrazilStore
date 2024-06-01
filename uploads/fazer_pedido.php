@@ -9,14 +9,16 @@
     <h2>Carrinho de Compras</h2>
     <div>
         <?php
+        require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/carrinho_item.php');
         require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/CarrinhoDAO.php');
+        
         session_start();
 
         // Inicializar a variável $total
         $total = 0;
 
-        if (isset($_SESSION['id_item'])) {
-            $id_item = $_SESSION['id_item'];
+        if (isset($_SESSION['id'])) {
+            $id_item = $_SESSION['id'];
             $carrinhoDAO = new CarrinhoDAO();
             $itens_carrinho = $carrinhoDAO->read();
 
