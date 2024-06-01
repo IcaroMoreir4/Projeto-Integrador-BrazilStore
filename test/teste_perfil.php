@@ -10,12 +10,6 @@
         exit();
     }
 
-    //Proteção
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: index.php');
-        exit();
-    }
-
     $dao = new ClienteDAO;
 
     //Função para consultar os endereços cadastrados.
