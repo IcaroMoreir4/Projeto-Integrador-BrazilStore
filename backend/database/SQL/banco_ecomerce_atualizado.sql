@@ -107,3 +107,10 @@ select * from usuario.adm;
 
 ALTER TABLE produto.produto
 ADD COLUMN categoria VARCHAR(50);
+
+
+ALTER TABLE usuario.cliente ADD COLUMN alerta VARCHAR(100);
+ALTER TABLE comercio.vendedor ADD COLUMN alerta VARCHAR(100);
+
+
+select * from produto.produto;

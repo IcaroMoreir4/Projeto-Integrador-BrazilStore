@@ -1,6 +1,8 @@
 <?php
 require_once('usuarios.php');
+
 class vendedor extends usuario{
+    protected $id_endereco;
     public function __construct($nome, $email, $cpf, $senha, $telefone){
         $this-> nome = $nome;
         $this-> email = $email;
@@ -39,6 +41,10 @@ class vendedor extends usuario{
         return $this-> id_endereco;
     }
 
+    public function getAlerta(){
+        return $this->alerta;
+    }
+
 
     //Setters
     public function setId($id){
@@ -67,6 +73,10 @@ class vendedor extends usuario{
 
     public function setId_endereco($id_endereco){
         $this-> id_endereco = $id_endereco;
+    }
+
+    public function setAlerta($alerta){
+        $this->alerta = $alerta;
     }
 }
 ?>

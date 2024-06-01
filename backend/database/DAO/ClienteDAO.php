@@ -90,6 +90,19 @@ class ClienteDAO{
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
 
+    // ClienteDAO.php
+
+
+
+    public function enviarAlerta($idCliente, $mensagem) {
+        $sql = 'UPDATE usuario.cliente SET alerta = ? WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $mensagem);
+        $stmt->bindValue(2, $idCliente, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
 }
+
+
 
 ?>

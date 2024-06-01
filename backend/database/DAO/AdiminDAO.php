@@ -2,6 +2,11 @@
 
 require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/usuarios/admin.php');
+require_once(__DIR__ . '/../../classes/usuarios/usuarios.php');
+require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
+require_once(__DIR__ . '/../../classes/comercio/loja.php');
+require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
+
 
 class AdiminDAO {
     public function create(Admin $admin) {
@@ -74,6 +79,36 @@ class AdiminDAO {
         return $stmt->fetchAll(PDO::FETCH_OBJ);
     }
     
+    public function delete_usuario($idUsuario) {
+        $sql = "DELETE FROM usuario.cliente WHERE id = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $idUsuario, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
+    public function delete_vendedor($id_vendedor) {
+        $sql = "DELETE FROM  comercio.vendedor WHERE id = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id_vendedor, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    //comercio.loja
+
+    public function delete_loja($id_loja) {
+        $sql = "DELETE FROM  comercio.loja WHERE id = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id_loja, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    
+
+    public function VerTodosProdutos() {
+        $sql = 'SELECT * FROM produto.produto';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    }
     
 
     

@@ -7,6 +7,7 @@ abstract class usuario{
     protected $cpf;
     protected $senha;
     protected $telefone;
+    protected $alerta;
 
     public function __construct($id, $nome, $email, $cpf, $senha, $telefone){
         $this-> id = $id;

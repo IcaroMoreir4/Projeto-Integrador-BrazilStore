@@ -38,6 +38,9 @@ class cliente extends usuario{
         return $this-> telefone;
     }
 
+    public function getAlerta(){
+        return $this->alerta;
+    }
 
     //Setters
     public function setId($id){
@@ -62,6 +65,10 @@ class cliente extends usuario{
 
     public function setTelefone($telefone){
         $this-> telefone = $telefone;
+    }
+
+    public function setAlerta($alerta){
+        $this->alerta = $alerta;
     }
 }
 ?>

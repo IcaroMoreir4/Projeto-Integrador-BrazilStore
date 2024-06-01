@@ -79,6 +79,14 @@ class VendedorDAO{
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
+    public function enviarAlerta($idCliente, $mensagem) {
+        $sql = 'UPDATE comercio.vendedor  SET alerta = ? WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $mensagem);
+        $stmt->bindValue(2, $idCliente, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+
 }
 
 ?>
