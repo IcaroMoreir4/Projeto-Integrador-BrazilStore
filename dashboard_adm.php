@@ -2,20 +2,28 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="BrazilStore. Os melhores que está tendo!">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard de Administração</title>
+    <title>BrazilStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preload" href="./css/style.css" as="style">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
+    <script src="./javascript/script.js"></script>
+
 </head>
 <body>
-    <h1>Dashboard de Administração</h1>
 
-    <h2>Usuários</h2>
+<div class="adm-box">
+    <h1 class="font-1-xl">ADIMINISTRADOR</h1>
+
+<div class="gridadm">
+    <div class="usuario">
+    <h2 class="font-1-l">Usuários</h2>
     <table>
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Ações</th>
-        </tr>
+
         <?php
         // Incluir o arquivo que contém as funções para visualizar os usuários
         require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.php');
@@ -26,19 +34,20 @@
         // Loop através de todos os usuários e exibir em uma tabela
         foreach ($usuarios as $usuario) {
             echo "<tr>";
-            echo "<td>{$usuario->id}</td>";
-            echo "<td>{$usuario->nome}</td>";
-            echo "<td>{$usuario->email}</td>";
-            echo "<td>";
-            echo "<button onclick='excluirUsuario({$usuario->id})'>Excluir</button>";
-            echo "<button onclick='enviarAlerta({$usuario->id})'>Enviar Alerta</button>";
+            echo "<td class='font-1-s'>ID:{$usuario->id}</td>";
+            echo "<td class='font-1-m'>{$usuario->nome}</td>";
+            echo "<td class='font-1-s'> {$usuario->email}</td>";
+            echo "<td class='btn-adm'>";
+            echo "<button class='btn-alerta' onclick='enviarAlerta({$usuario->id})'>Alerta</button>";
+            echo "<button class='btn-excluir' onclick='excluirUsuario({$usuario->id})'>Excluir</button>";
             echo "</td>";
             echo "</tr>";
         }
         ?>
     </table>
-
-    <h2>Vendedores</h2>
+    </div>
+<div class="vendedor">
+    <h2 class="font-1-l">Vendedores</h2>
     <table>
         <tr>
             <th>ID</th>
@@ -57,15 +66,16 @@
             echo "<td>{$vendedor->nome}</td>";
             echo "<td>{$vendedor->email}</td>";
             echo "<td>";
-            echo "<button onclick='excluirVendedor({$vendedor->id})'>Excluir</button>";
-            echo "<button onclick='enviarAlertaVendedor({$vendedor->id})'>Enviar Alerta</button>";
+            echo "<button  class='btn-excluir'onclick='excluirVendedor ({$vendedor->id})'>Excluir</button>";
+            echo "<button class='btn-alerta' onclick='enviarAlertaVendedor({$vendedor->id})'>Alerta</button>";
             echo "</td>";
             echo "</tr>";
         }
         ?>
     </table>
-
-    <h2>Lojas</h2>
+    </div>
+<div class="loja">
+    <h2 class="font-1-l">Lojas</h2>
     <table>
         <tr>
             <th>ID</th>
@@ -84,13 +94,15 @@
             echo "<td>{$loja->nome}</td>";
             echo "<td>{$loja->endereco}</td>";
             echo "<td>";
-            echo "<button onclick='excluirLoja({$loja->id})'>Excluir</button>";
-            echo "<button onclick='enviarAlertaLoja({$loja->id})'>Enviar Alerta</button>";
+            echo "<button class='btn-excluir' onclick='excluirLoja({$loja->id})'>Excluir</button>";
+            echo "<button class='btn-alerta' onclick='enviarAlertaLoja({$loja->id})'>Enviar Alerta</button>";
             echo "</td>";
             echo "</tr>";
         }
         ?>
     </table>
+    </div>
+    </div>
 
     <script>
         // Funções de ação para usuários
@@ -138,5 +150,6 @@
             alert("Alerta enviado para a loja!");
         }
     </script>
+    </div>
 </body>
 </html>
