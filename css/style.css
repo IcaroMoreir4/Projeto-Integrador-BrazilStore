@@ -1,8 +1,5 @@
 /* Global */
-@import "./global/cores.css";
-@import "./global/fontes.css";
 @import "./global/restart.css";
-@import"./global/modelo.css";
 @import"./global/login.css";
 @import"./global/cadastro.css";
 @import "./global/termos.css";
@@ -11,10 +8,17 @@
 @import "./global/item.css";
 @import "./global/vestuario-masculino.css";
 @import "./global/finalizar-compra.css";
+@import "./global/finalizar-compra-endereco.css";
 @import "./global/perfil.css";
 @import "./global/endereço.css";
 @import "./global/criar-loja.css";
 @import "./global/pagamento-bem-sucedido.css";
+@import "./global/cadastro_endereco.css";
+@import "./global/minha_loja.css";
+@import "./global/minhas_compras.css";
+@import "./global/meus_produtos.css";
+@import "./global/editar-produtos.css";
+@import "./global/dashboard-adm.css";
 
 
 
@@ -22,6 +26,6 @@
 @import"./global/header.css";
 @import"./global/footer.css";
 @import"./global/grid.css";
+@import "./global/cores.css";
+@import "./global/fontes.css";
 
-/* Modelo */
-@import "./caminho/nome.css";

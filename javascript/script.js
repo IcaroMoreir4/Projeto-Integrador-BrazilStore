@@ -66,6 +66,48 @@ function closeCadastro() {
     document.getElementById('popupBgCadastro').style.display = 'none'; 
 }
 
+// Função para abrir o pop-up de cadastro loja
+function openCadastroLoja() {
+    document.getElementById('popupCadastroLoja').style.display = 'block';
+    document.getElementById('popupBgCadastroLoja').style.display = 'flex'; 
+    document.getElementById('popupLoginLoja').style.display = 'none';
+    document.getElementById('popupBgLoja').style.display = 'none';   
+}
+
+// Função para fechar o pop-up de cadastro loja
+function closeCadastroLoja() {
+    document.getElementById('popupCadastroLoja').style.display = 'none';
+    document.getElementById('popupBgCadastroLoja').style.display = 'none'; 
+}
+
+// Função para abrir o pop-up de login loja
+function openLoginLoja() {
+    document.getElementById('popupLoginLoja').style.display = 'block';
+    document.getElementById('popupBgLoja').style.display = 'flex'; 
+    document.getElementById('popupCadastroLoja').style.display = 'none';
+    document.getElementById('popupBgCadastroLoja').style.display = 'none';   
+}
+
+// Função para fechar o pop-up de login loja
+function closeLoginLoja() {
+    document.getElementById('popupLoginLoja').style.display = 'none';
+    document.getElementById('popupBgLoja').style.display = 'none'; 
+}
+
+// Função para abrir o pop-up de cadastro Endereço
+function openCadastroEndereço() {
+    document.getElementById('popupCadastroEndereço').style.display = 'block';
+    document.getElementById('popupBgCadastroEndereço').style.display = 'flex'; 
+    document.getElementById('popupLoginEndereço').style.display = 'none';
+    document.getElementById('popupBgEndereço').style.display = 'none';   
+}
+
+// Função para fechar o pop-up de cadastro Endereço
+function closeCadastroEndereço() {
+    document.getElementById('popupCadastroEndereço').style.display = 'none';
+    document.getElementById('popupBgCadastroEndereço').style.display = 'none'; 
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const listItems = document.querySelectorAll('.abrir-termos');
     
@@ -81,10 +123,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
-
-
+function openPerfil() {
+    var perfilMenu = document.getElementById('perfilMenu');
+    perfilMenu.classList.toggle('aberto');
+}
 
 
 

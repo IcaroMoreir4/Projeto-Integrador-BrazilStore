@@ -3,7 +3,12 @@
     width: 850px;
 
 }
-
+.endereçobox{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 850px;
+}
 .endereçotexto{
     display: flex;
     justify-content: space-between;
@@ -27,12 +32,7 @@
 .endereços-cadastrados{
     width: 850px;
 }
-.endereçobox{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 850px;
-}
+
 
 .padrao{
     display: flex;
@@ -65,9 +65,14 @@
 
 }
 
-
 .endereçobtn button{
     border: 1px solid var(--cor-4);
     color: var(--cor-4);
     border-radius: 5px;
+}
+
+
+
+.endereçotexto :hover{
+    cursor: pointer;
 }

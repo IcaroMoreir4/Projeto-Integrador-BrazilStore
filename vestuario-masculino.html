@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -16,7 +16,7 @@
     </head>
 <body>
     <header class="grid">
-        <img class="logo-header" src="./imagem/logo.svg" alt="">
+        <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
         <div class="categoria_btn" id="categoriaBtn">
             <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
             <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -33,435 +33,440 @@
                 <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
             </div>
         </form>
-            <!-- <a href="./"><img class="icon_sino" src="./imagem/sino.svg" alt=""></a> -->
+            
             <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
             <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-    </header>x
+    </header>
 
     <main>
         <div class="conteudo">
-            <div class="nome-telas">
-                <p class="font-1-m nome-telas-home">Home</p>
-                <p class="font-1-m">></p>
-                <p class="font-1-m nome-telas-vestuario">Vestuário</p>
-                <p class="font-1-m">></p>
-                <p class="font-1-m nome-telas-masculino">Masculino</p>
+            <div class="nome-telas-grid">
+                <div class="nome-telas">
+                    <p class="font-1-m nome-telas-home">Home</p>
+                    <p class="font-1-m">></p>
+                    <p class="font-1-m nome-telas-vestuario">Vestuário</p>
+                    <p class="font-1-m">></p>
+                    <p class="font-1-m nome-telas-masculino">Masculino</p>
+                </div>
             </div>
 
-            <div class="filtros-produtos">
-                <div class="filtros">
-                    <p class="font-2-l-b">Filtros</p>
-
-                    <hr>
-
-                    <div class="filtros-populares-arrow">
-                        <p class="font-1-s">Filtros Populares</p>
-                        <img src="imagem/arrow-para-baixo.svg" alt="">
-                    </div>
-
-                    <div class="filtro-4-estrelas">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <hr>
-
-                    <div class="filtros-populares-arrow">
-                        <p class="font-1-s">Filtros Populares</p>
-                        <img src="imagem/arrow-para-baixo.svg" alt="">
-                    </div>
-
-                    <div class="filtro-4-estrelas">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <hr>
-
-                    <div class="filtros-populares-arrow">
-                        <p class="font-1-s">Filtros Populares</p>
-                        <img src="imagem/arrow-para-baixo.svg" alt="">
-                    </div>
-
-                    <div class="filtro-4-estrelas">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <hr>
-
-                    <div class="filtros-populares-arrow">
-                        <p class="font-1-s">Filtros Populares</p>
-                        <img src="imagem/arrow-para-baixo.svg" alt="">
-                    </div>
-
-                    <div class="filtro-4-estrelas">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                    <div class="filtro-promocao">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Promoção</label>
-                    </div>
-
-                    <div class="filtro-frete-gratis">
-                        <input id="checkbox-filtros" type="checkbox">
-                        <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
-                    </div>
-
-                </div>
-
-                <div class="produtos">
-                    <div class="fileira">
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
+            <div class="filtros-produtos-grid">
+                <div class="filtros-produtos">
+                    <div class="filtros">
+                        <p class="font-2-l-b">Filtros</p>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
+                        <hr>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
+                        <div class="filtros-populares-arrow">
+                            <p class="font-1-s">Filtros Populares</p>
+                            <img src="imagem/arrow-para-baixo.svg" alt="">
                         </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
+                        <div class="filtro-4-estrelas">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
                         </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <hr>
+    
+                        <div class="filtros-populares-arrow">
+                            <p class="font-1-s">Filtros Populares</p>
+                            <img src="imagem/arrow-para-baixo.svg" alt="">
+                        </div>
+    
+                        <div class="filtro-4-estrelas">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <hr>
+    
+                        <div class="filtros-populares-arrow">
+                            <p class="font-1-s">Filtros Populares</p>
+                            <img src="imagem/arrow-para-baixo.svg" alt="">
+                        </div>
+    
+                        <div class="filtro-4-estrelas">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <hr>
+    
+                        <div class="filtros-populares-arrow">
+                            <p class="font-1-s">Filtros Populares</p>
+                            <img src="imagem/arrow-para-baixo.svg" alt="">
+                        </div>
+    
+                        <div class="filtro-4-estrelas">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">4 estrelas ou superior</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
+                        <div class="filtro-promocao">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Promoção</label>
+                        </div>
+    
+                        <div class="filtro-frete-gratis">
+                            <input id="checkbox-filtros" type="checkbox">
+                            <label for="checkbox-filtros" class="font-1-s">Frete grátis</label>
+                        </div>
+    
                     </div>
-
-                    <div class="fileira">
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
+                    <div class="produtos">
+                        <div class="fileira">
+                            
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
                                 </div>
+                            </button>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
                                 </div>
+                            </button>
     
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
                                 </div>
-                            </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
                         </div>
+    
+                        <div class="fileira">
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+    
+                        <div class="fileira">
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+    
+                        <div class="fileira">
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+    
+                            <button type="submit" class="produto">
+                                <div class="add-favoritos">
+                                    <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
+                                </div>
+        
+                                <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
+        
+                                <div class="produto-descricao">
+                                    <div class="produto-nome-valor">
+                                        <p class="font-1-s produto-nome">T-Shirt Front-End</p>
+                                        <p class="font-1-s produto-valor">R$ 25</p>
+                                    </div>
+        
+                                    <div class="produto-avaliacao-vendas">
+                                        <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
+                                        <p class="font-1-s">4,8</p>
+                                        <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
+                                        <p class="font-1-s">300 vendidos</p>
+                                    </div>
+                                </div>
+                            </button>
+                        </div>
+    
+                        <div class="botoes-paginas">
+                            <button type="submit" class="font-2-l-b main-pag">1</button>
+                            <button type="submit" class="font-2-l-b sec-pag">2</button>
+                            <button type="submit" class="font-2-l-b sec-pag">...</button>
+                            <button type="submit" class="font-2-l-b sec-pag">20</button>
+                        </div>
+    
                     </div>
-
-                    <div class="fileira">
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="fileira">
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="produto">
-                            <div class="add-favoritos">
-                                <figure><img src="imagem/adicionar-favoritos.svg" alt=""></figure>
-                            </div>
-
-                            <figure class="merch-camisa"><img class="merch-camisa-img" src="imagem/merch-camisa-neymar.svg" alt=""></figure>
-
-                            <div class="produto-descricao">
-                                <div class="produto-nome-valor">
-                                    <p class="font-1-s produto-nome">T-Shirt Front-End</p>
-                                    <p class="font-1-s produto-valor">R$ 25</p>
-                                </div>
-    
-                                <div class="produto-avaliacao-vendas">
-                                    <figure><img src="imagem/estrela-avaliacao.svg" alt=""></figure>
-                                    <p class="font-1-s">4,8</p>
-                                    <figure><img src="imagem/divisao-av-vendas.svg" alt=""></figure>
-                                    <p class="font-1-s">300 vendidos</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="botoes-paginas">
-                        <button class="font-2-l-b main-pag">1</button>
-                        <button class="font-2-l-b sec-pag">2</button>
-                        <button class="font-2-l-b sec-pag">...</button>
-                        <button class="font-2-l-b sec-pag">20</button>
-                    </div>
-
                 </div>
             </div>
         </div>

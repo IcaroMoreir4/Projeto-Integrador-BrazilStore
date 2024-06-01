@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -17,7 +17,7 @@
 <body>
 
         <header class="grid">
-            <img class="logo-header" src="./imagem/logo.svg" alt="">
+            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -28,19 +28,67 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
-                <a href="./carrinho.htlm"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="./perfil.html" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                
+                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
         </header>
-        
 
-        
-        <footer class="grid">
+    <article class="grid">
+        <?php
+        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+        session_start();
+
+        if (isset($_SESSION['vendedor_id'])) {
+            $id_vendedor = $_SESSION['vendedor_id'];
+            $produtoDAO = new ProdutoDAO();
+            $produtos = $produtoDAO->listarProdutosPorVendedor($id_vendedor);
+
+            if ($produtos) {
+                foreach ($produtos as $produto) {
+            
+        ?>
+        <div class="item-section">
+            <div class="item-opcoes">
+                <div class="item-opcao_maior">
+                    <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
+                </div>
+            </div>
+            <div class="item-content">
+                <h1 class="font-1-xxl"><?= htmlspecialchars($produto['nome']) ?></h1>
+                <div class="info-content">
+                </div>
+                <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produto['valor']) ?></h2>
+                <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produto['descricao']) ?></p>
+                <div class="btn-item">
+                    <button class="btn_cheio btn_adc" type="button">Comprar Agora</button>
+                    <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
+                    <a class="btn_vazado btn_edit" href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">Editar</a>
+                </div>
+            </div>
+        </div>
+        <?php
+                }
+            } else {
+                echo "<p>Nenhum produto encontrado.</p>";
+            }
+        } else {
+            echo "<p>Por favor, faça login como vendedor antes de visualizar os produtos.</p>";
+        }
+        ?>
+
+        <a class="button_sair cor-12 font-1-m" href="logout.php">Sair</a>
+
+    </article>
+    
+
+    <footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
             </div>

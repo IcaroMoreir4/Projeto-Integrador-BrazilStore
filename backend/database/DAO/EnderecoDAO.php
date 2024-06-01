@@ -1,69 +1,55 @@
 <?php 
-
 require_once(__DIR__ . '/../conexao.php');
 require_once(__DIR__ . '/../../classes/usuarios/endereco.php');
 
-
 class EnderecoDAO{
-    
-    //Cadastra o Endereço (PK).
+    //Função para cadastra um novo endereço.
     public function create(Endereco $endereco){
-        $sql = 'INSERT INTO endereco.endereco (logradouro, numero, bairro,	cep) values (?,?,?,?)';
+        $sql = 'INSERT INTO usuario.endereco (id_cliente, nome_comp, telefone_end, logradouro, numero, bairro, cep, nome_cidade, nome_estado) values (?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getLogradouro());
-        $stmt->bindValue(2, $endereco->getNumero());
-        $stmt->bindValue(3, $endereco->getBairro());
-        $stmt->bindValue(4, $endereco->getBairro());
-        $stmt->bindValue(5, $endereco->getCep());
+        $stmt->bindValue(1, $endereco->getId_cliente());
+        $stmt->bindValue(2, $endereco->getNome_comp());
+        $stmt->bindValue(3, $endereco->getTelefone_end());
+        $stmt->bindValue(4, $endereco->getLogradouro());
+        $stmt->bindValue(5, $endereco->getNumero());
+        $stmt->bindValue(6, $endereco->getBairro());
+        $stmt->bindValue(7, $endereco->getCep());
+        $stmt->bindValue(8, $endereco->getNome_cidade());
+        $stmt->bindValue(9, $endereco->getNome_estado());
         $stmt->execute();
     }
 
-    //Cadastra o Municipio do Endereço (FK).
-    public function create_mun(Endereco $endereco){
-        $sql = 'INSERT INTO endereco.cidade (nome) values (?)';
+    //Função para consultar os endereços cadastrados.
+    public function read($userId){
+        $sql = 'SELECT DISTINCT usuario.endereco.* FROM usuario.endereco INNER JOIN usuario.cliente ON usuario.endereco.id_cliente = usuario.cliente.id WHERE usuario.cliente.id = :user_id';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getNome_cidade());
+        $stmt->bindParam(':user_id', $userId, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchALL(PDO::FETCH_ASSOC);
+    }
+
+    //Função para atuaçizar os endereços cadastrados.
+    public function update($id, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
+        $sql = 'UPDATE usuario.endereco SET nome_comp = :nome_comp, telefone_end = :telefone_end, logradouro = :logradouro, numero = :numero, bairro = :bairro, cep = :cep, nome_cidade = :nome_cidade, nome_estado = :nome_estado WHERE id = :id';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(':nome_comp', $nome_comp, PDO::PARAM_STR);
+        $stmt->bindValue(':telefone_end', $telefone_end, PDO::PARAM_STR);
+        $stmt->bindValue(':logradouro', $logradouro, PDO::PARAM_STR);
+        $stmt->bindValue(':numero', $numero, PDO::PARAM_INT);
+        $stmt->bindValue(':bairro', $bairro, PDO::PARAM_STR);
+        $stmt->bindValue(':cep', $cep, PDO::PARAM_INT);
+        $stmt->bindValue(':nome_cidade', $nome_cidade, PDO::PARAM_STR);
+        $stmt->bindValue(':nome_estado', $nome_estado, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 
-    //Cadastra o Estado do Municipio (FK).
-    public function create_uf(Endereco $endereco){
-        $sql = 'INSERT INTO endereco.estado (nome) values (?)';
+    //Função para excluir os endereços cadastrados.
+    public function delete($id){
+        $sql = 'DELETE FROM  usuario.endereco WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getNome_estado());
-        $stmt->execute();
-    }
-
-    //Apresentação na aba de "Meus Endereços".
-    public function read($Endereco){
-        $sql = "SELECT endereco.endereco.?, usuario.cliente.id_endereco
-        FROM endereco.endereco 
-        INNER JOIN usuario.cliente ON endereco.endereco.id = usuario.cliente.id_endereco
-        WHERE usuario.cliente.id_endereco = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public function update(Endereco $endereco){
-        $sql = "UPDATE endereco.endereco SET logradouro = ?, numero = ?, bairro = ?, cep = ?, id_cidadE = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getLogradouro());
-        $stmt->bindValue(2, $endereco->getNumero());
-        $stmt->bindValue(3, $endereco->getBairro());
-        $stmt->bindValue(4, $endereco->getBairro());
-        $stmt->bindValue(5, $endereco->getCep());
-        $stmt->bindValue(6, $endereco->getId_cidade());
-        $stmt->execute();
-    }
-
-    public function delete(Endereco $endereco){
-        $sql = "DELETE FROM  endereco.endereco WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $endereco->getId());
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
     }
 }
-
 ?>

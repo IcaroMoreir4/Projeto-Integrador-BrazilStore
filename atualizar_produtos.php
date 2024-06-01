@@ -1,5 +1,49 @@
+<?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+session_start();
+
+if (!isset($_SESSION['vendedor_id'])) {
+    header('Location: login.php');
+    exit();
+}
+
+$id_vendedor = $_SESSION['vendedor_id'];
+$produtoDao = new ProdutoDAO();
+
+if (isset($_GET['id'])) {
+    $id_produto = $_GET['id'];
+    $produto = $produtoDao->buscarProdutoPorId($id_produto);
+
+    if ($produto['id_vendedor'] != $id_vendedor) {
+        echo "Você não tem permissão para editar este produto.";
+        exit();
+    }
+} elseif ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id_produto = $_POST['id_produto'];
+    $nome = $_POST['nome'];
+    $categoria = $_POST['categoria'];
+    $valor = $_POST['valor'];
+    $descricao = $_POST['descricao'];
+    $peso = $_POST['peso'];
+    $tipo_entrega = $_POST['tipo_entrega'];
+    $image_path = $_POST['image_path'];
+
+    $produto = new Produto($nome, $valor, $descricao, $categoria, $peso, $tipo_entrega, $id_vendedor);
+    $produto->setId($id_produto);
+    $produto->setImagePath($image_path);
+
+    $produtoDao->AtualizarProdutos($produto);
+
+    header('Location: listar_produtos_teste.php');
+    exit();
+} else {
+    echo "Produto não encontrado.";
+    exit();
+}
+?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -17,7 +61,7 @@
 <body>
 
         <header class="grid">
-            <img class="logo-header" src="./imagem/logo.svg" alt="">
+            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -28,70 +72,52 @@
                     <a href="./">Acessórios</a>
                 </div>
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-        </header>
-    
-
-    <article class="adiconar-bg grid">
-        <div class="adicionar-head">
-            <h1 class="font-1-xl">Vender é bom e todo mundo gosta</h1>
-            <p class="font-1-m cor-9">capriche nas fotos e na descrição do seu produto</p>
-        </div>
-
-        <div class="adicionar-options">
-            <div class="adicionar-options_img">
-                <input type="file" id="file-input" name="imagem[]" multiple required>
-                <label for="file-input">
-                    <div class="icon-container">
-                        <img src="./imagem/camera.svg" alt="Ícone de Câmera" class="camera-icon">
-                        <p>Adicionar item</p>
-                    </div>
-                </label>
-                <div class="adicionar-options_imgs">
-                    <div class="options-imagem">
-                        <img src="" alt="imagem">
-                    </div>
-                    <div class="options-imagem">
-                        <img src="" alt="imagem">
+                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <div class="perfil_btn" id="perfilBtn">
+                    <div class="perfil_menu font-1-m" id="perfilMenu">
+                        <a href="./perfil.php">Meu perfil</a>
+                        <a href="./logout.php">Sair da conta</a>
                     </div>
                 </div>
-            </div>
-            
-            <div class="adicionar-options_geral">
-                <form action="cadastrar_produto.php" method="post" enctype="multipart/form-data">
-                    <label for="titulo" class="col-span-2 font-1-m cor-12">Título</label>
-                    <input maxlength="50" type="text" id="titulo" name="nome" class="col-span-2" required><br><br>
-            
-                    <label for="descricao" class="col-span-2 font-1-m cor-12">Descrição</label>
-                    <textarea maxlength="300" id="descricao" name="descricao" class="col-span-2 font-1-m cor-12" required></textarea><br><br>
-            
-                    <label class="font-1-m cor-12" for="preco">Preço</label>
-                    <input type="text" id="preco" name="valor" required><br><br>
-            
-                    <label class="font-1-m cor-12" for="categoria">Categoria</label>
-                    <input type="text" id="categoria" name="categoria" required><br><br>
+        </header>
+        
+        <article class="grid editar-bg">
+            <h1 class="font-1-xl editar-bg_title ">Editar Produto</h1>
+            <form class="editar-bg_form" method="POST" action="atualizar_produtos.php">
 
-                    <p class="font-1-m"><strong>Importante:</strong> para selecione a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceita pela entregadora. veja os <a class="cor-p1" href="./termos.html" target="_blank">termos aqui</a>.</p>
-            
-                    <label class="font-1-m cor-12" for="peso">Peso</label>
-                    <input type="text" id="peso" name="peso" required><br><br>
-            
-                    <label class="font-1-m cor-12" for="tipo_entrega">Tipo de Entrega</label>
-                    <input type="text" id="tipo_entrega" name="tipo_entrega" required><br><br>
-            
-                    <button type="submit" class="btn_cheio btn_adc">Adicionar Item</button>
-                </form>
-            </div>      
+                <input type="hidden" name="id_produto" value="<?php echo $produto['id']; ?>">
+                <label class="font-1-m">Nome:</label>
 
-    </article>
+                <input type="text" name="nome" value="<?php echo $produto['nome']; ?>"><br>
+                <label class="font-1-m">Categoria:</label>
 
+                <input type="text" name="categoria" value="<?php echo $produto['categoria']; ?>"><br>
+                <label class="font-1-m">Valor:</label>
+
+                <input type="text" name="valor" value="<?php echo $produto['valor']; ?>"><br>
+                <label class="font-1-m">Descrição:</label>
+
+                <textarea name="descricao"><?php echo $produto['descricao']; ?></textarea><br>
+                <label class="font-1-m">Peso:</label>
+
+                <input type="text" name="peso" value="<?php echo $produto['peso']; ?>"><br>
+                <label class="font-1-m">Tipo de Entrega:</label>
+
+                <input type="text" name="tipo_entrega" value="<?php echo $produto['tipo_entrega']; ?>"><br>
+                <label class="font-1-m">Image Path:</label>
+
+                <input type="text" name="image_path" value="<?php echo $produto['image_path']; ?>"><br>
+                <button type="submit" class="btn_cheio btn_adc">Editar</button>
+            </form>
+        </article>
+        
         <footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">

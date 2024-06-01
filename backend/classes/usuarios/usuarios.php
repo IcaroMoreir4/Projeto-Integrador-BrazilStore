@@ -7,16 +7,14 @@ abstract class usuario{
     protected $cpf;
     protected $senha;
     protected $telefone;
-    protected $id_endereco;
 
-    public function __construct($id, $nome, $email, $cpf, $senha, $telefone, $id_endereco){
+    public function __construct($id, $nome, $email, $cpf, $senha, $telefone){
         $this-> id = $id;
         $this-> nome = $nome;
         $this-> email = $email;
         $this-> cpf = $cpf;
         $this-> senha = $senha;
         $this-> telefone = $telefone;
-        $this-> id_endereco = $id_endereco;
     }
 
 
@@ -45,10 +43,6 @@ abstract class usuario{
         return $this-> telefone;
     }
 
-    public function getId_endereco(){
-        return $this-> id_endereco;
-    }
-
 
     //Setters
     public function setId($id){
@@ -73,10 +67,6 @@ abstract class usuario{
 
     public function setTelefone($telefone){
         $this-> telefone = $telefone;
-    }
-
-    public function setId_endereco($id_endereco){
-        $this-> id_endereco = $id_endereco;
     }
 }
 ?>

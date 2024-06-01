@@ -1,39 +1,11 @@
 --create database e_commercer
 
 drop schema public;
-create schema endereco;
 create schema usuario;
 create schema comercio;
 create schema produto;
 create schema pedido;
 create schema avaliacao;
-
-
--- Esquema endereço (Endereço, Cidade e Estado)
-create table endereco.estado(  
-	id serial not null primary key,
-	nome varchar(20) not null,
-	sigla char(2) not null
-);
-
-create table endereco.cidade(
-	id serial not null primary key,
-	nome varchar (20) not null,
-	cep char(8),
-	id_uf integer,
-	foreign key(id_uf) references endereco.estado(id)
-);
-
-create table endereco.endereco (
-	id serial not null primary key,
-	logradouro varchar(40) not null,
-	numero integer,
-	bairro varchar(20) not null,
-	cep char(8),
-	id_cidade integer,
-	foreign key(id_cidade) references endereco.cidade(id) 
-);
-
 
 -- Esquema de usuários (Adm e Cliente)
 create table usuario.cliente(
@@ -43,9 +15,7 @@ create table usuario.cliente(
 	senha varchar (40) not null,
 	cpf char (11) not null,
 	cnpj char (14),
-	telefone char (11),
-	id_endereco integer,
-	foreign key(id_endereco) references endereco.endereco(id)
+	telefone char (11)
 );
 
 create table usuario.adm(
@@ -56,6 +26,20 @@ create table usuario.adm(
 	cpf char (11) not null,
 	cnpj char (14),
 	telefone char (11)
+);
+
+create table usuario.endereco (
+	id serial not null primary key,
+	id_cliente integer,
+	nome_comp varchar (40),
+	telefone_end char(11),
+	logradouro varchar(40) not null,
+	numero integer,
+	bairro varchar(20) not null,
+	cep numeric (8,0),
+	nome_cidade varchar (32),
+	nome_estado varchar (16),
+	foreign key(id_cliente) references usuario.cliente(id)
 );
 
 
@@ -69,7 +53,7 @@ create table comercio.vendedor(
 	cnpj char (14),
 	telefone char (11) not null,
 	id_endereco integer,
-	foreign key(id_endereco) references endereco.endereco(id)
+	foreign key(id_endereco) references usuario.endereco(id)
 );
 
 create table comercio.loja(
@@ -94,8 +78,11 @@ create table produto.produto(
 	id serial not null primary key,
 	nome varchar (40) not null,
 	id_categoria integer,
-	valor numeric (5,2) not null,
+	valor numeric (7,2) not null,
 	descricao varchar (300),
+	peso numeric (5,2),
+	tamanho varchar(4),
+	cor varchar (30),
 	id_loja integer,
 	id_catg integer,
 	id_avaliacao integer,
@@ -103,19 +90,16 @@ create table produto.produto(
 );-- O restante das chaves estrangeiras estão no final
 
 
---Esquema de pedido (Carrinho, Pedido e Item do Carrinho)
-create table pedido.item_carrinho(
-	id serial primary key not null,
-	id_produto integer,
-	quantidade integer not null
-); -- As chaves estrangeiras estão no final
-
+--Esquema de pedido (Carrinho, Pedido e Item do Carrinho).
 create table pedido.carrinho(
 	id serial not null primary key,
 	id_cliente integer,
-	id_item integer,
-	foreign key(id_item) references pedido.item_carrinho(id),
-	foreign key(id_cliente) references usuario.cliente(id)
+	id_produto integer,
+	quantidade integer,
+	tamanho varchar(4),
+	cor varchar (30),
+	foreign key(id_cliente) references usuario.cliente(id),
+	foreign key(id_produto) references produto.produto(id)
 );
 
 create table pedido.pedido(
@@ -166,6 +150,3 @@ add foreign key(id_avaliacao) references avaliacao.avaliacao_loja(id);
 alter table produto.produto
 add foreign key(id_loja) references comercio.loja(id),
 add foreign key(id_avaliacao) references avaliacao.avaliacao_produto(id);
-
-alter table pedido.item_carrinho
-add foreign key(id_produto) references produto.produto(id);

@@ -1,5 +1,4 @@
 <?php 
-
 class produto{
     protected $id;
     protected $nome;
@@ -7,10 +6,28 @@ class produto{
     protected $valor;
     protected $descricao;
     protected $peso;
+    protected $tamanho;
+    protected $cor;
     protected $tipo_entrega;
+    protected $id_vendedor;
+    protected $image_path;
 
 
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega)
+    // public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
+    // {
+    //     $this->nome = $nome;
+    //     $this->valor = $valor;
+    //     $this->descricao = $descricao;
+    //     $this->id_categoria = $id_categoria;
+    //     $this->peso = $peso;
+    //     $this->tamanho = $tamanho;
+    //     $this->cor = $cor;
+    //     $this->tipo_entrega = $tipo_entrega;
+    //     $this->id_vendedor = $id_vendedor;
+    // }
+
+
+    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $id_vendedor)
     {
         $this->nome = $nome;
         $this->valor = $valor;
@@ -18,6 +35,7 @@ class produto{
         $this->id_categoria = $id_categoria;
         $this->peso = $peso;
         $this->tipo_entrega = $tipo_entrega;
+        $this->id_vendedor = $id_vendedor;
     }
 
     
@@ -46,10 +64,25 @@ class produto{
         return $this->peso;
     }
 
-    public function getTipoEentrega(){
+    public function getTamanho(){
+        return $this->tamanho;
+    }
+
+    public function getCor(){
+        return $this->cor;
+    }
+
+    public function getTipoEntrega(){
         return $this->tipo_entrega;
     }
 
+    public function getIdvendedor(){
+        return $this->id_vendedor;
+    }
+
+    public function getImagePath(){
+        return $this->image_path;
+    }
 
     //Setters
     public function setId($id){
@@ -76,8 +109,24 @@ class produto{
         $this->peso = $peso;
     }
 
+    public function setTamanho($tamanho){
+        $this->tamanho = $tamanho;
+    }
+
+    public function setCor($cor){
+        $this->cor = $cor;
+    }
+
     public function setTipoEntrega($tipo_entrega){
         $this->tipo_entrega = $tipo_entrega;
+    }
+
+    public function setIdvendedor($id_vendedor){
+        $this->id_vendedor = $id_vendedor;
+    }
+
+    public function setImagePath($image_path){
+        $this->image_path= $image_path;
     }
 }
 ?>

@@ -1,0 +1,27 @@
+
+
+.loja-venda{
+padding-left: 50px;
+}
+.loja-venda li{
+    padding-bottom: 14px;
+    color: #404040;
+}
+
+.minha-loja{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    justify-content: space-between;
+    width: 140px;
+}
+
+.perfil-loja{
+    width: 850px;
+}
+
+.painelloja{
+    display: flex;
+    justify-content: center;
+    width: 850px;
+}

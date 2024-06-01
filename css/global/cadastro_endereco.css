@@ -1,0 +1,71 @@
+.popupCadastroEndereco{
+ 
+}
+
+.box_cadasendereço{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.box_cadasendereço form{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.box_cadasendereço input{
+    color: (-cor--6);
+    border: 1px solid var(--cor-7);
+    border-radius: 5px;
+    margin-top: 15px;
+    padding: 5px;
+    height: 30px;
+}
+
+.mome-tele{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+
+.rua-numero{
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    gap: 15px;
+
+}
+
+.but-endereço{
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+
+.but_cancelar{
+    width: 130px;
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid var(--cor-10);
+
+}
+
+
+.but_enviar{
+    width: 95px;
+    height: 45px;
+    border-radius: 5px;
+    border-style: none;
+    background: linear-gradient(180deg, #FFBF00 0%, #F2A50C 100%);
+    
+}
+
+.but_enviar :hover{
+    cursor: pointer;
+}

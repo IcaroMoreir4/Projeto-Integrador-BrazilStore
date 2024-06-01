@@ -1,0 +1,35 @@
+
+.meus-produtos{
+    display: flex;
+    width: 850px;
+}
+
+.produtos-titulo{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.produtostexto{
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
+}
+.produtostexto a{
+    text-decoration: none;
+}
+
+.produtostexto button{
+    color: #E4A30B;
+    border: 1px solid #E4A30B;
+    border-radius: 4px;
+    padding:8px 5px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 45px;
+}
+
+.adicionaritem :hover{
+    cursor: pointer;
+}

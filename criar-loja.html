@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -12,30 +12,30 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
-
 </head>
 
 <body>
 <div class="container">
     <div class="all">
-
-        <form action="" method="post">
+        <form action="cadastrar_loja.php" method="post">
             <div class="dados">
                 <h2 class="font-1-l">Criar Loja</h2>
-                <input class="font-1-xs" type="text" name="nome_da_loja" placeholder="Nome da Loja">
-                <input class="font-1-xs" type="email" name="email_da_loja" placeholder="Email da Loja">
-                <input class="font-1-xs" type="password" name="senha_da_loja" placeholder="Senha da Loja">
-                <input class="font-1-xs texto-descri" type="text" name="descricao_da_loja" placeholder="Descrição da Loja">
+                <label for="nome_loja">Nome da loja</label>
+                <input class="font-1-xs" type="text" name="nome_loja" id="nome_loja" placeholder="Insira o nome da loja"><br><br>
+                <label for="descricao">Fale sobre sua loja</label>
+                <textarea class="font-1-xs texto-descri" name="descricao" id="descricao" placeholder="Descrição da Loja"></textarea><br><br>
+                <label for="email">Email da Loja</label>
+                <input class="font-1-xs" type="email" name="email" id="email" placeholder="Email da Loja"><br><br>
+                <label for="senha">Senha da Loja</label>
+                <input class="font-1-xs" type="password" name="senha" id="senha" placeholder="Senha da Loja"><br><br>
             </div>
             <div class="botoes">
                 <button type="button" onclick="cancelar()">Cancelar</button>
-                <button type="submit">Criar</button>
+                <button type="submit" value="Criar Loja">Criar</button>
             </div>
         </form>
 
     </div>
-
 </div>
-
 </body>
 </html>
