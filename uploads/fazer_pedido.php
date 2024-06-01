@@ -24,14 +24,15 @@
 
             if ($itens_carrinho) {
                 foreach ($itens_carrinho as $item) {
-                    $total += $id_produto['valor'];
+                    // Aqui presumo que você queira acessar o valor do item
+                    $total += $item['valor'];
                 }
                 echo 'Total do carrinho: ' . $total;
 
                 $_SESSION['comprar']->create_pedido($total);
 
-                header('Location: compra.php');
-                exit();
+                // Removido o redirecionamento aqui
+
             } else {
                 echo 'Nenhum item encontrado';
             }
@@ -40,5 +41,11 @@
         }
         ?>
     </div>
+
+    <?php
+    // Redirecionamento movido para depois da impressão do HTML
+    header('Location: compra.php');
+    exit();
+    ?>
 </body>
 </html>
