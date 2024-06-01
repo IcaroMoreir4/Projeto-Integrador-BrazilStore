@@ -11,7 +11,7 @@
         <?php
         session_start(); 
         
-        require_once('../backend/database/DAO/PedidoDAO.php'); 
+        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/PedidoDAO.php');
         
         if (isset($_SESSION['pedido_id'])) {
             $id_pedido = $_SESSION['pedido_id'];
