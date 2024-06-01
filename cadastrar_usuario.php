@@ -11,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 
     if (!empty($nome) && !empty($email) && !empty($senha) && !empty($telefone) && !empty($cpf)) {
-    
-        $cliente = new Cliente($nome, $email, $cpf, $senha, $telefone, null);
+        $cliente = new cliente(null, $nome, $email, $cpf, $senha, $telefone);
         $clienteDAO = new ClienteDAO();
         $clienteDAO->create($cliente);
         header('Location: home.php');

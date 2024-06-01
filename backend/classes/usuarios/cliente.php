@@ -1,5 +1,4 @@
 <?php
-
 require_once ('usuarios.php');
 class cliente extends usuario{
     
