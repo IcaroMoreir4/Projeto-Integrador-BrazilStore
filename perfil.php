@@ -1,6 +1,8 @@
 <?php
     require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
+    session_start();
+
     //Proteção
     if (!isset($_SESSION['user_id'])) {
         header('Location: index.php');
@@ -23,6 +25,19 @@
         $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
         $editar_perfil = $dao->uptade($id, $nome, $email, $senha, $telefone);
+
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit();
+    }
+
+    $dao = new ClienteDAO;
+
+    //Função para consultar os endereços cadastrados.
+    if (isset($_GET['exibir_perfil'])) {
+        $id_cliente = $_SESSION['user_id'];
+        $exibir_perfil = $dao->read($id_cliente);
     }
 ?>
 
@@ -123,6 +138,30 @@
                         <div class="email">
                             <input class="campo" type="email" name="email" id="" maxlength="40" placeholder="Insira o seu email">
                         </div>
+            <div class="painelperfil">
+            <div class="meu-perfil">
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Nome Completo</label>
+                        <span><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Email</label>
+                        <span><?php echo htmlspecialchars($exibir_perfil["email"]); ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Telefone</label>
+                        <span><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">CPF</label>
+                        <span><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?></span>
+                    </div>
+            </div>
+            <div class="adicionar-perfil">
+                <img src="imagem/user.svg" alt="">
+                <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
+            </div>
+            </div>
 
                         <label for="" class="">Telefone: </label>
                         <div class="Telefone">
