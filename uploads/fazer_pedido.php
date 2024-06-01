@@ -9,7 +9,7 @@
     <h2>Carrinho de Compras</h2>
     <div>
         <?php
-        require_once('../backend/database/DAO/CarrinhoDAO.php');
+        require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/CarrinhoDAO.php');
         session_start();
 
         // Inicializar a variável $total

@@ -9,7 +9,7 @@
 
 
 <?php
-require_once('../backend/database/DAO/PedidoDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/PedidoDAO.php');
 
 session_start();
 
