@@ -14,7 +14,7 @@
     $dao = new EnderecoDAO();
 
     //Função para consultar os endereços cadastrados e agregar o $_SESSION['ende_id'].
-    if (isset($_GET['consl_ende'])) {
+    if (isset($_SESSION['user_id'])) {
         $consl_ende = $dao->read($_SESSION['user_id']);
 
         if ($consl_ende) {
@@ -23,7 +23,6 @@
             $_SESSION['ende_id'] = $ende_id;
         }
     }
-
 
     //Função para deletar o endereço.
     if (isset($_POST['del_ende'])){
@@ -42,14 +41,6 @@
 </head> 
 <body>
     <h1>Consultar/Deleta endereços cadastrados</h1>
-
-    <form ction="conslt_ende.php" method="get">
-        <button type="submit" name="consl_ende">Consultar endereços</button>
-    </form>
-
-    <form ction="conslt_ende.php" method="post">
-        <button type="submit" name="del_ende">Excluir endereço</button>
-    </form>
 
     <table>
         <tbody>
@@ -75,5 +66,9 @@
             <?php endif; ?> 
         </tbody>
     </table>
+
+    <form ction="conslt_ende.php" method="post">
+        <button type="submit" name="del_ende">Excluir endereço</button>
+    </form>
 </body>
 </html>
