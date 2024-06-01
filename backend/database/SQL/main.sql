@@ -90,20 +90,14 @@ create table produto.produto(
 );-- O restante das chaves estrangeiras estão no final
 
 
---Esquema de pedido (Carrinho, Pedido e Item do Carrinho)
-create table pedido.item_carrinho(
-	id serial primary key not null,
-	id_produto integer,
-	tamanho varchar(4),
-	cor varchar (30),
-	quantidade integer not null
-); -- As chaves estrangeiras estão no final
-
+--Esquema de pedido (Carrinho, Pedido e Item do Carrinho).
 create table pedido.carrinho(
 	id serial not null primary key,
 	id_cliente integer,
 	id_produto integer,
 	quantidade integer,
+	tamanho varchar(4),
+	cor varchar (30),
 	foreign key(id_cliente) references usuario.cliente(id),
 	foreign key(id_produto) references produto.produto(id)
 );
@@ -156,6 +150,3 @@ add foreign key(id_avaliacao) references avaliacao.avaliacao_loja(id);
 alter table produto.produto
 add foreign key(id_loja) references comercio.loja(id),
 add foreign key(id_avaliacao) references avaliacao.avaliacao_produto(id);
-
-alter table pedido.item_carrinho
-add foreign key(id_produto) references produto.produto(id);
