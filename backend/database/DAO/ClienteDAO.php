@@ -40,17 +40,6 @@ class ClienteDAO{
         $stmt->bindValue(1, $cliente->getId());
         $stmt->execute();
     }
-/*
-    //Metodo autenticar
-    public function autenticar($email, $senha) {
-        $sql = 'SELECT * FROM usuario.cliente WHERE email = ? AND senha = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $email);
-        $stmt->bindValue(2, $senha);
-        $stmt->execute();
-        return $stmt->rowCount() > 0;
-    }
-*/
 
     //Teste de função para colocar o id no session_start.
     public function autenticar($email, $senha) {
