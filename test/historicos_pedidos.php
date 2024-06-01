@@ -19,7 +19,7 @@ if (isset($_SESSION['pedido_id'])) {
     $pedidoDAO = new PedidoDAO();
     $pedidos = $pedidoDAO->listarPedidosPorCliente($id_cliente);
 
-    if ($produtos) {
+    if ($pedidos) {
         echo "<table border='1'>";
         echo "<tr><th>Nome</th><th>Categoria</th><th>Valor</th><th>Descrição</th><th>Peso</th><th>Tipo de Entrega</th></tr>";
         foreach ($pedidos as $pedido) {

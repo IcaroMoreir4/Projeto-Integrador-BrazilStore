@@ -48,6 +48,8 @@ class CarrinhoDAO{
         $stmt->bindValue(3, $cor);
         $stmt->execute();
     }
+
+    
 }
 
 ?>

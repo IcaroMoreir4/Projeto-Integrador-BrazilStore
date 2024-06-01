@@ -51,7 +51,27 @@ class PedidoDAO{
     
     }
 
+    public function valor_pedido($total){
+        $sql = 'INSERT INTO pedido.valor_pedido (total) values (?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $total);
+        $stmt->execute();
+    }
 
+    public function atualizarFormaPagamento($forma_pagamento){
+        $sql = 'INSERT INTO pedido.valor_pedido (forma_pagamento) values (?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $forma_pagamento);
+        $stmt->execute();
+    }
+
+    public function create_pedido($valor, $forma_pagamento){
+        $sql = 'INSERT INTO pedido.item_carrinho (valor, forma_pagamento) values (?, ?)';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $valor);
+        $stmt->bindValue(2, $forma_pagamento);
+        $stmt->execute();
+    }
 }
     
 
