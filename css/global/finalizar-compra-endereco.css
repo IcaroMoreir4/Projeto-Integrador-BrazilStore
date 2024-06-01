@@ -2,35 +2,17 @@
     color: #717171;
 }
 
-.conteudo-principal {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
-  justify-items: center;
-}
-
-.titulo {
-    /* display:flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column; */
+.conteudo-finalizar-compra-endereço {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    justify-items: center;
-}
-
-.titulo-conteudo {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: column;
-
+    grid-template-rows: auto auto;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 30px;
 }
 
 .lojaprodutos-listaprodutos {
     display: flex;
-    gap: 40px;
+    gap: 30px;
     margin-top: 112px;
 }
 

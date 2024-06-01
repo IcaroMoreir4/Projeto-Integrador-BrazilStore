@@ -52,185 +52,185 @@
     <main>
         <form action="codigo-finalizar-compra" method="post">
 
-            <div class="titulo">
-                <div class="titulo-conteudo">
+            <div class="conteudo-finalizar-compra-endereço">
+                <div class="titulo-finalizar-compra-endereço">
                     <p class="font-1-xl">Finalizar compra</p>
                     <p class="font-1-l titulo-subtitulo">Veja seus produtos</p>
                 </div>
-            </div>
-
-            <div class="conteudo-principal">
-        
-                <div class="lojaprodutos-listaprodutos">
-                    <div class="lojas">
-
-                        <div class="endereco">
-                            <div class="endereco-titulo">
-                                <p class="font-1-l">Endereço</p>
-                            </div>
-
-                            <div class="endereco-conteudo">
-                                <div class="icon-infos-endereco">
-                                    <figure><img src="imagem/localizacao-icon.svg" alt="imagem"></figure>
-                                    <div class="div-infos-endereco">
-                                        <p class="font-1-l infos-titulo">Nome do usuário</p>
-                                        <p class="font-1-m infos-endereco">+55 87 9 9999-9999</p>
-                                        <p class="font-1-m infos-endereco">Rua Ali Perto</p>
-                                        <p class="font-1-m infos-endereco">Bairro Cntro</p>
-                                        <p class="font-1-m infos-endereco">Número XXXX</p>
-                                        <p class="font-1-m infos-endereco">CEP XXXX-XXX</p>
-                                    </div>
+    
+                <div class="conteudo-principal-finalizar-compra-endereço">
+            
+                    <div class="lojaprodutos-listaprodutos">
+                        <div class="lojas">
+    
+                            <div class="endereco">
+                                <div class="endereco-titulo">
+                                    <p class="font-1-l">Endereço</p>
                                 </div>
-
-                                <input type="button" value="OUTRO ENDEREÇO" class="font-1-m-b butt-add-endereco">
+    
+                                <div class="endereco-conteudo">
+                                    <div class="icon-infos-endereco">
+                                        <figure><img src="imagem/localizacao-icon.svg" alt="imagem"></figure>
+                                        <div class="div-infos-endereco">
+                                            <p class="font-1-l infos-titulo">Nome do usuário</p>
+                                            <p class="font-1-m infos-endereco">+55 87 9 9999-9999</p>
+                                            <p class="font-1-m infos-endereco">Rua Ali Perto</p>
+                                            <p class="font-1-m infos-endereco">Bairro Cntro</p>
+                                            <p class="font-1-m infos-endereco">Número XXXX</p>
+                                            <p class="font-1-m infos-endereco">CEP XXXX-XXX</p>
+                                        </div>
+                                    </div>
+    
+                                    <input type="button" value="OUTRO ENDEREÇO" class="font-1-m-b butt-add-endereco">
+                                </div>
+                            </div>
+    
+                            <div class="loja-1">
+                                <div class="produtos">
+                                    
+                                    <div class="fotoloja-nomeloja">
+                                        <div class="foto-loja">
+                                            <p class="font-1-l">L</p>
+                                        </div>
+                                        <p class="font-1-l">Nome da Loja</p>
+                                    </div>
+                                    <div class="rev-produto-loja">
+                                        <div class="checbox-produto">
+                                            <input type="checkbox" id="merch-carrinho">
+                                            <label for="merch-carrinho">
+                                                <div class="checbox-produto-img">
+                                                    <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
+                                                </div>
+                                            </label>
+                                            <div class="detalhes-rev-produto-loja">
+                                                <p class="font-1-l">T-Shirt Front-End</p>
+                                                <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
+                                                <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
+                                            </div>
+                                        </div>
+                                        <div class="rev-produto-loja-botoes">
+                                            <div class="butt-quantidade">
+                                                <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
+                                                <p class="font-2-l contador" data-contador-id="1">1</p>
+                                                <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
+                                            </div>
+                                            <input type="button" id="apagar-item-lixeira" class="butt-apagar">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="rev-produto-loja">
+                                        <div class="checbox-produto">
+                                            <input type="checkbox" id="merch-carrinho">
+                                            <label for="merch-carrinho">
+                                                <div class="checbox-produto-img">
+                                                    <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
+                                                </div>
+                                            </label>
+                                            <div class="detalhes-rev-produto-loja">
+                                                <p class="font-1-l">T-Shirt Front-End</p>
+                                                <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
+                                                <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
+                                            </div>
+                                        </div>
+                                        <div class="rev-produto-loja-botoes">
+                                            <div class="butt-quantidade">
+                                                <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
+                                                <p class="font-2-l contador" data-contador-id="1">1</p>
+                                                <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
+                                            </div>
+                                            <input type="button" id="apagar-item-lixeira" class="butt-apagar">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="rev-produto-loja">
+                                        <div class="checbox-produto">
+                                            <input type="checkbox" id="merch-carrinho">
+                                            <label for="merch-carrinho">
+                                                <div class="checbox-produto-img">
+                                                    <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
+                                                </div>
+                                            </label>
+                                            <div class="detalhes-rev-produto-loja">
+                                                <p class="font-1-l">T-Shirt Front-End</p>
+                                                <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
+                                                <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
+                                            </div>
+                                        </div>
+                                        <div class="rev-produto-loja-botoes">
+                                            <div class="butt-quantidade">
+                                                <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
+                                                <p class="font-2-l contador" data-contador-id="1">1</p>
+                                                <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
+                                            </div>
+                                            <input type="button" id="apagar-item-lixeira" class="butt-apagar">
+                                        </div>
+                                    </div>
+    
+                                </div>
+    
+                                <div class="entrega">
+                                    <p class="font-1-l">Entrega</p>
+                                    <button class="botao-entrega">
+                                        <figure><img src="imagem/correios-256x256 1.svg" alt="imagens"></figure>
+                                        <div class="entrega-valor-arrow">
+                                            <p class="font-1-l">R$ XXX,XX</p>
+                                            <img src="imagem/arrow-para-baixo.svg" alt="">
+                                        </div>
+                                    </button>
+                                </div>
+            
                             </div>
                         </div>
-
-                        <div class="loja-1">
-                            <div class="produtos">
-                                
-                                <div class="fotoloja-nomeloja">
-                                    <div class="foto-loja">
-                                        <p class="font-1-l">L</p>
-                                    </div>
-                                    <p class="font-1-l">Nome da Loja</p>
-                                </div>
-                                <div class="rev-produto-loja">
-                                    <div class="checbox-produto">
-                                        <input type="checkbox" id="merch-carrinho">
-                                        <label for="merch-carrinho">
-                                            <div class="checbox-produto-img">
-                                                <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
-                                            </div>
-                                        </label>
-                                        <div class="detalhes-rev-produto-loja">
-                                            <p class="font-1-l">T-Shirt Front-End</p>
-                                            <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
-                                            <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
-                                        </div>
-                                    </div>
-                                    <div class="rev-produto-loja-botoes">
-                                        <div class="butt-quantidade">
-                                            <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
-                                            <p class="font-2-l contador" data-contador-id="1">1</p>
-                                            <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
-                                        </div>
-                                        <input type="button" id="apagar-item-lixeira" class="butt-apagar">
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="rev-produto-loja">
-                                    <div class="checbox-produto">
-                                        <input type="checkbox" id="merch-carrinho">
-                                        <label for="merch-carrinho">
-                                            <div class="checbox-produto-img">
-                                                <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
-                                            </div>
-                                        </label>
-                                        <div class="detalhes-rev-produto-loja">
-                                            <p class="font-1-l">T-Shirt Front-End</p>
-                                            <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
-                                            <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
-                                        </div>
-                                    </div>
-                                    <div class="rev-produto-loja-botoes">
-                                        <div class="butt-quantidade">
-                                            <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
-                                            <p class="font-2-l contador" data-contador-id="1">1</p>
-                                            <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
-                                        </div>
-                                        <input type="button" id="apagar-item-lixeira" class="butt-apagar">
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="rev-produto-loja">
-                                    <div class="checbox-produto">
-                                        <input type="checkbox" id="merch-carrinho">
-                                        <label for="merch-carrinho">
-                                            <div class="checbox-produto-img">
-                                                <figure><img src="imagem/camisa-neymar-pequena-carrinho.svg" alt=""></figure>
-                                            </div>
-                                        </label>
-                                        <div class="detalhes-rev-produto-loja">
-                                            <p class="font-1-l">T-Shirt Front-End</p>
-                                            <p class="font-1-m alteracao-desc-nome-loja">nome da loja</p>
-                                            <p class="font-1-l alteracao-valor">R$ XXXX,XX</p>
-                                        </div>
-                                    </div>
-                                    <div class="rev-produto-loja-botoes">
-                                        <div class="butt-quantidade">
-                                            <input type="button" value="-" class="font-2-l rev-butt-menos" onclick="alterarQuantidade(this, -1)">
-                                            <p class="font-2-l contador" data-contador-id="1">1</p>
-                                            <input type="button" value="+" class="font-2-l rev-butt-mais" onclick="alterarQuantidade(this, 1)">
-                                        </div>
-                                        <input type="button" id="apagar-item-lixeira" class="butt-apagar">
-                                    </div>
-                                </div>
-
+            
+                        <div class="listas-de-produtos">
+                            <p class="font-1-l">Lista de produtos</p>
+            
+                            <div class="item-1-lista">
+                                <p class="font-1-m">Nome do item</p>
+                                <p class="font-1-m">R$ XXXX</p>
                             </div>
-
-                            <div class="entrega">
-                                <p class="font-1-l">Entrega</p>
-                                <button class="botao-entrega">
-                                    <figure><img src="imagem/correios-256x256 1.svg" alt="imagens"></figure>
-                                    <div class="entrega-valor-arrow">
-                                        <p class="font-1-l">R$ XXX,XX</p>
-                                        <img src="imagem/arrow-para-baixo.svg" alt="">
-                                    </div>
-                                </button>
+            
+                            <div class="item-2-lista">
+                                <p class="font-1-m">Nome do item</p>
+                                <p class="font-1-m">R$ XXXX</p>
                             </div>
-        
+            
+                            <div class="item-3-lista">
+                                <p class="font-1-m">Nome do item</p>
+                                <p class="font-1-m">R$ XXXX</p>
+                            </div>
+            
+                            <hr>
+            
+                            <div class="itens-lista-preco">
+                                <p class="font-1-m">Preço total</p>
+                                <p class="font-1-m">R$ XXXX</p>
+                            </div>
+            
+                            <div class="itens-lista-desconto">
+                                <p class="font-1-m">Preço total (desconto)</p>
+                                <p class="font-1-m">R$ XXXX</p>
+                            </div>
+            
+                            <div class="itens-lista-frete">
+                                <p class="font-1-m">Frete</p>
+                                <p class="font-1-m">R$ XXXX</p>
+                            </div>
+            
+                            <hr>
+            
+                            <div class="preco-total">
+                                <p class="font-1-l preco-total-titulo">Preço total</p>
+                                <p class="font-1-l preco-total-total">R$ XXXX</p>
+                            </div>
+    
+                            <input type="button" value="Código Promocional" class="font-1-m codigo-desconto">
+            
+                            <button type="submit" class="botao-comprar-agora-lista">COMPRAR AGORA</button>
+            
                         </div>
+            
                     </div>
-        
-                    <div class="listas-de-produtos">
-                        <p class="font-1-l">Lista de produtos</p>
-        
-                        <div class="item-1-lista">
-                            <p class="font-1-m">Nome do item</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <div class="item-2-lista">
-                            <p class="font-1-m">Nome do item</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <div class="item-3-lista">
-                            <p class="font-1-m">Nome do item</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <hr>
-        
-                        <div class="itens-lista-preco">
-                            <p class="font-1-m">Preço total</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <div class="itens-lista-desconto">
-                            <p class="font-1-m">Preço total (desconto)</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <div class="itens-lista-frete">
-                            <p class="font-1-m">Frete</p>
-                            <p class="font-1-m">R$ XXXX</p>
-                        </div>
-        
-                        <hr>
-        
-                        <div class="preco-total">
-                            <p class="font-1-l preco-total-titulo">Preço total</p>
-                            <p class="font-1-l preco-total-total">R$ XXXX</p>
-                        </div>
-
-                        <input type="button" value="Código Promocional" class="font-1-m codigo-desconto">
-        
-                        <button type="submit" class="botao-comprar-agora-lista">COMPRAR AGORA</button>
-        
-                    </div>
-        
                 </div>
             </div>
         </form>
