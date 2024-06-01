@@ -1,14 +1,23 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
-session_start();
+    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
+
+    session_start();
 
 
-$cliente = $_SESSION['cliente_id'];
-$clienteDAO = new ClienteDAO();
 
-// $cliente = $clienteDAO->getClienteById($cliente_id);
+    //Proteção
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
+        exit();
+    }
 
+    $dao = new ClienteDAO;
 
+    //Função para consultar os endereços cadastrados.
+    if (isset($_GET['exibir_perfil'])) {
+        $id_cliente = $_SESSION['user_id'];
+        $exibir_perfil = $dao->read($id_cliente);
+    }
 ?>
 
 
@@ -94,19 +103,19 @@ $clienteDAO = new ClienteDAO();
             <div class="meu-perfil">
                     <div class="campo-usuario">
                         <label class="font-1-s">Nome Completo</label>
-                        <span><?php echo htmlspecialchars($user['full_name']); ?></span>
+                        <span><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
                     </div>
                     <div class="campo-usuario">
                         <label class="font-1-s">Email</label>
-                        <span><?php echo htmlspecialchars($user['email']); ?></span>
+                        <span><?php echo htmlspecialchars($exibir_perfil["email"]); ?></span>
                     </div>
                     <div class="campo-usuario">
                         <label class="font-1-s">Telefone</label>
-                        <span><?php echo htmlspecialchars($user['phone']); ?></span>
+                        <span><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?></span>
                     </div>
                     <div class="campo-usuario">
                         <label class="font-1-s">CPF</label>
-                        <span><?php echo htmlspecialchars($user['cpf']); ?></span>
+                        <span><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?></span>
                     </div>
             </div>
             <div class="adicionar-perfil">
