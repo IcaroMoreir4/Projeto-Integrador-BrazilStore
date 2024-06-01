@@ -1,3 +1,12 @@
+<?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+
+$produtoDAO = new ProdutoDAO();
+$produtos = $produtoDAO->read();
+$totalProdutos = count($produtos);
+$midPoint = ceil($totalProdutos / 2);
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

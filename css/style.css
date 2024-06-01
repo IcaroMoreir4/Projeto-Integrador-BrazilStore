@@ -16,6 +16,9 @@
 @import "./global/minha_loja.css";
 @import "./global/minhas_compras.css";
 @import "./global/meus_produtos.css";
+@import "./global/editar-produtos.css";
+@import "./global/dashboard-adm.css";
+
 
 
 /* Reutilizaveis */

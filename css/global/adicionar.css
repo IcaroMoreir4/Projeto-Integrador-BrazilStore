@@ -1,104 +1,3 @@
-/* .adicionar-head {
-    margin-bottom: 40px;
-    text-align: center;
-}
-
-.adicionar-options_bg {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-}
-
-.adicionar-options_img {
-    position: relative;
-    max-width: 100%;
-    height: 20rem;
-    border: 1px solid black;
-    border-radius: 10px;
-    text-align: center;
-    cursor: pointer;
-    margin-right: 40px;
-}
-
-
-.adicionar-options_img label {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.icon-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100px;
-}
-
-.camera-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 10px;
-}
-
-.adicionar-options_img p {
-    color: var(--cor-7);
-}
-
-.adicionar-options_geral {
-    width: 100%;
-}
-
-.adicionar-options_geral input, .adicionar-options_geral textarea {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px; 
-    width: 100%;
-}
-
-.adicionar-options_geral textarea {
-    resize: none;
-}
-
-.adicionar-options_imgs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    cursor: auto;
-}
-
-.adicionar-options_imgs .options-imagem {
-    border: 1px solid #000;
-    margin-top: 20px;
-    border-radius: 5px;
-    height: 9rem;
-    cursor: auto;
-}
-
-.btn_adc{
-    width: 200px;
-}
-
-.adicionar-options_geral p{
-    margin-bottom: 40px;
-    margin-top: 20px;
-}
-
-.adicionar-options_geral p a:hover{
-    color: var(--cor-p4);
-}
-
-strong{
-    font-weight: bold;
-} */
-
-
-/* NOVO */
-
 .form-adicionar_bg{
     margin: 60px 0px;
 }
@@ -167,6 +66,15 @@ strong{
     width: 100%;
 }
 
+.adicionar-info select,
+.adicionar-info option{
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px; 
+    width: 100%;
+}
+
 .adicionar-info textarea {
     resize: none;
 }
@@ -175,3 +83,10 @@ strong{
     font-weight: bold;
 }
 
+.link-termos{
+    transition: color .3s;
+}
+
+.link-termos:hover{
+    color: var(--cor-p6);
+}

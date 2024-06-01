@@ -108,7 +108,7 @@ class ProdutoDAO {
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(6, $produto->getTipoEntrega());
         $stmt->bindValue(7, $produto->getIdvendedor());
         $stmt->bindValue(8, $produto->getImagePath());
         $stmt->execute();
@@ -132,7 +132,7 @@ class ProdutoDAO {
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(6, $produto->getTipoEntrega());
         $stmt->bindValue(7, $produto->getImagePath());
         $stmt->execute();
     }
@@ -147,7 +147,7 @@ class ProdutoDAO {
         $stmt->bindValue(3, $produto->getValor());
         $stmt->bindValue(4, $produto->getDescricao());
         $stmt->bindValue(5, $produto->getPeso());
-        $stmt->bindValue(6, $produto->getTipoEentrega());
+        $stmt->bindValue(6, $produto->getTipoEntrega());
         $stmt->bindValue(7, $produto->getImagePath());
         $stmt->bindValue(8, $produto->getId());
         $stmt->execute();
