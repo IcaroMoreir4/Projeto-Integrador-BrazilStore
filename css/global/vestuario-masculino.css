@@ -1,8 +1,9 @@
 
 .conteudo {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+    display: grid;
+    grid-template-rows: auto auto;
+    justify-content: center;
+    gap: 20px;
 }
 
 /* Titulo */
@@ -11,6 +12,11 @@
     display: flex;
     gap: 5px;
 }
+
+/* .nome-telas-grid {
+    grid-column-start: 1;
+    grid-column-end: 200;
+} */
 
 .nome-telas-home {
     color: #FFBB00;
