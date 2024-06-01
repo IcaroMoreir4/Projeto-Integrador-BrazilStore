@@ -24,7 +24,7 @@
 
             if ($itens_carrinho) {
                 foreach ($itens_carrinho as $item) {
-                    $total += $item['valor'];
+                    $total += $id_produto['valor'];
                 }
                 echo 'Total do carrinho: ' . $total;
 
