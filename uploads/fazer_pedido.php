@@ -66,8 +66,8 @@ if (file_exists($carrinho_item_path)) {
 
     <?php
     // Redirecionamento movido para depois da impressão do HTML
-    header('Location: compra.php');
-    exit();
+    //header('Location: compra.php');
+    //exit();
     ?>
 </body>
 </html>
