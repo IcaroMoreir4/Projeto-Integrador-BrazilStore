@@ -1,0 +1,74 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.imagem {
+    margin-bottom: 20px;
+}
+
+.imagem img {
+    width: 100px; 
+    height: 100px;
+}
+
+.box-1 {    
+    width: 700px;
+    text-align: center;
+}
+
+.box-1 h1{
+    font-size: 42px;
+    
+}
+ 
+.box-1 p {
+    width: 700px;
+    height: 65px;
+    font-size: 12px;
+    color: var(--cor-8)
+     
+    
+    
+}
+
+form {
+    display: inline-block;
+    margin: 10px;
+    
+}
+
+button {
+    
+    font-weight: 600;
+    padding: 10px 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.continuar-comprando {
+    background: linear-gradient(0deg, #F2A50C 0%, #FFBF00 100%);
+  color: #332200;
+}
+
+.detalhe-da-compra {
+    background-color: #FFFFFF;
+    color: #FFB800;
+    border: 2px solid #FFB800;
+}
+
+.continuar-comprando:hover {
+    background:     border 2px solid #FFB800;
+    border: 2px solid #FFB800;
+
+}
+
+.detalhe-da-compra:hover {
+    background-color: #FFB800;
+    color: #FFFFFF;
+}
