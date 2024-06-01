@@ -12,7 +12,7 @@
 
 <?php
 
-require_once('../backend/d0atabase/DAO/ProdutoDAO.php');
+require_once('../backend/database/DAO/ProdutoDAO.php');
 
 session_start();
 
