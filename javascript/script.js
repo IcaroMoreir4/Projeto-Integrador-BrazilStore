@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoriaMenu = document.getElementById('categoriaMenu');
 
     categoriaLink.addEventListener('click', function(event) {
-        event.preventDefault(); 
-        
-        
         if (categoriaMenu.style.display === 'none' || categoriaMenu.style.display === '') {
             categoriaMenu.style.display = 'block';
         } else {
