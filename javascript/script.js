@@ -152,3 +152,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function redirectToProdutos() {
     window.location.href = 'meus_produtos.php'; // Altere a URL conforme necessário
 }
+
+
+// editar perfil usuario

@@ -12,7 +12,6 @@
 
     $dao = new ClienteDAO;
 
-    //Função para consultar os endereços cadastrados.
     if (isset($_SESSION['user_id'])) {
         $id_cliente = $_SESSION['user_id'];
         $exibir_perfil = $dao->read($id_cliente);
@@ -66,9 +65,8 @@
         <form action="teste_perfil.php" method="POST">
             <label for="" class="">Nome: </label>
             <div class="nome">
-                 <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Insira o seu nome">
+                <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Insira o seu nome">
             </div>
-
             <label for="" class="">E-mail: </label>
             <div class="email">
                 <input class="campo" type="email" name="email" id="" maxlength="40" placeholder="Insira o seu email">

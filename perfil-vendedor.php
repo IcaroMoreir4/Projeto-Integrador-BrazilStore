@@ -1,18 +1,19 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/LojaDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 session_start();
 
-if (!isset($_SESSION['loja_id'])) {
+if (!isset($_SESSION['vendedor_id'])) {
     echo "Você precisa estar logado para ver esta página.";
     exit;
 }
 
-$loja = $_SESSION['loja_id'];
-$lojaDAO = new LojaDao();
-$loja = $lojaDAO->getLojaById($loja);
+$vendedor = $_SESSION['vendedor_id'];
+$vendedorDAO = new VendedorDAO();
+$vendedor = $vendedorDAO->getVendedorById($vendedor);
 
-if (!$loja) {
-    echo "Loja não encontrado.";
+
+if (!$vendedor) {
+    echo "Vendedor não encontrado.";
     exit;
 }
 ?>
@@ -31,11 +32,10 @@ if (!$loja) {
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
-
 </head>
 <body>
 
-    <header class="grid">
+        <header class="grid">
             <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
@@ -55,99 +55,94 @@ if (!$loja) {
             </form>
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
                 <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-    </header>
+        </header>
+
     <div class="linhau"></div>
-        <div class="gridusuario">
-                <div class="meuperfil">
-                    <div class="menu-user">
-                    <div class="menu-nome">
-                        <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
-                            <div class="nomeusuario">
-                            <label class="font-1-m">Nome do usuario</label>
-                            <a href="#" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
-                        </div>
-                    </div>
-                    <div class="minha-conta">
-                        <div class="minhacontabtn">
-                            <img src="imagem/perfilMinhaConta.svg" alt="">
-                            <p class="font-1-m">Minha Conta</p>
-                        </div>
-                            <div class="perfil-end">
-                            <ul>
-                                <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                                <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="minhas-compras">
-                        <img src="/imagem/compras.svg" alt="">
-                        <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
-                    </div>
-                    <div class="minha-loja">
-                        <img src="/imagem/Minha-loja.svg" alt="">
-                        <a class="font-1-m" href="minha_loja.html">Minha loja</a>
-                    </div>
-                    <div class="loja-venda">
-                        <ul>
-                            <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
-                            <li class="font-1-s"><a href="minhas_vendas.html">Meus Produtos</a></li>
-                        </ul>
-                    </div>          
-                    </div>
-                </div>
-        
-        <div class="perfil-loja">
-            <div class="loja-texto">
-                <h1 class="font-2-l">Minha loja</h1>
-                <p class="font-1-s">Gerenciar e proteger sua conta</p>
-                <div class="linhau"></div>
-            </div>
 
-            <div class="painelloja">
-            <div class="loja-perfil">
-            <p class="font-1-s">Nome: <?= htmlspecialchars($loja->nome) ?></p>
-            <p class="font-1-s">Email:<?= htmlspecialchars($loja->email) ?></p>
-            </div>
-                <div class="adicionar-perfil">
-                    <img src="imagem/user.svg" alt="">
-                    <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
+    <div class="gridusuario">
+    <div class="meuperfil">
+        <div class="menu-user">
+            <div class="menu-nome">
+                <div class="imgperfil">
+                    <img src="imagem/perfiluser.svg" alt="User Profile Image">
+                </div>
+                <div class="nomeusuario">
+                    <label class="font-1-m">Nome do usuário</label>
+                    <a href="#" class="font-1-s">
+                        <img src="imagem/lapis.svg" alt="Edit Icon">Editar Perfil
+                    </a>
                 </div>
             </div>
+            <div class="minha-conta">
+                <div class="minhacontabtn">
+                    <img src="imagem/perfilMinhaConta.svg" alt="Account Icon">
+                    <p class="font-1-m">Minha Conta</p>
+                </div>
+                <div class="perfil-end">
+                    <ul>
+                        <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
+                        <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="minhas-compras">
+                <img src="imagem/compras.svg" alt="Purchases Icon">
+                <p class="font-1-m" >Compras</p>
+            </div>
+            <div class="minhas-compras-texto">
+                <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
+            </div>
+            <div class="minha-loja">
+                <img src="imagem/Minha-loja.svg" alt="Store Icon">
+                <p class="font-1-m" href="listar_produtos_teste.php">Minha Loja</p>
+            </div>
+            <div class="loja-venda">
+                <ul>
+                    <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
+                    <li class="font-1-s"><a href="#">Meus Produtos</a></li>
+                </ul>
+            </div>
         </div>
+    </div>
 
-
-
-
-
+    <div class="perfil">
+    <div class="perfil-texto">
+        <h1 class="font-2-l">Meu Perfil</h1>
+        <p class="font-1-s">Gerenciar e proteger sua conta</p>
+        <div class="linhau"></div>
+    </div>
+    <div class="painelperfil">          
+        <div class="meu-perfil">
+            <div class="campo-usuario">
+                <label class="font-1-s">Nome Completo</label>
+                <span><?= htmlspecialchars($vendedor->nome) ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">Email</label>
+                <span><?= htmlspecialchars($vendedor->email) ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">Telefone</label>
+                <span><?= htmlspecialchars($vendedor->telefone) ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">CPF</label>
+                <span><?= htmlspecialchars($vendedor->cpf) ?></span>
+            </div>     
         </div>
+        <div class="adicionar-perfil">
+            <img src="imagem/user.svg" alt="">
+            <div class="btn-perfil">
+                <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
+                <input id="file-upload" class="file" type="file" accept="image/*">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <footer class="grid">
+<footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
             </div>

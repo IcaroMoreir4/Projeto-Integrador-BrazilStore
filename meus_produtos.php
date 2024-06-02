@@ -69,22 +69,25 @@ if (isset($_SESSION['vendedor_id']))
             <div class="minha-conta">
                 <div class="minhacontabtn">
                     <img src="imagem/perfilMinhaConta.svg" alt="Account Icon">
-                    <a class="font-1-m">Minha Conta</a>
+                    <p class="font-1-m">Minha Conta</p>
                 </div>
                 <div class="perfil-end">
                     <ul>
                         <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                        <li class="font-1-s"><a href="endereco.php">Endereço</a></li>
+                        <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                     </ul>
                 </div>
             </div>
             <div class="minhas-compras">
                 <img src="imagem/compras.svg" alt="Purchases Icon">
-                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+                <p class="font-1-m" >Minhas Compras</p>
+            </div>
+            <div class="minhas-compras-texto">
+                <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
             </div>
             <div class="minha-loja">
                 <img src="imagem/Minha-loja.svg" alt="Store Icon">
-                <a class="font-1-m" href="listar_produtos_teste.php">Minha Loja</a>
+                <p class="font-1-m" href="listar_produtos_teste.php">Minha Loja</p>
             </div>
             <div class="loja-venda">
                 <ul>

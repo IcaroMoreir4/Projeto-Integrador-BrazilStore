@@ -1,19 +1,31 @@
-.meuperfil{
+#formularioEditar {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    z-index: 9999; /* Certifica-se de que o pop-up esteja acima de outros elementos */
+}
+
+.meuperfil {
     padding-left: 220px;
     padding-right: 220px;
     display: grid;
     grid-template-columns: 3fr 9fr;
 }
 
-.menu-nome img{
+.menu-nome img {
     width: 60px;
-
 }
-.menu-nome{
+
+.menu-nome {
     display: flex;
     padding-top: 10px;
 }
-.nomeusuario{
+
+.nomeusuario {
     display: flex;
     flex-direction: column;
     padding-top: 6px;
@@ -23,95 +35,99 @@
     width: 180px;
 }
 
-.nomeusuario img{
+.nomeusuario img {
     width: 20px;
     height: 15px;
 }
 
-
-.menu-user{
+.menu-user {
     display: flex;
     flex-direction: column;
 }
-.minha-conta{
+
+.minha-conta {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
 }
 
-.minhacontabtn{
+.minhacontabtn {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     justify-content: space-between;
     width: 160px;
 }
 
-.perfil{
+.perfil {
     width: 850px;
 }
 
-.perfil-end{
+.perfil-end {
     padding-left: 50px;
 }
-.perfil-end li{
+
+.perfil-end li {
     padding-bottom: 14px;
     color: #404040;
 }
 
-
-
-.minhacontabtn img{
+.minhacontabtn img {
     width: 30px;
     height: 35px;
 }
 
-
-.minhas-compras{
+.minhas-compras {
     display: flex;
     align-items: center;
-    padding-bottom: 20px;
+    padding-bottom: 10px;
     justify-content: space-between;
-    width: 200px;
+    max-width: 200px;
+}
+.minhas-compras-texto{
+    padding-left: 50px;
+    padding-bottom: 14px;
+    color: #404040;
+
 }
 
-.venda-agora{
+.venda-agora {
     width: 170px;
     height: 50px;
     border-radius: 5px;
     border: 2px solid rgb(0, 0, 0);
 }
 
-.painelperfil{
+.painelperfil {
     display: flex;
     justify-content: center;
     width: 850px;
 }
 
-.adicionar-perfil img{
+.adicionar-perfil img {
     height: 130px;
 }
-.btn-perfil{
-    height: 50px;
 
+.btn-perfil {
+    height: 50px;
 }
-.menu-user a{
+
+
+.menu-user a {
     text-decoration: none;
     color: rgb(65, 66, 64);
 }
 
-
 .menu-user a:hover {
     color: #FFBB00;
-    }
+}
 
-.linhau{
+.linhau {
     width: 100%;
     height: 1px;
     background-color: var(--cor-5);
     margin-bottom: 10px;
 }
-
 
 .adicionar-perfil {
     display: flex;
@@ -119,7 +135,6 @@
     align-items: center;
     gap: 10px;
 }
-
 
 .btn-perfil {
     position: relative;
@@ -131,7 +146,7 @@
     height: 100%;
     opacity: 0;
     cursor: pointer;
-    }
+}
 
 .btn-perfil label {
     display: inline-block;
