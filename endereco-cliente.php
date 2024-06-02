@@ -60,7 +60,7 @@
                         <div class="perfil-end">
                         <ul>
                             <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                            <li class="font-1-s"><a href="endereço.php">Endereço</a></li>
+                            <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                         </ul>
                     </div>
                         </div>
@@ -84,7 +84,7 @@
             <div class="endereços-cadastrados">
                 <div class="endereçobox">
                     <div class="endereço">
-                        <p class="font-1-s">Nome completo do usuário | +55 87 9999-9999</p>
+                        <p class="font-1-s">| +55 87 9999-9999</p>
                         <p class="font-1-s">Rua Ali perto, 999, Perto do meu vizinho, Bairro</p>
                         <p class="font-1-s">Cidade, Estado, 00000-000</p>
                     </div>
@@ -116,34 +116,7 @@
         </div>
     </div>
 
-        <div id="popupBgLoja" class="popup-bg">
-            <div id="popupLoginLoja" class="popup">
-            <div class="popup-content">
-            <span class="close" onclick="closeLoginLoja()">&times;</span>
-            <div class="popup-content">
-                <span class="close" onclick="closeLoginLoja()">&times;</span>
-                <h2 class="font-1-l">Entrar</h2>
-                <form action="login_vendedor.php" method="post">
-                    <label for="login-email" class="font-1-m">Email</label>
-                    <div class="email-l">
-                        <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
-                    </div>
-                    <label for="login-password" class="font-1-m">Senha</label>
-                    <div class="senha-l">
-                        <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
-                    </div>
-                    <div class="esqsenha">
-                        <a class="font-1-s" href="">Esqueceu a senha?</a>
-                    </div>
-                    <div class="but-entrar">
-                        <button type="submit" name="submit" class="submit-button">ENTRAR</button>
-                    </div>
-                </form>
-            </div>          
-            <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
-        </div>
-    </div>
-    </div>
+
     
 <div class="popupCadastroEndereco" id="popupCadastroEndereco">
     <div class="box_cadasendereço" id="popupBgCadastroEndereço">
@@ -171,6 +144,36 @@
             <button type="submit" class="but_enviar font-1-m"  >ENVIAR</button>
             </div>
         </form>
+    </div>
+    </div>
+
+
+    <div id="popupBgLoja" class="popup-bg">
+            <div id="popupLoginLoja" class="popup">
+            <div class="popup-content">
+            <span class="close" onclick="closeLoginLoja()">&times;</span>
+            <div class="popup-content">
+                <span class="close" onclick="closeLoginLoja()">&times;</span>
+                <h2 class="font-1-l">Entrar</h2>
+                <form action="login_vendedor.php" method="post">
+                    <label for="login-email" class="font-1-m">Email</label>
+                    <div class="email-l">
+                        <input class="campo" type="email" name="email" id="login-email" placeholder="Email" required>
+                    </div>
+                    <label for="login-password" class="font-1-m">Senha</label>
+                    <div class="senha-l">
+                        <input class="campo" type="password" name="senha" id="login-password" placeholder="Senha" required>
+                    </div>
+                    <div class="esqsenha">
+                        <a class="font-1-s" href="">Esqueceu a senha?</a>
+                    </div>
+                    <div class="but-entrar">
+                        <button type="submit" name="submit" class="submit-button">ENTRAR</button>
+                    </div>
+                </form>
+            </div>          
+            <p class="font-1-s">Ainda não é vendedor? <a class="font-1-s esqsenha" href="#" onclick="openCadastroLoja()">Cadastre-se</a></p>
+        </div>
     </div>
     </div>
 
