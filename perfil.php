@@ -88,7 +88,7 @@
             <div class="minha-conta">
                 <div class="minhacontabtn">
                     <img src="imagem/perfilMinhaConta.svg" alt="">
-                    <a class="font-1-m">Minha Conta</a>
+                    <p class="font-1-m">Minha Conta</p>
                 </div>
                 <div class="perfil-end">
                     <ul>
@@ -99,7 +99,7 @@
             </div>
             <div class="minhas-compras">
                 <img src="./imagem/compras.svg" alt="">
-                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+                <p class="font-1-m" href="minhas_compras.html">Minhas Compras</p>
             </div>
             <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
         </div>

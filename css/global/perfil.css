@@ -101,7 +101,7 @@
 }
 
 
-.menu-user a:hover {
+.menu-user a :hover {
     color: #FFBB00;
     }
 
