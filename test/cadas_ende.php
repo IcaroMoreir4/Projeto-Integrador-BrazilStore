@@ -78,7 +78,7 @@
 
                     <label for="" class="">CEP</label>
                     <div class="cep">
-                        <input class="campo" type="text" name="cep" id="cadas-telefone" maxlength="8" placeholder="CEP">
+                        <input class="campo" type="number" name="cep" id="cadas-telefone" maxlength="8" placeholder="CEP">
                     </div>
 
                     <label for="" class="">Cidade</label>
