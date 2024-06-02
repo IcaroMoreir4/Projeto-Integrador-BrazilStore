@@ -68,6 +68,17 @@ class LojaDao{
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
 
+    public function getIdLojaByVendedorId($id_vendedor) {
+        $sql = 'SELECT id FROM comercio.loja WHERE id_vendedor = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id_vendedor);
+        $stmt->execute();
+    
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['id'];
+    }
+    
+
 
 }
 

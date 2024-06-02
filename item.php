@@ -150,7 +150,7 @@ $produtos = $produtoDAO->read();
                         </form>
                     </div>
                     <div class="btn-item">
-                        <button class="btn_cheio btn_adc" type="button">Comprar Agora</button>
+                        <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produto->id ?>" >Comprar Agora</button>
                         <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
                     </div>
                 </div>
@@ -307,6 +307,27 @@ $produtos = $produtoDAO->read();
             <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
         </div>
     </footer>
+
+
+    <script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const productId = button.getAttribute('data-product-id');
+            addToCart(productId);
+        });
+    });
+
+    function addToCart(productId) {
+        // Aqui você adicionaria o produto ao carrinho
+        console.log('Produto adicionado ao carrinho:', productId);
+        // Você pode adicionar mais lógica aqui, como exibir uma mensagem de confirmação
+    }
+});
+</script>
+
 
 </body>
 </html>
