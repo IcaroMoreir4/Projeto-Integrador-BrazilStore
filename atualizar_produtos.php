@@ -34,7 +34,7 @@ if (isset($_GET['id'])) {
 
     $produtoDao->AtualizarProdutos($produto);
 
-    header('Location: listar_produtos_teste.php');
+    header('Location: meus_produtos.php');
     exit();
 } else {
     echo "Produto não encontrado.";
