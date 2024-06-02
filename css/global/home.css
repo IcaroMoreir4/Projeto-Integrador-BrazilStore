@@ -143,3 +143,9 @@
     align-items: center;
     gap: 40px;
 }
+
+.itens-l1 a,
+.itens-l2 a{
+    text-decoration: none;
+    color: var(--cor-12);
+}
