@@ -100,7 +100,7 @@ if (isset($_SESSION['vendedor_id']))
         <div class="produtostexto">
             <h1 class="font-1-l">Meus Produtos</h1>
             <div class="adicionaritem">
-                <button class="adicionaritem font-1-m-b" onclick="redirectToAdicionar()">ADICIONAR ITEM
+                <button class="font-1-m-b" onclick="redirectToAdicionar()">ADICIONAR ITEM
                     <img src="imagem/+.svg" alt="Add Icon">
                 </button>
             </div>

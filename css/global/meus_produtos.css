@@ -30,7 +30,9 @@
     align-items: center;
     gap: 4px;
     height: 45px;
+    width: 100%;
 }
+
 
 .adicionaritem :hover{
     cursor: pointer;
