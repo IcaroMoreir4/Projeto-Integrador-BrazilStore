@@ -80,7 +80,7 @@
                 </div>
                 <div class="nomeusuario">
                     <label class="font-1-m">Nome do usuario</label>
-                    <a href="perfil.html" class="font-1-s">
+                    <a href="perfil.php" class="font-1-s">
                         <img src="imagem/lapis.svg" alt="">Editar Perfil
                     </a>
                 </div>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="perfil-end">
                     <ul>
-                        <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
+                        <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
                         <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                     </ul>
                 </div>
