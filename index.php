@@ -168,62 +168,64 @@ $midPoint = ceil($totalProdutos / 2);
 
     <article class="populares-home grid">
         <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
+
         <div class="populares-home_itens">
-            <div class="itens-l1 mgb-40">
-                <?php if (!empty($produtos)): ?>
-                    <?php for ($i = 0; $i < $midPoint; $i++): ?>
-                        <div class="populares-item">
-                            <div class="item_img">
-                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                            </div>
-                            <div class="item_content">
-                                <div class="content_flex">
-                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
-                                </div>
-                                <div class="content_flex">
-                                    <div class="content_flex-sun">
-                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                        <p class="font-1-m">4.8</p>
-                                    </div>
-                                    <p class="font-1-m">300 vendidos</p>
-                                </div>
-                            </div>
+    <div class="itens-l1 mgb-40">
+        <?php if (!empty($produtos)): ?>
+            <?php for ($i = 0; $i < $midPoint; $i++): ?>
+                <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                    <div class="item_img">
+                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                    </div>
+                    <div class="item_content">
+                        <div class="content_flex">
+                            <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                            <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
                         </div>
-                    <?php endfor; ?>
-                <?php else: ?>
-                    <p>Nenhum produto encontrado.</p>
-                <?php endif; ?>
-            </div>
-            <div class="itens-l2">
-                <?php if (!empty($produtos)): ?>
-                    <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
-                        <div class="populares-item">
-                            <div class="item_img">
-                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                                <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                        <div class="content_flex">
+                            <div class="content_flex-sun">
+                                <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                <p class="font-1-m">4.8</p>
                             </div>
-                            <div class="item_content">
-                                <div class="content_flex">
-                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
-                                </div>
-                                <div class="content_flex">
-                                    <div class="content_flex-sun">
-                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                        <p class="font-1-m">4.8</p> 
-                                    </div>
-                                    <p class="font-1-m">300 vendidos</p> 
-                                </div>
-                            </div>
+                            <p class="font-1-m">300 vendidos</p>
                         </div>
-                    <?php endfor; ?>
-                <?php else: ?>
-                    <p>Nenhum produto encontrado.</p>
-                <?php endif; ?>
-            </div>
-        </div>
+                    </div>
+                </a>
+            <?php endfor; ?>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
+    </div>
+    <div class="itens-l2">
+        <?php if (!empty($produtos)): ?>
+            <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
+                <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                    <div class="item_img">
+                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                    </div>
+                    <div class="item_content">
+                        <div class="content_flex">
+                            <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                            <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                        </div>
+                        <div class="content_flex">
+                            <div class="content_flex-sun">
+                                <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                <p class="font-1-m">4.8</p> 
+                            </div>
+                            <p class="font-1-m">300 vendidos</p> 
+                        </div>
+                    </div>
+                </a>
+            <?php endfor; ?>
+        <?php else: ?>
+            <p>Nenhum produto encontrado.</p>
+        <?php endif; ?>
+    </div>
+</div>
+
     </article>
         
         <footer class="grid">
