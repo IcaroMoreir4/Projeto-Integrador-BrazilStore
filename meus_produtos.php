@@ -96,37 +96,40 @@ if (isset($_SESSION['vendedor_id']))
     </div>
 
     <div class="meus-produtos">
-        <div class="produtos-titulo">
-            <div class="produtostexto">
-                <h1 class="font-1-l">Meus Produtos</h1>
+    <div class="produtos-titulo">
+        <div class="produtostexto">
+            <h1 class="font-1-l">Meus Produtos</h1>
+            <div class="adicionaritem">
                 <button class="adicionaritem font-1-m-b" onclick="redirectToAdicionar()">ADICIONAR ITEM
-                <img src="imagem/+.svg" alt="Add Icon">
+                    <img src="imagem/+.svg" alt="Add Icon">
                 </button>
             </div>
-            <div class="linhau"></div>
         </div>
-        <div class="lista-produtos">
-        <?php
-            if ($produtos) {
-                foreach ($produtos as $produto) {
-            ?>
-            <a class="btn_vazado btn_edit" href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">
-            <div class="item-box">
-                <div class="img-item">
-                    <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
-                </div>
-                <div class="item-info">
-                    <p class="item-nome font-1-l cor-c12"><?= htmlspecialchars($produto['nome']) ?></p>
-                    <p class="item-valor font-1-m cor-c9">R$<?= htmlspecialchars($produto['valor']) ?></p>
-                </div>
-            </div>
-            </a>
-            <?php
-                }
-            }
-            ?>
+        <div class="linhau"></div>
+    </div>
+    <div class="lista-produtos">
+        <div class="gridproduto">
+            <?php if ($produtos): ?>
+                <?php foreach ($produtos as $produto): ?>
+                    <div class="editar_produto"> 
+                        <img class="editar_img" src="./imagem/editar-item.svg" alt="">
+                        <a class="btn_editar_produto" href="atualizar_produtos.php?id=<?php echo $produto['id']; ?>">
+                        <div class="item-box">
+                            <div class="img-item">
+                                <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem do Produto">
+                            </div>
+                            <div class="item-info">
+                                <p class="item-nome font-1-l cor-c12"><?= htmlspecialchars($produto['nome']) ?></p>
+                                <p class="item-valor font-1-m cor-c9">R$<?= htmlspecialchars($produto['valor']) ?></p>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
     </div>
+</div>
 </div>
 
 

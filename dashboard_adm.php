@@ -101,9 +101,15 @@ $produtos = $usuariosDAO->VerTodosProdutos();
 <div class="adm-box">
     <h1 class="font-1-xl">ADMINISTRADOR</h1>
     <div class="gridadm">
-        <div class="usuario">
+        <div class="usuario_adm">
             <h2 class="font-1-l">Usuários</h2>
             <table>
+                <tr>
+                    <th class='font-1-s'>ID</th>
+                    <th class='font-1-s'>Nome</th>
+                    <th class='font-1-s'>Email</th>
+                    <th class='font-1-s'>Ações</th>
+                </tr>
                 <?php
                 foreach ($usuarios as $usuario) {
                     echo "<tr>";
@@ -119,34 +125,46 @@ $produtos = $usuariosDAO->VerTodosProdutos();
                 ?>
             </table>
         </div>
-        <div class="vendedor">
+        <div class="vendedor_adm">
             <h2 class="font-1-l">Vendedores</h2>
             <table>
+                <tr>
+                    <th class='font-1-s'>ID</th>
+                    <th class='font-1-s'>Nome</th>
+                    <th class='font-1-s'>Email</th>
+                    <th class='font-1-s'>Ações</th>
+                </tr>
                 <?php
                 foreach ($vendedores as $vendedor) {
                     echo "<tr>";
-                    echo "<td>{$vendedor->id}</td>";
-                    echo "<td>{$vendedor->nome}</td>";
-                    echo "<td>{$vendedor->email}</td>";
-                    echo "<td>";
-                    echo "<button class='btn-excluir' onclick='excluirVendedor({$vendedor->id})'>Excluir</button>";
+                    echo "<td class='font-1-s'>ID:{$vendedor->id}</td>";
+                    echo "<td class='font-1-m'>{$vendedor->nome}</td>";
+                    echo "<td class='font-1-s'>{$vendedor->email}</td>";
+                    echo "<td class='btn-adm'>";
                     echo "<button class='btn-alerta' onclick='abrirModalAlerta({$vendedor->id}, \"vendedor\")'>Alerta</button>";
+                    echo "<button class='btn-excluir' onclick='excluirVendedor({$vendedor->id})'>Excluir</button>";
                     echo "</td>";
                     echo "</tr>";
                 }
                 ?>
             </table>
         </div>
-        <div class="loja">
+        <div class="loja_adm">
             <h2 class="font-1-l">Lojas</h2>
             <table>
-            <?php
+                <tr>
+                    <th class='font-1-s'>ID</th>
+                    <th class='font-1-s'>Nome</th>
+                    <th class='font-1-s'>Endereço</th>
+                    <th class='font-1-s'>Ações</th>
+                </tr>
+                <?php
                 foreach ($lojas as $loja) {
                     echo "<tr>";
-                    echo "<td>{$loja->id}</td>";
-                    echo "<td>{$loja->nome}</td>";
-                    echo "<td>{$loja->endereco}</td>";
-                    echo "<td>";
+                    echo "<td class='font-1-s'>{$loja->id}</td>";
+                    echo "<td class='font-1-m'>{$loja->nome}</td>";
+                    echo "<td class='font-1-s'>{$loja->endereco}</td>";
+                    echo "<td class='btn-adm'>";
                     echo "<button class='btn-excluir' onclick='excluirLoja({$loja->id})'>Excluir</button>";
                     echo "<button class='btn-alerta' onclick='abrirModalAlerta({$loja->id}, \"loja\")'>Enviar Alerta</button>";
                     echo "</td>";
@@ -156,33 +174,29 @@ $produtos = $usuariosDAO->VerTodosProdutos();
             </table>
         </div>
 
-        <div class="produto">
+        <div class="produtos_adm">
             <h2 class="font-1-l">Produtos</h2>
             <table>
                 <tr>
-                    <th>ID Vendedor</th>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Descrição</th>
-                    <th>Preço</th>
-                    <th>Imagem</th>
+                    <th class='font-1-s'>ID Vendedor</th>
+                    <th class='font-1-s'>ID Produto</th>
+                    <th class='font-1-s'>Nome</th>
+                    <th class='font-1-s'>Descrição</th>
+                    <th class='font-1-s'>Preço</th>
+                    <th class='font-1-s'>Imagem</th>
                 </tr>
-                <?php foreach ($produtos as $produto): 
-                    
-                    ?>
-                    
+                <?php foreach ($produtos as $produto): ?>
                 <tr>
-                    <td><?= $produto->id_vendedor ?></td>
+                    <td><?= $produto->id_vendedor?></td>
                     <td><?= $produto->id ?></td>
                     <td><?= $produto->nome ?></td>
                     <td><?= $produto->descricao ?></td>
-                    <td>R$<?= htmlspecialchars($produto->valor) ?></td>
-                    <td><img src="uploads/<?= htmlspecialchars($produto->image_path) ?>" alt="<?= htmlspecialchars($produto->nome) ?>" width="100"></td>
+                    <td><?= htmlspecialchars($produto->valor) ?></td>
+                    <td class="img_adm"><img src="uploads/<?= htmlspecialchars($produto->image_path) ?>" alt="<?= htmlspecialchars($produto->nome) ?>" width="100"></td>
                 </tr>
                 <?php endforeach; ?>
             </table>
         </div>
-    </div>
     </div>
 </div>
 
