@@ -113,10 +113,13 @@ $midPoint = ceil($totalProdutos / 2);
         <?php if (!empty($produtos)): ?>
             <?php for ($i = 0; $i < $midPoint; $i++): ?>
                 <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                    </div>
+                <div class="item_img">
+                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
+                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
+                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
+                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                </div>
+
                     <div class="item_content">
                         <div class="content_flex">
                             <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
@@ -140,10 +143,12 @@ $midPoint = ceil($totalProdutos / 2);
         <?php if (!empty($produtos)): ?>
             <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
                 <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                    </div>
+                <div class="item_img">
+                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
+                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
+                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
+                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                </div>
                     <div class="item_content">
                         <div class="content_flex">
                             <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>

@@ -112,59 +112,83 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
         </div>
     </div>
 
-    <article class="grid">
-    <?php if (!empty($produtos)): ?>
-        <?php foreach ($produtos as $produto): ?>
-            <div class="item-section">
-                <div class="item-opcoes">
-                    <div class="item-opcao_maior">
-                        <?php $imagePath = 'uploads/' . htmlspecialchars($produto->image_path); ?>
-                        <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
-                    </div>
+    <article class="grid item-unico">
+    <?php
+// Verifica se o parâmetro 'id' está presente na URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Filtra o array de produtos para encontrar o produto com o ID correspondente
+    $produtoEncontrado = null;
+    foreach ($produtos as $produto) {
+        if ($produto->id == $id) {
+            $produtoEncontrado = $produto;
+            break;
+        }
+    }
+
+    // Verifica se o produto foi encontrado
+    if ($produtoEncontrado) {
+        // Exibe apenas o produto encontrado
+        ?>
+        <div class="item-section">
+            <div class="item-opcoes">
+                <?php $imagePath = 'uploads/' . htmlspecialchars($produtoEncontrado->image_path); ?>
+                <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
+            </div>
+            <div class="item-content">
+                <h1 class="font-1-xxl"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+                <div class="info-content">
+                    <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
+                    <p class="font-2-l">4,8</p>
+                    <p class="font-2-l">300 vendidos</p>
                 </div>
-                <div class="item-content">
-                    <h1 class="font-1-xxl"><?= htmlspecialchars($produto->nome) ?></h1>
-                    <div class="info-content">
-                        <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
-                        <p class="font-2-l">4,8</p>
-                        <p class="font-2-l">300 vendidos</p>
-                    </div>
-                    <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produto->valor) ?></h2>
-                    <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produto->descricao) ?></p>
-                    <h2 class="font-1-l">Variante do produto</h2>
-                    <div class="variante-prod">
-                        <form class="opcoes-tamanho" action="">
-                            <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
-                            <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
-                                <option value="p">P</option>
-                                <option value="m">M</option>
-                                <option value="g">G</option>
-                                <option value="gg">GG</option>
-                            </select>
-                        </form>
-                        <form class="opcoes-cor opcoes-tamanho" action="">
-                            <label class="font-1-m cor-8" for="cor">Cor</label>
-                            <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
-                                <option value="branco">Branco</option>
-                                <option value="preto">Preto</option>
-                                <option value="cinza">Cinza</option>
-                            </select>
-                        </form>
-                    </div>
-                    <div class="btn-item">
-                        <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produto->id ?>" >Comprar Agora</button>
-                        <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
-                    </div>
+                <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produtoEncontrado->valor) ?></h2>
+                <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
+                <h2 class="font-1-l">Variante do produto</h2>
+                <div class="variante-prod">
+                    <form class="opcoes-tamanho" action="">
+                        <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
+                        <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="g">G</option>
+                            <option value="gg">GG</option>
+                        </select>
+                    </form>
+                    <form class="opcoes-cor opcoes-tamanho" action="">
+                        <label class="font-1-m cor-8" for="cor">Cor</label>
+                        <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
+                            <option value="branco">Branco</option>
+                            <option value="preto">Preto</option>
+                            <option value="cinza">Cinza</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="btn-item">
+                    <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produtoEncontrado->id ?>" >Comprar Agora</button>
+                    <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
                 </div>
             </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Nenhum produto encontrado.</p>
-    <?php endif; ?>
+        </div>
+        <?php
+    } else {
+        // Caso o produto não seja encontrado, exibe uma mensagem
+        ?>
+        <p>Produto não encontrado.</p>
+        <?php
+    }
+} else {
+    // Se o parâmetro 'id' não estiver presente na URL, exibe uma mensagem
+    ?>
+    <p>ID do produto não especificado.</p>
+    <?php
+}
+?>
     <div class="detalhe-produto">
         <h2 class="cor-p1 font-2-l-b linha">Detalhes do Produto</h2>
-        <h1 class="font-1-xl mgb-8px">T-shirt Front-End</h1>
-        <p class="font-1-s cor-6 mgb-24px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the.</p>
+        <h1 class="font-1-xl mgb-8px"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+        <p class="font-1-s cor-6 mgb-24px"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
         <h2 class="font-2-l-b cor-p1">Avaliações</h2>
         
         <div class="avaliacoes">

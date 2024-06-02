@@ -178,3 +178,8 @@
 .todos-itens{
     margin: 0px;
 }
+
+.item-imagem{
+    width: 200px;
+    height: 200px;
+}
