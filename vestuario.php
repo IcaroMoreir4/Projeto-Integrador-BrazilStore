@@ -1,16 +1,10 @@
 <?php
-    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-    $produtoDAO = new ProdutoDAO();
-
-    if (isset($_GET['categoria'])) {
-        $categoria = $_GET['categoria'];
-        $produtos = $produtoDAO->getByCategoria($categoria);
-        $categoriaSelecionada = $categoria; 
-    } else {
-        $produtos = $produtoDAO->read();
-        $categoriaSelecionada = 'Vestuário';
-    }
+$produtoDAO = new ProdutoDAO();
+$produtos = $produtoDAO->getByCategoria('vestuario');
+$totalProdutos = count($produtos);
+$midPoint = ceil($totalProdutos / 2);
 ?>
 
     <!DOCTYPE html>
@@ -58,53 +52,61 @@
                         </div>
                     </div>
             </header>
+            
 
 <article class="populares-home todos-itens grid">
-    <h2 class="font-1-xl mgb-40 item-h2-geral"><?= $categoriaSelecionada ?></h2>
+    <h2 class="font-1-xl mgb-40 item-h2-geral">Produtos de Vestuário</h2>
 
     <div class="populares-home_itens">
         <?php if (!empty($produtos)): ?>
             <?php 
+            $totalProdutos = count($produtos);
             $linhaAtual = 1;
-            foreach ($produtos as $produto): 
+            for ($i = 0; $i < $totalProdutos; $i++): 
                 // Abrir div da linha no início ou após cada 5 itens
-                if ($linhaAtual % 5 == 0) {
-                    if ($linhaAtual > 0) {
+                if ($i % 5 == 0) {
+                    if ($i > 0) {
                         echo '</div>'; // Fechar div da linha anterior
                     }
                     echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
                     $linhaAtual++;
                 }
-                $imagePath = 'uploads/' . htmlspecialchars($produto->image_path); 
+                // Verificar se as propriedades do produto estão definidas antes de acessá-las
+                if (isset($produtos[$i]->image_path) && isset($produtos[$i]->nome) && isset($produtos[$i]->valor)) {
+                    $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); // Assumindo que o caminho da imagem está armazenado em $produtos[$i]->image_path
             ?>
-                <a href="item.php?id=<?= htmlspecialchars($produto->id) ?>" class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                        <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
-                    </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b"><?= htmlspecialchars($produto->nome) ?></h2>
-                            <p class="font-1-m cor-p6">R$ <?= number_format($produto->valor, 2, ',', '.') ?></p>
+                    <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                        <div class="item_img">
+                            <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                            <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
                         </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                <p class="font-1-m">4.8</p>
+                        <div class="item_content">
+                            <div class="content_flex">
+                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
+                            <div class="content_flex">
+                                <div class="content_flex-sun">
+                                    <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                    <p class="font-1-m">4.8</p>
+                                </div>
+                                <p class="font-1-m">300 vendidos</p>
+                            </div>
                         </div>
-                    </div>
-                </a>
-            <?php endforeach; ?>
+                    </a>
+            <?php 
+                } // Fim da verificação das propriedades
+            endfor; ?>
             </div>
         <?php else: ?>
-            <p>Nenhum produto encontrado.</p>
+            <p>Nenhum produto de vestuário encontrado.</p>
         <?php endif; ?>
     </div>
 </article>
-    
-<footer class="grid">
+
+
+
+            <footer class="grid">
                 <div class="logo">
                     <img src="./imagem/BrazilStore.svg" alt="">
                 </div>
@@ -142,5 +144,5 @@
                 </div>
             </footer>
 
-</body>
-</html>
+    </body>
+    </html>

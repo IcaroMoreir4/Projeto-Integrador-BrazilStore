@@ -32,11 +32,11 @@ $midPoint = ceil($totalProdutos / 2);
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./">Eletrônicos</a>
-                    <a href="./">Vestuário</a>
-                    <a href="./">Livros</a>
-                    <a href="./">Jogos</a>
-                    <a href="./">Acessórios</a>
+                    <a href="./vestuario.php">Vestuário</a>
+                    <a href="./eletronicos.php">Eletrônicos</a>
+                    <a href="./livros.php">Livros</a>
+                    <a href="./jogos.php">Jogos</a>
+                    <a href="./acessorios.php">Acessórios</a>
                 </div>
             </div>
             <form action="pesquisar.php" method="get">
@@ -134,31 +134,31 @@ $midPoint = ceil($totalProdutos / 2);
         <h2 class="font-1-xl mgb-40">Categorias</h2>
         <nav class="categoria-nav">
             <div class="categorias-item">
-                <a href="./">
+                <a href="./eletronicos.php">
                     <img src="./imagem/eletronicos.svg" alt="">
                     <p class="font-1-l cor-12">Eletrônicos</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./vestuario.php">
                     <img src="./imagem/vesturario.svg" alt="">
                     <p class="font-1-l cor-12">Vestuário</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./livros.php">
                     <img src="./imagem/livros.svg" alt="">
                     <p class="font-1-l cor-12">Livros</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./jogos.php">
                     <img src="./imagem/jogos.svg" alt="">
                     <p class="font-1-l cor-12">Jogos</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./acessorios.php">
                     <img src="./imagem/acessorios.svg" alt="">
                     <p class="font-1-l cor-12">Acessórios</p>
                 </a>
@@ -170,14 +170,17 @@ $midPoint = ceil($totalProdutos / 2);
         <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
 
         <div class="populares-home_itens">
-    <div class="itens-l1 mgb-40">
+        <div class="itens-l1 mgb-40">
         <?php if (!empty($produtos)): ?>
             <?php for ($i = 0; $i < $midPoint; $i++): ?>
                 <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                    </div>
+                <div class="item_img">
+                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
+                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
+                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
+                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                </div>
+
                     <div class="item_content">
                         <div class="content_flex">
                             <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
@@ -196,15 +199,17 @@ $midPoint = ceil($totalProdutos / 2);
         <?php else: ?>
             <p>Nenhum produto encontrado.</p>
         <?php endif; ?>
-    </div>
-    <div class="itens-l2">
+        </div>
+        <div class="itens-l2">
         <?php if (!empty($produtos)): ?>
             <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
                 <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                    <div class="item_img">
-                        <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                        <img src="./imagem/camisa-neymar-grande-psemelhantes.svg" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                    </div>
+                <div class="item_img">
+                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
+                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
+                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
+                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
+                </div>
                     <div class="item_content">
                         <div class="content_flex">
                             <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
@@ -223,9 +228,11 @@ $midPoint = ceil($totalProdutos / 2);
         <?php else: ?>
             <p>Nenhum produto encontrado.</p>
         <?php endif; ?>
-    </div>
-</div>
-
+                </div>
+            </div>
+            <div class="home-ver_mais">
+                <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
+            </div>
     </article>
         
         <footer class="grid">

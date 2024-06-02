@@ -65,39 +65,35 @@ $midPoint = ceil($totalProdutos / 2);
         </div>
     </article>
 
-    <article class="categorias-home grid">
-        
-    </article>
-
     <article class="categorias grid">
         <h2 class="font-1-xl mgb-40">Categorias</h2>
         <nav class="categoria-nav">
             <div class="categorias-item">
-                <a href="./">
+                <a href="./eletronicos.php">
                     <img src="./imagem/eletronicos.svg" alt="">
                     <p class="font-1-l cor-12">Eletrônicos</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./vestuario.php">
                     <img src="./imagem/vesturario.svg" alt="">
                     <p class="font-1-l cor-12">Vestuário</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./livros.php">
                     <img src="./imagem/livros.svg" alt="">
                     <p class="font-1-l cor-12">Livros</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./jogos.php">
                     <img src="./imagem/jogos.svg" alt="">
                     <p class="font-1-l cor-12">Jogos</p>
                 </a>
             </div>
             <div class="categorias-item">
-                <a href="./">
+                <a href="./acessorios.php">
                     <img src="./imagem/acessorios.svg" alt="">
                     <p class="font-1-l cor-12">Acessórios</p>
                 </a>
@@ -168,6 +164,9 @@ $midPoint = ceil($totalProdutos / 2);
             <p>Nenhum produto encontrado.</p>
         <?php endif; ?>
                 </div>
+            </div>
+            <div class="home-ver_mais">
+                <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
             </div>
     </article>
         
