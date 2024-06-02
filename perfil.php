@@ -70,14 +70,19 @@
         </header>
 
     <div class="linhau"></div>
-    <div class="gridusuario">
-        <div class="meuperfil">
-            <div class="menu-user">
+
+<div class="gridusuario">
+    <div class="meuperfil">
+        <div class="menu-user">
             <div class="menu-nome">
-                <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
-                    <div class="nomeusuario">
+                <div class="imgperfil">
+                    <img src="imagem/perfiluser.svg" alt="">
+                </div>
+                <div class="nomeusuario">
                     <label class="font-1-m">Nome do usuario</label>
-                    <a href="perfil.html" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
+                    <a href="perfil.html" class="font-1-s">
+                        <img src="imagem/lapis.svg" alt="">Editar Perfil
+                    </a>
                 </div>
             </div>
             <div class="minha-conta">
@@ -85,31 +90,31 @@
                     <img src="imagem/perfilMinhaConta.svg" alt="">
                     <a class="font-1-m">Minha Conta</a>
                 </div>
-                    <div class="perfil-end">
+                <div class="perfil-end">
                     <ul>
                         <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
                         <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                     </ul>
                 </div>
-                    </div>
+            </div>
             <div class="minhas-compras">
                 <img src="./imagem/compras.svg" alt="">
-                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
-
-                <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
+                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
             </div>
+            <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
+        </div>
+    </div>
+
+    <div class="perfil">
+        <div class="perfil-texto">
+            <h1 class="font-2-l">Meu Perfil</h1>
+            <p class="font-1-s">Gerenciar e proteger sua conta</p>
+            <div class="linhau"></div>
         </div>
 
-        <div class="perfil">
-            <div class="perfil-texto">
-                <h1 class="font-2-l">Meu Perfil</h1>
-                <p class="font-1-s">Gerenciar e proteger sua conta</p>
-                <div class="linhau"></div>
-            </div>
-
-            <div class="painelperfil">
+        <div class="painelperfil">
             <div class="meu-perfil">
-            <div class="campo-usuario">
+                <div class="campo-usuario">
                     <label class="font-1-s">Nome Completo</label>
                     <span><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
                 </div>
@@ -127,19 +132,16 @@
                 </div>
             </div>
 
-    
-
-        <div class="adicionar-perfil">
+            <div class="adicionar-perfil">
                 <img src="imagem/user.svg" alt="">
-                <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
+                <div class="btn-perfil">
+                    <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
+                    <input id="file-upload" class="file" type="file" accept="image/*">
+                </div>
             </div>
-            </div>
-
-        </div>
-
-
         </div>
     </div>
+</div>
 
 <div id="popupBgLoja" class="popup-bg">
         <div id="popupLoginLoja" class="popup">
@@ -216,7 +218,7 @@
 </script>
 
 
-        <footer class="grid">
+<footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
             </div>
