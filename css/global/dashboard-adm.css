@@ -15,19 +15,19 @@
     border-radius: 8px;
 }
 
-table {
+.gridadm table {
     width: 100%;
     margin-top: 10px;
 }
 
-th {
+.gridadm th {
     border: 1px solid var(--cor-3);
     padding: 8px;
     background-color: var(--cor-1);
 }
 
 
-td{
+.gridadm td{
     border: 1px solid var(--cor-3);
     padding: 8px;
     vertical-align: middle;
@@ -44,7 +44,7 @@ td{
     align-items: center;
 }
 
-button {
+.gridadm button {
     padding: 5px 10px;
     border: none;
     border-radius: 4px;
