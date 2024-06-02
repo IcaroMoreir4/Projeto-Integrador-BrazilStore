@@ -1,20 +1,20 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
-session_start();
+    session_start();
+    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
-if (!isset($_SESSION['vendedor_id'])) {
-    echo "Você precisa estar logado para ver esta página.";
-    exit;
-}
+    if (!isset($_SESSION['vendedor_id'])) {
+        echo "Você precisa estar logado para ver esta página.";
+        exit;
+    }
 
-$vendedorId = $_SESSION['vendedor_id'];
-$vendedorDAO = new VendedorDAO();
-$vendedor = $vendedorDAO->getVendedorById($vendedorId);
+    $vendedorId = $_SESSION['vendedor_id'];
+    $vendedorDAO = new VendedorDAO();
+    $vendedor = $vendedorDAO->getVendedorById($vendedorId);
 
-if (!$vendedor) {
-    echo "Vendedor não encontrado.";
-    exit;
-}
+    if (!$vendedor) {
+        echo "Vendedor não encontrado.";
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>

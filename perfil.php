@@ -1,9 +1,6 @@
 <?php
-    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
-
     session_start();
-
-    $_SESSION['user_id'] = 11;
+    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
     $dao = new ClienteDAO;
 
@@ -26,7 +23,6 @@
         header("Location: ".$_SERVER['REQUEST_URI']);
         exit; // Certifique-se de sair do script após o redirecionamento
     }
-    
 ?>
 
 <!DOCTYPE html>
@@ -130,7 +126,7 @@
             </div>  
             <button id="mostrarFormulario">Editar</button>
             <div id="formularioEditar" style="display: none;"> 
-                <form action="teste_perfil.php" method="POST">
+                <form action="perfil.php" method="POST">
                     <label for="nomeEditar" class="font-1-m">Nome: </label>
                     <div class="nome">
                         <input class="campo" type="text" name="nome" id="nomeEditar" maxlength="40" placeholder="Insira o seu nome">
