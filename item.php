@@ -1,8 +1,8 @@
 <?php
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-$produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->read();
+    $produtoDAO = new ProdutoDAO();
+    $produtos = $produtoDAO->read();
 ?>
 
 
@@ -25,26 +25,32 @@ $produtos = $produtoDAO->read();
 <body>
 
     <header class="grid">
-        <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-        <div class="categoria_btn" id="categoriaBtn">
-            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-            <div class="categoria_menu font-1-m" id="categoriaMenu">
-                <a href="./">Eletrônicos</a>
-                <a href="./">Vestuário</a>
-                <a href="./">Livros</a>
-                <a href="./">Jogos</a>
-                <a href="./">Acessórios</a>
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <div class="categoria_btn" id="categoriaBtn">
+                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+                <div class="categoria_menu font-1-m" id="categoriaMenu">
+                    <a href="./">Eletrônicos</a>
+                    <a href="./">Vestuário</a>
+                    <a href="./">Livros</a>
+                    <a href="./">Jogos</a>
+                    <a href="./">Acessórios</a>
+                </div>
             </div>
-        </div>
-        <form action="" method="">
-            <div class="search-container">
-                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-            </div>
-        </form>
-            <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-            <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-    </header>
+            <form action="pesquisar.php" method="get">
+                <div class="search-container">
+                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+                </div>
+            </form>
+                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <div class="perfil_btn" id="perfilBtn">
+                    <div class="perfil_menu font-1-m" id="perfilMenu">
+                        <a href="./perfil.php">Meu perfil</a>
+                        <a href="./logout.php">Sair da conta</a>
+                    </div>
+                </div>
+        </header>
             
             <div id="popupBg" class="popup-bg">
         <div id="popupLogin" class="popup">
@@ -112,12 +118,8 @@ $produtos = $produtoDAO->read();
             <div class="item-section">
                 <div class="item-opcoes">
                     <div class="item-opcao_maior">
-                        <img src="./imagem/camisa.png" alt="Imagem do Produto">
-                    </div>
-                    <div class="item-opcao_menor">
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
+                        <?php $imagePath = 'uploads/' . htmlspecialchars($produto->image_path); ?>
+                        <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
                     </div>
                 </div>
                 <div class="item-content">

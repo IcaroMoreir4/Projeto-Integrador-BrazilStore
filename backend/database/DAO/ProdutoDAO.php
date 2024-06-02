@@ -122,5 +122,14 @@ class ProdutoDAO {
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function getByCategoria($categoria) {
+        $sql = "SELECT * FROM produto.produto WHERE categoria = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $categoria);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
 ?>

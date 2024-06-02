@@ -73,9 +73,9 @@
                 </div>
 
                     <div class="col-2">
-                        <label class="font-1-m cor-12 " for="categoria">Categoria</label>
-                        <select class="font-1-m" name="categoria" id="categoria" required>
-                            <option value="eletronicos name="categoria" ">Eletrônicos</option>
+                        <label class="font-1-m cor-12 " id="categoria" for="categoria">Categoria</label>
+                        <select class="font-1-m" id="categoria" name="categoria" id="categoria" required>
+                            <option value="eletronicos" name="categoria" >Eletrônicos</option>
                             <option value="vestuario" name="categoria">Vestuário</option>
                             <option value="livros" name="categoria" >Livros</option>
                             <option value="jogos" name="categoria" >Jogos</option>
