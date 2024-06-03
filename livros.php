@@ -2,10 +2,9 @@
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 $produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->getByCategoria('livros');
-//Coloca aqui o nome da categoria para mostrar os outros produtos.
-$totalProdutos = count($produtos);
-$midPoint = ceil($totalProdutos / 2);
+$produtosLivros = $produtoDAO->getByCategoria('livros');
+$totalProdutosLivros = count($produtosLivros);
+$midPointLivros = ceil($totalProdutosLivros / 2);
 ?>
 
 <!DOCTYPE html>
@@ -58,60 +57,51 @@ $midPoint = ceil($totalProdutos / 2);
 
 
     <article class="populares-home todos-itens grid">
-        <h2 class="font-1-xl mgb-40 item-h2-geral">Livros</h2>
-
-        <div class="populares-home_itens">
-            <?php
-            // Filtrar produtos para exibir apenas livros
-            $livros = array_filter($produtos, function ($produto) {
-                return isset($produto->categoria) && $produto->categoria === 'livros'; // Verifique se a categoria é 'livros'
-            });
-            if (!empty($livros)) :
+    <h2 class="font-1-xl mgb-40 item-h2-geral">Livros</h2>
+    <div class="populares-home_itens">
+        <?php if (!empty($produtosLivros)): ?>
+            <?php 
+            $totalProdutosLivros = count($produtosLivros);
+            $linhaAtualLivros = 1;
+            for ($i = 0; $i < $totalProdutosLivros; $i++):
+                if ($i % 5 == 0) {
+                    if ($i > 0) {
+                        echo '</div>';
+                    }
+                    echo '<div class="itens-l' . $linhaAtualLivros . ' mgb-40">';
+                    $linhaAtualLivros++;
+                }
+                if (isset($produtosLivros[$i]['image_path']) && isset($produtosLivros[$i]['nome']) && isset($produtosLivros[$i]['valor'])) {
+                    $imagePath = 'uploads/' . htmlspecialchars($produtosLivros[$i]['image_path']); 
             ?>
-                <?php
-                $totalLivros = count($livros);
-                $linhaAtual = 1;
-                $i = 0;
-                foreach ($livros as $livro) :
-                    if ($i % 5 == 0) {
-                        if ($i > 0) {
-                            echo '</div>';
-                        }
-                        echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
-                        $linhaAtual++;
-                    }
-                    if (isset($livro->image_path) && isset($livro->nome) && isset($livro->valor)) {
-                        $imagePath = 'uploads/' . htmlspecialchars($livro->image_path);
-                ?>
-                        <a href="item.php?id=<?= htmlspecialchars($livro->id) ?>" class="populares-item">
-                            <div class="item_img">
-                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                                <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
+                    <a href="item.php?id=<?= htmlspecialchars($produtosLivros[$i]['id']) ?>" class="populares-item">
+                        <div class="item_img">
+                            <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                            <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
+                        </div>
+                        <div class="item_content">
+                            <div class="content_flex">
+                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtosLivros[$i]['nome']) ?></h2>
+                                <p class="font-1-m cor-p6">R$ <?= number_format($produtosLivros[$i]['valor'], 2, ',', '.') ?></p>
                             </div>
-                            <div class="item_content">
-                                <div class="content_flex">
-                                    <h2 class="font-1-m-b"><?= htmlspecialchars($livro->nome) ?></h2>
-                                    <p class="font-1-m cor-p6">R$ <?= number_format($livro->valor, 2, ',', '.') ?></p>
+                            <div class="content_flex">
+                                <div class="content_flex-sun">
+                                    <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                    <p class="font-1-m">4.8</p>
                                 </div>
-                                <div class="content_flex">
-                                    <div class="content_flex-sun">
-                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                        <p class="font-1-m">4.8</p>
-                                    </div>
-                                    <p class="font-1-m">300 vendidos</p>
-                                </div>
+                                <p class="font-1-m">300 vendidos</p>
                             </div>
-                        </a>
-                <?php
-                    }
-                    $i++;
-                endforeach; ?>
-        </div>
-    <?php else : ?>
-        <p>Nenhum produto de livro encontrado.</p>
-    <?php endif; ?>
+                        </div>
+                    </a>
+            <?php 
+                } 
+            endfor; ?>
+            </div>
+        <?php else: ?>
+            <p>Nenhum produto de livros encontrado.</p>
+        <?php endif; ?>
     </div>
-    </article>
+</article>
 
 
 

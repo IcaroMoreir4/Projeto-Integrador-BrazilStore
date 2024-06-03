@@ -2,10 +2,9 @@
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 $produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->getByCategoria('acessorios');
-//Coloca aqui o nome da categoria para mostrar os outros produtos.
-$totalProdutos = count($produtos);
-$midPoint = ceil($totalProdutos / 2);
+$produtosAcessorios = $produtoDAO->getByCategoria('acessorios');
+$totalProdutosAcessorios = count($produtosAcessorios);
+$midPointAcessorios = ceil($totalProdutosAcessorios / 2);
 ?>
 
     <!DOCTYPE html>
@@ -55,34 +54,33 @@ $midPoint = ceil($totalProdutos / 2);
             </header>
             
 
-<article class="populares-home todos-itens grid">
-    <h2 class="font-1-xl mgb-40 item-h2-geral">Acessorios</h2>
-
+            <article class="populares-home todos-itens grid">
+    <h2 class="font-1-xl mgb-40 item-h2-geral">Acessórios</h2>
     <div class="populares-home_itens">
-        <?php if (!empty($produtos)): ?>
+        <?php if (!empty($produtosAcessorios)): ?>
             <?php 
-            $totalProdutos = count($produtos);
-            $linhaAtual = 1;
-            for ($i = 0; $i < $totalProdutos; $i++):
+            $totalProdutosAcessorios = count($produtosAcessorios);
+            $linhaAtualAcessorios = 1;
+            for ($i = 0; $i < $totalProdutosAcessorios; $i++):
                 if ($i % 5 == 0) {
                     if ($i > 0) {
                         echo '</div>';
                     }
-                    echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
-                    $linhaAtual++;
+                    echo '<div class="itens-l' . $linhaAtualAcessorios . ' mgb-40">';
+                    $linhaAtualAcessorios++;
                 }
-                if (isset($produtos[$i]->image_path) && isset($produtos[$i]->nome) && isset($produtos[$i]->valor)) {
-                    $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); 
+                if (isset($produtosAcessorios[$i]['image_path']) && isset($produtosAcessorios[$i]['nome']) && isset($produtosAcessorios[$i]['valor'])) {
+                    $imagePath = 'uploads/' . htmlspecialchars($produtosAcessorios[$i]['image_path']); 
             ?>
-                    <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                    <a href="item.php?id=<?= htmlspecialchars($produtosAcessorios[$i]['id']) ?>" class="populares-item">
                         <div class="item_img">
                             <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
                             <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
                         </div>
                         <div class="item_content">
                             <div class="content_flex">
-                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                                <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtosAcessorios[$i]['nome']) ?></h2>
+                                <p class="font-1-m cor-p6">R$ <?= number_format($produtosAcessorios[$i]['valor'], 2, ',', '.') ?></p>
                             </div>
                             <div class="content_flex">
                                 <div class="content_flex-sun">
@@ -98,7 +96,7 @@ $midPoint = ceil($totalProdutos / 2);
             endfor; ?>
             </div>
         <?php else: ?>
-            <p>Nenhum produto de acessorio encontrado.</p>
+            <p>Nenhum produto de acessórios encontrado.</p>
         <?php endif; ?>
     </div>
 </article>
