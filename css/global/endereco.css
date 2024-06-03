@@ -83,12 +83,13 @@
 #endereco_popup {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 90%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 9999; /* para ficar acima do conteúdo */
     padding: 20px;
     border-radius: 10px;
+    
 }
 
 #endereco_popup form {
@@ -102,38 +103,13 @@
     display: block;
 }
 
-#endereco_popup input[type="text"],
-#endereco_popup input[type="tel"],
-#endereco_popup input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#endereco_popup button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#endereco_popup button:hover {
-    background-color: #0056b3;
-}
-
-
 
 #endereco_popup, #alterar_endereco_popup {
     display: none;
     position: fixed;
-    top: 50%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.5);
     z-index: 9999;
     padding: 20px;
     border-radius: 10px;
@@ -150,28 +126,26 @@
     display: block;
 }
 
-#endereco_popup input[type="text"],
-#endereco_popup input[type="tel"],
-#endereco_popup input[type="number"],
-#alterar_endereco_popup input[type="text"],
-#alterar_endereco_popup input[type="tel"],
-#alterar_endereco_popup input[type="number"] {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-#endereco_popup button, #alterar_endereco_popup button {
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
+.excluir_end{
     border: none;
-    border-radius: 5px;
+    border-radius: 4px;
     cursor: pointer;
+    color: red;
+    background-color: var(--cor-0);
 }
 
-#endereco_popup button:hover, #alterar_endereco_popup button:hover {
-    background-color: #0056b3;
+.editar_end{
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--cor-p6);
+    background-color: var(--cor-0);
+
+}
+
+
+.pop_cadas{
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
 }

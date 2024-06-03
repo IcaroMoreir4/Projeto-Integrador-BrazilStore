@@ -89,10 +89,13 @@
                         </ul>
                     </div>
                         </div>
-                <div class="minhas-compras">
-                    <img src="imagem/compras.svg" alt="">
-                    <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
-    
+                    <div class="minhas-compras">
+                        <img src="imagem/compras.svg" alt="Purchases Icon">
+                        <p class="font-1-m" >Compras</p>
+                        </div>
+                    <div class="minhas-compras-texto">
+                        <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
+                    </div>
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
                 </div>
             </div>
@@ -124,12 +127,12 @@
                                         <div class="endereçoeditar">
                                             <div name="deletar_endereco">
                                                 <form action="endereco-cliente.php" method="post">
-                                                    <button type="submit" name="del_ende">Excluir endereço</button>
+                                                    <button class="excluir_end font-1-s" type="submit" name="del_ende">Excluir</button>
                                                 </form>
                                             </div>
-                                            <button onclick="openAlterarPopup()">Editar</button>
+                                            <button class="editar_end font-1-s" onclick="openAlterarPopup()">Editar</button>
                                         </div>
-                                        <button class="font-1-s end_padrão">Definir como padrão</button>
+                                        <!-- <button class="font-1-s end_padrão">Definir como padrão</button> -->
                                     </div>
                                 </div>
                                 <div class="linhau"></div>
@@ -145,100 +148,100 @@
 </div>
 
 
-<div id="endereco_popup" name="popup_cadsatrar_endereco" style="display: none;">
-    <p>Cadastrar endereço</p>
+<div id="endereco_popup" name="popup_cadsatrar_endereco" style="display: none;" class="pop_cadas">
+    <p class="font-1-m">Cadastrar endereço</p>
     <form action="./backend/implementacao/imp_endereco/cadast_ende.php" method="post">
-        <label for="input_nome_cadsatrar_endereco" class="">Nome</label>
+        <label class="font-1-s" for="input_nome_cadsatrar_endereco" class="">Nome</label>
         <div id="nome_cadsatrar_endereco" class="nome">
-            <input class="campo" type="text" name="nome" id="input_nome_cadsatrar_endereco" maxlength="40" placeholder="Nome">
+            <input class="campo " type="text" name="nome" id="input_nome_cadsatrar_endereco" maxlength="40" placeholder="Nome">
         </div>
 
-        <label for="input_telefone_cadsatrar_endereco" class="">Telefone</label>
+        <label class="font-1-s" for="input_telefone_cadsatrar_endereco" class="">Telefone</label>
         <div id="telefone_cadsatrar_endereco" class="telefone">
             <input class="campo" type="tel" name="tele" id="input_telefone_cadsatrar_endereco" maxlength="11" placeholder="Telefone">
         </div>
 
-        <label for="input_logradouro_cadsatrar_endereco" class="">Logradouro</label>
+        <label class="font-1-s" for="input_logradouro_cadsatrar_endereco" class="">Logradouro</label>
         <div id="logradouro_cadsatrar_endereco" class="logradouro">
             <input class="campo" type="text" name="logr" id="input_logradouro_cadsatrar_endereco" maxlength="40" placeholder="Logradouro">
         </div>
 
-        <label for="input_numero_cadsatrar_endereco" class="">Numero</label>
+        <label class="font-1-s" for="input_numero_cadsatrar_endereco" class="">Numero</label>
         <div id="numero_cadsatrar_endereco" class="numero">
             <input class="campo" type="number" name="num" id="input_numero_cadsatrar_endereco" maxlength="4" placeholder="Numero">
         </div>
 
-        <label for="input_bairro_cadsatrar_endereco" class="">Bairro</label>
+        <label class="font-1-s" for="input_bairro_cadsatrar_endereco" class="">Bairro</label>
         <div id="bairro_cadsatrar_endereco" class="bairro">
             <input class="campo" type="text" name="barr" id="input_bairro_cadsatrar_endereco" maxlength="20" placeholder="Bairro">
         </div>
 
-        <label for="input_cep_cadsatrar_endereco" class="">CEP</label>
+        <label class="font-1-s" for="input_cep_cadsatrar_endereco" class="">CEP</label>
         <div id="cep_cadsatrar_endereco" class="cep">
             <input class="campo" type="number" name="cep" id="input_cep_cadsatrar_endereco" maxlength="8" placeholder="CEP">
         </div>
 
-        <label for="input_cidade_cadsatrar_endereco" class="">Cidade</label>
+        <label class="font-1-s" for="input_cidade_cadsatrar_endereco" class="">Cidade</label>
         <div id="cidade_cadsatrar_endereco" class="cidade">
             <input class="campo" type="text" name="munp" id="input_cidade_cadsatrar_endereco" maxlength="32" placeholder="Cidade">
         </div>
 
-        <label for="input_estado_cadsatrar_endereco" class="">Estado</label>
+        <label class="font-1-s" for="input_estado_cadsatrar_endereco" class="">Estado</label>
         <div id="estado_cadsatrar_endereco" class="estado">
             <input class="campo" type="text" name="uf" id="input_estado_cadsatrar_endereco" maxlength="16" placeholder="Estado">
         </div>
 
-        <div>
-            <button type="submit" class="but_enviar font-1-m" >Cadastrar</button>
+        <div class="but-cadas">
+            <button type="submit" class="font-1-m" >Cadastrar</button>
         </div>
     </form>
 </div>
 
 
-<div id="alterar_endereco_popup" name="alterar_endereco">
-    <p>Alterar endereço</p>
+<div id="alterar_endereco_popup" name="alterar_endereco" class="pop_cadas">
+    <p class="font-1-m">Alterar endereço</p>
     <form action="./backend/implementacao/imp_endereco/alt_ende.php" method="post">
-        <label for="input_nome_alterar_endereco">Nome</label>
+        <label class="font-1-s" for="input_nome_alterar_endereco">Nome</label>
         <div class="nome">
-            <input type="text" name="nome" id="input_nome_alterar_endereco" maxlength="40" placeholder="Nome" value="<?php echo htmlspecialchars($endereco['nome_comp']); ?>">
+            <input class="font-1-s campo" type="text" name="nome" id="input_nome_alterar_endereco" maxlength="40" placeholder="Nome" value="<?php echo htmlspecialchars($endereco['nome_comp']); ?>">
         </div>
 
-        <label for="input_telefone_alterar_endereco">Telefone</label>
+        <label class="font-1-s" for="input_telefone_alterar_endereco">Telefone</label>
         <div class="telefone">
-            <input type="tel" name="tele" id="input_telefone_alterar_endereco" maxlength="11" placeholder="Telefone" value="<?php echo htmlspecialchars($endereco['telefone_end']); ?>">
+            <input class="font-1-s campo" type="tel" name="tele" id="input_telefone_alterar_endereco" maxlength="11" placeholder="Telefone" value="<?php echo htmlspecialchars($endereco['telefone_end']); ?>">
         </div>
 
-        <label for="input_logradouro_alterar_endereco">Logradouro</label>
+        <label class="font-1-s" for="input_logradouro_alterar_endereco">Logradouro</label>
         <div class="logradouro">
-            <input type="text" name="logr" id="input_logradouro_alterar_endereco" maxlength="40" placeholder="Logradouro" value="<?php echo htmlspecialchars($endereco['logradouro']); ?>">
+            <input class="font-1-s campo" type="text" name="logr" id="input_logradouro_alterar_endereco" maxlength="40" placeholder="Logradouro" value="<?php echo htmlspecialchars($endereco['logradouro']); ?>">
         </div>
 
-        <label for="input_numero_alterar_endereco">Numero</label>
+        <label class="font-1-s" for="input_numero_alterar_endereco">Numero</label>
         <div class="numero">
-            <input type="number" name="num" id="input_numero_alterar_endereco" maxlength="4" placeholder="Numero" value="<?php echo htmlspecialchars($endereco['numero']); ?>">
+            <input class="font-1-s campo"type="number" name="num" id="input_numero_alterar_endereco" maxlength="4" placeholder="Numero" value="<?php echo htmlspecialchars($endereco['numero']); ?>">
         </div>
 
-        <label for="input_bairro_alterar_endereco">Bairro</label>
+        <label class="font-1-s" for="input_bairro_alterar_endereco">Bairro</label>
         <div class="bairro">
-            <input type="text" name="barr" id="input_bairro_alterar_endereco" maxlength="20" placeholder="Bairro" value="<?php echo htmlspecialchars($endereco['bairro']); ?>">
+            <input class="font-1-s campo" type="text" name="barr" id="input_bairro_alterar_endereco" maxlength="20" placeholder="Bairro" value="<?php echo htmlspecialchars($endereco['bairro']); ?>">
         </div>
 
-        <label for="input_cep_alterar_endereco">CEP</label>
+        <label class="font-1-s" for="input_cep_alterar_endereco">CEP</label>
         <div class="cep">
-            <input type="number" name="cep" id="input_cep_alterar_endereco" maxlength="8" placeholder="CEP" value="<?php echo htmlspecialchars($endereco['cep']); ?>">
+            <input class="font-1-s campo" type="number" name="cep" id="input_cep_alterar_endereco" maxlength="8" placeholder="CEP" value="<?php echo htmlspecialchars($endereco['cep']); ?>">
         </div>
 
-        <label for="input_cidade_alterar_endereco">Cidade</label>
+        <label class="font-1-s" for="input_cidade_alterar_endereco">Cidade</label>
         <div class="cidade">
-            <input type="text" name="munp" id="input_cidade_alterar_endereco" maxlength="32" placeholder="Cidade" value="<?php echo htmlspecialchars($endereco['nome_cidade']); ?>">
+            <input class="font-1-s campo" type="text" name="munp" id="input_cidade_alterar_endereco" maxlength="32" placeholder="Cidade" value="<?php echo htmlspecialchars($endereco['nome_cidade']); ?>">
         </div>
 
-        <label for="input_estado_alterar_endereco">Estado</label>
+        <label class="font-1-s" for="input_estado_alterar_endereco">Estado</label>
         <div class="estado">
-            <input type="text" name="uf" id="input_estado_alterar_endereco" maxlength="16" placeholder="Estado" value="<?php echo htmlspecialchars($endereco['nome_estado']); ?>">
+            <input class="font-1-s campo" type="text" name="uf" id="input_estado_alterar_endereco" maxlength="16" placeholder="Estado" value="<?php echo htmlspecialchars($endereco['nome_estado']); ?>">
         </div>
 
-        <div>
+        <div class="but-cadas">
             <button name="editar_end" type="submit">Alterar</button>
         </div>
     </form>
