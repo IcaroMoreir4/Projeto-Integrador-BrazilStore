@@ -123,6 +123,14 @@ class ProdutoDAO {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getProdutoPorId($id) {
+        $sql = 'SELECT * FROM produto.produto WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_OBJ);
+    }
+    
     public function getByCategoria($categoria) {
         $sql = "SELECT * FROM produto.produto WHERE categoria = ?";
         $stmt = Conexao::getConn()->prepare($sql);

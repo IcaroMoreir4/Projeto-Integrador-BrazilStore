@@ -90,6 +90,8 @@ class ClienteDAO{
         $stmt->bindValue(2, $idCliente, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+  
 }
 
 

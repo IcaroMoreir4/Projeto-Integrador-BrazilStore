@@ -62,18 +62,16 @@ $midPoint = ceil($totalProdutos / 2);
             <?php 
             $totalProdutos = count($produtos);
             $linhaAtual = 1;
-            for ($i = 0; $i < $totalProdutos; $i++): 
-                // Abrir div da linha no início ou após cada 5 itens
+            for ($i = 0; $i < $totalProdutos; $i++):
                 if ($i % 5 == 0) {
                     if ($i > 0) {
-                        echo '</div>'; // Fechar div da linha anterior
+                        echo '</div>';
                     }
                     echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
                     $linhaAtual++;
                 }
-                // Verificar se as propriedades do produto estão definidas antes de acessá-las
                 if (isset($produtos[$i]->image_path) && isset($produtos[$i]->nome) && isset($produtos[$i]->valor)) {
-                    $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); // Assumindo que o caminho da imagem está armazenado em $produtos[$i]->image_path
+                    $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); 
             ?>
                     <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
                         <div class="item_img">
@@ -95,7 +93,7 @@ $midPoint = ceil($totalProdutos / 2);
                         </div>
                     </a>
             <?php 
-                } // Fim da verificação das propriedades
+                } 
             endfor; ?>
             </div>
         <?php else: ?>
