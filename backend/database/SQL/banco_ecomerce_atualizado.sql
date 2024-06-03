@@ -114,3 +114,21 @@ ALTER TABLE comercio.vendedor ADD COLUMN alerta VARCHAR(100);
 
 
 select * from produto.produto;
+
+
+CREATE TABLE pedido.item_carrinho (
+    id SERIAL PRIMARY KEY,
+    id_produto INTEGER REFERENCES produto.produto(id),
+    tamanho VARCHAR(10),
+    cor VARCHAR(20)
+);
+select * from pedido.item_carrinho;
+
+select * from produto.produto;
+
+TRUNCATE TABLE pedido.item_carrinho;
+
+
+ALTER TABLE pedido.item_carrinho
+ADD COLUMN id_cliente INT REFERENCES usuario.cliente(id);
+

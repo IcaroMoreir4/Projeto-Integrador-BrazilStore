@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/cliente.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/admin.php');
@@ -9,17 +11,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
     $senha = $_POST['senha'];
 
     $clienteDAO = new ClienteDAO();
-    $cliente = $clienteDAO->autenticar($email, $senha);
+    $clienteId = $clienteDAO->autenticar($email, $senha); // Obtenha o ID do cliente
 
     $administradorDAO = new AdiminDAO();
-    $administrador = $administradorDAO->autenticar($email, $senha);
+    $administradorId = $administradorDAO->autenticar($email, $senha); // Obtenha o ID do administrador
 
-    if ($cliente) {
-        $_SESSION['user_id'] = $cliente;
+    if ($clienteId) {
+        $_SESSION['user_id'] = $clienteId; // Armazene apenas o ID do cliente na sessão
         header('Location: home.php');
         exit();
-    } elseif ($administrador) {
-        $_SESSION['admin_id'] = $administrador;
+    } elseif ($administradorId) {
+        $_SESSION['admin_id'] = $administradorId; // Armazene apenas o ID do administrador na sessão
         header('location: dashboard_adm.php');
         exit();
     } else {
