@@ -80,10 +80,10 @@ if (isset($_SESSION['vendedor_id']))
             </div>
             <div class="minhas-compras">
                 <img src="imagem/compras.svg" alt="Purchases Icon">
-                <p class="font-1-m" >Minhas Compras</p>
+                <p class="font-1-m">Compras</p>
             </div>
             <div class="minhas-compras-texto">
-                <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
+                <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
             </div>
             <div class="minha-loja">
                 <img src="imagem/Minha-loja.svg" alt="Store Icon">

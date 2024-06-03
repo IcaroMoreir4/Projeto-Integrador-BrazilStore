@@ -1,13 +1,4 @@
-#formularioEditar {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ccc;
-    z-index: 9999; /* Certifica-se de que o pop-up esteja acima de outros elementos */
-}
+
 
 .meuperfil {
     padding-left: 220px;
@@ -82,13 +73,12 @@
     align-items: center;
     padding-bottom: 10px;
     justify-content: space-between;
-    max-width: 200px;
+    width: 190px;
 }
 .minhas-compras-texto{
     padding-left: 50px;
     padding-bottom: 14px;
     color: #404040;
-
 }
 
 .venda-agora {
@@ -102,6 +92,12 @@
     display: flex;
     justify-content: center;
     width: 850px;
+}
+
+.meu-perfil{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .adicionar-perfil img {
@@ -155,4 +151,31 @@
     color: black;
     background-color: transparent;
     cursor: pointer;
+}
+.btn-editar-perfil{
+    padding-left: 150px;
+
+}
+
+.btn-editar-perfil button{
+    color: var(--cor-1);
+    background-color: var(--cor-p2);
+    border-style: none;
+    border-radius: 8px;
+    width: 60px;
+    height: 30px;
+
+}
+
+.campo-usuario{
+    padding-top: 20px;
+
+}
+.campo-usuario label{
+    color: var(--cor-9);
+}
+
+.campo-usuario span{
+    color: var(--cor-12);
+
 }

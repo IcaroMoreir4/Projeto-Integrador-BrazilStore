@@ -65,8 +65,8 @@
 
 }
 
-.endereçobtn button{
-    border: 1px solid var(--cor-4);
+.endereçobtn .end_padrão{
+    border: 1px solid var(--cor-9);
     color: var(--cor-4);
     border-radius: 5px;
 }
@@ -75,4 +75,103 @@
 
 .endereçotexto :hover{
     cursor: pointer;
+}
+
+
+
+
+#endereco_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* para ficar acima do conteúdo */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+#endereco_popup input[type="text"],
+#endereco_popup input[type="tel"],
+#endereco_popup input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#endereco_popup button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#endereco_popup button:hover {
+    background-color: #0056b3;
+}
+
+
+
+#endereco_popup, #alterar_endereco_popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup form, #alterar_endereco_popup form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup label, #alterar_endereco_popup label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+#endereco_popup input[type="text"],
+#endereco_popup input[type="tel"],
+#endereco_popup input[type="number"],
+#alterar_endereco_popup input[type="text"],
+#alterar_endereco_popup input[type="tel"],
+#alterar_endereco_popup input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#endereco_popup button, #alterar_endereco_popup button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#endereco_popup button:hover, #alterar_endereco_popup button:hover {
+    background-color: #0056b3;
 }

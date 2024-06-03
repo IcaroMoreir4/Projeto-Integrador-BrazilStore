@@ -4,6 +4,7 @@
 
     $dao = new ClienteDAO;
 
+
     if (isset($_SESSION['user_id'])) {
         $id_cliente = $_SESSION['user_id'];
         $exibir_perfil = $dao->read($id_cliente);
@@ -93,8 +94,11 @@
                 </div>
             </div>
             <div class="minhas-compras">
-                <img src="./imagem/compras.svg" alt="Compras">
-                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+                <img src="imagem/compras.svg" alt="Purchases Icon">
+                <p class="font-1-m" >Compras</p>
+            </div>
+            <div class="minhas-compras-texto">
+                <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
             </div>
             <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
         </div>
@@ -109,39 +113,43 @@
     <div class="painelperfil">          
         <div class="meu-perfil">
             <div class="campo-usuario">
-                <label class="font-1-s">Nome Completo</label>
-                <span><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
+                <label class="font-1-s">Nome Completo: </label>
+                <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["nome"]);?></span>
             </div>
             <div class="campo-usuario">
-                <label class="font-1-s">Email</label>
-                <span><?php echo htmlspecialchars($exibir_perfil["email"]); ?></span>
+                <label class="font-1-s">Email: </label>
+                <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["email"]);?></span>
             </div>
             <div class="campo-usuario">
-                <label class="font-1-s">Telefone</label>
-                <span><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?></span>
+                <label class="font-1-s">Telefone: </label>
+                <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["telefone"]);?></span>
             </div>
             <div class="campo-usuario">
-                <label class="font-1-s">CPF</label>
-                <span><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?></span>
-            </div>  
-            <button id="mostrarFormulario">Editar</button>
-            <div id="formularioEditar" style="display: none;"> 
+                <label class="font-1-s">CPF: </label>
+                <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["cpf"]);?></span>
+            </div>
+            
+            <div class="btn-editar-perfil">
+            <button id="mostrarFormulario" class="font-1-s">Editar</button>
+            </div>
+
+            <div id="formularioEditar" class="formularioEditar" style="display: none;"> 
                 <form action="perfil.php" method="POST">
-                    <label for="nomeEditar" class="font-1-m">Nome: </label>
+                    <label for="nomeEditar" class="font-1-m">Nome:</label>
                     <div class="nome">
-                        <input class="campo" type="text" name="nome" id="nomeEditar" maxlength="40" placeholder="Insira o seu nome">
+                        <input class="campo" type="text" name="nome" id="nomeEditar" maxlength="40" value="<?php echo htmlspecialchars($exibir_perfil["nome"]);?>" placeholder="Insira o seu nome">
                     </div>
                     <label for="emailEditar" class="font-1-m">E-mail: </label>
                     <div class="email">
-                        <input class="campo" type="email" name="email" id="emailEditar" maxlength="40" placeholder="Insira o seu email">
+                        <input class="campo" type="email" name="email" id="emailEditar" maxlength="40" value="<?php echo htmlspecialchars($exibir_perfil["email"]);?>" placeholder="Insira o seu email">
                     </div>
                     <label for="telefoneEditar" class="font-1-m">Telefone: </label>
                     <div class="Telefone">
-                        <input class="campo" type="tel" name="telefone" id="telefoneEditar" maxlength="11" placeholder="Insira o seu telefone">
+                        <input class="campo" type="tel" name="telefone" id="telefoneEditar" maxlength="11" value="<?php echo htmlspecialchars($exibir_perfil["telefone"]);?>"placeholder="Insira o seu telefone">
                     </div>
                     <label for="senhaEditar" class="font-1-m">Senha: </label>
                     <div class="Senha">
-                        <input class="campo" type="password" name="senha" id="senhaEditar" maxlength="40" placeholder="Insira o seu senha">
+                        <input class="campo" type="password" name="senha" id="senhaEditar" maxlength="40"  placeholder="Insira o seu senha">
                     </div>
                     <div>
                         <button name="editar_perfil" type="submit">Alterar</button>
