@@ -30,7 +30,7 @@ if (isset($_SESSION['vendedor_id']))
 
 
     <header class="grid">
-            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">

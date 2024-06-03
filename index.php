@@ -28,7 +28,7 @@ $midPoint = ceil($totalProdutos / 2);
 <body>
 
         <header class="grid">
-            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -166,70 +166,40 @@ $midPoint = ceil($totalProdutos / 2);
         <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
 
         <div class="populares-home_itens">
-        <div class="itens-l1 mgb-40">
-        <?php if (!empty($produtos)): ?>
-            <?php for ($i = 0; $i < $midPoint; $i++): ?>
-                <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                <div class="item_img">
-                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
-                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
-                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
-                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                </div>
-
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                            <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                <p class="font-1-m">4.8</p>
+            <div class="itens-l1 mgb-40">
+                <?php if (!empty($produtos)): ?>
+                    <?php $maxItems = 5; ?>
+                    <?php for ($i = 0; $i < min($maxItems, count($produtos)); $i++): ?>
+                        <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img class="item-imagem" src="uploads/<?= htmlspecialchars($produtos[$i]->image_path) ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
                             </div>
-                            <p class="font-1-m">300 vendidos</p>
-                        </div>
-                    </div>
-                </a>
-            <?php endfor; ?>
-        <?php else: ?>
-            <p>Nenhum produto encontrado.</p>
-        <?php endif; ?>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                                </div>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p>
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endfor; ?>
+                <?php else: ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
+            </div>
         </div>
-        <div class="itens-l2">
-        <?php if (!empty($produtos)): ?>
-            <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
-                <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                <div class="item_img">
-                    <?php $favoriteImage = './imagem/favoritar-vazado-plus.svg'; ?>
-                    <img class="favorite" src="<?= $favoriteImage ?>" alt="Favoritar">
-                    <?php $productImage = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); ?>
-                    <img class="item-imagem" src="<?= $productImage ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                </div>
-                    <div class="item_content">
-                        <div class="content_flex">
-                            <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                            <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
-                        </div>
-                        <div class="content_flex">
-                            <div class="content_flex-sun">
-                                <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                <p class="font-1-m">4.8</p> 
-                            </div>
-                            <p class="font-1-m">300 vendidos</p> 
-                        </div>
-                    </div>
-                </a>
-            <?php endfor; ?>
-        <?php else: ?>
-            <p>Nenhum produto encontrado.</p>
-        <?php endif; ?>
-                </div>
-            </div>
-            <div class="home-ver_mais">
-                <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
-            </div>
+        <div class="home-ver_mais">
+            <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
+        </div>
     </article>
+
         
         <footer class="grid">
             <div class="logo">
