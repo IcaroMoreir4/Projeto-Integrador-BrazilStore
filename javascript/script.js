@@ -154,4 +154,21 @@ function redirectToProdutos() {
 }
 
 
-// editar perfil usuario
+function openAddressPopup() {
+    var popup = document.getElementById("endereco_popup");
+    popup.style.display = "block";
+}
+
+function openAlterarPopup() {
+    var popup = document.getElementById("alterar_endereco_popup");
+    popup.style.display = "block";
+}
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+        }, 3000);
+    });
+
+

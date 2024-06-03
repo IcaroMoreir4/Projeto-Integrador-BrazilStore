@@ -65,8 +65,8 @@
 
 }
 
-.endereçobtn button{
-    border: 1px solid var(--cor-4);
+.endereçobtn .end_padrão{
+    border: 1px solid var(--cor-9);
     color: var(--cor-4);
     border-radius: 5px;
 }
@@ -75,4 +75,77 @@
 
 .endereçotexto :hover{
     cursor: pointer;
+}
+
+
+
+
+#endereco_popup {
+    display: none;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999; /* para ficar acima do conteúdo */
+    padding: 20px;
+    border-radius: 10px;
+    
+}
+
+#endereco_popup form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+
+#endereco_popup, #alterar_endereco_popup {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup form, #alterar_endereco_popup form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+#endereco_popup label, #alterar_endereco_popup label {
+    margin-bottom: 5px;
+    display: block;
+}
+
+.excluir_end{
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: red;
+    background-color: var(--cor-0);
+}
+
+.editar_end{
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: var(--cor-p6);
+    background-color: var(--cor-0);
+
+}
+
+
+.pop_cadas{
+    width: 500px;
+    height: 350px;
+    border-radius: 10px;
 }

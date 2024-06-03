@@ -30,11 +30,11 @@ $midPoint = ceil($totalProdutos / 2);
                 <div class="categoria_btn" id="categoriaBtn">
                     <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                     <div class="categoria_menu font-1-m" id="categoriaMenu">
-                        <a href="./">Eletrônicos</a>
-                        <a href="./">Vestuário</a>
-                        <a href="./">Livros</a>
-                        <a href="./">Jogos</a>
-                        <a href="./">Acessórios</a>
+                        <a href="./eletronicos.php">Eletrônicos</a>
+                        <a href="./vestuario.php">Vestuário</a>
+                        <a href="./livros.php">Livros</a>
+                        <a href="./jogos.php">Jogos</a>
+                        <a href="./acessorios.php">Acessórios</a>
                     </div>
                 </div>
                 <form action="pesquisar.php" method="get">
@@ -55,7 +55,7 @@ $midPoint = ceil($totalProdutos / 2);
             
 
 <article class="populares-home todos-itens grid">
-    <h2 class="font-1-xl mgb-40 item-h2-geral">Produtos de Vestuário</h2>
+    <h2 class="font-1-xl mgb-40 item-h2-geral">Vestuário</h2>
 
     <div class="populares-home_itens">
         <?php if (!empty($produtos)): ?>

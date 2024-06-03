@@ -30,7 +30,7 @@ if (isset($_SESSION['vendedor_id']))
 
 
     <header class="grid">
-            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
@@ -80,18 +80,18 @@ if (isset($_SESSION['vendedor_id']))
             </div>
             <div class="minhas-compras">
                 <img src="imagem/compras.svg" alt="Purchases Icon">
-                <p class="font-1-m" >Minhas Compras</p>
+                <p class="font-1-m">Compras</p>
             </div>
             <div class="minhas-compras-texto">
-                <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
+                <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
             </div>
             <div class="minha-loja">
                 <img src="imagem/Minha-loja.svg" alt="Store Icon">
-                <p class="font-1-m" href="listar_produtos_teste.php">Minha Loja</p>
+                <p class="font-1-m">Vendedor</p>
             </div>
             <div class="loja-venda">
                 <ul>
-                    <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
+                    <li class="font-1-s"><a href="Perfil-vendedor.php">Perfil vendedor</a></li>
                     <li class="font-1-s"><a href="#">Meus Produtos</a></li>
                 </ul>
             </div>

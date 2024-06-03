@@ -24,17 +24,18 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 </head>
 <body>
 
-    <header class="grid">
+<header class="grid">
             <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./">Eletrônicos</a>
-                    <a href="./">Vestuário</a>
-                    <a href="./">Livros</a>
-                    <a href="./">Jogos</a>
-                    <a href="./">Acessórios</a>
+                    <a href="./vestuario.php">Vestuário</a>
+                    <a href="./eletronicos.php">Eletrônicos</a>
+                    <a href="./livros.php">Livros</a>
+                    <a href="./jogos.php">Jogos</a>
+                    <a href="./acessorios.php">Acessórios</a>
                 </div>
+
             </div>
             <form action="pesquisar.php" method="get">
                 <div class="search-container">
@@ -166,9 +167,13 @@ if (isset($_GET['id'])) {
                     </form>
                 </div>
                 <div class="btn-item">
-                    <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produtoEncontrado->id ?>" >Comprar Agora</button>
+                    <form action="./comprar_agora.php" method="post">
+                        <input type="hidden" name="produto_id" value="<?= htmlspecialchars($produtoEncontrado->id); ?>">
+                        <button class="btn_cheio btn_adc" type="submit">Comprar Agora</button>
+                    </form>
                     <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
                 </div>
+
             </div>
         </div>
         <?php

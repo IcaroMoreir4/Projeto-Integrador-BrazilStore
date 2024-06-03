@@ -5,6 +5,7 @@
 
     $dao = new EnderecoDAO();
 
+
     //Função para consultar os endereços cadastrados e agregar o $_SESSION['ende_id'].
     if (isset($_SESSION['user_id'])) {
         $consl_ende = $dao->read($_SESSION['user_id']);
@@ -43,26 +44,33 @@
 </head>
 <body>
 
-        <header class="grid">
-            <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+<header class="grid">
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
             <div class="categoria_btn" id="categoriaBtn">
                 <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
                 <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./">Eletrônicos</a>
-                    <a href="./">Vestuário</a>
-                    <a href="./">Livros</a>
-                    <a href="./">Jogos</a>
-                    <a href="./">Acessórios</a>
+                    <a href="./vestuario.php">Vestuário</a>
+                    <a href="./eletronicos.php">Eletrônicos</a>
+                    <a href="./livros.php">Livros</a>
+                    <a href="./jogos.php">Jogos</a>
+                    <a href="./acessorios.php">Acessórios</a>
                 </div>
+
             </div>
-            <form action="" method="">
+            <form action="pesquisar.php" method="get">
                 <div class="search-container">
                     <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                     <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
                 </div>
             </form>
                 <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <div class="perfil_btn" id="perfilBtn">
+                    <div class="perfil_menu font-1-m" id="perfilMenu">
+                        <a href="./perfil.php">Meu perfil</a>
+                        <a href="./logout.php">Sair da conta</a>
+                    </div>
+                </div>
         </header>
         
     <div class="linhau"></div>
@@ -88,144 +96,173 @@
                         </ul>
                     </div>
                         </div>
-                <div class="minhas-compras">
-                    <img src="imagem/compras.svg" alt="">
-                    <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
-    
+                    <div class="minhas-compras">
+                        <img src="imagem/compras.svg" alt="Purchases Icon">
+                        <p class="font-1-m" >Compras</p>
+                        </div>
+                    <div class="minhas-compras-texto">
+                        <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
+                    </div>
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
                 </div>
             </div>
 
-            <div name = "consultar_endereco">
+
+
+            <div class="endereçostitulo">
+    <div class="endereçosbox">
+        <div class="endereçotexto">
+            <h1 class="font-1-l">Meus Endereços</h1>
+            <button class="adicionarendereco font-1-m-b" onclick="openAddressPopup()">Adicionar Endereço<img src="imagem/+.svg" alt=""></button>
+        </div>
+        <div class="linhau"></div>
+    </div>
+    <div class="endereços-cadastrados">
+        <?php if (!empty($consl_ende)): ?>
+            <div name="consultar_endereco">
                 <table>
                     <tbody>
-                        <?php if (!empty($consl_ende)): ?>
-                            <?php foreach ($consl_ende as $indice => $consl_ende): ?>
-                                <?php if ($indice < $limite): ?>
-                                    <li>
-                                        <p>nome_comp</p><?php echo htmlspecialchars($consl_ende['nome_comp']); ?>
-                                        <p>telefone_end</p><?php echo htmlspecialchars($consl_ende['telefone_end']); ?>
-                                        <td><p>logradouro</p><?php echo htmlspecialchars($consl_ende['logradouro']); ?>
-                                        <p>numero</p><?php echo htmlspecialchars($consl_ende['numero']); ?>
-                                        <p>bairro</p><?php echo htmlspecialchars($consl_ende['bairro']); ?>
-                                        <p>cep</p><?php echo htmlspecialchars($consl_ende['cep']); ?>
-                                        <p>nome_cidade</p><?php echo htmlspecialchars($consl_ende['nome_cidade']); ?>
-                                        <p>nome_estado</p><?php echo htmlspecialchars($consl_ende['nome_estado']); ?>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php else: ?>
-                                <tr>
-                                    <p>Nenhum endereço encontrado.</p>
-                                </tr>
-                        <?php endif; ?> 
+                        <?php foreach ($consl_ende as $indice => $endereco): ?>
+                            <?php if ($indice < $limite): ?>
+                                <div class="endereçobox">
+                                    <div class="endereço">
+                                        <p class="font-1-s"><?php echo htmlspecialchars($endereco['nome_comp']); ?> | <?php echo htmlspecialchars($endereco['telefone_end']); ?></p>
+                                        <p class="font-1-s"><?php echo htmlspecialchars($endereco['logradouro']); ?>, <?php echo htmlspecialchars($endereco['numero']); ?>, <?php echo htmlspecialchars($endereco['bairro']); ?></p>
+                                        <p class="font-1-s"><?php echo htmlspecialchars($endereco['nome_cidade']); ?>, <?php echo htmlspecialchars($endereco['nome_estado']); ?>, <?php echo htmlspecialchars($endereco['cep']); ?></p>
+                                    </div>
+                                    <div class="endereçobtn">
+                                        <div class="endereçoeditar">
+                                            <div name="deletar_endereco">
+                                                <form action="endereco-cliente.php" method="post">
+                                                    <button class="excluir_end font-1-s" type="submit" name="del_ende">Excluir</button>
+                                                </form>
+                                            </div>
+                                            <button class="editar_end font-1-s" onclick="openAlterarPopup()">Editar</button>
+                                        </div>
+                                        <!-- <button class="font-1-s end_padrão">Definir como padrão</button> -->
+                                    </div>
+                                </div>
+                                <div class="linhau"></div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>
-
-            <div name = "deletar_endereco">
-                <form ction="endereco-cliente.php" method="post">
-                    <button type="submit" name="del_ende">Excluir endereço</button>
-                </form>
-            </div>
-
-            <div name = "cadsatrar_endereco">
-                <p>Cadastrar endereço</p>
-                <form action="./backend/implementacao/imp_endereco/cadast_ende.php" method="post">
-                    <label for="" class="">Nome</label>
-                    <div class="nome">
-                        <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Nome">
-                    </div>
-
-                    <label for="" class="">Telefone</label>
-                    <div class="telefone">
-                        <input class="campo" type="tel" name="tele" id="" maxlength="11" placeholder="Telefone">
-                    </div>
-
-                    <label for="" class="">Logradouro</label>
-                    <div class="logradouro">
-                        <input class="campo" type="text" name="logr" id="" maxlength="40" placeholder="Logradouro">
-                    </div>
-
-                    <label for="" class="">Numero</label>
-                    <div class="numero">
-                        <input class="campo" type="number" name="num" id="" maxlength="4" placeholder="Numero">
-                    </div>
-
-                    <label for="" class="">Bairro</label>
-                    <div class="bairro">
-                        <input class="campo" type="text" name="barr" id="" maxlength="20" placeholder="Bairro">
-                    </div>
-
-                    <label for="" class="">CEP</label>
-                    <div class="cep">
-                        <input class="campo" type="number" name="cep" id="" maxlength="8" placeholder="CEP">
-                    </div>
-
-                    <label for="" class="">Cidade</label>
-                    <div class="cidade">
-                        <input class="campo" type="text" name="munp" id="" maxlength="32" placeholder="Cidade">
-                    </div>
-
-                    <label for="" class="">Estado</label>
-                    <div class="estado">
-                        <input class="campo" type="text" name="uf" id="" maxlength="16" placeholder="Estado">
-                    </div>
-
-                    <div class="">
-                        <button type="submit">Cadastrar</button>
-                    </div>
-                </form>
-            </div>
-            <div name = "alterar_endereco">
-                <p>Alterar endereço</p>
-                <form action="./backend/implementacao/imp_endereco/alt_ende.php" method="post">
-                    <label for="" class="">Nome</label>
-                    <div class="nome">
-                        <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Nome">
-                    </div>
-
-                    <label for="" class="">Telefone</label>
-                    <div class="telefone">
-                        <input class="campo" type="tel" name="tele" id="" maxlength="11" placeholder="Telefone">
-                    </div>
-
-                    <label for="" class="">Logradouro</label>
-                    <div class="logradouro">
-                        <input class="campo" type="text" name="logr" id="" maxlength="40" placeholder="Logradouro">
-                    </div>
-
-                    <label for="" class="">Numero</label>
-                    <div class="numero">
-                        <input class="campo" type="number" name="num" id="" maxlength="4" placeholder="Numero">
-                    </div>
-
-                    <label for="" class="">Bairro</label>
-                    <div class="bairro">
-                        <input class="campo" type="text" name="barr" id="" maxlength="20" placeholder="Bairro">
-                    </div>
-
-                    <label for="" class="">CEP</label>
-                    <div class="cep">
-                        <input class="campo" type="number" name="cep" id="" maxlength="8" placeholder="CEP">
-                    </div>
-
-                    <label for="" class="">Cidade</label>
-                    <div class="cidade">
-                        <input class="campo" type="text" name="munp" id="" maxlength="32" placeholder="Cidade">
-                    </div>
-
-                    <label for="" class="">Estado</label>
-                    <div class="estado">
-                        <input class="campo" type="text" name="uf" id="" maxlength="16" placeholder="Estado">
-                    </div>
-
-                    <div class="">
-                        <button name = "editar_end" type="submit">Cadastrar</button>
-                    </div>
-                </form>
-            </div>
+        <?php else: ?>
+            <p class="font-1-m">você ainda não cadastrou um enedreço</p>
+        <?php endif; ?>
     </div>
+</div>
+
+
+<div id="endereco_popup" name="popup_cadsatrar_endereco" style="display: none;" class="pop_cadas">
+    <p class="font-1-m">Cadastrar endereço</p>
+    <form action="./backend/implementacao/imp_endereco/cadast_ende.php" method="post">
+        <label class="font-1-s" for="input_nome_cadsatrar_endereco" class="">Nome</label>
+        <div id="nome_cadsatrar_endereco" class="nome">
+            <input class="campo " type="text" name="nome" id="input_nome_cadsatrar_endereco" maxlength="40" placeholder="Nome">
+        </div>
+
+        <label class="font-1-s" for="input_telefone_cadsatrar_endereco" class="">Telefone</label>
+        <div id="telefone_cadsatrar_endereco" class="telefone">
+            <input class="campo" type="tel" name="tele" id="input_telefone_cadsatrar_endereco" maxlength="11" placeholder="Telefone">
+        </div>
+
+        <label class="font-1-s" for="input_logradouro_cadsatrar_endereco" class="">Logradouro</label>
+        <div id="logradouro_cadsatrar_endereco" class="logradouro">
+            <input class="campo" type="text" name="logr" id="input_logradouro_cadsatrar_endereco" maxlength="40" placeholder="Logradouro">
+        </div>
+
+        <label class="font-1-s" for="input_numero_cadsatrar_endereco" class="">Numero</label>
+        <div id="numero_cadsatrar_endereco" class="numero">
+            <input class="campo" type="number" name="num" id="input_numero_cadsatrar_endereco" maxlength="4" placeholder="Numero">
+        </div>
+
+        <label class="font-1-s" for="input_bairro_cadsatrar_endereco" class="">Bairro</label>
+        <div id="bairro_cadsatrar_endereco" class="bairro">
+            <input class="campo" type="text" name="barr" id="input_bairro_cadsatrar_endereco" maxlength="20" placeholder="Bairro">
+        </div>
+
+        <label class="font-1-s" for="input_cep_cadsatrar_endereco" class="">CEP</label>
+        <div id="cep_cadsatrar_endereco" class="cep">
+            <input class="campo" type="number" name="cep" id="input_cep_cadsatrar_endereco" maxlength="8" placeholder="CEP">
+        </div>
+
+        <label class="font-1-s" for="input_cidade_cadsatrar_endereco" class="">Cidade</label>
+        <div id="cidade_cadsatrar_endereco" class="cidade">
+            <input class="campo" type="text" name="munp" id="input_cidade_cadsatrar_endereco" maxlength="32" placeholder="Cidade">
+        </div>
+
+        <label class="font-1-s" for="input_estado_cadsatrar_endereco" class="">Estado</label>
+        <div id="estado_cadsatrar_endereco" class="estado">
+            <input class="campo" type="text" name="uf" id="input_estado_cadsatrar_endereco" maxlength="16" placeholder="Estado">
+        </div>
+
+        <div class="but-cadas">
+            <button type="submit" class="font-1-m" >Cadastrar</button>
+        </div>
+    </form>
+</div>
+
+
+<div id="alterar_endereco_popup" name="alterar_endereco" class="pop_cadas">
+    <p class="font-1-m">Alterar endereço</p>
+    <form action="./backend/implementacao/imp_endereco/alt_ende.php" method="post">
+        <label class="font-1-s" for="input_nome_alterar_endereco">Nome</label>
+        <div class="nome">
+            <input class="font-1-s campo" type="text" name="nome" id="input_nome_alterar_endereco" maxlength="40" placeholder="Nome" value="<?php echo htmlspecialchars($endereco['nome_comp']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_telefone_alterar_endereco">Telefone</label>
+        <div class="telefone">
+            <input class="font-1-s campo" type="tel" name="tele" id="input_telefone_alterar_endereco" maxlength="11" placeholder="Telefone" value="<?php echo htmlspecialchars($endereco['telefone_end']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_logradouro_alterar_endereco">Logradouro</label>
+        <div class="logradouro">
+            <input class="font-1-s campo" type="text" name="logr" id="input_logradouro_alterar_endereco" maxlength="40" placeholder="Logradouro" value="<?php echo htmlspecialchars($endereco['logradouro']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_numero_alterar_endereco">Numero</label>
+        <div class="numero">
+            <input class="font-1-s campo"type="number" name="num" id="input_numero_alterar_endereco" maxlength="4" placeholder="Numero" value="<?php echo htmlspecialchars($endereco['numero']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_bairro_alterar_endereco">Bairro</label>
+        <div class="bairro">
+            <input class="font-1-s campo" type="text" name="barr" id="input_bairro_alterar_endereco" maxlength="20" placeholder="Bairro" value="<?php echo htmlspecialchars($endereco['bairro']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_cep_alterar_endereco">CEP</label>
+        <div class="cep">
+            <input class="font-1-s campo" type="number" name="cep" id="input_cep_alterar_endereco" maxlength="8" placeholder="CEP" value="<?php echo htmlspecialchars($endereco['cep']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_cidade_alterar_endereco">Cidade</label>
+        <div class="cidade">
+            <input class="font-1-s campo" type="text" name="munp" id="input_cidade_alterar_endereco" maxlength="32" placeholder="Cidade" value="<?php echo htmlspecialchars($endereco['nome_cidade']); ?>">
+        </div>
+
+        <label class="font-1-s" for="input_estado_alterar_endereco">Estado</label>
+        <div class="estado">
+            <input class="font-1-s campo" type="text" name="uf" id="input_estado_alterar_endereco" maxlength="16" placeholder="Estado" value="<?php echo htmlspecialchars($endereco['nome_estado']); ?>">
+        </div>
+
+        <div class="but-cadas">
+            <button name="editar_end" type="submit">Alterar</button>
+        </div>
+    </form>
+</div>
+
+
+    </div>
+
+
+
+
+
+
+
 
 
     <div id="popupBgLoja" class="popup-bg">
