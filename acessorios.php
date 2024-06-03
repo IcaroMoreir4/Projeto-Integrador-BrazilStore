@@ -55,7 +55,7 @@ $midPoint = ceil($totalProdutos / 2);
             
 
 <article class="populares-home todos-itens grid">
-    <h2 class="font-1-xl mgb-40 item-h2-geral">Eletrônicos</h2>
+    <h2 class="font-1-xl mgb-40 item-h2-geral">Acessorios</h2>
 
     <div class="populares-home_itens">
         <?php if (!empty($produtos)): ?>
@@ -97,7 +97,7 @@ $midPoint = ceil($totalProdutos / 2);
             endfor; ?>
             </div>
         <?php else: ?>
-            <p>Nenhum produto de eletrônicos encontrado.</p>
+            <p>Nenhum produto de acessorio encontrado.</p>
         <?php endif; ?>
     </div>
 </article>
