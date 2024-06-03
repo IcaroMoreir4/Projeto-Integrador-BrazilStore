@@ -2,7 +2,8 @@
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 $produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->getByCategoria('vestuario');
+$produtos = $produtoDAO->getByCategoria('livros');
+//Coloca aqui o nome da categoria para mostrar os outros produtos.
 $totalProdutos = count($produtos);
 $midPoint = ceil($totalProdutos / 2);
 ?>

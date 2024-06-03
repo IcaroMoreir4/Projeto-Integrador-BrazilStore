@@ -3,6 +3,7 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
 
 $produtoDAO = new ProdutoDAO();
 $produtos = $produtoDAO->getByCategoria('jogos');
+//Coloca aqui o nome da categoria para mostrar os outros produtos.
 $totalProdutos = count($produtos);
 $midPoint = ceil($totalProdutos / 2);
 ?>
