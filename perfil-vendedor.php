@@ -99,7 +99,7 @@
             <div class="loja-venda">
                 <ul>
                     <li class="font-1-s"><a href="Perfil-vendedor.php">Perfil vendedor</a></li>
-                    <li class="font-1-s"><a href="#">Meus Produtos</a></li>
+                    <li class="font-1-s"><a href="meus_produtos.php">Meus Produtos</a></li>
                 </ul>
             </div>
         </div>
