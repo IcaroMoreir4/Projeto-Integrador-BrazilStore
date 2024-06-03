@@ -126,10 +126,6 @@ $midPoint = ceil($totalProdutos / 2);
         </div>
     </article>
 
-    <article class="categorias-home grid">
-        
-    </article>
-
     <article class="categorias grid">
         <h2 class="font-1-xl mgb-40">Categorias</h2>
         <nav class="categoria-nav">

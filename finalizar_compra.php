@@ -32,23 +32,34 @@ $result = $conn->query($sql);
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <a href="">
-            <img src="imagem/logo.svg" class="logo" alt="logo">
-        </a>
-        <div class="categoria">
-            <a href="" ><img src="imagem/categoria.svg" alt=""></a>
-        </div>
-        <div class="busca" id="Busca">
-            <input type="search" class="pesquisar" id="txtBusca" placeholder="Pesquisar" size="50"/>
-            <a href=""><img src="imagem/busca.svg" id="btnBusca" alt="Buscar"/></a>
-          </div>
-        <div class="iconn">
-            <a href=""><img src="imagem/sino.svg" id="btnSino" class="icon-sino" alt=""></a>
-            <a href=""><img src="imagem/carrinho.svg" alt="carrinho" id="btnCar" class="icon-carri"></a>
-            <a href="/login.html"><img src="imagem/user.svg" alt="conta" id="btnUser" class="icon-user"></a>
-        </div>
-    </header>
+<header class="grid">
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <div class="categoria_btn" id="categoriaBtn">
+                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+                <div class="categoria_menu font-1-m" id="categoriaMenu">
+                    <a href="./vestuario.php">Vestuário</a>
+                    <a href="./eletronicos.php">Eletrônicos</a>
+                    <a href="./livros.php">Livros</a>
+                    <a href="./jogos.php">Jogos</a>
+                    <a href="./acessorios.php">Acessórios</a>
+                </div>
+
+            </div>
+            <form action="pesquisar.php" method="get">
+                <div class="search-container">
+                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+                </div>
+            </form>
+                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <div class="perfil_btn" id="perfilBtn">
+                    <div class="perfil_menu font-1-m" id="perfilMenu">
+                        <a href="./perfil.php">Meu perfil</a>
+                        <a href="./logout.php">Sair da conta</a>
+                    </div>
+                </div>
+        </header>
 
     <main>
         <form action="codigo-finalizar-compra" method="post">
