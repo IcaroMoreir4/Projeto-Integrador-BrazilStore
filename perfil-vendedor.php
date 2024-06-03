@@ -115,19 +115,19 @@
         <div class="meu-perfil">
             <div class="campo-usuario">
                 <label class="font-1-s">Nome Completo</label>
-                <span><?= htmlspecialchars($vendedor->nome) ?></span>
+                <span class="font-1-s"><?= htmlspecialchars($vendedor->nome) ?></span>
             </div>
             <div class="campo-usuario">
                 <label class="font-1-s">Email</label>
-                <span><?= htmlspecialchars($vendedor->email) ?></span>
+                <span class="font-1-s"><?= htmlspecialchars($vendedor->email) ?></span>
             </div>
             <div class="campo-usuario">
                 <label class="font-1-s">Telefone</label>
-                <span><?= htmlspecialchars($vendedor->telefone) ?></span>
+                <span class="font-1-s"><?= htmlspecialchars($vendedor->telefone) ?></span>
             </div>
             <div class="campo-usuario">
                 <label class="font-1-s">CPF</label>
-                <span><?= htmlspecialchars($vendedor->cpf) ?></span>
+                <span class="font-1-s"><?= htmlspecialchars($vendedor->cpf) ?></span>
             </div>     
         </div>
         <div class="adicionar-perfil">
