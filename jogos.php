@@ -2,7 +2,7 @@
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
 $produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->getByCategoria('vestuario');
+$produtos = $produtoDAO->getByCategoria('jogos');
 $totalProdutos = count($produtos);
 $midPoint = ceil($totalProdutos / 2);
 ?>
@@ -58,47 +58,47 @@ $midPoint = ceil($totalProdutos / 2);
     <h2 class="font-1-xl mgb-40 item-h2-geral">Jogos</h2>
 
     <div class="populares-home_itens">
-        <?php if (!empty($produtos)): ?>
-            <?php 
-            $totalProdutos = count($produtos);
-            $linhaAtual = 1;
-            for ($i = 0; $i < $totalProdutos; $i++):
-                if ($i % 5 == 0) {
-                    if ($i > 0) {
-                        echo '</div>';
+    <?php if (!empty($produtos)): ?>
+                <?php 
+                $totalProdutos = count($produtos);
+                $linhaAtual = 1;
+                for ($i = 0; $i < $totalProdutos; $i++):
+                    if ($i % 5 == 0) {
+                        if ($i > 0) {
+                            echo '</div>';
+                        }
+                        echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
+                        $linhaAtual++;
                     }
-                    echo '<div class="itens-l' . $linhaAtual . ' mgb-40">';
-                    $linhaAtual++;
-                }
-                if (isset($produtos[$i]->image_path) && isset($produtos[$i]->nome) && isset($produtos[$i]->valor)) {
-                    $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]->image_path); 
-            ?>
-                    <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                        <div class="item_img">
-                            <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                            <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
-                        </div>
-                        <div class="item_content">
-                            <div class="content_flex">
-                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                                <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+                    if (isset($produtos[$i]['image_path']) && isset($produtos[$i]['nome']) && isset($produtos[$i]['valor'])) {
+                        $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]['image_path']); 
+                ?>
+                        <a href="item.php?id=<?= htmlspecialchars($produtos[$i]['id']) ?>" class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img class="item-img-geral" src="<?= $imagePath ?>" alt="Imagem do Produto">
                             </div>
-                            <div class="content_flex">
-                                <div class="content_flex-sun">
-                                    <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                    <p class="font-1-m">4.8</p>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]['nome']) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]['valor'], 2, ',', '.') ?></p>
                                 </div>
-                                <p class="font-1-m">300 vendidos</p>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p>
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-            <?php 
-                } 
-            endfor; ?>
-            </div>
-        <?php else: ?>
-            <p>Nenhum produto de jogos encontrado.</p>
-        <?php endif; ?>
+                        </a>
+                <?php 
+                    } 
+                endfor; ?>
+                </div>
+            <?php else: ?>
+                <p>Nenhum produto de vestuário encontrado.</p>
+            <?php endif; ?>
     </div>
 </article>
 

@@ -155,7 +155,7 @@ $produtos = $usuariosDAO->VerTodosProdutos();
                 <tr>
                     <th class='font-1-s'>ID</th>
                     <th class='font-1-s'>Nome</th>
-                    <th class='font-1-s'>Endereço</th>
+                    <!-- <th class='font-1-s'>Endereço</th> -->
                     <th class='font-1-s'>Ações</th>
                 </tr>
                 <?php
@@ -163,7 +163,7 @@ $produtos = $usuariosDAO->VerTodosProdutos();
                     echo "<tr>";
                     echo "<td class='font-1-s'>{$loja->id}</td>";
                     echo "<td class='font-1-m'>{$loja->nome}</td>";
-                    echo "<td class='font-1-s'>{$loja->endereco}</td>";
+                    // echo "<td class='font-1-s'>{$loja->endereco}</td>";
                     echo "<td class='btn-adm'>";
                     echo "<button class='btn-excluir' onclick='excluirLoja({$loja->id})'>Excluir</button>";
                     echo "<button class='btn-alerta' onclick='abrirModalAlerta({$loja->id}, \"loja\")'>Enviar Alerta</button>";
