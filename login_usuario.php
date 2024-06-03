@@ -11,17 +11,17 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.p
         $senha = $_POST['senha'];
 
     $clienteDAO = new ClienteDAO();
-    $clienteId = $clienteDAO->autenticar($email, $senha); // Obtenha o ID do cliente
+    $clienteId = $clienteDAO->autenticar($email, $senha);
 
     $administradorDAO = new AdiminDAO();
-    $administradorId = $administradorDAO->autenticar($email, $senha); // Obtenha o ID do administrador
+    $administradorId = $administradorDAO->autenticar($email, $senha); 
 
     if ($clienteId) {
-        $_SESSION['user_id'] = $clienteId; // Armazene apenas o ID do cliente na sessão
+        $_SESSION['user_id'] = $clienteId; 
         header('Location: home.php');
         exit();
     } elseif ($administradorId) {
-        $_SESSION['admin_id'] = $administradorId; // Armazene apenas o ID do administrador na sessão
+        $_SESSION['admin_id'] = $administradorId;
         header('location: dashboard_adm.php');
         exit();
     } else {

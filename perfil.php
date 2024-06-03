@@ -11,7 +11,7 @@
 
     //Editar perfil
     if(isset($_POST['editar_perfil'])){
-        // Processamento do formulário aqui
+        
         $id = $_SESSION['user_id'];
         $nome = $_POST['nome'];
         $email = $_POST['email'];
@@ -19,9 +19,9 @@
         $telefone = $_POST['telefone'];
         $editar_perfil = $dao->uptade($id, $nome, $email, $senha, $telefone);
     
-        // Após o processamento, redireciona de volta para a mesma página
+        
         header("Location: ".$_SERVER['REQUEST_URI']);
-        exit; // Certifique-se de sair do script após o redirecionamento
+        exit; 
     }
 ?>
 

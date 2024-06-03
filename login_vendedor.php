@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
 
     if ($vendedor){
         $_SESSION['vendedor_id'] = $vendedor->id;
-        header('Location: listar_produtos_teste.php');
+        header('Location: meus_produtos.php');
         exit(); 
     } else {
         header('location: login_vendedor.php');
