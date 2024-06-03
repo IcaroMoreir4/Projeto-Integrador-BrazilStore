@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $cliente = new cliente(null, $nome, $email, $cpf, $senha, $telefone);
         $clienteDAO = new ClienteDAO();
         $clienteDAO->create($cliente);
-        header('Location: home.php');
+        header('Location: index.php');
     } else {
         echo "Por favor, preencha todos os campos do formulário.";
     }
