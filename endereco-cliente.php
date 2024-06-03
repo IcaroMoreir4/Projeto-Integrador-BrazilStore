@@ -359,7 +359,7 @@
                     <li><a href="./">Vestuário</a></li>
                     <li><a href="./">Livros</a></li>
                     <li><a href="./">Jogos</a></li>
-                    <li><a href="./termos.html">Termos e Condições</a></li>
+                    <li><a href="./termos.php">Termos e Condições</a></li>
                 </ul>
             </div>
             <div class="cop">

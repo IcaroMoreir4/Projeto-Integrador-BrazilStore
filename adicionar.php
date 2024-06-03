@@ -85,7 +85,7 @@
                     </div>
 
                     <div class="col-span-2">
-                        <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1 link-termos" href="termos.html" target="_blank">termos aqui</a>.</p>
+                        <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1 link-termos" href="termos.php" target="_blank">termos aqui</a>.</p>
                     </div>
             
                     <div class="col-1">
@@ -144,7 +144,7 @@
                 <li><a href="">Vestuário</a></li>
                 <li><a href="">Livros</a></li>
                 <li><a href="">Jogos</a></li>
-                <li><a href="termos.html">Termos e Condições</a></li>
+                <li><a href="termos.php">Termos e Condições</a></li>
             </ul>
         </div>
         <div class="cop">
