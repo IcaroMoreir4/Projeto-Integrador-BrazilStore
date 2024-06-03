@@ -204,14 +204,14 @@ $produtos = $usuariosDAO->VerTodosProdutos();
 <div id="modalAlerta" class="modal" style="display:none;">
     <div class="modal-content">
         <span class="close" onclick="fecharModalAlerta()">&times;</span>
-        <h2>Enviar Alerta</h2>
+        <h2 class="font-1-l">Enviar Alerta</h2>
         <form id="formAlerta" method="POST">
             <input type="hidden" name="acao" value="enviarAlerta">
             <input type="hidden" name="id" id="idAlerta">
             <input type="hidden" name="tipo" id="tipoAlerta">
-            <label for="mensagem_alerta">Mensagem:</label>
+            <label class='font-1-s' for="mensagem_alerta">Mensagem:</label>
             <textarea id="mensagem_alerta" name="mensagem_alerta" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Enviar Alerta">
+            <input class="btn-alertaa" type="submit" value="Enviar Alerta">
         </form>
     </div>
 </div>
