@@ -6,9 +6,9 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.
 require_once('../Projeto-Integrador-BrazilStore/backend/classes/usuarios/admin.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.php');
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
+    if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit'])) {
+        $email = $_POST['email'];
+        $senha = $_POST['senha'];
 
     $clienteDAO = new ClienteDAO();
     $clienteId = $clienteDAO->autenticar($email, $senha); // Obtenha o ID do cliente

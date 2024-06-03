@@ -72,17 +72,17 @@ if (!$vendedor) {
             <div class="minha-conta">
                 <div class="minhacontabtn">
                     <img src="imagem/perfilMinhaConta.svg" alt="">
-                    <a class="font-1-m">Minha Conta</a>
+                    <p class="font-1-m">Minha Conta</p>
                 </div>
                     <div class="perfil-end">
                     <ul>
                         <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                        <li class="font-1-s"><a href="endereço.php">Endereço</a></li>
+                        <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                     </ul>
                 </div>
                     </div>
             <div class="minhas-compras">
-                <img src="/imagem/compras.svg" alt="">
+                <img src="imagem/compras.svg" alt="">
                 <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
 
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
@@ -91,7 +91,7 @@ if (!$vendedor) {
 
         <div class="perfil">
             <div class="perfil-texto">
-                <h1 class="font-2-l">Meu Perfil</h1>
+                <h1 class="font-2-l">Meu Perfil Vendedor</h1>
                 <p class="font-1-s">Gerenciar e proteger sua conta</p>
                 <div class="linhau"></div>
             </div>
@@ -111,13 +111,7 @@ if (!$vendedor) {
                         <span><?= htmlspecialchars($vendedor->telefone) ?></span>
                     </div>
                     <div class="campo-usuario">
-                        <label class="font-1-s">Sexo</label>
-                        <input type="radio" name="genero" value="masculino"> Masculino
-                        <input type="radio" name="genero" value="feminino" > Feminino
-                        <input type="radio" name="genero" value="Outros" > Outros
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">CPF: </label>
+                        <label class="font-1-s">CNPJ: </label>
                         <span><?= htmlspecialchars($vendedor->cpf) ?></span>
                     </div>
             </div>
@@ -126,12 +120,9 @@ if (!$vendedor) {
                 <div class="btn-perfil"><input class="file" type="file" accept="image/*"></div>
             </div>
             </div>
-
-        </div>
-
-
         </div>
     </div>
+</div>
 
 <div id="popupBgLoja" class="popup-bg">
         <div id="popupLoginLoja" class="popup">

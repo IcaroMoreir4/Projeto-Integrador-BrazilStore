@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         $produtoDao = new ProdutoDAO();
                         $produtoDao->AdicionarProduto($produto);
 
-                        header('Location: item.php');
+                        header('Location: home.php');
                         exit();
                     } else {
                         echo "Ocorreu um erro ao fazer o upload da imagem.";

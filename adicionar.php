@@ -19,12 +19,12 @@
         <div class="categoria_btn" id="categoriaBtn">
             <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="imagem/arrow.svg" id="arrowIcon" alt=""></a>
             <div class="categoria_menu font-1-m" id="categoriaMenu">
-                <a href="">Eletrônicos</a>
-                <a href="">Vestuário</a>
-                <a href="">Livros</a>
-                <a href="">Jogos</a>
-                <a href="">Acessórios</a>
-            </div>
+                    <a href="./vestuario.php">Vestuário</a>
+                    <a href="./eletronicos.php">Eletrônicos</a>
+                    <a href="./livros.php">Livros</a>
+                    <a href="./jogos.php">Jogos</a>
+                    <a href="./acessorios.php">Acessórios</a>
+                </div>
         </div>
         <form action="pesquisar.php" method="get">
             <div class="search-container">
@@ -73,9 +73,9 @@
                 </div>
 
                     <div class="col-2">
-                        <label class="font-1-m cor-12 " for="categoria">Categoria</label>
-                        <select class="font-1-m" name="categoria" id="categoria" required>
-                            <option value="eletronicos name="categoria" ">Eletrônicos</option>
+                        <label class="font-1-m cor-12 " id="categoria" for="categoria">Categoria</label>
+                        <select class="font-1-m" id="categoria" name="categoria" id="categoria" required>
+                            <option value="eletronicos" name="categoria" >Eletrônicos</option>
                             <option value="vestuario" name="categoria">Vestuário</option>
                             <option value="livros" name="categoria" >Livros</option>
                             <option value="jogos" name="categoria" >Jogos</option>

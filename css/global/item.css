@@ -261,6 +261,16 @@
     border: 1px solid var(--cor-7);
 }
 
+.item-opcoes{
+    max-width: 600px;
+}
+
+.item-opcoes img{
+    max-width: 500px; 
+}
+
+
+
 
 
 

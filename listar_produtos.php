@@ -1,15 +1,15 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
-session_start();
+    session_start();
+    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-if (!isset($_SESSION['vendedor_id'])) {
-    header('Location: login.php');
-    exit();
-}
+    if (!isset($_SESSION['vendedor_id'])) {
+        header('Location: login.php');
+        exit();
+    }
 
-$id_vendedor = $_SESSION['vendedor_id'];
-$produtoDao = new ProdutoDAO();
-$produtos = $produtoDao->listarProdutosPorVendedor($id_vendedor);
+    $id_vendedor = $_SESSION['vendedor_id'];
+    $produtoDao = new ProdutoDAO();
+    $produtos = $produtoDao->listarProdutosPorVendedor($id_vendedor);
 ?>
 
 <!DOCTYPE html>

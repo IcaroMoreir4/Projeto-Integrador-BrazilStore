@@ -1,13 +1,9 @@
 <?php
-    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
-
     session_start();
-
-    $_SESSION['user_id'] = 1; // Teste
+    require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
     $dao = new ClienteDAO;
 
-    //Função para consultar os endereços cadastrados.
     if (isset($_SESSION['user_id'])) {
         $id_cliente = $_SESSION['user_id'];
         $exibir_perfil = $dao->read($id_cliente);
@@ -15,15 +11,19 @@
 
     //Editar perfil
     if(isset($_POST['editar_perfil'])){
+        // Processamento do formulário aqui
         $id = $_SESSION['user_id'];
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $senha = $_POST['senha'];
         $telefone = $_POST['telefone'];
         $editar_perfil = $dao->uptade($id, $nome, $email, $senha, $telefone);
+    
+        // Após o processamento, redireciona de volta para a mesma página
+        header("Location: ".$_SERVER['REQUEST_URI']);
+        exit; // Certifique-se de sair do script após o redirecionamento
     }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -39,12 +39,6 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
-    <style>
-        /* Estilo para ocultar os inputs inicialmente */
-        .hidden {
-            display: none;
-        }
-    </style>
 </head>
 <body>
 
@@ -71,90 +65,100 @@
         </header>
 
     <div class="linhau"></div>
+
     <div class="gridusuario">
-        <div class="meuperfil">
-            <div class="menu-user">
+    <div class="meuperfil">
+        <div class="menu-user">
             <div class="menu-nome">
-                <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
-                    <div class="nomeusuario">
-                    <label class="font-1-m">Nome do usuario</label>
-                    <a href="perfil.html" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
+                <div class="imgperfil">
+                    <img src="imagem/perfiluser.svg" alt="Perfil do Usuário">
+                </div>
+                <div class="nomeusuario">
+                    <label class="font-1-m">Nome do Usuário</label>
+                    <a href="perfil.php" class="font-1-s">
+                        <img src="imagem/lapis.svg" alt="Editar">Editar Perfil
+                    </a>
                 </div>
             </div>
             <div class="minha-conta">
                 <div class="minhacontabtn">
-                    <img src="imagem/perfilMinhaConta.svg" alt="">
-                    <a class="font-1-m">Minha Conta</a>
+                    <img src="imagem/perfilMinhaConta.svg" alt="Minha Conta">
+                    <p class="font-1-m">Minha Conta</p>
                 </div>
-                    <div class="perfil-end">
+                <div class="perfil-end">
                     <ul>
-                        <li class="font-1-s"><a href="perfil.html">Perfil</a></li>
-                        <li class="font-1-s"><a href="endereço.php">Endereço</a></li>
+                        <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
+                        <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
                     </ul>
                 </div>
-                    </div>
-            <div class="minhas-compras">
-                <img src="imagem/compras.svg" alt="">
-                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a></div>
-
-                <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
             </div>
+            <div class="minhas-compras">
+                <img src="./imagem/compras.svg" alt="Compras">
+                <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+            </div>
+            <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
         </div>
+    </div>
 
-        <div class="perfil">
-            <?php if (!empty($exibir_perfil)): ?>
-                <td>
-                    <tr>Nome:  </tr><?php echo htmlspecialchars($exibir_perfil["nome"]); ?><br>
-                    <tr>E-mail:  </tr><?php echo htmlspecialchars($exibir_perfil["email"]); ?><br>
-                    <tr>CPF:  </tr><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?><br>
-                    <tr>Telefone:  </tr><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?>
-                </td>
-            <?php endif; ?>
-
-            <br>
-            <button name="" onclick="toggleInputs()">Editar perfil</button>
-            
-            <div id="inputs" class="hidden">
-                <form action="teste_perfil.php" method="POST">
-                    <label for="" class="">Nome: </label>
+    <div class="perfil">
+    <div class="perfil-texto">
+        <h1 class="font-2-l">Meu Perfil</h1>
+        <p class="font-1-s">Gerenciar e proteger sua conta</p>
+        <div class="linhau"></div>
+    </div>
+    <div class="painelperfil">          
+        <div class="meu-perfil">
+            <div class="campo-usuario">
+                <label class="font-1-s">Nome Completo</label>
+                <span><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">Email</label>
+                <span><?php echo htmlspecialchars($exibir_perfil["email"]); ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">Telefone</label>
+                <span><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?></span>
+            </div>
+            <div class="campo-usuario">
+                <label class="font-1-s">CPF</label>
+                <span><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?></span>
+            </div>  
+            <button id="mostrarFormulario">Editar</button>
+            <div id="formularioEditar" style="display: none;"> 
+                <form action="perfil.php" method="POST">
+                    <label for="nomeEditar" class="font-1-m">Nome: </label>
                     <div class="nome">
-                        <input class="campo" type="text" name="nome" id="" maxlength="40" placeholder="Insira o seu nome">
+                        <input class="campo" type="text" name="nome" id="nomeEditar" maxlength="40" placeholder="Insira o seu nome">
                     </div>
-
-                    <label for="" class="">E-mail: </label>
+                    <label for="emailEditar" class="font-1-m">E-mail: </label>
                     <div class="email">
-                        <input class="campo" type="email" name="email" id="" maxlength="40" placeholder="Insira o seu email">
+                        <input class="campo" type="email" name="email" id="emailEditar" maxlength="40" placeholder="Insira o seu email">
                     </div>
-
-                    <label for="" class="">Telefone: </label>
+                    <label for="telefoneEditar" class="font-1-m">Telefone: </label>
                     <div class="Telefone">
-                        <input class="campo" type="tel" name="telefone" id="" maxlength="11" placeholder="Insira o seu telefone">
+                        <input class="campo" type="tel" name="telefone" id="telefoneEditar" maxlength="11" placeholder="Insira o seu telefone">
                     </div>
-
-                    <label for="" class="">Senha: </label>
+                    <label for="senhaEditar" class="font-1-m">Senha: </label>
                     <div class="Senha">
-                        <input class="campo" type="password" name="senha" id="cadas-telefone" maxlength="40" placeholder="Insira o seu senha">
+                        <input class="campo" type="password" name="senha" id="senhaEditar" maxlength="40" placeholder="Insira o seu senha">
                     </div>
-
-                    <div class="">
-                        <button name = "editar_perfil" type="submit">Alterar</button>
+                    <div>
+                        <button name="editar_perfil" type="submit">Alterar</button>
                     </div>
                 </form>
-            </div>
-
-            <script>
-                function toggleInputs() {
-                    var inputsDiv = document.getElementById('inputs');
-                    if (inputsDiv.classList.contains('hidden')) {
-                        inputsDiv.classList.remove('hidden');
-                    } else {
-                        inputsDiv.classList.add('hidden');
-                    }
-                }
-            </script>
+            </div>    
         </div>
-
+        <div class="adicionar-perfil">
+            <img src="imagem/user.svg" alt="">
+            <div class="btn-perfil">
+                <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
+                <input id="file-upload" class="file" type="file" accept="image/*">
+            </div>
+        </div>
     </div>
+</div>
+</div>
 
 <div id="popupBgLoja" class="popup-bg">
         <div id="popupLoginLoja" class="popup">
@@ -219,8 +223,14 @@
         </div>
     </div>
 </div>
-    
-        <footer class="grid">
+<script>
+    document.getElementById("mostrarFormulario").addEventListener("click", function() {
+        document.getElementById("formularioEditar").style.display = "block";
+    });
+</script>
+
+
+<footer class="grid">
             <div class="logo">
                 <img src="./imagem/BrazilStore.svg" alt="">
             </div>

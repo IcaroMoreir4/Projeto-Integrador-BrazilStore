@@ -1,0 +1,64 @@
+.adm-box {
+    text-align: center;
+}
+
+.gridadm {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.usuario_adm,.vendedor_adm,.loja_adm,.produtos_adm{
+    background-color: var(--cor-2);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.gridadm table {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.gridadm th {
+    border: 1px solid var(--cor-3);
+    padding: 8px;
+    background-color: var(--cor-1);
+}
+
+
+.gridadm td{
+    border: 1px solid var(--cor-3);
+    padding: 8px;
+    vertical-align: middle;
+
+}
+
+.img_adm img{
+    width: 70px;
+    height: 70px;
+}
+.btn-adm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gridadm button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px 0;
+    width: 60px;
+}
+
+.btn-alerta {
+    background-color: var(--cor-p1);
+    color: var(--cor-1);
+}
+
+.btn-excluir {
+    background-color: red;
+    color: var(--cor-1);
+}

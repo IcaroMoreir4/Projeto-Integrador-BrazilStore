@@ -1,8 +1,8 @@
 <?php
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-$produtoDAO = new ProdutoDAO();
-$produtos = $produtoDAO->read();
+    $produtoDAO = new ProdutoDAO();
+    $produtos = $produtoDAO->read();
 ?>
 
 
@@ -25,26 +25,32 @@ $produtos = $produtoDAO->read();
 <body>
 
     <header class="grid">
-        <a href="index.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-        <div class="categoria_btn" id="categoriaBtn">
-            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-            <div class="categoria_menu font-1-m" id="categoriaMenu">
-                <a href="./">Eletrônicos</a>
-                <a href="./">Vestuário</a>
-                <a href="./">Livros</a>
-                <a href="./">Jogos</a>
-                <a href="./">Acessórios</a>
+            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+            <div class="categoria_btn" id="categoriaBtn">
+                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+                <div class="categoria_menu font-1-m" id="categoriaMenu">
+                    <a href="./">Eletrônicos</a>
+                    <a href="./">Vestuário</a>
+                    <a href="./">Livros</a>
+                    <a href="./">Jogos</a>
+                    <a href="./">Acessórios</a>
+                </div>
             </div>
-        </div>
-        <form action="" method="">
-            <div class="search-container">
-                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-            </div>
-        </form>
-            <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-            <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-    </header>
+            <form action="pesquisar.php" method="get">
+                <div class="search-container">
+                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+                </div>
+            </form>
+                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+                <div class="perfil_btn" id="perfilBtn">
+                    <div class="perfil_menu font-1-m" id="perfilMenu">
+                        <a href="./perfil.php">Meu perfil</a>
+                        <a href="./logout.php">Sair da conta</a>
+                    </div>
+                </div>
+        </header>
             
             <div id="popupBg" class="popup-bg">
         <div id="popupLogin" class="popup">
@@ -106,63 +112,83 @@ $produtos = $produtoDAO->read();
         </div>
     </div>
 
-    <article class="grid">
-    <?php if (!empty($produtos)): ?>
-        <?php foreach ($produtos as $produto): ?>
-            <div class="item-section">
-                <div class="item-opcoes">
-                    <div class="item-opcao_maior">
-                        <img src="./imagem/camisa.png" alt="Imagem do Produto">
-                    </div>
-                    <div class="item-opcao_menor">
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
-                        <div class="opcao-menor_bg"><img src="./imagem/camisa.png" alt="Imagem do Produto"></div>
-                    </div>
+    <article class="grid item-unico">
+    <?php
+// Verifica se o parâmetro 'id' está presente na URL
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+
+    // Filtra o array de produtos para encontrar o produto com o ID correspondente
+    $produtoEncontrado = null;
+    foreach ($produtos as $produto) {
+        if ($produto->id == $id) {
+            $produtoEncontrado = $produto;
+            break;
+        }
+    }
+
+    // Verifica se o produto foi encontrado
+    if ($produtoEncontrado) {
+        // Exibe apenas o produto encontrado
+        ?>
+        <div class="item-section">
+            <div class="item-opcoes">
+                <?php $imagePath = 'uploads/' . htmlspecialchars($produtoEncontrado->image_path); ?>
+                <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
+            </div>
+            <div class="item-content">
+                <h1 class="font-1-xxl"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+                <div class="info-content">
+                    <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
+                    <p class="font-2-l">4,8</p>
+                    <p class="font-2-l">300 vendidos</p>
                 </div>
-                <div class="item-content">
-                    <h1 class="font-1-xxl"><?= htmlspecialchars($produto->nome) ?></h1>
-                    <div class="info-content">
-                        <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
-                        <p class="font-2-l">4,8</p>
-                        <p class="font-2-l">300 vendidos</p>
-                    </div>
-                    <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produto->valor) ?></h2>
-                    <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produto->descricao) ?></p>
-                    <h2 class="font-1-l">Variante do produto</h2>
-                    <div class="variante-prod">
-                        <form class="opcoes-tamanho" action="">
-                            <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
-                            <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
-                                <option value="p">P</option>
-                                <option value="m">M</option>
-                                <option value="g">G</option>
-                                <option value="gg">GG</option>
-                            </select>
-                        </form>
-                        <form class="opcoes-cor opcoes-tamanho" action="">
-                            <label class="font-1-m cor-8" for="cor">Cor</label>
-                            <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
-                                <option value="branco">Branco</option>
-                                <option value="preto">Preto</option>
-                                <option value="cinza">Cinza</option>
-                            </select>
-                        </form>
-                    </div>
-                    <div class="btn-item">
-                        <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produto->id ?>" >Comprar Agora</button>
-                        <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
-                    </div>
+                <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produtoEncontrado->valor) ?></h2>
+                <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
+                <h2 class="font-1-l">Variante do produto</h2>
+                <div class="variante-prod">
+                    <form class="opcoes-tamanho" action="">
+                        <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
+                        <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
+                            <option value="p">P</option>
+                            <option value="m">M</option>
+                            <option value="g">G</option>
+                            <option value="gg">GG</option>
+                        </select>
+                    </form>
+                    <form class="opcoes-cor opcoes-tamanho" action="">
+                        <label class="font-1-m cor-8" for="cor">Cor</label>
+                        <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
+                            <option value="branco">Branco</option>
+                            <option value="preto">Preto</option>
+                            <option value="cinza">Cinza</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="btn-item">
+                    <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produtoEncontrado->id ?>" >Comprar Agora</button>
+                    <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
                 </div>
             </div>
-        <?php endforeach; ?>
-    <?php else: ?>
-        <p>Nenhum produto encontrado.</p>
-    <?php endif; ?>
+        </div>
+        <?php
+    } else {
+        // Caso o produto não seja encontrado, exibe uma mensagem
+        ?>
+        <p>Produto não encontrado.</p>
+        <?php
+    }
+} else {
+    // Se o parâmetro 'id' não estiver presente na URL, exibe uma mensagem
+    ?>
+    <p>ID do produto não especificado.</p>
+    <?php
+}
+?>
     <div class="detalhe-produto">
         <h2 class="cor-p1 font-2-l-b linha">Detalhes do Produto</h2>
-        <h1 class="font-1-xl mgb-8px">T-shirt Front-End</h1>
-        <p class="font-1-s cor-6 mgb-24px">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the.</p>
+        <h1 class="font-1-xl mgb-8px"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+        <p class="font-1-s cor-6 mgb-24px"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
         <h2 class="font-2-l-b cor-p1">Avaliações</h2>
         
         <div class="avaliacoes">

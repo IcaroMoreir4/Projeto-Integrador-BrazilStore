@@ -136,10 +136,59 @@
 .item_content{
     margin: 12px;
 }
-
-.itens-l1,
-.itens-l2{
+ 
+.itens-l1, 
+.itens-l2, 
+.itens-l3, 
+.itens-l4, 
+.itens-l5, 
+.itens-l6, 
+.itens-l7, 
+.itens-l8, 
+.itens-l9, 
+.itens-l10 {
     display: flex;
     align-items: center;
     gap: 40px;
+}
+
+.itens-l1 a, 
+.itens-l2 a, 
+.itens-l3 a, 
+.itens-l4 a, 
+.itens-l5 a, 
+.itens-l6 a, 
+.itens-l7 a, 
+.itens-l8 a, 
+.itens-l9 a, 
+.itens-l10 a{
+    text-decoration: none;
+    color: var(--cor-12);
+}
+
+.item-img-geral{
+    width: 200px;
+    height: 200px;
+}
+
+.item-h2-geral{
+    text-align: center;
+}
+
+.todos-itens{
+    margin: 0px;
+}
+
+.item-imagem{
+    width: 200px;
+    height: 200px;
+}
+
+.home-ver_mais{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding-top: 20px;
 }
