@@ -131,19 +131,20 @@ class ProdutoDAO {
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
     
-    public function getByCategoria($categoria) {
-        $sql = "SELECT * FROM produto.produto WHERE categoria = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $categoria);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
 
     public function deleteById($id) {
         $sql = 'DELETE FROM produto.produto WHERE id = ?';
         $stmt = Conexao::getConn()->prepare($sql);
         $stmt->bindValue(1, $id, PDO::PARAM_INT);
         return $stmt->execute();
+    }
+    
+    public function getByCategoria($categoria) {
+        $sql = "SELECT * FROM produto.produto WHERE categoria = ?";
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $categoria);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
     
 
