@@ -94,11 +94,11 @@
             </div>
             <div class="minha-loja">
                 <img src="imagem/Minha-loja.svg" alt="Store Icon">
-                <p class="font-1-m" href="listar_produtos_teste.php">Minha Loja</p>
+                <p class="font-1-m" href="listar_produtos_teste.php">Vendedor</p>
             </div>
             <div class="loja-venda">
                 <ul>
-                    <li class="font-1-s"><a href="minha_loja.html">Loja</a></li>
+                    <li class="font-1-s"><a href="Perfil-vendedor.php">Perfil vendedor</a></li>
                     <li class="font-1-s"><a href="#">Meus Produtos</a></li>
                 </ul>
             </div>
