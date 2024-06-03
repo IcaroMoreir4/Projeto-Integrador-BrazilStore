@@ -3,17 +3,12 @@
 
     session_start();
     
-    //Proteção
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: index.php');
-        exit();
-    }
-
+    $id_endereco = $_SESSION['ende_id'];
     $dao = new EnderecoDAO;
 
     //Logica para a DAO recber os dados.
     if(isset($_POST['editar_end'])){
-        $id = $_SESSION['end_id'];
+        $id = $id_endereco;
         $nome_comp = $_POST['nome'];
         $telefone_end = $_POST['tele'];
         $logradouro = $_POST['logr'];
