@@ -1,16 +1,9 @@
 <?php
+    session_start();
     require_once('../backend/classes/usuarios/endereco.php');
     require_once('../backend/database/DAO/EnderecoDAO.php');
 
-    session_start();
-    $_SESSION['user_id'] = 1; // Testes
-
-    //Proteção
-    if (!isset($_SESSION['user_id'])) {
-        echo 'Insira um id de usuario!'; // Testes
-        //header('Location: index.php');
-        exit();
-    }
+    $_SESSION['user_id'] = 1; //testes
 
     $dao = new EnderecoDAO();
 
