@@ -2,7 +2,6 @@
 
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.php');
 
-// Processar a requisição de exclusão de usuário ou envio de alerta
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao'])) {
     $acao = $_POST['acao'];
     $usuariosDAO = new AdiminDAO();
