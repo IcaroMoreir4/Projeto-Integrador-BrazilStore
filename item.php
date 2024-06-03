@@ -151,18 +151,18 @@ if (isset($_GET['id'])) {
                     <form class="opcoes-tamanho" action="">
                         <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
                         <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
-                            <option value="p">P</option>
-                            <option value="m">M</option>
+                            <option value="p">Único</option>
+                            <!-- <option value="m">M</option>
                             <option value="g">G</option>
-                            <option value="gg">GG</option>
+                            <option value="gg">GG</option> -->
                         </select>
                     </form>
                     <form class="opcoes-cor opcoes-tamanho" action="">
                         <label class="font-1-m cor-8" for="cor">Cor</label>
                         <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
-                            <option value="branco">Branco</option>
-                            <option value="preto">Preto</option>
-                            <option value="cinza">Cinza</option>
+                            <option value="preto">Única</option>
+                            <!-- <option value="preto">Preto</option>
+                            <option value="cinza">Cinza</option> -->
                         </select>
                     </form>
                 </div>

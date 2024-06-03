@@ -64,8 +64,8 @@
     border-radius: 8px;
     display: block;
     text-align: center;
-    appearance: none;
-    -webkit-appearance: none;
+    /* appearance: none; */
+    /* -webkit-appearance: none; */
     position: relative;
 }
 
