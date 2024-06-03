@@ -28,7 +28,7 @@ class EnderecoDAO{
         return $stmt->fetchALL(PDO::FETCH_ASSOC);
     }
 
-    //Função para atuaçizar os endereços cadastrados.
+    //Função para atualizar os endereços cadastrados.
     public function update($id, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
         $sql = 'UPDATE usuario.endereco SET nome_comp = :nome_comp, telefone_end = :telefone_end, logradouro = :logradouro, numero = :numero, bairro = :bairro, cep = :cep, nome_cidade = :nome_cidade, nome_estado = :nome_estado WHERE id = :id';
         $stmt = Conexao::getConn()->prepare($sql);
