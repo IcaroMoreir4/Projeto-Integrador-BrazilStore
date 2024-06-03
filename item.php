@@ -166,9 +166,13 @@ if (isset($_GET['id'])) {
                     </form>
                 </div>
                 <div class="btn-item">
-                    <button class="btn_cheio btn_adc" type="button" data-product-id="<?= $produtoEncontrado->id ?>" >Comprar Agora</button>
+                    <form action="./comprar_agora.php" method="post">
+                        <input type="hidden" name="produto_id" value="<?= htmlspecialchars($produtoEncontrado->id); ?>">
+                        <button class="btn_cheio btn_adc" type="submit">Comprar Agora</button>
+                    </form>
                     <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
                 </div>
+
             </div>
         </div>
         <?php

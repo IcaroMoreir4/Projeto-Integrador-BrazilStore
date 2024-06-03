@@ -139,5 +139,13 @@ class ProdutoDAO {
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function deleteById($id) {
+        $sql = 'DELETE FROM produto.produto WHERE id = ?';
+        $stmt = Conexao::getConn()->prepare($sql);
+        $stmt->bindValue(1, $id, PDO::PARAM_INT);
+        return $stmt->execute();
+    }
+    
+
 }
 ?>

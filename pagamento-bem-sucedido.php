@@ -45,35 +45,32 @@
     </header>
 
 
-        <section class="sessao">
-        <div class="imagem">
-            <img src="/imagem/pagamento-bem-sucedido.svg" alt="" />
+    <section class="sessao">
+        <div id="loading" class="loading">
+            <img src="./imagem/carregando.gif" alt="Carregando..." />
+            <h1 class="font-1-l">Processando pagamento</h1>
         </div>
 
-        <div class="box-1">
+        <div id="content" class="box-1" style="display: none;">
+            <div class="imagem">
+                <img src="./imagem/pagamento-bem-sucedido.svg" alt="" />
+            </div>
+
             <h1 class="font-1-xxl">PAGAMENTO BEM SUCEDIDO</h1>
 
             <p class="font-1-m">
-            seu pagamento será realizado em 30 minutos. Se houver algum problema,
-            converse com o atendimento ao cliente. Informações detalhadas
-            incluirão abaixo
+                Seu pagamento será realizado em 30 minutos. Se houver algum problema,
+                converse com o atendimento ao cliente. Informações detalhadas
+                incluirão abaixo.
             </p>
 
-            <form action="item.php" method="post" >
-
-            <button type="submit" class="continuar-comprando">
-                Continuar Comprando
-            </button>
-            </form>
-            <form action="/detalhe-da-compra" method="post">
-                
-            <button type="submit" class="detalhe-da-compra"
-            class="Poppins">
-                Detalhe da Compra
-            </button>
-            </form>
+            <div class="btn-pagamentos">
+                <a class="btn_cheio" href="./todos_itens.php">Continuar Comprando</a>
+                <a class="btn_vazado" href="./">Detalhe da Compra</a>
+            </div>
         </div>
-        </section>
+    </section>
+
 
         <footer class="grid">
             <div class="logo">

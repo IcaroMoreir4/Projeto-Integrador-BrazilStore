@@ -73,3 +73,26 @@
     background-color: #FFB800;
     color: #FFFFFF;
 }
+
+.btn-pagamentos{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    gap: 20px;
+}
+
+.loading img{
+    width: 100px;
+}
+
+#content {
+    display: none;
+}
