@@ -1,9 +1,10 @@
 <?php
-    require_once(__DIR__ . '/backend/implementacao/imp_home/pesquisar.php');
+require_once(__DIR__ . '/backend/implementacao/imp_home/pesquisar.php');
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -18,40 +19,41 @@
     <script src="./javascript/script.js"></script>
 
 </head>
+
 <body>
 
-<header class="grid">
-            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-            <div class="categoria_btn" id="categoriaBtn">
-                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-                <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./vestuario.php">Vestuário</a>
-                    <a href="./eletronicos.php">Eletrônicos</a>
-                    <a href="./livros.php">Livros</a>
-                    <a href="./jogos.php">Jogos</a>
-                    <a href="./acessorios.php">Acessórios</a>
-                </div>
-
+    <header class="grid">
+        <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./vestuario.php">Vestuário</a>
+                <a href="./eletronicos.php">Eletrônicos</a>
+                <a href="./livros.php">Livros</a>
+                <a href="./jogos.php">Jogos</a>
+                <a href="./acessorios.php">Acessórios</a>
             </div>
 
-            <form action="/backend/implementacao/imp_home/pesquisar.php" method="get">
-                <div class="search-container">
-                    <input type="text" name="pesquisa" maxlength="50" class="search-input" placeholder="Pesquisar">
-                    <img type="submit" src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-                </div>
-            </form>
+        </div>
 
-                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
-                <div class="perfil_btn" id="perfilBtn">
-                    <div class="perfil_menu font-1-m" id="perfilMenu">
-                        <a href="./perfil.php">Meu perfil</a>
-                        <a href="./logout.php">Sair da conta</a>
-                    </div>
-                </div>
-        </header>
-            
-        <div id="popupBg" class="popup-bg">
+        <form action="/backend/implementacao/imp_home/pesquisar.php" method="get">
+            <div class="search-container">
+                <input type="text" name="pesquisa" maxlength="50" class="search-input" placeholder="Pesquisar">
+                <img type="submit" src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+            </div>
+        </form>
+
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <div class="perfil_btn" id="perfilBtn">
+            <div class="perfil_menu font-1-m" id="perfilMenu">
+                <a href="./perfil.php">Meu perfil</a>
+                <a href="./logout.php">Sair da conta</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="popupBg" class="popup-bg">
         <div id="popupLogin" class="popup">
             <div class="popup-content">
                 <span class="close" onclick="closeLogin()">&times;</span>
@@ -113,19 +115,19 @@
 
     <article class="">
         <ul>
-            <?php if (!empty($resultado)): ?>
-                <?php for ($i = $midPoint; $i < $totalProdutos; $i++): ?>
+            <?php if (!empty($resultado)) : ?>
+                <?php for ($i = $midPoint; $i < $totalProdutos; $i++) : ?>
                     <li>
                         <p class=""><?= htmlspecialchars($resultado[$i]->nome); ?></p>
                         <p class="">R$ <?= number_format($resultado[$i]->valor, 2, ',', '.'); ?></p>
                     </li>
                 <?php endfor; ?>
-            <?php else: ?>
+            <?php else : ?>
                 <li>Nenhum resultado encontrado.</li>
             <?php endif; ?>
         </ul>
-    </article>    
-            
+    </article>
+
     <footer class="grid">
         <div class="logo">
             <img src="./imagem/BrazilStore.svg" alt="">
@@ -184,4 +186,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -14,6 +15,7 @@
     <script src="./javascript/script.js"></script>
 
 </head>
+
 <body>
     <header class="grid">
         <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
@@ -34,8 +36,8 @@
                 <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
             </div>
         </form>
-            <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-            <a href="./"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="./"><img class="icon" src="./imagem/user.svg" alt=""></a>
     </header>
 
     <div class="termos-top_bg">
@@ -116,4 +118,5 @@
     </footer>
 
 </body>
+
 </html>

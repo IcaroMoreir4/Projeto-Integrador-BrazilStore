@@ -10,6 +10,7 @@ $midPoint = ceil($totalProdutos / 2);
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -23,6 +24,7 @@ $midPoint = ceil($totalProdutos / 2);
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
 </head>
+
 <body>
     <header class="grid">
         <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt="Logo"></a>
@@ -55,11 +57,11 @@ $midPoint = ceil($totalProdutos / 2);
     <article class="populares-home todos-itens grid">
         <h2 class="font-1-xl mgb-40 item-h2-geral">Eletrônicos</h2>
         <div class="populares-home_itens">
-            <?php if (!empty($produtos)): ?>
-                <?php 
+            <?php if (!empty($produtos)) : ?>
+                <?php
                 $totalProdutos = count($produtos);
                 $linhaAtual = 1;
-                for ($i = 0; $i < $totalProdutos; $i++):
+                for ($i = 0; $i < $totalProdutos; $i++) :
                     if ($i % 5 == 0) {
                         if ($i > 0) {
                             echo '</div>';
@@ -68,7 +70,7 @@ $midPoint = ceil($totalProdutos / 2);
                         $linhaAtual++;
                     }
                     if (isset($produtos[$i]['image_path']) && isset($produtos[$i]['nome']) && isset($produtos[$i]['valor'])) {
-                        $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]['image_path']); 
+                        $imagePath = 'uploads/' . htmlspecialchars($produtos[$i]['image_path']);
                 ?>
                         <a href="item.php?id=<?= htmlspecialchars($produtos[$i]['id']) ?>" class="populares-item">
                             <div class="item_img">
@@ -89,14 +91,14 @@ $midPoint = ceil($totalProdutos / 2);
                                 </div>
                             </div>
                         </a>
-                <?php 
-                    } 
+                <?php
+                    }
                 endfor; ?>
-                </div>
-            <?php else: ?>
-                <p>Nenhum produto de eletrônicos encontrado.</p>
-            <?php endif; ?>
         </div>
+    <?php else : ?>
+        <p>Nenhum produto de eletrônicos encontrado.</p>
+    <?php endif; ?>
+    </div>
     </article>
 
     <footer class="grid">
@@ -134,4 +136,5 @@ $midPoint = ceil($totalProdutos / 2);
         </div>
     </footer>
 </body>
+
 </html>

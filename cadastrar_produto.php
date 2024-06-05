@@ -3,7 +3,8 @@ require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
-function getUploadPath($fileName) {
+function getUploadPath($fileName)
+{
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
     $uploadPath = $uploadDir . $fileName;
     return $uploadPath;
@@ -24,15 +25,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (!empty($nome) && !empty($valor) && !empty($descricao) && !empty($categoria) && !empty($peso) && !empty($tipo_entrega) && !empty($id_vendedor)) {
             $vendedorDAO = new VendedorDAO();
-            
+
             if ($vendedorDAO->exists($id_vendedor)) {
                 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
                     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
                     $uploadFile = $uploadDir . basename($_FILES['imagem']['name']);
-                    
+
                     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadFile)) {
                         $uploadPath = getUploadPath($_FILES['imagem']['name']);
-                        
+
                         $produto = new Produto($nome, $valor, $descricao, $categoria, $peso, $tipo_entrega, $id_vendedor);
                         $produto->setImagePath($_FILES['imagem']['name']);
                         $produtoDao = new ProdutoDAO();
@@ -58,4 +59,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Método de requisição inválido.";
 }
-?>

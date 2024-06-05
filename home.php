@@ -9,6 +9,7 @@ $midPoint = ceil($totalProdutos / 2);
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -23,37 +24,38 @@ $midPoint = ceil($totalProdutos / 2);
     <script src="./javascript/script.js"></script>
 
 </head>
+
 <body>
 
-        <header class="grid">
-            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-            <div class="categoria_btn" id="categoriaBtn">
-                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-                <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./vestuario.php">Vestuário</a>
-                    <a href="./eletronicos.php">Eletrônicos</a>
-                    <a href="./livros.php">Livros</a>
-                    <a href="./jogos.php">Jogos</a>
-                    <a href="./acessorios.php">Acessórios</a>
-                </div>
-
+    <header class="grid">
+        <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./vestuario.php">Vestuário</a>
+                <a href="./eletronicos.php">Eletrônicos</a>
+                <a href="./livros.php">Livros</a>
+                <a href="./jogos.php">Jogos</a>
+                <a href="./acessorios.php">Acessórios</a>
             </div>
-            <form action="pesquisar.php" method="get">
-                <div class="search-container">
-                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-                </div>
-            </form>
-                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
-                <div class="perfil_btn" id="perfilBtn">
-                    <div class="perfil_menu font-1-m" id="perfilMenu">
-                        <a href="./perfil.php">Meu perfil</a>
-                        <a href="./logout.php">Sair da conta</a>
-                    </div>
-                </div>
-        </header>
-        
+
+        </div>
+        <form action="pesquisar.php" method="get">
+            <div class="search-container">
+                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+            </div>
+        </form>
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <div class="perfil_btn" id="perfilBtn">
+            <div class="perfil_menu font-1-m" id="perfilMenu">
+                <a href="./perfil.php">Meu perfil</a>
+                <a href="./logout.php">Sair da conta</a>
+            </div>
+        </div>
+    </header>
+
 
     <article class="conteudo-home grid">
         <div class="conteudo-home_direita">
@@ -102,81 +104,82 @@ $midPoint = ceil($totalProdutos / 2);
     </article>
 
     <article class="populares-home grid">
-    <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
+        <h2 class="font-1-xl mgb-40">Produtos Populares</h2>
 
-    <div class="populares-home_itens">
-        <div class="itens-l1 mgb-40">
-            <?php if (!empty($produtos)): ?>
-                <?php $maxItems = 5; ?>
-                <?php for ($i = 0; $i < min($maxItems, count($produtos)); $i++): ?>
-                    <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
-                        <div class="item_img">
-                            <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
-                            <img class="item-imagem" src="uploads/<?= htmlspecialchars($produtos[$i]->image_path) ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
-                        </div>
-                        <div class="item_content">
-                            <div class="content_flex">
-                                <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
-                                <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
+        <div class="populares-home_itens">
+            <div class="itens-l1 mgb-40">
+                <?php if (!empty($produtos)) : ?>
+                    <?php $maxItems = 5; ?>
+                    <?php for ($i = 0; $i < min($maxItems, count($produtos)); $i++) : ?>
+                        <a href="item.php?id=<?= htmlspecialchars($produtos[$i]->id) ?>" class="populares-item">
+                            <div class="item_img">
+                                <img class="favorite" src="./imagem/favoritar-vazado-plus.svg" alt="Favoritar">
+                                <img class="item-imagem" src="uploads/<?= htmlspecialchars($produtos[$i]->image_path) ?>" alt="<?= htmlspecialchars($produtos[$i]->nome) ?>">
                             </div>
-                            <div class="content_flex">
-                                <div class="content_flex-sun">
-                                    <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
-                                    <p class="font-1-m">4.8</p>
+                            <div class="item_content">
+                                <div class="content_flex">
+                                    <h2 class="font-1-m-b"><?= htmlspecialchars($produtos[$i]->nome) ?></h2>
+                                    <p class="font-1-m cor-p6">R$ <?= number_format($produtos[$i]->valor, 2, ',', '.') ?></p>
                                 </div>
-                                <p class="font-1-m">300 vendidos</p>
+                                <div class="content_flex">
+                                    <div class="content_flex-sun">
+                                        <img src="./imagem/estrela-amarela.svg" alt="Avaliação">
+                                        <p class="font-1-m">4.8</p>
+                                    </div>
+                                    <p class="font-1-m">300 vendidos</p>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                <?php endfor; ?>
-            <?php else: ?>
-                <p>Nenhum produto encontrado.</p>
-            <?php endif; ?>
+                        </a>
+                    <?php endfor; ?>
+                <?php else : ?>
+                    <p>Nenhum produto encontrado.</p>
+                <?php endif; ?>
+            </div>
         </div>
-    </div>
-    <div class="home-ver_mais">
-        <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
-    </div>
-</article>
+        <div class="home-ver_mais">
+            <a class="btn_vazado font-1-m-b" href="todos_itens.php">Ver Mais <img src="./imagem/mais.svg" alt=""></a>
+        </div>
+    </article>
 
-        
-        <footer class="grid">
-            <div class="logo">
-                <img src="./imagem/BrazilStore.svg" alt="">
-            </div>
-            <div class="contato">
-                <h2 class="font-2-l">CONTATO</h2>
-                <ul class="font-2-m">
-                    <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
-                    <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
-                    <div class="linha"></div>
-                    <li>Rua Ali Perto, 69 - Pirajá</li>
-                    <li>Juazeiro do Norte - CE</li>
-                    <div class="linha"></div>
-                    <div class="redes-sociais">
-                        <!-- instagram -->
-                        <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
-                        <!-- facebook -->
-                        <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
-                        <!-- youtube -->
-                        <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
-                    </div>
-                </ul>
-            </div>
-            <div class="informacoes">
-                <h2 class="font-2-l">INFORMAÇÕES</h2>
-                <ul class="font-2-m">
-                    <li><a href="./">Eletrônicos</a></li>
-                    <li><a href="./">Vestuário</a></li>
-                    <li><a href="./">Livros</a></li>
-                    <li><a href="./">Jogos</a></li>
-                    <li><a href="./termos.php">Termos e Condições</a></li>
-                </ul>
-            </div>
-            <div class="cop">
-                <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
-            </div>
-        </footer>
+
+    <footer class="grid">
+        <div class="logo">
+            <img src="./imagem/BrazilStore.svg" alt="">
+        </div>
+        <div class="contato">
+            <h2 class="font-2-l">CONTATO</h2>
+            <ul class="font-2-m">
+                <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
+                <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
+                <div class="linha"></div>
+                <li>Rua Ali Perto, 69 - Pirajá</li>
+                <li>Juazeiro do Norte - CE</li>
+                <div class="linha"></div>
+                <div class="redes-sociais">
+                    <!-- instagram -->
+                    <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
+                    <!-- facebook -->
+                    <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
+                    <!-- youtube -->
+                    <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
+                </div>
+            </ul>
+        </div>
+        <div class="informacoes">
+            <h2 class="font-2-l">INFORMAÇÕES</h2>
+            <ul class="font-2-m">
+                <li><a href="./">Eletrônicos</a></li>
+                <li><a href="./">Vestuário</a></li>
+                <li><a href="./">Livros</a></li>
+                <li><a href="./">Jogos</a></li>
+                <li><a href="./termos.php">Termos e Condições</a></li>
+            </ul>
+        </div>
+        <div class="cop">
+            <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.php');
 
@@ -84,6 +84,7 @@ $produtos = $usuariosDAO->VerTodosProdutos();
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -97,174 +98,176 @@ $produtos = $usuariosDAO->VerTodosProdutos();
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
 </head>
+
 <body>
-<div class="adm-box">
-    <h1 class="font-1-xl">ADMINISTRADOR</h1>
-    <div class="gridadm">
-        <div class="usuario_adm">
-            <h2 class="font-1-l">Usuários</h2>
-            <table>
-                <tr>
-                    <th class='font-1-s'>ID</th>
-                    <th class='font-1-s'>Nome</th>
-                    <th class='font-1-s'>Email</th>
-                    <th class='font-1-s'>Ações</th>
-                </tr>
-                <?php
-                foreach ($usuarios as $usuario) {
-                    echo "<tr>";
-                    echo "<td class='font-1-s'>ID:{$usuario->id}</td>";
-                    echo "<td class='font-1-m'>{$usuario->nome}</td>";
-                    echo "<td class='font-1-s'>{$usuario->email}</td>";
-                    echo "<td class='btn-adm'>";
-                    echo "<button class='btn-alerta' onclick='abrirModalAlerta({$usuario->id}, \"cliente\")'>Alerta</button>";
-                    echo "<button class='btn-excluir' onclick='excluirUsuario({$usuario->id})'>Excluir</button>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
-        </div>
-        <div class="vendedor_adm">
-            <h2 class="font-1-l">Vendedores</h2>
-            <table>
-                <tr>
-                    <th class='font-1-s'>ID</th>
-                    <th class='font-1-s'>Nome</th>
-                    <th class='font-1-s'>Email</th>
-                    <th class='font-1-s'>Ações</th>
-                </tr>
-                <?php
-                foreach ($vendedores as $vendedor) {
-                    echo "<tr>";
-                    echo "<td class='font-1-s'>ID:{$vendedor->id}</td>";
-                    echo "<td class='font-1-m'>{$vendedor->nome}</td>";
-                    echo "<td class='font-1-s'>{$vendedor->email}</td>";
-                    echo "<td class='btn-adm'>";
-                    echo "<button class='btn-alerta' onclick='abrirModalAlerta({$vendedor->id}, \"vendedor\")'>Alerta</button>";
-                    echo "<button class='btn-excluir' onclick='excluirVendedor({$vendedor->id})'>Excluir</button>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
-        </div>
-        <div class="loja_adm">
-            <h2 class="font-1-l">Lojas</h2>
-            <table>
-                <tr>
-                    <th class='font-1-s'>ID</th>
-                    <th class='font-1-s'>Nome</th>
-                    <!-- <th class='font-1-s'>Endereço</th> -->
-                    <th class='font-1-s'>Ações</th>
-                </tr>
-                <?php
-                foreach ($lojas as $loja) {
-                    echo "<tr>";
-                    echo "<td class='font-1-s'>{$loja->id}</td>";
-                    echo "<td class='font-1-m'>{$loja->nome}</td>";
-                    // echo "<td class='font-1-s'>{$loja->endereco}</td>";
-                    echo "<td class='btn-adm'>";
-                    echo "<button class='btn-excluir' onclick='excluirLoja({$loja->id})'>Excluir</button>";
-                    echo "<button class='btn-alerta' onclick='abrirModalAlerta({$loja->id}, \"loja\")'>Enviar Alerta</button>";
-                    echo "</td>";
-                    echo "</tr>";
-                }
-                ?>
-            </table>
-        </div>
+    <div class="adm-box">
+        <h1 class="font-1-xl">ADMINISTRADOR</h1>
+        <div class="gridadm">
+            <div class="usuario_adm">
+                <h2 class="font-1-l">Usuários</h2>
+                <table>
+                    <tr>
+                        <th class='font-1-s'>ID</th>
+                        <th class='font-1-s'>Nome</th>
+                        <th class='font-1-s'>Email</th>
+                        <th class='font-1-s'>Ações</th>
+                    </tr>
+                    <?php
+                    foreach ($usuarios as $usuario) {
+                        echo "<tr>";
+                        echo "<td class='font-1-s'>ID:{$usuario->id}</td>";
+                        echo "<td class='font-1-m'>{$usuario->nome}</td>";
+                        echo "<td class='font-1-s'>{$usuario->email}</td>";
+                        echo "<td class='btn-adm'>";
+                        echo "<button class='btn-alerta' onclick='abrirModalAlerta({$usuario->id}, \"cliente\")'>Alerta</button>";
+                        echo "<button class='btn-excluir' onclick='excluirUsuario({$usuario->id})'>Excluir</button>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table>
+            </div>
+            <div class="vendedor_adm">
+                <h2 class="font-1-l">Vendedores</h2>
+                <table>
+                    <tr>
+                        <th class='font-1-s'>ID</th>
+                        <th class='font-1-s'>Nome</th>
+                        <th class='font-1-s'>Email</th>
+                        <th class='font-1-s'>Ações</th>
+                    </tr>
+                    <?php
+                    foreach ($vendedores as $vendedor) {
+                        echo "<tr>";
+                        echo "<td class='font-1-s'>ID:{$vendedor->id}</td>";
+                        echo "<td class='font-1-m'>{$vendedor->nome}</td>";
+                        echo "<td class='font-1-s'>{$vendedor->email}</td>";
+                        echo "<td class='btn-adm'>";
+                        echo "<button class='btn-alerta' onclick='abrirModalAlerta({$vendedor->id}, \"vendedor\")'>Alerta</button>";
+                        echo "<button class='btn-excluir' onclick='excluirVendedor({$vendedor->id})'>Excluir</button>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table>
+            </div>
+            <div class="loja_adm">
+                <h2 class="font-1-l">Lojas</h2>
+                <table>
+                    <tr>
+                        <th class='font-1-s'>ID</th>
+                        <th class='font-1-s'>Nome</th>
+                        <!-- <th class='font-1-s'>Endereço</th> -->
+                        <th class='font-1-s'>Ações</th>
+                    </tr>
+                    <?php
+                    foreach ($lojas as $loja) {
+                        echo "<tr>";
+                        echo "<td class='font-1-s'>{$loja->id}</td>";
+                        echo "<td class='font-1-m'>{$loja->nome}</td>";
+                        // echo "<td class='font-1-s'>{$loja->endereco}</td>";
+                        echo "<td class='btn-adm'>";
+                        echo "<button class='btn-excluir' onclick='excluirLoja({$loja->id})'>Excluir</button>";
+                        echo "<button class='btn-alerta' onclick='abrirModalAlerta({$loja->id}, \"loja\")'>Enviar Alerta</button>";
+                        echo "</td>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </table>
+            </div>
 
-        <div class="produtos_adm">
-            <h2 class="font-1-l">Produtos</h2>
-            <table>
-                <tr>
-                    <th class='font-1-s'>ID Vendedor</th>
-                    <th class='font-1-s'>ID Produto</th>
-                    <th class='font-1-s'>Nome</th>
-                    <th class='font-1-s'>Descrição</th>
-                    <th class='font-1-s'>Preço</th>
-                    <th class='font-1-s'>Imagem</th>
-                </tr>
-                <?php foreach ($produtos as $produto): ?>
-                <tr>
-                    <td><?= $produto->id_vendedor?></td>
-                    <td><?= $produto->id ?></td>
-                    <td><?= $produto->nome ?></td>
-                    <td><?= $produto->descricao ?></td>
-                    <td><?= htmlspecialchars($produto->valor) ?></td>
-                    <td class="img_adm"><img src="uploads/<?= htmlspecialchars($produto->image_path) ?>" alt="<?= htmlspecialchars($produto->nome) ?>" width="100"></td>
-                </tr>
-                <?php endforeach; ?>
-            </table>
+            <div class="produtos_adm">
+                <h2 class="font-1-l">Produtos</h2>
+                <table>
+                    <tr>
+                        <th class='font-1-s'>ID Vendedor</th>
+                        <th class='font-1-s'>ID Produto</th>
+                        <th class='font-1-s'>Nome</th>
+                        <th class='font-1-s'>Descrição</th>
+                        <th class='font-1-s'>Preço</th>
+                        <th class='font-1-s'>Imagem</th>
+                    </tr>
+                    <?php foreach ($produtos as $produto) : ?>
+                        <tr>
+                            <td><?= $produto->id_vendedor ?></td>
+                            <td><?= $produto->id ?></td>
+                            <td><?= $produto->nome ?></td>
+                            <td><?= $produto->descricao ?></td>
+                            <td><?= htmlspecialchars($produto->valor) ?></td>
+                            <td class="img_adm"><img src="uploads/<?= htmlspecialchars($produto->image_path) ?>" alt="<?= htmlspecialchars($produto->nome) ?>" width="100"></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- Modal para enviar alerta -->
-<div id="modalAlerta" class="modal" style="display:none;">
-    <div class="modal-content">
-        <span class="close" onclick="fecharModalAlerta()">&times;</span>
-        <h2>Enviar Alerta</h2>
-        <form id="formAlerta" method="POST">
-            <input type="hidden" name="acao" value="enviarAlerta">
-            <input type="hidden" name="id" id="idAlerta">
-            <input type="hidden" name="tipo" id="tipoAlerta">
-            <label for="mensagem_alerta">Mensagem:</label>
-            <textarea id="mensagem_alerta" name="mensagem_alerta" rows="4" cols="50"></textarea><br>
-            <input type="submit" value="Enviar Alerta">
-        </form>
+    <!-- Modal para enviar alerta -->
+    <div id="modalAlerta" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModalAlerta()">&times;</span>
+            <h2>Enviar Alerta</h2>
+            <form id="formAlerta" method="POST">
+                <input type="hidden" name="acao" value="enviarAlerta">
+                <input type="hidden" name="id" id="idAlerta">
+                <input type="hidden" name="tipo" id="tipoAlerta">
+                <label for="mensagem_alerta">Mensagem:</label>
+                <textarea id="mensagem_alerta" name="mensagem_alerta" rows="4" cols="50"></textarea><br>
+                <input type="submit" value="Enviar Alerta">
+            </form>
+        </div>
     </div>
-</div>
 
-<!-- Formulário oculto para exclusão de usuário -->
-<form id="excluirUsuarioForm" method="POST" style="display:none;">
-    <input type="hidden" name="acao" value="excluirUsuario">
-    <input type="hidden" name="id" id="usuarioId">
-</form>
+    <!-- Formulário oculto para exclusão de usuário -->
+    <form id="excluirUsuarioForm" method="POST" style="display:none;">
+        <input type="hidden" name="acao" value="excluirUsuario">
+        <input type="hidden" name="id" id="usuarioId">
+    </form>
 
-<!-- Formulário oculto para exclusão de vendedor -->
-<form id="excluirVendedorForm" method="POST" style="display:none;">
-    <input type="hidden" name="acao" value="excluirVendedor">
-    <input type="hidden" name="id" id="vendedorId">
-</form>
+    <!-- Formulário oculto para exclusão de vendedor -->
+    <form id="excluirVendedorForm" method="POST" style="display:none;">
+        <input type="hidden" name="acao" value="excluirVendedor">
+        <input type="hidden" name="id" id="vendedorId">
+    </form>
 
-<!-- Formulário oculto para exclusão de loja -->
-<form id="excluirLojaForm" method="POST" style="display:none;">
-    <input type="hidden" name="acao" value="excluirLoja">
-    <input type="hidden" name="id" id="lojaId">
-</form>
+    <!-- Formulário oculto para exclusão de loja -->
+    <form id="excluirLojaForm" method="POST" style="display:none;">
+        <input type="hidden" name="acao" value="excluirLoja">
+        <input type="hidden" name="id" id="lojaId">
+    </form>
 
-<script>
-    function excluirUsuario(id) {
-        if (confirm('Tem certeza que deseja excluir este usuário?')) {
-            document.getElementById('usuarioId').value = id;
-            document.getElementById('excluirUsuarioForm').submit();
+    <script>
+        function excluirUsuario(id) {
+            if (confirm('Tem certeza que deseja excluir este usuário?')) {
+                document.getElementById('usuarioId').value = id;
+                document.getElementById('excluirUsuarioForm').submit();
+            }
         }
-    }
 
-    function excluirVendedor(id) {
-        if (confirm('Tem certeza que deseja excluir este vendedor?')) {
-            document.getElementById('vendedorId').value = id;
-            document.getElementById('excluirVendedorForm').submit();
+        function excluirVendedor(id) {
+            if (confirm('Tem certeza que deseja excluir este vendedor?')) {
+                document.getElementById('vendedorId').value = id;
+                document.getElementById('excluirVendedorForm').submit();
+            }
         }
-    }
 
-    function excluirLoja(id) {
-        if (confirm('Tem certeza que deseja excluir esta loja?')) {
-            document.getElementById('lojaId').value = id;
-            document.getElementById('excluirLojaForm').submit();
+        function excluirLoja(id) {
+            if (confirm('Tem certeza que deseja excluir esta loja?')) {
+                document.getElementById('lojaId').value = id;
+                document.getElementById('excluirLojaForm').submit();
+            }
         }
-    }
 
-    function abrirModalAlerta(id, tipo) {
-        document.getElementById('idAlerta').value = id;
-        document.getElementById('tipoAlerta').value = tipo;
-        document.getElementById('modalAlerta').style.display = 'block';
-    }
+        function abrirModalAlerta(id, tipo) {
+            document.getElementById('idAlerta').value = id;
+            document.getElementById('tipoAlerta').value = tipo;
+            document.getElementById('modalAlerta').style.display = 'block';
+        }
 
-    function fecharModalAlerta() {
-        document.getElementById('modalAlerta').style.display = 'none';
-    }
-</script>
+        function fecharModalAlerta() {
+            document.getElementById('modalAlerta').style.display = 'none';
+        }
+    </script>
 </body>
+
 </html>

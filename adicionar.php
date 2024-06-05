@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -13,35 +14,36 @@
     <link rel="shortcut icon" href="imagem/logo.png" type="image/x-icon">
     <script src="javascript/script.js"></script>
 </head>
-<body>
-<header class="grid">
-            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-            <div class="categoria_btn" id="categoriaBtn">
-                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-                <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./vestuario.php">Vestuário</a>
-                    <a href="./eletronicos.php">Eletrônicos</a>
-                    <a href="./livros.php">Livros</a>
-                    <a href="./jogos.php">Jogos</a>
-                    <a href="./acessorios.php">Acessórios</a>
-                </div>
 
+<body>
+    <header class="grid">
+        <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./vestuario.php">Vestuário</a>
+                <a href="./eletronicos.php">Eletrônicos</a>
+                <a href="./livros.php">Livros</a>
+                <a href="./jogos.php">Jogos</a>
+                <a href="./acessorios.php">Acessórios</a>
             </div>
-            <form action="pesquisar.php" method="get">
-                <div class="search-container">
-                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-                </div>
-            </form>
-                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
-                <div class="perfil_btn" id="perfilBtn">
-                    <div class="perfil_menu font-1-m" id="perfilMenu">
-                        <a href="./perfil.php">Meu perfil</a>
-                        <a href="./logout.php">Sair da conta</a>
-                    </div>
-                </div>
-        </header>
+
+        </div>
+        <form action="pesquisar.php" method="get">
+            <div class="search-container">
+                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+            </div>
+        </form>
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <div class="perfil_btn" id="perfilBtn">
+            <div class="perfil_menu font-1-m" id="perfilMenu">
+                <a href="./perfil.php">Meu perfil</a>
+                <a href="./logout.php">Sair da conta</a>
+            </div>
+        </div>
+    </header>
 
     <div class="grid form-adicionar_bg">
         <form class="form-adicionar" action="cadastrar_produto.php" method="POST" enctype="multipart/form-data">
@@ -65,7 +67,7 @@
                     <label for="descricao" class=" font-1-m cor-12">Descrição</label>
                     <textarea maxlength="300" id="descricao" name="descricao" class=" font-1-m cor-12" required></textarea>
                 </div>
-                
+
                 <input type="hidden" name="vendedor_id" value="<?php echo isset($_SESSION['vendedor_id']) ? $_SESSION['vendedor_id'] : ''; ?>">
 
                 <div class="col-1">
@@ -73,43 +75,43 @@
                     <input class="" type="text" id="preco" name="valor" required>
                 </div>
 
-                    <div class="col-2">
-                        <label class="font-1-m cor-12 " id="categoria" for="categoria">Categoria</label>
-                        <select class="font-1-m" id="categoria" name="categoria" id="categoria" required>
-                            <option value="eletronicos" name="categoria" >Eletrônicos</option>
-                            <option value="vestuario" name="categoria">Vestuário</option>
-                            <option value="livros" name="categoria" >Livros</option>
-                            <option value="jogos" name="categoria" >Jogos</option>
-                            <option value="acessorios" name="categoria" >Acessórios</option>
-                        </select>
-                    </div>
+                <div class="col-2">
+                    <label class="font-1-m cor-12 " id="categoria" for="categoria">Categoria</label>
+                    <select class="font-1-m" id="categoria" name="categoria" id="categoria" required>
+                        <option value="eletronicos" name="categoria">Eletrônicos</option>
+                        <option value="vestuario" name="categoria">Vestuário</option>
+                        <option value="livros" name="categoria">Livros</option>
+                        <option value="jogos" name="categoria">Jogos</option>
+                        <option value="acessorios" name="categoria">Acessórios</option>
+                    </select>
+                </div>
 
-                    <div class="col-span-2">
-                        <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1 link-termos" href="termos.php" target="_blank">termos aqui</a>.</p>
-                    </div>
-            
-                    <div class="col-1">
-                        <label class="font-1-m cor-12 " for="peso">Peso</label>
-                        <select class="font-1-m" name="peso" id="peso" required>
-                            <option value="1.00" name="peso">1g</option>
-                            <option value="2.00" name="peso">2g</option>
-                            <option value="3.00" name="peso">3g</option>
-                            <option value="4.00" name="peso">4g</option>
-                            <option value="5.00" name="peso">5g</option>
-                            <option value="6.00" name="peso">6g</option>
-                            <option value="7.00" name="peso">7g</option>
-                        </select>
-                    </div>
+                <div class="col-span-2">
+                    <p class="font-1-m "><strong>Importante:</strong> Para selecionar a opção correios ou transportadora, o seu produto deve ter até 6kg e estar dentro do limite de dimensões aceitas pela entregadora. Veja os <a class="cor-p1 link-termos" href="termos.php" target="_blank">termos aqui</a>.</p>
+                </div>
 
-                    <div class="col-2">
-                        <label class="font-1-m cor-12 " for="tipo_entrega">Tipo de Entrega</label>
-                        <select class="font-1-m" name="tipo_entrega" id="tipo_entrega" required>
-                            <option value="correios" name="tipo_entrega">Correios</option>
-                        </select>
-                        
-                    </div>
+                <div class="col-1">
+                    <label class="font-1-m cor-12 " for="peso">Peso</label>
+                    <select class="font-1-m" name="peso" id="peso" required>
+                        <option value="1.00" name="peso">1g</option>
+                        <option value="2.00" name="peso">2g</option>
+                        <option value="3.00" name="peso">3g</option>
+                        <option value="4.00" name="peso">4g</option>
+                        <option value="5.00" name="peso">5g</option>
+                        <option value="6.00" name="peso">6g</option>
+                        <option value="7.00" name="peso">7g</option>
+                    </select>
+                </div>
 
-                    <button type="submit" class="btn_cheio btn_adc" id="adicionarItemBtn">Adicionar Item</button>
+                <div class="col-2">
+                    <label class="font-1-m cor-12 " for="tipo_entrega">Tipo de Entrega</label>
+                    <select class="font-1-m" name="tipo_entrega" id="tipo_entrega" required>
+                        <option value="correios" name="tipo_entrega">Correios</option>
+                    </select>
+
+                </div>
+
+                <button type="submit" class="btn_cheio btn_adc" id="adicionarItemBtn">Adicionar Item</button>
             </div>
         </form>
     </div>
@@ -152,4 +154,5 @@
         </div>
     </footer>
 </body>
+
 </html>

@@ -1,13 +1,14 @@
 <?php
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 
-    $produtoDAO = new ProdutoDAO();
-    $produtos = $produtoDAO->read();
+$produtoDAO = new ProdutoDAO();
+$produtos = $produtoDAO->read();
 ?>
 
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -22,38 +23,39 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
     <script src="./javascript/script.js"></script>
 
 </head>
+
 <body>
 
-<header class="grid">
-            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-            <div class="categoria_btn" id="categoriaBtn">
-                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-                <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./vestuario.php">Vestuário</a>
-                    <a href="./eletronicos.php">Eletrônicos</a>
-                    <a href="./livros.php">Livros</a>
-                    <a href="./jogos.php">Jogos</a>
-                    <a href="./acessorios.php">Acessórios</a>
-                </div>
-
+    <header class="grid">
+        <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./vestuario.php">Vestuário</a>
+                <a href="./eletronicos.php">Eletrônicos</a>
+                <a href="./livros.php">Livros</a>
+                <a href="./jogos.php">Jogos</a>
+                <a href="./acessorios.php">Acessórios</a>
             </div>
-            <form action="pesquisar.php" method="get">
-                <div class="search-container">
-                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-                </div>
-            </form>
-                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
-                <div class="perfil_btn" id="perfilBtn">
-                    <div class="perfil_menu font-1-m" id="perfilMenu">
-                        <a href="./perfil.php">Meu perfil</a>
-                        <a href="./logout.php">Sair da conta</a>
-                    </div>
-                </div>
-        </header>
-            
-            <div id="popupBg" class="popup-bg">
+
+        </div>
+        <form action="pesquisar.php" method="get">
+            <div class="search-container">
+                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+            </div>
+        </form>
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
+        <div class="perfil_btn" id="perfilBtn">
+            <div class="perfil_menu font-1-m" id="perfilMenu">
+                <a href="./perfil.php">Meu perfil</a>
+                <a href="./logout.php">Sair da conta</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="popupBg" class="popup-bg">
         <div id="popupLogin" class="popup">
             <div class="popup-content">
                 <span class="close" onclick="closeLogin()">&times;</span>
@@ -114,193 +116,193 @@ require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.
     </div>
 
     <article class="grid item-unico">
-    <?php
-// Verifica se o parâmetro 'id' está presente na URL
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
+        <?php
+        // Verifica se o parâmetro 'id' está presente na URL
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
 
-    // Filtra o array de produtos para encontrar o produto com o ID correspondente
-    $produtoEncontrado = null;
-    foreach ($produtos as $produto) {
-        if ($produto->id == $id) {
-            $produtoEncontrado = $produto;
-            break;
-        }
-    }
+            // Filtra o array de produtos para encontrar o produto com o ID correspondente
+            $produtoEncontrado = null;
+            foreach ($produtos as $produto) {
+                if ($produto->id == $id) {
+                    $produtoEncontrado = $produto;
+                    break;
+                }
+            }
 
-    // Verifica se o produto foi encontrado
-    if ($produtoEncontrado) {
-        // Exibe apenas o produto encontrado
+            // Verifica se o produto foi encontrado
+            if ($produtoEncontrado) {
+                // Exibe apenas o produto encontrado
         ?>
-        <div class="item-section">
-            <div class="item-opcoes">
-                <?php $imagePath = 'uploads/' . htmlspecialchars($produtoEncontrado->image_path); ?>
-                <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
-            </div>
-            <div class="item-content">
-                <h1 class="font-1-xxl"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
-                <div class="info-content">
-                    <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
-                    <p class="font-2-l">4,8</p>
-                    <p class="font-2-l">300 vendidos</p>
-                </div>
-                <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produtoEncontrado->valor) ?></h2>
-                <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
-                <h2 class="font-1-l">Variante do produto</h2>
-                <div class="variante-prod">
-                    <form class="opcoes-tamanho" action="">
-                        <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
-                        <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
-                            <option value="p">Único</option>
-                            <!-- <option value="m">M</option>
+                <div class="item-section">
+                    <div class="item-opcoes">
+                        <?php $imagePath = 'uploads/' . htmlspecialchars($produtoEncontrado->image_path); ?>
+                        <img class="" src="<?= $imagePath ?>" alt="Imagem do Produto">
+                    </div>
+                    <div class="item-content">
+                        <h1 class="font-1-xxl"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+                        <div class="info-content">
+                            <img src="./imagem/estrela-amarela.svg" alt="Estrela Avaliação">
+                            <p class="font-2-l">4,8</p>
+                            <p class="font-2-l">300 vendidos</p>
+                        </div>
+                        <h2 class="font-1-xxl cor-p6"><?= htmlspecialchars($produtoEncontrado->valor) ?></h2>
+                        <p class="font-1-s cor-6 p-after"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
+                        <h2 class="font-1-l">Variante do produto</h2>
+                        <div class="variante-prod">
+                            <form class="opcoes-tamanho" action="">
+                                <label class="font-1-m cor-8" for="tamanho">Tamanho</label>
+                                <select class="font-1-m-b cor-8 op-tamanhos" id="tamanho" name="tamanho">
+                                    <option value="p">Único</option>
+                                    <!-- <option value="m">M</option>
                             <option value="g">G</option>
                             <option value="gg">GG</option> -->
-                        </select>
-                    </form>
-                    <form class="opcoes-cor opcoes-tamanho" action="">
-                        <label class="font-1-m cor-8" for="cor">Cor</label>
-                        <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
-                            <option value="preto">Única</option>
-                            <!-- <option value="preto">Preto</option>
+                                </select>
+                            </form>
+                            <form class="opcoes-cor opcoes-tamanho" action="">
+                                <label class="font-1-m cor-8" for="cor">Cor</label>
+                                <select class="font-1-m-b cor-8 op-tamanhos" id="cor" name="cor">
+                                    <option value="preto">Única</option>
+                                    <!-- <option value="preto">Preto</option>
                             <option value="cinza">Cinza</option> -->
-                        </select>
-                    </form>
-                </div>
-                <div class="btn-item">
-                    <form action="./comprar_agora.php" method="post">
-                        <input type="hidden" name="produto_id" value="<?= htmlspecialchars($produtoEncontrado->id); ?>">
-                        <button class="btn_cheio btn_adc" type="submit">Comprar Agora</button>
-                    </form>
-                    <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
-                </div>
+                                </select>
+                            </form>
+                        </div>
+                        <div class="btn-item">
+                            <form action="./comprar_agora.php" method="post">
+                                <input type="hidden" name="produto_id" value="<?= htmlspecialchars($produtoEncontrado->id); ?>">
+                                <button class="btn_cheio btn_adc" type="submit">Comprar Agora</button>
+                            </form>
+                            <button class="btn_vazado font-1-m-b" type="button">Adicionar ao Carrinho <img src="./imagem/adc-carrinho.svg" alt="Carrinho"></button>
+                        </div>
 
-            </div>
-        </div>
+                    </div>
+                </div>
+            <?php
+            } else {
+                // Caso o produto não seja encontrado, exibe uma mensagem
+            ?>
+                <p>Produto não encontrado.</p>
+            <?php
+            }
+        } else {
+            // Se o parâmetro 'id' não estiver presente na URL, exibe uma mensagem
+            ?>
+            <p>ID do produto não especificado.</p>
         <?php
-    } else {
-        // Caso o produto não seja encontrado, exibe uma mensagem
+        }
         ?>
-        <p>Produto não encontrado.</p>
-        <?php
-    }
-} else {
-    // Se o parâmetro 'id' não estiver presente na URL, exibe uma mensagem
-    ?>
-    <p>ID do produto não especificado.</p>
-    <?php
-}
-?>
-    <div class="detalhe-produto">
-        <h2 class="cor-p1 font-2-l-b linha">Detalhes do Produto</h2>
-        <h1 class="font-1-xl mgb-8px"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
-        <p class="font-1-s cor-6 mgb-24px"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
-        <h2 class="font-2-l-b cor-p1">Avaliações</h2>
-        
-        <div class="avaliacoes">
-            <div class="avaliacoes-estrelas">
-                <div class="avaliacoes-estrelas_part1">
-                    <div class="part1-circle">
-                        <h2 class="font-1-l">4,8</h2>
-                    </div>
-                    <div class="part1-stars">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <p class="font-2-s">280 avaliações</p>
-                    </div>
-                </div>
-                <div class="avaliacoes-estrelas_part2">
-                    <div class="part2-topico">
-                        <div class="fl line5">
-                            <h2 class="font-1-l">5.0</h2>
-                            <img src="./imagem/estrela-amarela.svg" alt="">
-                        </div>
-                        <!-- linha com after na .fl -->
-                        <p class="font-2-s">180</p>
-                    </div>
-                    <div class="part2-topico">
-                        <div class="fl line4">
-                            <h2 class="font-1-l">4.0</h2>
-                            <img src="./imagem/estrela-amarela.svg" alt="">
-                        </div>
-                        <!-- linha com after na .fl -->
-                        <p class="font-2-s">40</p>
-                    </div>
-                    <div class="part2-topico">
-                        <div class="fl line3">
-                            <h2 class="font-1-l">3.0</h2>
-                            <img src="./imagem/estrela-amarela.svg" alt="">
-                        </div>
-                        <!-- linha com after na .fl -->
-                        <p class="font-2-s">30</p>
-                    </div>
-                    <div class="part2-topico">
-                        <div class="fl line2">
-                            <h2 class="font-1-l">2.0</h2>
-                            <img src="./imagem/estrela-amarela.svg" alt="">
-                        </div>
-                        <!-- linha com after na .fl -->
-                        <p class="font-2-s">20</p>
-                    </div>
-                    <div class="part2-topico">
-                        <div class="fl line1">
-                            <h2 class="font-1-l">1.0</h2>
-                            <img src="./imagem/estrela-amarela.svg" alt="">
-                        </div>
-                        <!-- linha com after na .fl -->
-                        <p class="font-2-s">10</p>
-                    </div>
-                </div>
-            </div>
-            <div class="avaliacoes-comentarios">
-                <h2 class="font-2-l-b">Comentários</h2>
-                
-                <div class="comentario-usuario">
-                    <div class="usuario-stars">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                    </div>
-                    <p class="font-2-l">Muito confortável e não fica com mal odor.</p>
-                    <p class="font-1-s cor-5 mgb-8px">07 março 2024</p>
-                    <div class="usuario-img">
-                        <img src="./imagem/user.svg" alt="">
-                        <p class="font-1-m">Nome do usuário</p>
-                    </div>
-                </div>
+        <div class="detalhe-produto">
+            <h2 class="cor-p1 font-2-l-b linha">Detalhes do Produto</h2>
+            <h1 class="font-1-xl mgb-8px"><?= htmlspecialchars($produtoEncontrado->nome) ?></h1>
+            <p class="font-1-s cor-6 mgb-24px"><?= htmlspecialchars($produtoEncontrado->descricao) ?></p>
+            <h2 class="font-2-l-b cor-p1">Avaliações</h2>
 
-                <div class="comentario-usuario">
-                    <div class="usuario-stars">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
-                        <img src="./imagem/estrela-amarela.svg" alt="">
+            <div class="avaliacoes">
+                <div class="avaliacoes-estrelas">
+                    <div class="avaliacoes-estrelas_part1">
+                        <div class="part1-circle">
+                            <h2 class="font-1-l">4,8</h2>
+                        </div>
+                        <div class="part1-stars">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <p class="font-2-s">280 avaliações</p>
+                        </div>
                     </div>
-                    <p class="font-2-l">Muito confortável e não fica com mal odor.</p>
-                    <p class="font-1-s cor-5 mgb-8px">07 março 2024</p>
-                    <div class="usuario-img">
-                        <img src="./imagem/user.svg" alt="">
-                        <p class="font-1-m">Nome do usuário</p>
+                    <div class="avaliacoes-estrelas_part2">
+                        <div class="part2-topico">
+                            <div class="fl line5">
+                                <h2 class="font-1-l">5.0</h2>
+                                <img src="./imagem/estrela-amarela.svg" alt="">
+                            </div>
+                            <!-- linha com after na .fl -->
+                            <p class="font-2-s">180</p>
+                        </div>
+                        <div class="part2-topico">
+                            <div class="fl line4">
+                                <h2 class="font-1-l">4.0</h2>
+                                <img src="./imagem/estrela-amarela.svg" alt="">
+                            </div>
+                            <!-- linha com after na .fl -->
+                            <p class="font-2-s">40</p>
+                        </div>
+                        <div class="part2-topico">
+                            <div class="fl line3">
+                                <h2 class="font-1-l">3.0</h2>
+                                <img src="./imagem/estrela-amarela.svg" alt="">
+                            </div>
+                            <!-- linha com after na .fl -->
+                            <p class="font-2-s">30</p>
+                        </div>
+                        <div class="part2-topico">
+                            <div class="fl line2">
+                                <h2 class="font-1-l">2.0</h2>
+                                <img src="./imagem/estrela-amarela.svg" alt="">
+                            </div>
+                            <!-- linha com after na .fl -->
+                            <p class="font-2-s">20</p>
+                        </div>
+                        <div class="part2-topico">
+                            <div class="fl line1">
+                                <h2 class="font-1-l">1.0</h2>
+                                <img src="./imagem/estrela-amarela.svg" alt="">
+                            </div>
+                            <!-- linha com after na .fl -->
+                            <p class="font-2-s">10</p>
+                        </div>
                     </div>
                 </div>
+                <div class="avaliacoes-comentarios">
+                    <h2 class="font-2-l-b">Comentários</h2>
 
-                <div class="limitador">
-                    <div class="limitador-item font-2-l-b">1</div>
-                    <div class="limitador-item font-2-l-b">2</div>
-                    <div class="limitador-item font-2-l-b">...</div>
-                    <div class="limitador-item font-2-l-b">10</div>
+                    <div class="comentario-usuario">
+                        <div class="usuario-stars">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                        </div>
+                        <p class="font-2-l">Muito confortável e não fica com mal odor.</p>
+                        <p class="font-1-s cor-5 mgb-8px">07 março 2024</p>
+                        <div class="usuario-img">
+                            <img src="./imagem/user.svg" alt="">
+                            <p class="font-1-m">Nome do usuário</p>
+                        </div>
+                    </div>
 
+                    <div class="comentario-usuario">
+                        <div class="usuario-stars">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                            <img src="./imagem/estrela-amarela.svg" alt="">
+                        </div>
+                        <p class="font-2-l">Muito confortável e não fica com mal odor.</p>
+                        <p class="font-1-s cor-5 mgb-8px">07 março 2024</p>
+                        <div class="usuario-img">
+                            <img src="./imagem/user.svg" alt="">
+                            <p class="font-1-m">Nome do usuário</p>
+                        </div>
+                    </div>
+
+                    <div class="limitador">
+                        <div class="limitador-item font-2-l-b">1</div>
+                        <div class="limitador-item font-2-l-b">2</div>
+                        <div class="limitador-item font-2-l-b">...</div>
+                        <div class="limitador-item font-2-l-b">10</div>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</article>    
-            
+    </article>
+
     <footer class="grid">
         <div class="logo">
             <img src="./imagem/BrazilStore.svg" alt="">
@@ -341,24 +343,25 @@ if (isset($_GET['id'])) {
 
 
     <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+        document.addEventListener('DOMContentLoaded', function() {
+            const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
 
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const productId = button.getAttribute('data-product-id');
-            addToCart(productId);
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = button.getAttribute('data-product-id');
+                    addToCart(productId);
+                });
+            });
+
+            function addToCart(productId) {
+                // Aqui você adicionaria o produto ao carrinho
+                console.log('Produto adicionado ao carrinho:', productId);
+                // Você pode adicionar mais lógica aqui, como exibir uma mensagem de confirmação
+            }
         });
-    });
-
-    function addToCart(productId) {
-        // Aqui você adicionaria o produto ao carrinho
-        console.log('Produto adicionado ao carrinho:', productId);
-        // Você pode adicionar mais lógica aqui, como exibir uma mensagem de confirmação
-    }
-});
-</script>
+    </script>
 
 
 </body>
+
 </html>

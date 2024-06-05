@@ -1,25 +1,26 @@
 <?php
-    session_start();
-    require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+session_start();
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 
-    if (!isset($_SESSION['vendedor_id'])) {
-        echo "Você precisa estar logado para ver esta página.";
-        exit;
-    }
+if (!isset($_SESSION['vendedor_id'])) {
+    echo "Você precisa estar logado para ver esta página.";
+    exit;
+}
 
-    $vendedor = $_SESSION['vendedor_id'];
-    $vendedorDAO = new VendedorDAO();
-    $vendedor = $vendedorDAO->getVendedorById($vendedor);
+$vendedor = $_SESSION['vendedor_id'];
+$vendedorDAO = new VendedorDAO();
+$vendedor = $vendedorDAO->getVendedorById($vendedor);
 
 
-    if (!$vendedor) {
-        echo "Vendedor não encontrado.";
-        exit;
-    }
+if (!$vendedor) {
+    echo "Vendedor não encontrado.";
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="BrazilStore. Os melhores que está tendo!">
@@ -33,152 +34,154 @@
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
 </head>
+
 <body>
 
-        <header class="grid">
-            <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
-            <div class="categoria_btn" id="categoriaBtn">
-                <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
-                <div class="categoria_menu font-1-m" id="categoriaMenu">
-                    <a href="./eletronicos.php">Eletrônicos</a>
-                    <a href="./vestuario.php">Vestuário</a>
-                    <a href="./livros.php">Livros</a>
-                    <a href="./jogos.php">Jogos</a>
-                    <a href="./acessorios.php">Acessórios</a>
-                </div>
+    <header class="grid">
+        <a href="home.php"><img class="logo-header" src="./imagem/logo.svg" alt=""></a>
+        <div class="categoria_btn" id="categoriaBtn">
+            <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
+            <div class="categoria_menu font-1-m" id="categoriaMenu">
+                <a href="./eletronicos.php">Eletrônicos</a>
+                <a href="./vestuario.php">Vestuário</a>
+                <a href="./livros.php">Livros</a>
+                <a href="./jogos.php">Jogos</a>
+                <a href="./acessorios.php">Acessórios</a>
             </div>
-            <form action="" method="">
-                <div class="search-container">
-                    <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
-                    <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
-                </div>
-            </form>
-                <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-                <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
-        </header>
+        </div>
+        <form action="" method="">
+            <div class="search-container">
+                <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
+                <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
+            </div>
+        </form>
+        <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
+        <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
+    </header>
 
     <div class="linhau"></div>
 
     <div class="gridusuario">
-    <div class="meuperfil">
-        <div class="menu-user">
-            <div class="menu-nome">
-                <div class="imgperfil">
-                    <img src="imagem/perfiluser.svg" alt="User Profile Image">
+        <div class="meuperfil">
+            <div class="menu-user">
+                <div class="menu-nome">
+                    <div class="imgperfil">
+                        <img src="imagem/perfiluser.svg" alt="User Profile Image">
+                    </div>
+                    <div class="nomeusuario">
+                        <label class="font-1-m">Nome do usuário</label>
+                        <a href="#" class="font-1-s">
+                            <img src="imagem/lapis.svg" alt="Edit Icon">Editar Perfil
+                        </a>
+                    </div>
                 </div>
-                <div class="nomeusuario">
-                    <label class="font-1-m">Nome do usuário</label>
-                    <a href="#" class="font-1-s">
-                        <img src="imagem/lapis.svg" alt="Edit Icon">Editar Perfil
-                    </a>
+                <div class="minha-conta">
+                    <div class="minhacontabtn">
+                        <img src="imagem/perfilMinhaConta.svg" alt="Account Icon">
+                        <p class="font-1-m">Minha Conta</p>
+                    </div>
+                    <div class="perfil-end">
+                        <ul>
+                            <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
+                            <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="minha-conta">
-                <div class="minhacontabtn">
-                    <img src="imagem/perfilMinhaConta.svg" alt="Account Icon">
-                    <p class="font-1-m">Minha Conta</p>
+                <div class="minhas-compras">
+                    <img src="imagem/compras.svg" alt="Purchases Icon">
+                    <p class="font-1-m">Compras</p>
                 </div>
-                <div class="perfil-end">
+                <div class="minhas-compras-texto">
+                    <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
+                </div>
+                <div class="minha-loja">
+                    <img src="imagem/Minha-loja.svg" alt="Store Icon">
+                    <p class="font-1-m" href="listar_produtos_teste.php">Vendedor</p>
+                </div>
+                <div class="loja-venda">
                     <ul>
-                        <li class="font-1-s"><a href="perfil.php">Perfil</a></li>
-                        <li class="font-1-s"><a href="endereco-cliente.php">Endereço</a></li>
+                        <li class="font-1-s"><a href="Perfil-vendedor.php">Perfil vendedor</a></li>
+                        <li class="font-1-s"><a href="meus_produtos.php">Meus Produtos</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="minhas-compras">
-                <img src="imagem/compras.svg" alt="Purchases Icon">
-                <p class="font-1-m" >Compras</p>
-            </div>
-            <div class="minhas-compras-texto">
-                <a class="font-1-s" href="Minhas Compras.html">Minhas Compras</a>
-            </div>
-            <div class="minha-loja">
-                <img src="imagem/Minha-loja.svg" alt="Store Icon">
-                <p class="font-1-m" href="listar_produtos_teste.php">Vendedor</p>
-            </div>
-            <div class="loja-venda">
-                <ul>
-                    <li class="font-1-s"><a href="Perfil-vendedor.php">Perfil vendedor</a></li>
-                    <li class="font-1-s"><a href="meus_produtos.php">Meus Produtos</a></li>
-                </ul>
-            </div>
         </div>
-    </div>
 
-    <div class="perfil">
-    <div class="perfil-texto">
-        <h1 class="font-2-l">Meu Perfil</h1>
-        <p class="font-1-s">Gerenciar e proteger sua conta</p>
-        <div class="linhau"></div>
-    </div>
-    <div class="painelperfil">          
-        <div class="meu-perfil">
-            <div class="campo-usuario">
-                <label class="font-1-s">Nome Completo</label>
-                <span class="font-1-s"><?= htmlspecialchars($vendedor->nome) ?></span>
+        <div class="perfil">
+            <div class="perfil-texto">
+                <h1 class="font-2-l">Meu Perfil</h1>
+                <p class="font-1-s">Gerenciar e proteger sua conta</p>
+                <div class="linhau"></div>
             </div>
-            <div class="campo-usuario">
-                <label class="font-1-s">Email</label>
-                <span class="font-1-s"><?= htmlspecialchars($vendedor->email) ?></span>
-            </div>
-            <div class="campo-usuario">
-                <label class="font-1-s">Telefone</label>
-                <span class="font-1-s"><?= htmlspecialchars($vendedor->telefone) ?></span>
-            </div>
-            <div class="campo-usuario">
-                <label class="font-1-s">CPF</label>
-                <span class="font-1-s"><?= htmlspecialchars($vendedor->cpf) ?></span>
-            </div>     
-        </div>
-        <div class="adicionar-perfil">
-            <img src="imagem/user.svg" alt="">
-            <div class="btn-perfil">
-                <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
-                <input id="file-upload" class="file" type="file" accept="image/*">
-            </div>
-        </div>
-    </div>
-</div>
-</div>
-
-
-<footer class="grid">
-            <div class="logo">
-                <img src="./imagem/BrazilStore.svg" alt="">
-            </div>
-            <div class="contato">
-                <h2 class="font-2-l">CONTATO</h2>
-                <ul class="font-2-m">
-                    <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
-                    <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
-                    <div class="linha"></div>
-                    <li>Rua Ali Perto, 69 - Pirajá</li>
-                    <li>Juazeiro do Norte - CE</li>
-                    <div class="linha"></div>
-                    <div class="redes-sociais">
-                        <!-- instagram -->
-                        <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
-                        <!-- facebook -->
-                        <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
-                        <!-- youtube -->
-                        <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
+            <div class="painelperfil">
+                <div class="meu-perfil">
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Nome Completo</label>
+                        <span class="font-1-s"><?= htmlspecialchars($vendedor->nome) ?></span>
                     </div>
-                </ul>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Email</label>
+                        <span class="font-1-s"><?= htmlspecialchars($vendedor->email) ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">Telefone</label>
+                        <span class="font-1-s"><?= htmlspecialchars($vendedor->telefone) ?></span>
+                    </div>
+                    <div class="campo-usuario">
+                        <label class="font-1-s">CPF</label>
+                        <span class="font-1-s"><?= htmlspecialchars($vendedor->cpf) ?></span>
+                    </div>
+                </div>
+                <div class="adicionar-perfil">
+                    <img src="imagem/user.svg" alt="">
+                    <div class="btn-perfil">
+                        <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
+                        <input id="file-upload" class="file" type="file" accept="image/*">
+                    </div>
+                </div>
             </div>
-            <div class="informacoes">
-                <h2 class="font-2-l">INFORMAÇÕES</h2>
-                <ul class="font-2-m">
-                    <li><a href="./">Eletrônicos</a></li>
-                    <li><a href="./">Vestuário</a></li>
-                    <li><a href="./">Livros</a></li>
-                    <li><a href="./">Jogos</a></li>
-                    <li><a href="./termos.php">Termos e Condições</a></li>
-                </ul>
-            </div>
-            <div class="cop">
-                <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
-            </div>
-        </footer>
+        </div>
+    </div>
+
+
+    <footer class="grid">
+        <div class="logo">
+            <img src="./imagem/BrazilStore.svg" alt="">
+        </div>
+        <div class="contato">
+            <h2 class="font-2-l">CONTATO</h2>
+            <ul class="font-2-m">
+                <li><a href="wa.me/+5587999999999" target="_blank">+55 88 9999-9999</a></li>
+                <li><a href="mailto:contato@brazilstore.com" target="_blank">contato@brazilstore.com</a></li>
+                <div class="linha"></div>
+                <li>Rua Ali Perto, 69 - Pirajá</li>
+                <li>Juazeiro do Norte - CE</li>
+                <div class="linha"></div>
+                <div class="redes-sociais">
+                    <!-- instagram -->
+                    <a href="./" target="_blank"><img src="./imagem/instagram.svg" alt=""></a>
+                    <!-- facebook -->
+                    <a href="./" target="_blank"><img src="./imagem/facebook.svg" alt=""></a>
+                    <!-- youtube -->
+                    <a href="./" target="_blank"><img src="./imagem/youtube.svg" alt=""></a>
+                </div>
+            </ul>
+        </div>
+        <div class="informacoes">
+            <h2 class="font-2-l">INFORMAÇÕES</h2>
+            <ul class="font-2-m">
+                <li><a href="./">Eletrônicos</a></li>
+                <li><a href="./">Vestuário</a></li>
+                <li><a href="./">Livros</a></li>
+                <li><a href="./">Jogos</a></li>
+                <li><a href="./termos.php">Termos e Condições</a></li>
+            </ul>
+        </div>
+        <div class="cop">
+            <p class="font-2-m cor-10">BrazilStore © Alguns direitos reservados.</p>
+        </div>
+    </footer>
 
 </body>
+
 </html>
