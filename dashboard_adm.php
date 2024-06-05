@@ -2,7 +2,6 @@
 
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/AdiminDAO.php');
 
-// Processar a requisição de exclusão de usuário ou envio de alerta
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['acao'])) {
     $acao = $_POST['acao'];
     $usuariosDAO = new AdiminDAO();
@@ -202,20 +201,19 @@ $produtos = $usuariosDAO->VerTodosProdutos();
         </div>
     </div>
 
-    <!-- Modal para enviar alerta -->
-    <div id="modalAlerta" class="modal" style="display:none;">
-        <div class="modal-content">
-            <span class="close" onclick="fecharModalAlerta()">&times;</span>
-            <h2>Enviar Alerta</h2>
-            <form id="formAlerta" method="POST">
-                <input type="hidden" name="acao" value="enviarAlerta">
-                <input type="hidden" name="id" id="idAlerta">
-                <input type="hidden" name="tipo" id="tipoAlerta">
-                <label for="mensagem_alerta">Mensagem:</label>
-                <textarea id="mensagem_alerta" name="mensagem_alerta" rows="4" cols="50"></textarea><br>
-                <input type="submit" value="Enviar Alerta">
-            </form>
-        </div>
+<!-- Modal para enviar alerta -->
+<div id="modalAlerta" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close" onclick="fecharModalAlerta()">&times;</span>
+        <h2 class="font-1-l">Enviar Alerta</h2>
+        <form id="formAlerta" method="POST">
+            <input type="hidden" name="acao" value="enviarAlerta">
+            <input type="hidden" name="id" id="idAlerta">
+            <input type="hidden" name="tipo" id="tipoAlerta">
+            <label class='font-1-s' for="mensagem_alerta">Mensagem:</label>
+            <textarea id="mensagem_alerta" name="mensagem_alerta" rows="4" cols="50"></textarea><br>
+            <input class="btn-alertaa" type="submit" value="Enviar Alerta">
+        </form>
     </div>
 
     <!-- Formulário oculto para exclusão de usuário -->
