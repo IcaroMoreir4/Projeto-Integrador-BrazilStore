@@ -1,8 +1,7 @@
 <?php
 
-require_once('.//Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Produto;
+require_once('../../classes/comercio/produto.php');
 
 class ProdutoDAO {
     private $entityManager;
@@ -21,7 +20,7 @@ class ProdutoDAO {
     }
 
     public function update(Produto $produto) {
-        $this->entityManager->merge($produto);
+        $this->entityManager->merge.($produto);
         $this->entityManager->flush();
     }
 
@@ -102,3 +101,6 @@ class ProdutoDAO {
     }
 }
 ?>
+
+
+]

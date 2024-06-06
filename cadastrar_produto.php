@@ -1,7 +1,8 @@
 <?php
-require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/produto.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/classes/comercio/Produto.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
 require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/bootstrap.php'); // Adicionando o bootstrap do Doctrine
 
 function getUploadPath($fileName) {
     $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/projeto-pi/Projeto-Integrador-BrazilStore/uploads/';
@@ -23,7 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $id_vendedor = $_SESSION['vendedor_id'];
 
         if (!empty($nome) && !empty($valor) && !empty($descricao) && !empty($categoria) && !empty($peso) && !empty($tipo_entrega) && !empty($id_vendedor)) {
-            $vendedorDAO = new VendedorDAO();
+            $entityManager = getEntityManager(); // Obtendo a instância do EntityManager
+            
+            $vendedorDAO = new VendedorDAO($entityManager);
             
             if ($vendedorDAO->exists($id_vendedor)) {
                 if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
@@ -33,10 +36,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     if (move_uploaded_file($_FILES['imagem']['tmp_name'], $uploadFile)) {
                         $uploadPath = getUploadPath($_FILES['imagem']['name']);
                         
-                        $produto = new Produto($nome, $valor, $descricao, $categoria, $peso, $tipo_entrega, $id_vendedor);
+                        $produto = new App\Entity\Produto($nome, $valor, $descricao, $categoria, $peso, $tipo_entrega, $id_vendedor); // Corrigindo o namespace da entidade Produto
                         $produto->setImagePath($_FILES['imagem']['name']);
-                        $produtoDao = new ProdutoDAO();
-                        $produtoDao->AdicionarProduto($produto);
+                        $produtoDao = new ProdutoDAO($entityManager);
+                        $produtoDao->create($produto);
 
                         header('Location: meus_produtos.php');
                         exit();
