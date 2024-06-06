@@ -1,45 +1,93 @@
 <?php
 
-class endereco{
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="endereco")
+ */
+class Endereco
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     protected $id;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $id_cliente;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $nome_comp;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $telefone_end;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $logradouro;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $numero;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $bairro;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $cep;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $nome_cidade;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $nome_estado;
-    
-    public function __construct($id, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep,$nome_cidade, $nome_estado){
-        $this-> id = $id;
-        $this-> id_cliente = $id_cliente;
-        $this-> nome_comp = $nome_comp;
-        $this-> telefone_end = $telefone_end;
-        $this-> logradouro = $logradouro;
-        $this-> numero = $numero;
-        $this-> bairro = $bairro;
-        $this-> cep = $cep;
-        $this-> nome_cidade = $nome_cidade;
-        $this-> nome_estado = $nome_estado;
+
+    // Método construtor
+    public function __construct($id, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado){
+        $this->id = $id;
+        $this->id_cliente = $id_cliente;
+        $this->nome_comp = $nome_comp;
+        $this->telefone_end = $telefone_end;
+        $this->logradouro = $logradouro;
+        $this->numero = $numero;
+        $this->bairro = $bairro;
+        $this->cep = $cep;
+        $this->nome_cidade = $nome_cidade;
+        $this->nome_estado = $nome_estado;
     }
 
-
-    //Getters
+    // Métodos getters
     public function getId(){
         return $this->id;
     }
 
-    public function getId_cliente(){
+    public function getIdCliente(){
         return $this->id_cliente;
     }
 
-    public function getNome_comp(){
+    public function getNomeComp(){
         return $this->nome_comp;
     }
 
-    public function getTelefone_end(){
+    public function getTelefoneEnd(){
         return $this->telefone_end;
     }
 
@@ -59,53 +107,53 @@ class endereco{
         return $this->cep;
     }
 
-    public function getNome_cidade(){
+    public function getNomeCidade(){
         return $this->nome_cidade;
     }
 
-    public function getNome_estado(){
+    public function getNomeEstado(){
         return $this->nome_estado;
     }
 
-
-    //Setters
+    // Métodos setters
     public function setId($id){
-        $this-> id = $id;
+        $this->id = $id;
     }
 
-    public function setId_cliente($id_cliente){
-        $this-> id_cliente = $id_cliente;
+    public function setIdCliente($id_cliente){
+        $this->id_cliente = $id_cliente;
     }
 
-    public function setNome_comp($nome_comp){
-        $this-> nome_comp = $nome_comp;
+    public function setNomeComp($nome_comp){
+        $this->nome_comp = $nome_comp;
     }
 
-    public function setTelefone_end($telefone_end){
-        $this-> telefone_end = $telefone_end;
+    public function setTelefoneEnd($telefone_end){
+        $this->telefone_end = $telefone_end;
     }
 
     public function setLogradouro($logradouro){
-        $this-> logradouro = $logradouro;
+        $this->logradouro = $logradouro;
     }
 
     public function setNumero($numero){
-        $this-> numero = $numero;
+        $this->numero = $numero;
     }
 
     public function setBairro($bairro){
-        $this-> bairro = $bairro;
+        $this->bairro = $bairro;
     }
 
     public function setCep($cep){
-        $this-> cep = $cep;
+        $this->cep = $cep;
     }
 
-    public function setNome_cidade($nome_cidade){
-        $this-> nome_cidade = $nome_cidade;
+    public function setNomeCidade($nome_cidade){
+        $this->nome_cidade = $nome_cidade;
     }
 
-    public function setNome_estado($nome_estado){
-        $this-> nome_estado = $nome_estado;
+    public function setNomeEstado($nome_estado){
+        $this->nome_estado = $nome_estado;
     }
 }
+?>

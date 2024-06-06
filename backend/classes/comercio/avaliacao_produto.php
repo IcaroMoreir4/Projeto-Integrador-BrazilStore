@@ -1,72 +1,90 @@
 <?php
 
-class avaliacao_produto{
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="avaliacao_produto")
+ */
+class AvaliacaoProduto {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     protected $id;
+
+    /** @ORM\Column(type="datetime") */
     protected $data;
-    protected $quant_estrela;
+
+    /** @ORM\Column(type="integer") */
+    protected $quantEstrela;
+
+    /** @ORM\Column(type="text") */
     protected $comentario;
-    protected $id_produto;
-    protected $id_pedido;
 
-    public function __construct($id, $data, $quant_estrela, $comentario, $id_produto, $id_pedido){
-        $this-> id = $id;
-        $this-> data = $data;
-        $this-> quant_estrela = $quant_estrela;
-        $this-> comentario = $comentario;
-        $this-> id_produto = $id_produto;
-        $this-> id_pedido = $id_pedido;
+    /** @ORM\Column(type="integer") */
+    protected $idProduto;
+
+    /** @ORM\Column(type="integer") */
+    protected $idPedido;
+
+    public function __construct($data, $quantEstrela, $comentario, $idProduto, $idPedido) {
+        $this->data = $data;
+        $this->quantEstrela = $quantEstrela;
+        $this->comentario = $comentario;
+        $this->idProduto = $idProduto;
+        $this->idPedido = $idPedido;
     }
 
-
-    //Getters
-    public function getId(){
-        return $this-> id;
+    // Getters
+    public function getId() {
+        return $this->id;
     }
 
-    public function getQuant_estrela(){
-        return $this-> quant_estrela;
+    public function getData() {
+        return $this->data;
     }
 
-    public function getData(){
-        return $this-> data;
+    public function getQuantEstrela() {
+        return $this->quantEstrela;
     }
 
-    public function getComentario(){
-        return $this-> comentario;
+    public function getComentario() {
+        return $this->comentario;
     }
 
-    public function getId_produto(){
-        return $this-> id_produto;
+    public function getIdProduto() {
+        return $this->idProduto;
     }
 
-    public function getId_pedido(){
-        return $this-> id_pedido;
+    public function getIdPedido() {
+        return $this->idPedido;
     }
 
-
-    //Setters
-    public function setId($id){
-        $this-> id = $id;
+    // Setters
+    public function setId($id) {
+        $this->id = $id;
     }
 
-    public function setQaunt_estrela($quant_estrela){
-        $this-> quant_estrela = $quant_estrela;
-    }
-    
-    public function setData($date){
-        $this-> data = $data;
+    public function setData($data) {
+        $this->data = $data;
     }
 
-    public function setComentario($comentario){
-        $this-> comentario = $comentario;
+    public function setQuantEstrela($quantEstrela) {
+        $this->quantEstrela = $quantEstrela;
     }
 
-    public function setId_produto($id_produto){
-        $this-> id_produto = $id_produto;
+    public function setComentario($comentario) {
+        $this->comentario = $comentario;
     }
 
-    public function setId_pedido($id_pedido){
-        $this-> id_pedido = $id_pedido;
+    public function setIdProduto($idProduto) {
+        $this->idProduto = $idProduto;
+    }
+
+    public function setIdPedido($idPedido) {
+        $this->idPedido = $idPedido;
     }
 }
 ?>

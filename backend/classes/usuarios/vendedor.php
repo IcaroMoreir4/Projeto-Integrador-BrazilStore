@@ -1,78 +1,108 @@
 <?php
-require_once('usuarios.php');
+use Doctrine\ORM\Mapping as ORM;
 
-class vendedor extends usuario{
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="vendedores")
+ */
+class Vendedor {
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $nome;
+
+    /**
+     * @ORM\Column(type="string", length=255, unique=true)
+     */
+    protected $email;
+
+    /**
+     * @ORM\Column(type="string", length=14, unique=true)
+     */
+    protected $cpf;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    protected $senha;
+
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    protected $telefone;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $id_endereco;
-    public function __construct($nome, $email, $cpf, $senha, $telefone){
-        $this-> nome = $nome;
-        $this-> email = $email;
-        $this-> cpf = $cpf;
-        $this-> senha = $senha;
-        $this-> telefone = $telefone;
-    }
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    protected $alerta;
 
-    //Getters
+    // Getters e Setters
     public function getId(){
-        return $this-> id;
+        return $this->id;
     }
 
     public function getNome(){
-        return $this-> nome;
+        return $this->nome;
+    }
+
+    public function setNome($nome){
+        $this->nome = $nome;
     }
 
     public function getEmail(){
-        return $this-> email;
+        return $this->email;
+    }
+
+    public function setEmail($email){
+        $this->email = $email;
     }
 
     public function getCpf(){
-        return $this-> cpf;
+        return $this->cpf;
+    }
+
+    public function setCpf($cpf){
+        $this->cpf = $cpf;
     }
 
     public function getSenha(){
-        return $this-> senha;
+        return $this->senha;
+    }
+
+    public function setSenha($senha){
+        $this->senha = $senha;
     }
 
     public function getTelefone(){
-        return $this-> telefone;
+        return $this->telefone;
+    }
+
+    public function setTelefone($telefone){
+        $this->telefone = $telefone;
     }
 
     public function getId_endereco(){
-        return $this-> id_endereco;
+        return $this->id_endereco;
+    }
+
+    public function setId_endereco($id_endereco){
+        $this->id_endereco = $id_endereco;
     }
 
     public function getAlerta(){
         return $this->alerta;
-    }
-
-
-    //Setters
-    public function setId($id){
-        $this-> id = $id;
-    }
-
-    public function setNome($nome){
-        $this-> nome = $nome;
-    }
-
-    public function setEmail($email){
-        $this-> email = $email;
-    }
-
-    public function setCpf($cpf){
-        $this-> cpf = $cpf;
-    }
-
-    public function setSenha($senha){
-        $this-> senha = $senha;
-    }
-
-    public function setTelefone($telefone){
-        $this-> telefone = $telefone;
-    }
-
-    public function setId_endereco($id_endereco){
-        $this-> id_endereco = $id_endereco;
     }
 
     public function setAlerta($alerta){

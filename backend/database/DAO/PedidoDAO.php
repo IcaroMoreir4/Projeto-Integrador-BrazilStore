@@ -1,70 +1,72 @@
 <?php
-require_once(__DIR__ . '/../conexao.php');
-require_once(__DIR__ . '/../../classes/comercio/pedido.php');
-require_once(__DIR__ . '/../../database/DAO/ClienteDAO.php');
 
-class PedidoDAO{
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 
-    public function create($pedido){
-        $sql = 'INSERT INTO comercio.pedido (id_carrinho, data, status) VALUES (?, ?, ?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $pedido->getId_carrinho());
-        $stmt->bindValue(2, $pedido->getData());
-        $stmt->bindValue(3, $pedido->getStatus());
-        $stmt->execute();
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../config/doctrine.php');
+require_once(__DIR__ . '/../../classes/comercio/Pedido.php');
+
+class PedidoDAO {
+    private $entityManager;
+
+    public function __construct(EntityManager $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
-    public function read($pedido){
-        $sql = 'SELECT * FROM comercio.pedido';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    // Função para criar um novo pedido
+    public function create(Pedido $pedido) {
+        $this->entityManager->persist($pedido);
+        $this->entityManager->flush();
     }
 
-    public function update($pedido){
-        $sql = 'UPDATE comercio.pedido SET id_carrinho = ?, data = ?, status = ? WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $pedido->getId_carrinho());
-        $stmt->bindValue(2, $pedido->getData());
-        $stmt->bindValue(3, $pedido->getStatus());
-        $stmt->bindValue(4, $pedido->getId());
-        $stmt->execute();
-    }
-    
-    public function delete($pedido){
-        $sql = 'DELETE FROM comercio.pedido WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $pedido->getId());
-        $stmt->execute();
+    // Função para ler todos os pedidos
+    public function read() {
+        return $this->entityManager->getRepository(Pedido::class)->findAll();
     }
 
+    // Função para atualizar um pedido
+    public function update(Pedido $pedido) {
+        $this->entityManager->merge($pedido);
+        $this->entityManager->flush();
+    }
+
+    // Função para deletar um pedido
+    public function delete(Pedido $pedido) {
+        $pedidoToDelete = $this->entityManager->find(Pedido::class, $pedido->getId());
+        if ($pedidoToDelete) {
+            $this->entityManager->remove($pedidoToDelete);
+            $this->entityManager->flush();
+        }
+    }
+
+    // Função para listar pedidos por cliente
     public function listarPedidosPorCliente($id_cliente) {
-        $sql = "SELECT * FROM comercio.pedido WHERE id_cliente = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute([$id_cliente]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $this->entityManager->getRepository(Pedido::class)->findBy(['id_cliente' => $id_cliente]);
     }
 
-    public function valor_pedido($total){
-        $sql = 'INSERT INTO comercio.valor_pedido (total) values (?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $total);
-        $stmt->execute();
+    // Função para criar um valor de pedido
+    public function valor_pedido($total) {
+        $valorPedido = new ValorPedido();
+        $valorPedido->setTotal($total);
+        $this->entityManager->persist($valorPedido);
+        $this->entityManager->flush();
     }
 
-    public function atualizarFormaPagamento($forma_pagamento){
-        $sql = 'UPDATE comercio.pedido SET forma_pagamento = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $forma_pagamento);
-        $stmt->execute();
+    // Função para atualizar a forma de pagamento de um pedido
+    public function atualizarFormaPagamento(Pedido $pedido, $forma_pagamento) {
+        $pedido->setFormaPagamento($forma_pagamento);
+        $this->entityManager->merge($pedido);
+        $this->entityManager->flush();
     }
 
-    public function create_pedido($valor, $forma_pagamento){
-        $sql = 'INSERT INTO comercio.item_carrinho (valor, forma_pagamento) values (?, ?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $valor);
-        $stmt->bindValue(2, $forma_pagamento);
-        $stmt->execute();
+    // Função para criar um pedido com valor e forma de pagamento
+    public function create_pedido($valor, $forma_pagamento) {
+        $pedido = new Pedido();
+        $pedido->setValor($valor);
+        $pedido->setFormaPagamento($forma_pagamento);
+        $this->entityManager->persist($pedido);
+        $this->entityManager->flush();
     }
 }
 ?>

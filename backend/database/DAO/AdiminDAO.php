@@ -1,117 +1,90 @@
 <?php
 
-require_once(__DIR__ . '/../conexao.php');
-require_once(__DIR__ . '/../../classes/usuarios/admin.php');
-require_once(__DIR__ . '/../../classes/usuarios/usuarios.php');
-require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
-require_once(__DIR__ . '/../../classes/comercio/loja.php');
-require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../config/doctrine.php');
 
-class AdiminDAO {
-    public function create(Admin $admin) {
-        $sql = 'INSERT INTO usuario.adm (email, senha) VALUES (?, ?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $admin->getEmail());
-        $stmt->bindValue(2, $admin->getSenha());
-        $stmt->execute();
+class AdminDAO {
+    private $entityManager;
+
+    public function __construct(EntityManager $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
-    public function read(Admin $admin) {
-        $sql = "SELECT * FROM usuario.adm";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
+    public function create(Admin $admin) {
+        $this->entityManager->persist($admin);
+        $this->entityManager->flush();
+    }
 
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    public function read() {
+        return $this->entityManager->getRepository(Admin::class)->findAll();
     }
 
     public function update(Admin $admin) {
-        $sql = "UPDATE usuario.adm SET email = ?, senha = ? WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $admin->getEmail());
-        $stmt->bindValue(2, $admin->getSenha());
-        $stmt->bindValue(3, $admin->getId());
-        $stmt->execute();
+        $existingAdmin = $this->entityManager->find(Admin::class, $admin->getId());
+        if ($existingAdmin) {
+            $existingAdmin->setEmail($admin->getEmail());
+            $existingAdmin->setSenha($admin->getSenha());
+            $this->entityManager->flush();
+        }
     }
 
     public function delete($id) {
-        $sql = "DELETE FROM usuario.adm WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $id, PDO::PARAM_INT);
-        $stmt->execute();
+        $admin = $this->entityManager->find(Admin::class, $id);
+        if ($admin) {
+            $this->entityManager->remove($admin);
+            $this->entityManager->flush();
+        }
     }
 
     public function autenticar($email, $senha) {
-        $sql = 'SELECT * FROM usuario.adm WHERE email = :email AND senha = :senha';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if ($row) {
-            return $row['id'];
-        }
-        return null;
+        $admin = $this->entityManager->getRepository(Admin::class)->findOneBy([
+            'email' => $email,
+            'senha' => $senha
+        ]);
+        return $admin ? $admin->getId() : null;
     }
 
-    public function VerTodosUsuario() {
-        $sql = "SELECT * FROM usuario.cliente";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    public function VerTodosUsuarios() {
+        return $this->entityManager->getRepository(Usuario::class)->findAll();
     }
 
     public function VerTodosVendedores() {
-        $sql = 'SELECT * FROM comercio.vendedor';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $this->entityManager->getRepository(Vendedor::class)->findAll();
     }
 
     public function VerTodasLojas() {
-        $sql = 'SELECT * FROM comercio.loja';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
-    }
-    
-    public function delete_usuario($idUsuario) {
-        $sql = "DELETE FROM usuario.cliente WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $idUsuario, PDO::PARAM_INT);
-        return $stmt->execute();
+        return $this->entityManager->getRepository(Loja::class)->findAll();
     }
 
-    public function delete_vendedor($id_vendedor) {
-        $sql = "DELETE FROM  comercio.vendedor WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $id_vendedor, PDO::PARAM_INT);
-        return $stmt->execute();
+    public function deleteUsuario($idUsuario) {
+        $usuario = $this->entityManager->find(Usuario::class, $idUsuario);
+        if ($usuario) {
+            $this->entityManager->remove($usuario);
+            $this->entityManager->flush();
+        }
     }
-    //comercio.loja
 
-    public function delete_loja($id_loja) {
-        $sql = "DELETE FROM  comercio.loja WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $id_loja, PDO::PARAM_INT);
-        return $stmt->execute();
+    public function deleteVendedor($idVendedor) {
+        $vendedor = $this->entityManager->find(Vendedor::class, $idVendedor);
+        if ($vendedor) {
+            $this->entityManager->remove($vendedor);
+            $this->entityManager->flush();
+        }
     }
-    
+
+    public function deleteLoja($idLoja) {
+        $loja = $this->entityManager->find(Loja::class, $idLoja);
+        if ($loja) {
+            $this->entityManager->remove($loja);
+            $this->entityManager->flush();
+        }
+    }
 
     public function VerTodosProdutos() {
-        $sql = 'SELECT * FROM produto.produto';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+        return $this->entityManager->getRepository(Produto::class)->findAll();
     }
-    
-
-    
-
 }
 ?>

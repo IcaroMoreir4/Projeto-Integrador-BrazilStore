@@ -1,92 +1,66 @@
-<?php 
+<?php
 
-require_once(__DIR__ . '/../conexao.php');
-require_once(__DIR__ . '/../../classes/usuarios/vendedor.php');
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../config/doctrine.php');
+require_once(__DIR__ . '/../../classes/usuarios/Vendedor.php');
 
-class VendedorDAO{
-    public function create(Vendedor $vendedor){
-        $sql = 'INSERT INTO comercio.vendedor(nome,email,senha,telefone,cpf) values (?,?,?,?,?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $vendedor->getNome());
-        $stmt->bindValue(2, $vendedor->getEmail());
-        $stmt->bindValue(3, $vendedor->getSenha());
-        $stmt->bindValue(4, $vendedor->getTelefone());
-        $stmt->bindValue(5, $vendedor->getCpf());
-        $stmt->execute();
+class VendedorDAO {
+    private $entityManager;
 
-        return Conexao::getConn()->lastInsertId();
+    public function __construct(EntityManager $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
-    public function read(Vendedor $vendedor){
-        $sql = 'SELECT * FROM comercio.vendedor';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    public function create(Vendedor $vendedor) {
+        $this->entityManager->persist($vendedor);
+        $this->entityManager->flush();
+        return $vendedor->getId();
     }
 
-    public function uptade(Vendedor $vendedor){
-        $sql = 'UPTADE comercio.vendedor SET nome = ?, email = ?, senha = ?, telefone = ?, cpf = ?
-        where id = ? ';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $vendedor->getNome());
-        $stmt->bindValue(2, $vendedor->getEmail());
-        $stmt->bindValue(3, $vendedor->getSenha());
-        $stmt->bindValue(4, $vendedor->getTelefone());
-        $stmt->bindValue(5, $vendedor->getCpf());
-        $stmt->bindValue(6, $vendedor->getId());
-
-        $stmt->execute();
+    public function read() {
+        return $this->entityManager->getRepository(Vendedor::class)->findAll();
     }
 
-    public function delete(Vendedor $vendedor){
-        $sql = "DELETE FROM comercio.vendedor WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $vendedor->getId());
-        $stmt->execute();
+    public function update(Vendedor $vendedor) {
+        $this->entityManager->merge($vendedor);
+        $this->entityManager->flush();
+    }
+
+    public function delete(Vendedor $vendedor) {
+        $vendedorToDelete = $this->entityManager->find(Vendedor::class, $vendedor->getId());
+        if ($vendedorToDelete) {
+            $this->entityManager->remove($vendedorToDelete);
+            $this->entityManager->flush();
+        }
     }
 
     public function autenticar($email, $senha) {
-        $sql = 'SELECT * FROM comercio.vendedor WHERE email = ? AND senha = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $email);
-        $stmt->bindValue(2, $senha);
-        $stmt->execute();
-        if ($stmt->rowCount() > 0) {
-            return $stmt->fetch(PDO::FETCH_OBJ);
-        } else {
-            return false;
-        }
+        $vendedor = $this->entityManager->getRepository(Vendedor::class)->findOneBy([
+            'email' => $email,
+            'senha' => $senha
+        ]);
+
+        return $vendedor ? $vendedor : false;
     }
-    
 
     public function exists($id) {
-        $sql = 'SELECT COUNT(*) AS count FROM comercio.vendedor WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        return $result['count'] > 0;
+        $vendedor = $this->entityManager->find(Vendedor::class, $id);
+        return $vendedor !== null;
     }
 
     public function getVendedorById($id) {
-        $sql = 'SELECT * FROM comercio.vendedor WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $id);
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_OBJ);
+        return $this->entityManager->find(Vendedor::class, $id);
     }
 
-    public function enviarAlerta($idCliente, $mensagem) {
-        $sql = 'UPDATE comercio.vendedor  SET alerta = ? WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $mensagem);
-        $stmt->bindValue(2, $idCliente, PDO::PARAM_INT);
-        return $stmt->execute();
+    public function enviarAlerta($idVendedor, $mensagem) {
+        $vendedor = $this->entityManager->find(Vendedor::class, $idVendedor);
+        if ($vendedor) {
+            $vendedor->setAlerta($mensagem);
+            $this->entityManager->flush();
+        }
     }
-
 }
-
 ?>

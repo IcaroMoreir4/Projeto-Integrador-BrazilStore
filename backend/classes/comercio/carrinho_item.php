@@ -1,69 +1,91 @@
 <?php
-class carrinho{
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="carrinho")
+ */
+class Carrinho {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     protected $id;
-    protected $id_cliente;
-    protected $id_produto;
+
+    /** @ORM\Column(type="integer") */
+    protected $idCliente;
+
+    /** @ORM\Column(type="integer") */
+    protected $idProduto;
+
+    /** @ORM\Column(type="integer") */
     protected $quantidade;
+
+    /** @ORM\Column(type="string", nullable=true) */
     protected $tamanho;
+
+    /** @ORM\Column(type="string", nullable=true) */
     protected $cor;
 
-    public function __construct ($id, $id_cliente, $id_produto, $quantidade, $tamanho, $cor){
-        $this->id = $id;
-        $this->id_cliente = $id_cliente;
-        $this->id_produto = $id_produto;
+    public function __construct($idCliente, $idProduto, $quantidade, $tamanho = null, $cor = null) {
+        $this->idCliente = $idCliente;
+        $this->idProduto = $idProduto;
         $this->quantidade = $quantidade;
         $this->tamanho = $tamanho;
         $this->cor = $cor;
     }
 
-    //Getters
-    public function getId(){
+    // Getters
+    public function getId() {
         return $this->id;
     }
 
-    public function getId_cliente(){
-        return $this->id_cliente;
+    public function getIdCliente() {
+        return $this->idCliente;
     }
 
-    public function getId_produto(){
-        return $this->id_produto;
+    public function getIdProduto() {
+        return $this->idProduto;
     }
 
-    public function getQuantidade(){
+    public function getQuantidade() {
         return $this->quantidade;
     }
 
-    public function getTamanho(){
+    public function getTamanho() {
         return $this->tamanho;
     }
 
-    public function getCor(){
+    public function getCor() {
         return $this->cor;
     }
 
-    //Setters
-    public function setId($id){
+    // Setters
+    public function setId($id) {
         $this->id = $id;
     }
 
-    public function setId_cliente($id_cliente){
-        $this->id_cliente = $id_cliente;
+    public function setIdCliente($idCliente) {
+        $this->idCliente = $idCliente;
     }
 
-    public function setId_produto($id_produto){
-        $this->id_produto = $id_produto;
+    public function setIdProduto($idProduto) {
+        $this->idProduto = $idProduto;
     }
 
-    public function setQuantidade($quantidade){
+    public function setQuantidade($quantidade) {
         $this->quantidade = $quantidade;
     }
 
-    public function setTamanho($tamanho){
+    public function setTamanho($tamanho) {
         $this->tamanho = $tamanho;
     }
 
-    public function setCor($cor){
+    public function setCor($cor) {
         $this->cor = $cor;
     }
 }
+
 ?>

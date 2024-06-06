@@ -1,99 +1,71 @@
-<?php 
+<?php
 
-require_once(__DIR__ . '/../conexao.php');
-require_once(__DIR__ . '/../../classes/usuarios/cliente.php');
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\Setup;
 
-class ClienteDAO{
-    public function create(Cliente $cliente){
-        $sql = 'INSERT INTO usuario.cliente (nome, email, senha, telefone, cpf) values (?,?,?,?,?)';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $cliente->getNome());
-        $stmt->bindValue(2, $cliente->getEmail());
-        $stmt->bindValue(3, $cliente->getSenha());
-        $stmt->bindValue(4, $cliente->getTelefone());
-        $stmt->bindValue(5, $cliente->getCpf());
-        $stmt->execute();
-    }
-    
-    public function read($id_cliente){
-        $sql = 'SELECT * FROM usuario.cliente WHERE id = :id_user';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindParam(':id_user', $id_cliente, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+require_once(__DIR__ . '/../../vendor/autoload.php');
+require_once(__DIR__ . '/../../config/doctrine.php');
+
+class ClienteDAO {
+    private $entityManager;
+
+    public function __construct(EntityManager $entityManager) {
+        $this->entityManager = $entityManager;
     }
 
-    public function uptade($id, $nome, $email, $senha, $telefone){
-        $sql = "UPDATE usuario.cliente SET nome = :nome, email = :email, senha = :senha, telefone = :telefone WHERE id = :id";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(':nome', $nome, PDO::PARAM_STR);
-        $stmt->bindValue(':email', $email, PDO::PARAM_STR);
-        $stmt->bindValue(':senha', $senha, PDO::PARAM_STR);
-        $stmt->bindValue(':telefone', $telefone, PDO::PARAM_INT);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
+    public function create(Cliente $cliente) {
+        $this->entityManager->persist($cliente);
+        $this->entityManager->flush();
     }
 
-    public function delete(Cliente $cliente){
-        $sql = "DELETE FROM  usuario.cliente WHERE id = ?";
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $cliente->getId());
-        $stmt->execute();
+    public function read($id_cliente) {
+        return $this->entityManager->find(Cliente::class, $id_cliente);
     }
 
-    //Teste de função para colocar o id no session_start.
-    public function autenticar($email, $senha) {
-        $sql = 'SELECT * FROM usuario.cliente WHERE email = :email AND senha = :senha';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindParam(':email', $email);
-        $stmt->bindParam(':senha', $senha);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        if ($row) {
-            return $id_user = $row['id'];
+    public function update($id, $nome, $email, $senha, $telefone) {
+        $cliente = $this->entityManager->find(Cliente::class, $id);
+        if ($cliente) {
+            $cliente->setNome($nome);
+            $cliente->setEmail($email);
+            $cliente->setSenha($senha);
+            $cliente->setTelefone($telefone);
+            $this->entityManager->flush();
         }
-        return null;
+    }
+
+    public function delete(Cliente $cliente) {
+        $existingCliente = $this->entityManager->find(Cliente::class, $cliente->getId());
+        if ($existingCliente) {
+            $this->entityManager->remove($existingCliente);
+            $this->entityManager->flush();
+        }
+    }
+
+    public function autenticar($email, $senha) {
+        $cliente = $this->entityManager->getRepository(Cliente::class)->findOneBy([
+            'email' => $email,
+            'senha' => $senha
+        ]);
+        return $cliente ? $cliente->getId() : null;
     }
 
     public function session_id($id) {
-        $sql = 'SELECT * FROM usuario.cliente WHERE id = :id';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindParam(':id', $id);
-        $stmt->execute();
-        $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($row) {
-            return new cliente($row['id'], $row['nome'], $row['email'],  $row['cpf'], $row[null], $row['telefone']);
-        }
-        return null;
+        return $this->entityManager->find(Cliente::class, $id);
     }
 
-    //Consulta de pedidos
-    public function queryrequests($cliente){
-        $sql = 'SELECT pedido.pedido.*, pedido.carrinho.id, pedido.carrinho.id_cliente FROM pedido.pedido INNER JOIN pedido.carrinho ON pedido.pedido.id_carrinho = pedido.carrinho.id;
-        WHERE id_cliente = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->execute();
-
-        return $stmt->fetchAll(PDO::FETCH_OBJ);
+    public function queryRequests($id_cliente) {
+        $dql = 'SELECT p FROM Pedido p JOIN p.carrinho c WHERE c.id_cliente = :id_cliente';
+        $query = $this->entityManager->createQuery($dql)->setParameter('id_cliente', $id_cliente);
+        return $query->getResult();
     }
-
-    // ClienteDAO.php
-
-
 
     public function enviarAlerta($idCliente, $mensagem) {
-        $sql = 'UPDATE usuario.cliente SET alerta = ? WHERE id = ?';
-        $stmt = Conexao::getConn()->prepare($sql);
-        $stmt->bindValue(1, $mensagem);
-        $stmt->bindValue(2, $idCliente, PDO::PARAM_INT);
-        return $stmt->execute();
+        $cliente = $this->entityManager->find(Cliente::class, $idCliente);
+        if ($cliente) {
+            $cliente->setAlerta($mensagem);
+            $this->entityManager->flush();
+        }
     }
-
-  
 }
-
-
 
 ?>

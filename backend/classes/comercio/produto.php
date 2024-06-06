@@ -1,45 +1,61 @@
-<?php 
-class produto{
+<?php
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="produto")
+ */
+class Produto
+{
+    /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\Column(type="integer")
+     */
     protected $id;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $nome;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $id_categoria;
+
+    /**
+     * @ORM\Column(type="float")
+     */
     protected $valor;
+
+    /**
+     * @ORM\Column(type="text")
+     */
     protected $descricao;
+
+    /**
+     * @ORM\Column(type="float")
+     */
     protected $peso;
-    protected $tamanho;
-    protected $cor;
+
+    /**
+     * @ORM\Column(type="string")
+     */
     protected $tipo_entrega;
+
+    /**
+     * @ORM\Column(type="integer")
+     */
     protected $id_vendedor;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
     protected $image_path;
 
-
-    // public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tamanho, $cor, $tipo_entrega, $id_vendedor)
-    // {
-    //     $this->nome = $nome;
-    //     $this->valor = $valor;
-    //     $this->descricao = $descricao;
-    //     $this->id_categoria = $id_categoria;
-    //     $this->peso = $peso;
-    //     $this->tamanho = $tamanho;
-    //     $this->cor = $cor;
-    //     $this->tipo_entrega = $tipo_entrega;
-    //     $this->id_vendedor = $id_vendedor;
-    // }
-
-
-    public function __construct($nome,$valor,$descricao, $id_categoria, $peso, $tipo_entrega, $id_vendedor)
-    {
-        $this->nome = $nome;
-        $this->valor = $valor;
-        $this->descricao = $descricao;
-        $this->id_categoria = $id_categoria;
-        $this->peso = $peso;
-        $this->tipo_entrega = $tipo_entrega;
-        $this->id_vendedor = $id_vendedor;
-    }
-
-    
-    //Gettters
+    // Métodos getters
     public function getId(){
         return $this->id;
     }
@@ -48,7 +64,7 @@ class produto{
         return $this->nome;
     }
 
-    public function getIdcategoria(){
+    public function getIdCategoria(){
         return $this->id_categoria;
     }
 
@@ -64,19 +80,11 @@ class produto{
         return $this->peso;
     }
 
-    public function getTamanho(){
-        return $this->tamanho;
-    }
-
-    public function getCor(){
-        return $this->cor;
-    }
-
     public function getTipoEntrega(){
         return $this->tipo_entrega;
     }
 
-    public function getIdvendedor(){
+    public function getIdVendedor(){
         return $this->id_vendedor;
     }
 
@@ -84,16 +92,12 @@ class produto{
         return $this->image_path;
     }
 
-    //Setters
-    public function setId($id){
-         $this->id = $id;
-    }
-
+    // Métodos setters
     public function setNome($nome){
         $this->nome = $nome;
     }
 
-    public function setIdcategoria($id_categoria){
+    public function setIdCategoria($id_categoria){
         $this->id_categoria = $id_categoria;
     }
 
@@ -109,19 +113,11 @@ class produto{
         $this->peso = $peso;
     }
 
-    public function setTamanho($tamanho){
-        $this->tamanho = $tamanho;
-    }
-
-    public function setCor($cor){
-        $this->cor = $cor;
-    }
-
     public function setTipoEntrega($tipo_entrega){
         $this->tipo_entrega = $tipo_entrega;
     }
 
-    public function setIdvendedor($id_vendedor){
+    public function setIdVendedor($id_vendedor){
         $this->id_vendedor = $id_vendedor;
     }
 
@@ -129,4 +125,3 @@ class produto{
         $this->image_path= $image_path;
     }
 }
-?>

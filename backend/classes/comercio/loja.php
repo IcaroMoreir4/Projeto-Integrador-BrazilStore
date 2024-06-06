@@ -1,83 +1,110 @@
-<?php 
+<?php
 
-class loja{
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="loja")
+ */
+class Loja {
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue
+     */
     protected $id;
+
+    /** @ORM\Column(type="string") */
     protected $nome;
+
+    /** @ORM\Column(type="string") */
     protected $email;
+
+    /** @ORM\Column(type="string") */
     protected $senha;
+
+    /** @ORM\Column(type="string") */
     protected $descricao;
-    protected $id_vendedor;
-    protected $id_avaliacao;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="Vendedor")
+     * @ORM\JoinColumn(name="id_vendedor", referencedColumnName="id")
+     */
+    protected $idVendedor;
 
+    /**
+     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="AvaliacaoLoja")
+     * @ORM\JoinColumn(name="id_avaliacao", referencedColumnName="id")
+     */
+    protected $idAvaliacao;
 
-    public function __construct($nome,$descricao, $email, $senha, $id_vendedor)
-    {
+    public function __construct($nome, $descricao, $email, $senha, $idVendedor) {
         $this->nome = $nome;
-        $this->email= $email;
-        $this->senha = $senha;
         $this->descricao = $descricao;
-        $this->id_vendedor = $id_vendedor;
+        $this->email = $email;
+        $this->senha = $senha;
+        $this->idVendedor = $idVendedor;
     }
 
-
-    //Getters
-    public function getId(){
+    // Getters
+    public function getId() {
         return $this->id;
     }
 
-    public function getNome(){
+    public function getNome() {
         return $this->nome;
     }
-    
-    public function getDescricao(){
+
+    public function getDescricao() {
         return $this->descricao;
     }
 
-    public function getEmail(){
-        return $this-> email;
+    public function getEmail() {
+        return $this->email;
     }
 
-    public function getSenha(){
-        return $this-> senha;
+    public function getSenha() {
+        return $this->senha;
     }
 
-    public function getIdvendedor(){
-        return $this->id_vendedor;
+    public function getIdVendedor() {
+        return $this->idVendedor;
     }
 
-    public function getIdavaliacao(){
-        return $this->id_avaliacao;
+    public function getIdAvaliacao() {
+        return $this->idAvaliacao;
     }
 
-
-    //Setters
-    public function setId($id){
+    // Setters
+    public function setId($id) {
         $this->id = $id;
     }
 
-    public function setNome($nome){
+    public function setNome($nome) {
         $this->nome = $nome;
     }
-    
-    public function setDescricao($descricao){
+
+    public function setDescricao($descricao) {
         $this->descricao = $descricao;
     }
 
-    public function setEmail($email){
-        $this-> email = $email;
+    public function setEmail($email) {
+        $this->email = $email;
     }
 
-    public function setSenha($senha){
-        $this-> senha = $senha;
+    public function setSenha($senha) {
+        $this->senha = $senha;
     }
 
-    public function setIdvendedor($id_vendedor){
-        $this->id_vendedor = $id_vendedor;
+    public function setIdVendedor($idVendedor) {
+        $this->idVendedor = $idVendedor;
     }
 
-    public function setIdavaliacao($id_avaliacao){
-        $this->id_avaliacao = $id_avaliacao;
+    public function setIdAvaliacao($idAvaliacao) {
+        $this->idAvaliacao = $idAvaliacao;
     }
 }
+
 ?>
