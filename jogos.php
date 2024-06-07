@@ -99,7 +99,7 @@ $midPoint = ceil($totalProdutos / 2);
                 endfor; ?>
         </div>
     <?php else : ?>
-        <p>Nenhum produto de jogos encontrado.</p>
+        <p class="font-1-s">Nenhum produto de jogos encontrado.</p>
     <?php endif; ?>
     </div>
     </article>

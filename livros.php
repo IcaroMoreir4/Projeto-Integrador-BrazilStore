@@ -98,7 +98,7 @@ $midPointLivros = ceil($totalProdutosLivros / 2);
                 endfor; ?>
         </div>
     <?php else : ?>
-        <p>Nenhum produto de livros encontrado.</p>
+        <p class="font-1-s">Nenhum produto de livros encontrado.</p>
     <?php endif; ?>
     </div>
     </article>

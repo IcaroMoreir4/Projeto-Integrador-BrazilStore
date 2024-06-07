@@ -98,7 +98,7 @@ $midPointAcessorios = ceil($totalProdutosAcessorios / 2);
                 endfor; ?>
         </div>
     <?php else : ?>
-        <p>Nenhum produto de acessórios encontrado.</p>
+        <p class="font-1-s">Nenhum produto de acessórios encontrado.</p>
     <?php endif; ?>
     </div>
     </article>
