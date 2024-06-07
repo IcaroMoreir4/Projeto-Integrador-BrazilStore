@@ -1,0 +1,89 @@
+
+
+
+.minhas-comprass {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 870px;
+}
+
+.lista-compras {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.gridcompra {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 850px;
+}
+
+.compra {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 850px;
+}
+
+.compras-titulo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.comprastexto {
+    width: 850px;
+    display: flex;
+    justify-content: space-between;
+}
+.comprastexto a{
+    text-decoration: none;
+}
+
+
+.status-pedido {
+    color: #FFA500;
+    font-weight: bold;
+}
+
+.item-boxc {
+    display: flex;
+    align-items: center;
+}
+
+.img-itemc img {
+    max-width: 100px;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+.item-infoc {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    width: 850px;
+}
+
+.item-nomec {
+    font-size: 1em;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.item-variacao,
+.item-quantidade {
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.item-valorc {
+    color: green;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: auto; /* Empurra o preço para o final */
+}

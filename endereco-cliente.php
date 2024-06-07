@@ -103,7 +103,7 @@ if (isset($_POST['del_ende'])) {
                     <p class="font-1-m">Compras</p>
                 </div>
                 <div class="minhas-compras-texto">
-                    <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
+                    <a class="font-1-s" href="minhas_compras.php">Minhas Compras</a>
                 </div>
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
             </div>

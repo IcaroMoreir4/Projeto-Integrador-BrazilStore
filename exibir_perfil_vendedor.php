@@ -92,7 +92,7 @@ if (!$vendedor) {
                 </div>
                 <div class="minhas-compras">
                     <img src="imagem/compras.svg" alt="">
-                    <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+                    <a class="font-1-m" href="minhas_compras.php">Minhas Compras</a>
                 </div>
 
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>

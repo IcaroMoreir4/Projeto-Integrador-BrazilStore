@@ -1,29 +1,13 @@
 <?php
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/ProdutoDAO.php');
+require_once('../Projeto-Integrador-BrazilStore/backend/database/DAO/VendedorDAO.php');
 session_start();
-require_once(__DIR__ . '/../Projeto-Integrador-BrazilStore/backend/database/DAO/ClienteDAO.php');
 
-$dao = new ClienteDAO;
+if (isset($_SESSION['vendedor_id']))
+    $id_vendedor = $_SESSION['vendedor_id'];
+$produtoDAO = new ProdutoDAO();
+$produtos = $produtoDAO->listarProdutosPorVendedor($id_vendedor);
 
-
-if (isset($_SESSION['user_id'])) {
-    $id_cliente = $_SESSION['user_id'];
-    $exibir_perfil = $dao->read($id_cliente);
-}
-
-//Editar perfil
-if (isset($_POST['editar_perfil'])) {
-
-    $id = $_SESSION['user_id'];
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-    $telefone = $_POST['telefone'];
-    $editar_perfil = $dao->uptade($id, $nome, $email, $senha, $telefone);
-
-
-    header("Location: " . $_SERVER['REQUEST_URI']);
-    exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -41,6 +25,7 @@ if (isset($_POST['editar_perfil'])) {
     <link rel="stylesheet" href="./css/style.css">
     <link rel="shortcut icon" href="./imagem/logo.png" type="image/x-icon">
     <script src="./javascript/script.js"></script>
+
 </head>
 
 <body>
@@ -50,49 +35,37 @@ if (isset($_POST['editar_perfil'])) {
         <div class="categoria_btn" id="categoriaBtn">
             <a class="cor-12 font-2-l categoria_content" href="#">Categorias <img src="./imagem/arrow.svg" id="arrowIcon" alt=""></a>
             <div class="categoria_menu font-1-m" id="categoriaMenu">
-                <a href="./vestuario.php">Vestuário</a>
-                <a href="./eletronicos.php">Eletrônicos</a>
-                <a href="./livros.php">Livros</a>
-                <a href="./jogos.php">Jogos</a>
-                <a href="./acessorios.php">Acessórios</a>
+                <a href="./">Eletrônicos</a>
+                <a href="./">Vestuário</a>
+                <a href="./">Livros</a>
+                <a href="./">Jogos</a>
+                <a href="./">Acessórios</a>
             </div>
-
         </div>
-        <form action="pesquisar.php" method="get">
+        <form action="" method="">
             <div class="search-container">
                 <input type="search" maxlength="50" class="search-input" placeholder="Pesquisar">
                 <img src="./imagem/busca.svg" alt="Ícone de Lupa" class="search-icon" onclick="submitForm()">
             </div>
         </form>
+
         <a href="./"><img class="icon" src="./imagem/carrinho.svg" alt=""></a>
-        <a href="#" onclick="openPerfil()" id="userProfile"><img class="icon" src="./imagem/user.svg" alt=""></a>
-        <div class="perfil_btn" id="perfilBtn">
-            <div class="perfil_menu font-1-m" id="perfilMenu">
-                <a href="./perfil.php">Meu perfil</a>
-                <a href="./logout.php">Sair da conta</a>
-            </div>
-        </div>
+        <a href="#" onclick="openLogin()" id="userImg"><img class="icon" src="./imagem/user.svg" alt=""></a>
     </header>
-
     <div class="linhau"></div>
-
     <div class="gridusuario">
         <div class="meuperfil">
             <div class="menu-user">
                 <div class="menu-nome">
-                    <div class="imgperfil">
-                        <img src="imagem/perfiluser.svg" alt="Perfil do Usuário">
-                    </div>
+                    <div class="imgperfil"><img src="imagem/perfiluser.svg" alt=""></div>
                     <div class="nomeusuario">
-                        <label class="font-1-m">Nome do Usuário</label>
-                        <a href="perfil.php" class="font-1-s">
-                            <img src="imagem/lapis.svg" alt="Editar">Editar Perfil
-                        </a>
+                        <label class="font-1-m">Nome do usuario</label>
+                        <a href="perfil.php" class="font-1-s"><img src="imagem/lapis.svg" alt="">Editar Perfil</a>
                     </div>
                 </div>
                 <div class="minha-conta">
                     <div class="minhacontabtn">
-                        <img src="imagem/perfilMinhaConta.svg" alt="Minha Conta">
+                        <img src="imagem/perfilMinhaConta.svg" alt="">
                         <p class="font-1-m">Minha Conta</p>
                     </div>
                     <div class="perfil-end">
@@ -109,72 +82,39 @@ if (isset($_POST['editar_perfil'])) {
                 <div class="minhas-compras-texto">
                     <a class="font-1-s" href="minhas_compras.php">Minhas Compras</a>
                 </div>
+
                 <button onclick="openCadastroLoja()" class="venda-agora font-1-m">Venda agora</button>
             </div>
         </div>
 
-        <div class="perfil">
-            <div class="perfil-texto">
-                <h1 class="font-2-l">Meu Perfil</h1>
-                <p class="font-1-s">Gerenciar e proteger sua conta</p>
-                <div class="linhau"></div>
-            </div>
-            <div class="painelperfil">
-                <div class="meu-perfil">
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Nome Completo: </label>
-                        <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["nome"]); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Email: </label>
-                        <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["email"]); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">Telefone: </label>
-                        <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["telefone"]); ?></span>
-                    </div>
-                    <div class="campo-usuario">
-                        <label class="font-1-s">CPF: </label>
-                        <span class="font-1-s"><?php echo htmlspecialchars($exibir_perfil["cpf"]); ?></span>
-                    </div>
-
-                    <div class="btn-editar-perfil">
-                        <button id="mostrarFormulario" class="font-1-s">Editar</button>
-                    </div>
-
-                    <div id="formularioEditar" class="formularioEditar" style="display: none;">
-                        <form action="perfil.php" method="POST">
-                            <label for="nomeEditar" class="font-1-m">Nome:</label>
-                            <div class="nome">
-                                <input class="campo" type="text" name="nome" id="nomeEditar" maxlength="40" value="<?php echo htmlspecialchars($exibir_perfil["nome"]); ?>" placeholder="Insira o seu nome">
+        <div class="minhas-comprass">
+    <div class="lista-compras">
+        <div class="gridcompra">
+            <?php if ($produtos) : ?>
+                <?php foreach ($produtos as $produto) : ?>
+                    <div class="compra">
+                        <div class="compras-titulo">
+                            <div class="comprastexto">
+                                <h1 class="font-1-m">Brazil Store</h1>
+                                <a href="https://rastreamento.correios.com.br/app/index.php" class="status-pedido font-1-m">A CAMINHO</a>
                             </div>
-                            <label for="emailEditar" class="font-1-m">E-mail: </label>
-                            <div class="email">
-                                <input class="campo" type="email" name="email" id="emailEditar" maxlength="40" value="<?php echo htmlspecialchars($exibir_perfil["email"]); ?>" placeholder="Insira o seu email">
+                        </div>
+                        <div class="linhau"></div>
+                        <div class="item-boxc">
+                            <div class="img-item">
+                                <img src="uploads/<?= htmlspecialchars($produto['image_path']) ?>" alt="Imagem da Compra">
                             </div>
-                            <label for="telefoneEditar" class="font-1-m">Telefone: </label>
-                            <div class="Telefone">
-                                <input class="campo" type="tel" name="telefone" id="telefoneEditar" maxlength="11" value="<?php echo htmlspecialchars($exibir_perfil["telefone"]); ?>" placeholder="Insira o seu telefone">
+                            <div class="item-infoc">
+                                <p class="item-nomec font-1-l cor-c12"><?= htmlspecialchars($produto['nome']) ?></p>
+                                <p class="item-valorc font-1-m cor-c9">R$<?= htmlspecialchars($produto['valor']) ?></p>
                             </div>
-                            <label for="senhaEditar" class="font-1-m">Senha: </label>
-                            <div class="Senha">
-                                <input class="campo" type="password" name="senha" id="senhaEditar" maxlength="40" placeholder="Insira o seu senha">
-                            </div>
-                            <div>
-                                <button name="editar_perfil" type="submit">Alterar</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
-                </div>
-                <div class="adicionar-perfil">
-                    <img src="imagem/user.svg" alt="">
-                    <div class="btn-perfil">
-                        <label for="file-upload" class="file-label font-1-m">Selecionar Imagem</label>
-                        <input id="file-upload" class="file" type="file" accept="image/*">
-                    </div>
-                </div>
-            </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </div>
+    </div>
+</div>
     </div>
 
     <div id="popupBgLoja" class="popup-bg">
@@ -240,11 +180,6 @@ if (isset($_POST['editar_perfil'])) {
             </div>
         </div>
     </div>
-    <script>
-        document.getElementById("mostrarFormulario").addEventListener("click", function() {
-            document.getElementById("formularioEditar").style.display = "block";
-        });
-    </script>
 
 
     <footer class="grid">

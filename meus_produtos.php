@@ -85,7 +85,7 @@ $produtos = $produtoDAO->listarProdutosPorVendedor($id_vendedor);
                     <p class="font-1-m">Compras</p>
                 </div>
                 <div class="minhas-compras-texto">
-                    <a class="font-1-s" href="Minhas_Compras.html">Minhas Compras</a>
+                    <a class="font-1-s" href="minhas_compras.php">Minhas Compras</a>
                 </div>
                 <div class="minha-loja">
                     <img src="imagem/Minha-loja.svg" alt="Store Icon">

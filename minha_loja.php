@@ -83,7 +83,7 @@ if (!$loja) {
                 </div>
                 <div class="minhas-compras">
                     <img src="/imagem/compras.svg" alt="">
-                    <a class="font-1-m" href="minhas_compras.html">Minhas Compras</a>
+                    <a class="font-1-m" href="minhas_compras.php">Minhas Compras</a>
                 </div>
                 <div class="minha-loja">
                     <img src="/imagem/Minha-loja.svg" alt="">
