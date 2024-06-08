@@ -32,7 +32,7 @@
     if (!empty($id_cliente) && !empty($nome_comp) && !empty($telefone_end) && !empty($logradouro) && !empty($numero) &&!empty($bairro) && !empty($cep) && !empty($nome_cidade) && !empty($nome_estado)) {
         $endereco = new Endereco(null, $id_cliente, $nome_comp, $telefone_end, $logradouro, $numero, $bairro, $cep, $nome_cidade, $nome_estado);
         $dao->create($endereco);
-        header('Location: /Projeto-Integrador-BrazilStore/endereco-cliente.php'); // Retorna para pagina de endereço cadastrados.
+        header('locate: endereco-cliente.php');
     } else {
         echo "Por favor, preencha todos os campos do formulário.";
     }

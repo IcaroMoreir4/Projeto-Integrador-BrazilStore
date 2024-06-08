@@ -151,7 +151,7 @@ if (isset($_POST['del_ende'])) {
                         </table>
                     </div>
                 <?php else : ?>
-                    <p class="font-1-m">você ainda não cadastrou um enedreço</p>
+                    <p class="font-1-m">Você ainda não cadastrou um enedreço.</p>
                 <?php endif; ?>
             </div>
         </div>
